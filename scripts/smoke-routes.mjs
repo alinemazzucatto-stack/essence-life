@@ -20,6 +20,7 @@ try {
   assert.equal(access.requiredPlanForPage('agenda'), 'free');
   assert.equal(access.requiredPlanForPage('diary'), 'essential');
   assert.equal(access.requiredPlanForPage('nutrition'), 'premium');
+  assert.equal(access.requiredPlanForPage('beauty'), 'premium');
   assert.equal(access.planMeets('free', 'essential'), false);
   assert.equal(access.planMeets('essential', 'essential'), true);
   assert.equal(access.planMeets('premium', 'premium'), true);
