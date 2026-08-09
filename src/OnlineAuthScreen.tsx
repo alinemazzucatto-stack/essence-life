@@ -10,7 +10,8 @@ export default function OnlineAuthScreen({onSignedIn}:{onSignedIn:(session:Sessi
   const[showPassword,setShowPassword]=useState(false);
   const submit=async(event:React.FormEvent<HTMLFormElement>)=>{
     event.preventDefault();setMessage('');setBusy(true);
-    const form=new FormData(event.currentTarget);
+    const formElement=event.currentTarget;
+    const form=new FormData(formElement);
     const name=String(form.get('name')||'').trim();
     const email=String(form.get('email')||'').trim().toLowerCase();
     const password=String(form.get('password')||'');
@@ -18,7 +19,7 @@ export default function OnlineAuthScreen({onSignedIn}:{onSignedIn:(session:Sessi
       if(mode==='register'){
         if(!name)throw new Error('Informe como prefere ser chamada.');
         const session=await signUp(name,email,password);
-        if(!session){setMessage('Conta criada! Abra o e-mail de confirmação e depois volte para entrar.');setMode('login');event.currentTarget.reset();return}
+        if(!session){setMessage('Conta criada! Abra o e-mail de confirmação e depois volte para entrar.');setMode('login');formElement.reset();return}
         onSignedIn({name:session.user.name,email:session.user.email});
       }else{
         const session=await signIn(email,password);
