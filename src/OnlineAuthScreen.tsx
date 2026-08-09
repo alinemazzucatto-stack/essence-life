@@ -20,10 +20,10 @@ export default function OnlineAuthScreen({onSignedIn}:{onSignedIn:(session:Sessi
         if(!name)throw new Error('Informe como prefere ser chamada.');
         const session=await signUp(name,email,password);
         if(!session){setMessage('Conta criada! Abra o e-mail de confirmação e depois volte para entrar.');setMode('login');formElement.reset();return}
-        onSignedIn({name:session.user.name,email:session.user.email});
+        onSignedIn({name:session.user.name,email:session.user.email});location.reload();
       }else{
         const session=await signIn(email,password);
-        onSignedIn({name:session.user.name,email:session.user.email});
+        onSignedIn({name:session.user.name,email:session.user.email});location.reload();
       }
     }catch(reason){
       const text=reason instanceof Error?reason.message:'Não foi possível concluir.';
