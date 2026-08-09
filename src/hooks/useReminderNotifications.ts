@@ -1,0 +1,4 @@
+import { useEffect } from 'react';
+import { today } from '../shared/app-utils';
+
+export function useReminderNotifications(){useEffect(()=>{const tick=()=>{if(!('Notification' in window)||Notification.permission!=='granted')return;const now=new Date();const clock=now.toTimeString().slice(0,5);const stamp=today()+'-'+clock;const reminders:{id:string;title:string;time:string;enabled:boolean}[]=JSON.parse(localStorage.getItem('essence:reminders')||'[]');reminders.filter(reminder=>reminder.enabled&&reminder.time===clock).forEach(reminder=>{const key='essence:reminder-fired:'+reminder.id;if(localStorage.getItem(key)===stamp)return;new Notification('Essence Life',{body:reminder.title});localStorage.setItem(key,stamp)})};tick();const timer=window.setInterval(tick,30000);return()=>window.clearInterval(timer)},[]);}

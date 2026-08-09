@@ -1,0 +1,13 @@
+import type { ReactNode } from 'react';
+import type { LocalSession } from '../shared/app.types';
+import { pageMeta, planNames, requiredPlanForPage } from '../shared/access-control';
+import type { AppPage } from '../shared/access-control';
+
+type AuthenticatedLayoutProps={session:LocalSession;page:AppPage;mobileNavOpen:boolean;onToggleMobileNav:()=>void;openPage:(page:AppPage)=>void;isLocked:(page:AppPage)=>boolean;showPlanLocks:boolean;onLogout:()=>void;children:ReactNode};
+
+function AuthenticatedLayout({session,page,mobileNavOpen,onToggleMobileNav,openPage,isLocked,showPlanLocks,onLogout,children}:AuthenticatedLayoutProps){
+const nav=(key:AppPage,label:string,icon:string)=><button className={(page===key?'active':'')+(key!=='home'&&key!=='profile'&&isLocked(key)?' locked':'')} onClick={()=>openPage(key)}><span>{icon}</span><span>{label}</span>{showPlanLocks&&key!=='home'&&key!=='profile'&&isLocked(key)&&<small>🔒 {planNames[requiredPlanForPage(key)]}</small>}</button>;
+const currentMeta=pageMeta[page];
+return <div className="app"><header className="mobile-topbar"><button type="button" className="mobile-menu-button" onClick={onToggleMobileNav} aria-expanded={mobileNavOpen}>{mobileNavOpen?"Fechar":"Menu"}</button><strong>✦ Essence Life</strong><button type="button" className="mobile-profile-button" onClick={()=>openPage('profile')} aria-label="Abrir perfil">{session.avatar?<img src={session.avatar} alt=""/>:session.name.slice(0,1).toUpperCase()}</button></header><aside className={mobileNavOpen?"mobile-open":""}><div className="nav-identity">{session.avatar?<img src={session.avatar} alt="" className="nav-avatar"/>:<span className="nav-avatar nav-initial">{session.name.slice(0,1).toUpperCase()}</span>}<h1 className="nav-brand">✦ Essence Life</h1></div><button className="logout" type="button" onClick={onLogout}>Sair</button><p className="nav-section-title">Bem-estar</p>{nav('home','Início','🏠')}{nav('sleep','Sono','🌙')}{nav('nutrition','Nutrição','🥗')}{nav('agenda','Agenda','📅')}{nav('finance','Finanças','💰')}{nav('cycle','Ciclo','🌸')}{nav('routine','Rotina','🗓️')}<p className="nav-section-title">Pessoal</p>{nav('workouts','Treinos','🏋️')}{nav('diary','Diário','📘')}{nav('profile','Perfil','👤')}<button className={page==='house'?"active":""} onClick={()=>openPage('house')}><span>🏡</span><span>Casa & Compras</span>{isLocked('house')&&<small>🔒 {planNames[requiredPlanForPage('house')]}</small>}</button></aside><main>{page==='home'||page==='profile'?<header className="content-header"><div><h2>{currentMeta.title}</h2><p>{currentMeta.copy}</p></div></header>:null}{children}</main></div>}
+
+export default AuthenticatedLayout;
