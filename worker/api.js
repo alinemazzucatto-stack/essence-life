@@ -19,7 +19,7 @@ async function handleApi(request,env){
   const revoked=/refund|refunded|chargeback|chargedback|reembolso/.test(event);
   const approved=/approved|paid|complete|aprovad|pago/.test(event);
   if(!approved&&!revoked)return new Response('Event ignored',{status:200});
-  const response=await fetch(`${env.SUPABASE_URL}/rest/v1/entitlements?on_conflict=email`,{method:'POST',headers:{apikey:env.SUPABASE_SECRET_KEY,authorization:`Bearer ${env.SUPABASE_SECRET_KEY}`,'content-type':'application/json',prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({email,plan,status:revoked?'revoked':'active',transaction_id:transactionId||null,product_name:productName,updated_at:new Date().toISOString()})});
+  const response=await fetch(`${env.SUPABASE_URL}/rest/v1/entitlements?on_conflict=email`,{method:'POST',headers:{apikey:env.SUPABASE_SECRET_KEY,'user-agent':'essence-life-server/1.0','content-type':'application/json',prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({email,plan,status:revoked?'revoked':'active',transaction_id:transactionId||null,product_name:productName,updated_at:new Date().toISOString()})});
   if(!response.ok)return new Response('Could not update entitlement',{status:502});
   return new Response('ok',{status:200});
 }
