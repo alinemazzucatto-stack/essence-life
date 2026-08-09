@@ -41,6 +41,8 @@ for (const file of files) {
 const api = await readFile(resolve(process.cwd(), "worker/api.js"), "utf8");
 
 await mkdir(server, { recursive: true });
+await mkdir(resolve(dist, ".openai"), { recursive: true });
+await writeFile(resolve(dist, ".openai/hosting.json"), await readFile(resolve(process.cwd(), ".openai/hosting.json")));
 const workerFile = resolve(server, "index.js");
 const worker = `${api}\nconst assets = ${JSON.stringify(assets)};
 function body(encoded) { const binary = atob(encoded); const bytes = new Uint8Array(binary.length); for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i); return bytes; }
