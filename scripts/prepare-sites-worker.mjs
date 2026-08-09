@@ -38,11 +38,13 @@ for (const file of files) {
   assets[pathname] = [body.toString("base64"), mimeTypes[extname(file)] ?? "application/octet-stream"];
 }
 
+const api = await readFile(resolve(process.cwd(), "worker/api.js"), "utf8");
+
 await mkdir(server, { recursive: true });
 const workerFile = resolve(server, "index.js");
-const worker = `const assets = ${JSON.stringify(assets)};
+const worker = `${api}\nconst assets = ${JSON.stringify(assets)};
 function body(encoded) { const binary = atob(encoded); const bytes = new Uint8Array(binary.length); for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i); return bytes; }
-export default { fetch(request) { const url = new URL(request.url); const pathname = url.pathname === "/" ? "/index.html" : url.pathname; const asset = assets[pathname] ?? assets["/index.html"]; if (!asset) return new Response("Not found", { status: 404 }); return new Response(body(asset[0]), { headers: { "content-type": asset[1], "cache-control": pathname === "/index.html" ? "no-cache" : "public, max-age=31536000, immutable" } }); } };
+export default { async fetch(request, env) { const apiResponse = await handleApi(request, env); if (apiResponse) return apiResponse; const url = new URL(request.url); const pathname = url.pathname === "/" ? "/index.html" : url.pathname; const asset = assets[pathname] ?? assets["/index.html"]; if (!asset) return new Response("Not found", { status: 404 }); return new Response(body(asset[0]), { headers: { "content-type": asset[1], "cache-control": pathname === "/index.html" ? "no-cache" : "public, max-age=31536000, immutable" } }); } };
 `;
 await writeFile(workerFile, worker, "utf8");
 await import(`${pathToFileURL(workerFile).href}?build=${Date.now()}`);
