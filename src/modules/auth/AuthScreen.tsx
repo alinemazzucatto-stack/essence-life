@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { signIn, signUp } from './supabase';
+import type { FormEvent } from 'react';
+import { signIn, signUp } from './auth-api';
 
 type Session={name:string;email:string;avatar?:string};
 
-export default function OnlineAuthScreen({onSignedIn}:{onSignedIn:(session:Session)=>void}){
+export default function AuthScreen({onSignedIn}:{onSignedIn:(session:Session)=>void}){
   const[mode,setMode]=useState<'login'|'register'>('login');
   const[message,setMessage]=useState('');
   const[busy,setBusy]=useState(false);
   const[showPassword,setShowPassword]=useState(false);
-  const submit=async(event:React.FormEvent<HTMLFormElement>)=>{
+  const submit=async(event:FormEvent<HTMLFormElement>)=>{
     event.preventDefault();setMessage('');setBusy(true);
     const formElement=event.currentTarget;
     const form=new FormData(formElement);

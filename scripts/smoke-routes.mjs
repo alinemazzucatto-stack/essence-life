@@ -24,7 +24,12 @@ try {
   assert.equal(access.planMeets('essential', 'essential'), true);
   assert.equal(access.planMeets('premium', 'premium'), true);
 
-  console.log('Smoke test passed: ' + routes.length + ' routes and access rules.');
+  const authApi = await server.ssrLoadModule('/src/modules/auth/auth-api.ts');
+  for (const exportName of ['signUp', 'signIn', 'restoreOnlineSession', 'readEntitlement', 'signOut']) {
+    assert.equal(typeof authApi[exportName], 'function', exportName + ' is not available from auth-api');
+  }
+
+  console.log('Smoke test passed: ' + routes.length + ' routes, access rules, and auth exports.');
 } finally {
   await server.close();
 }

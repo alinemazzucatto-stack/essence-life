@@ -1,4 +1,4 @@
-import { signOut } from './supabase';
+import { signOut } from './auth-api';
 
 export default function PurchaseRequired({email}:{email:string}){
   const leave=async()=>{await signOut();localStorage.removeItem('essence:session');location.assign('/')};

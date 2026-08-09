@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { readEntitlement, restoreOnlineSession } from '../supabase';
+import { readEntitlement, restoreOnlineSession } from '../modules/auth/auth-api';
 import type { LocalSession } from '../shared/app.types';
 import { readSubscription } from '../shared/access-control';
 import type { Subscription } from '../shared/access-control';
