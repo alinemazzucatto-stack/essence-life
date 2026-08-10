@@ -4,6 +4,17 @@ import { pathToFileURL } from "node:url";
 
 const dist = resolve(process.cwd(), "dist");
 const server = resolve(dist, "server");
+const indexFile = resolve(dist, "index.html");
+const indexHtml = await readFile(indexFile, "utf8");
+const stylesheet = indexHtml.match(/<link\s+rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/);
+if (!stylesheet) throw new Error("Generated stylesheet link not found in dist/index.html");
+const stylesheetFile = resolve(dist, `.${stylesheet[1]}`);
+const assetsDirectory = resolve(dist, "assets");
+if (!stylesheetFile.startsWith(`${assetsDirectory}\\`) && !stylesheetFile.startsWith(`${assetsDirectory}/`)) {
+  throw new Error("Generated stylesheet is outside dist/assets");
+}
+const appCss = (await readFile(stylesheetFile, "utf8")).replaceAll("</style", "<\\/style");
+await writeFile(indexFile, indexHtml.replace(stylesheet[0], `<style data-inline-app-css>${appCss}</style>`), "utf8");
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
