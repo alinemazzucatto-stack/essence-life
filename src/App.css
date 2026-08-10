@@ -207,3 +207,40 @@ button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,b
 /* Sono v2 - histórico e edição */
 .sleep-history-head>.card-head{align-items:flex-start}.sleep-history-head small,.sleep-edit-card>.card-head small{font-size:10px;font-weight:800;letter-spacing:.13em;color:#7c62ba}.sleep-history-head h3,.sleep-edit-card h3{margin:5px 0}.sleep-history-head p{margin:0;color:#756a75}.sleep-history-filters{display:flex;gap:8px}.sleep-history-filters button{padding:9px 13px;border:1px solid #ded5ec;border-radius:999px;background:#fff}.sleep-history-filters button.selected{border-color:#7658ed;background:#f0ebff;color:#674be8;font-weight:800}.sleep-edit-card{border:2px solid #bba9ed}.sleep-edit-form{grid-template-columns:repeat(4,1fr)}.sleep-history-list{display:grid;gap:10px}.sleep-history-item{display:grid;grid-template-columns:58px minmax(0,1fr) auto;align-items:center;gap:15px;padding:14px;border:1px solid #e9e0ee;border-radius:14px;background:#fdfbff}.sleep-history-date{display:grid;place-items:center;padding:8px 4px;border-radius:11px;background:#f0eaff;color:#5e45d5}.sleep-history-date small{text-transform:uppercase;font-size:9px}.sleep-history-date b{font-size:23px}.sleep-history-date span{font-size:10px}.sleep-history-info{display:grid;gap:5px}.sleep-history-info>div{display:flex;align-items:center;gap:9px}.sleep-history-info h4{margin:0;font-size:18px}.sleep-history-info p,.sleep-history-info small{margin:0;color:#736775}.sleep-history-info em{padding:7px 9px;border-left:3px solid #b9a5e8;background:#f7f3fb;color:#66586a;font-size:12px}.sleep-score-pill{padding:4px 7px;border-radius:999px;background:#eaf8f2;color:#327d64;font-size:10px;font-weight:800}.sleep-history-actions{display:grid;gap:6px}.sleep-history-actions button{padding:8px 10px;border:1px solid #ded5e9;background:#fff}
 @media(max-width:760px){.sleep-history-head>.card-head{display:grid;grid-template-columns:1fr auto}.sleep-history-head>.card-head button{padding:10px}.sleep-history-filters{overflow-x:auto}.sleep-edit-form{grid-template-columns:1fr 1fr!important}.sleep-history-item{grid-template-columns:48px minmax(0,1fr);align-items:start}.sleep-history-actions{grid-column:1/-1;display:flex}.sleep-history-actions button{flex:1}.sleep-history-info p,.sleep-history-info small{font-size:11px}}
+
+
+/* Sono v2 - rotina noturna */
+.sleep-routine-summary{display:flex;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(135deg,#fff 0%,#f6f1ff 100%)}
+.sleep-routine-summary>div:first-child{max-width:520px}
+.sleep-routine-summary small,.sleep-routine-create>div>small,.sleep-routine-tonight .card-head small,.sleep-routine-models .card-head small{color:#7455ed;font-size:.7rem;font-weight:800;letter-spacing:.09em}
+.sleep-routine-summary h3,.sleep-routine-create h3,.sleep-routine-tonight h3,.sleep-routine-models h3{margin:5px 0 4px}
+.sleep-routine-summary p,.sleep-routine-create p,.sleep-routine-models p{margin:0;color:var(--muted)}
+.sleep-routine-progress{width:82px;height:82px;flex:0 0 82px;border-radius:50%;display:grid;place-items:center}
+.sleep-routine-progress span{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-content:center;text-align:center;box-shadow:0 2px 10px #6f54ba18}
+.sleep-routine-progress b{font-size:1rem}.sleep-routine-progress small{font-size:.67rem;color:var(--muted);letter-spacing:0}
+.sleep-routine-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:14px}
+.sleep-routine-tonight,.sleep-routine-create{margin:0}
+.sleep-routine-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:11px 0;border-top:1px solid #eee8f5}
+.sleep-routine-item:first-of-type{border-top:0}
+.sleep-routine-item label{display:flex;align-items:center;gap:10px;min-width:0;cursor:pointer}
+.sleep-routine-item input{width:20px;height:20px;accent-color:#7455ed}
+.sleep-routine-item label span{display:grid;min-width:0}.sleep-routine-item label small{color:var(--muted)}
+.sleep-routine-item time{font-size:.78rem;font-weight:800;color:#7455ed;background:#f3efff;padding:5px 8px;border-radius:999px}
+.sleep-routine-item button{padding:6px 8px;font-size:.72rem}
+.sleep-routine-item.completed label b{text-decoration:line-through;color:var(--muted)}
+.sleep-routine-create .form{margin-top:12px;grid-template-columns:1fr 1fr}
+.sleep-routine-models>div:last-child{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.sleep-routine-models>div:last-child button{min-height:94px;padding:12px;display:grid;justify-items:start;align-content:center;gap:3px;text-align:left;background:#faf8ff;border-color:#e5dcfa}
+.sleep-routine-models button span{font-size:1.3rem}.sleep-routine-models button small{color:var(--muted)}
+.sleep-routine-models button:disabled{opacity:.6}
+@media(max-width:720px){
+ .sleep-routine-summary{padding:15px}.sleep-routine-progress{width:70px;height:70px;flex-basis:70px}.sleep-routine-progress span{width:54px;height:54px}
+ .sleep-routine-layout{grid-template-columns:1fr}.sleep-routine-tonight{order:1}.sleep-routine-create{order:2}
+ .sleep-routine-item{grid-template-columns:minmax(0,1fr) auto}.sleep-routine-item button{grid-column:2}
+ .sleep-routine-models>div:last-child{grid-template-columns:1fr 1fr}.sleep-routine-models>div:last-child button{min-height:82px}
+}
+@media(max-width:410px){
+ .sleep-routine-summary p{font-size:.78rem}.sleep-routine-create .form{grid-template-columns:1fr}
+ .sleep-routine-models>div:last-child{grid-template-columns:1fr 1fr;gap:7px}
+ .sleep-routine-models>div:last-child button{padding:10px;min-height:76px}
+}
