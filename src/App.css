@@ -210,7 +210,7 @@ button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,b
 
 
 /* Sono v2 - rotina noturna */
-.sleep-routine-summary{display:flex;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(135deg,#fff 0%,#f6f1ff 100%)}
+.sleep-routine-summary{display:flex;align-items:center;justify-content:space-between;gap:18px;text-align:left;background:linear-gradient(135deg,#fff 0%,#f6f1ff 100%)}
 .sleep-routine-summary>div:first-child{max-width:520px}
 .sleep-routine-summary small,.sleep-routine-create>div>small,.sleep-routine-tonight .card-head small,.sleep-routine-models .card-head small{color:#7455ed;font-size:.7rem;font-weight:800;letter-spacing:.09em}
 .sleep-routine-summary h3,.sleep-routine-create h3,.sleep-routine-tonight h3,.sleep-routine-models h3{margin:5px 0 4px}
@@ -219,7 +219,7 @@ button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,b
 .sleep-routine-progress span{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-content:center;text-align:center;box-shadow:0 2px 10px #6f54ba18}
 .sleep-routine-progress b{font-size:1rem}.sleep-routine-progress small{font-size:.67rem;color:var(--muted);letter-spacing:0}
 .sleep-routine-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:14px}
-.sleep-routine-tonight,.sleep-routine-create{margin:0}
+.sleep-routine-tonight,.sleep-routine-create{margin:0;text-align:left}.sleep-routine-tonight .card-head,.sleep-routine-models .card-head{align-items:flex-start;text-align:left}.sleep-routine-summary>div:first-child,.sleep-routine-create>div,.sleep-routine-models .card-head>div{display:grid;justify-items:start;text-align:left}.sleep-routine-summary small,.sleep-routine-create>div>small,.sleep-routine-tonight .card-head small,.sleep-routine-models .card-head small{display:block;text-align:left}.sleep-routine-tonight .empty{display:grid;justify-items:center;text-align:center;padding:28px 12px}.sleep-routine-create .form label{text-align:left;justify-items:stretch}
 .sleep-routine-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:11px 0;border-top:1px solid #eee8f5}
 .sleep-routine-item:first-of-type{border-top:0}
 .sleep-routine-item label{display:flex;align-items:center;gap:10px;min-width:0;cursor:pointer}
