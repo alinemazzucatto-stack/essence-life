@@ -345,3 +345,5 @@ button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,b
 /* Agenda reminders v50 */
 .agenda-reminder{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px 16px;border:1px solid #cbbcff;border-radius:14px;background:linear-gradient(135deg,#f0ebff,#fff);box-shadow:0 8px 20px rgba(92,67,206,.12)}.agenda-reminder>span{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#7357ed;color:#fff;font-size:19px}.agenda-reminder>div{display:grid;gap:2px}.agenda-reminder small{font-size:9px;font-weight:850;letter-spacing:.12em;color:#7055e2}.agenda-reminder b{font-size:15px}.agenda-reminder p{margin:0;color:#75677b;font-size:12px}.agenda-reminder button{padding:8px 10px;border:1px solid #d8cff2;border-radius:8px;background:#fff;color:#5e47bd;font:inherit;font-size:12px;font-weight:750}
 @media(max-width:480px){.agenda-reminder{grid-template-columns:auto 1fr}.agenda-reminder button{grid-column:1/-1;width:100%}}
+/* Agenda recurrence v51 */
+.agenda-actions .series-stop{border-color:#c9bbf5;background:#f2edff;color:#634bbd;font-weight:750}
