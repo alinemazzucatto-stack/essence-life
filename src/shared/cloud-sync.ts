@@ -2,7 +2,7 @@ import type { OnlineSession } from '../modules/auth/auth-api';
 
 const SUPABASE_URL=import.meta.env.VITE_SUPABASE_URL||'https://snnqwkjwnnbibikqeurr.supabase.co';
 const SUPABASE_KEY=import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY||'sb_publishable_dPL3lYONn3QfLE_41tg3xg_Et0LwU6I';
-const CLOUD_KEYS=['essence:profile','essence:app-settings','essence:tasks','essence:routine-items','essence:routine-history','essence:reminders','essence:water-entries','essence:water-goal','essence:checkin-date'] as const;
+const CLOUD_KEYS=['essence:profile','essence:app-settings','essence:tasks','essence:routine-items','essence:routine-history','essence:reminders','essence:water-entries','essence:water-goal','essence:checkin-date','essence:sleeps','essence:sleep-goal','essence:sleep-routine','essence:sleep-environment','essence:sleep-sound-favorites','essence:sleep-sound-recent','essence:meals','essence:nutrition-plan','essence:nutrition-profile','essence:nutrition-progress','essence:purchases','essence:workouts','essence:workout-sessions','essence:beauty-routines','essence:beauty-products','essence:beauty-appointments','essence:beauty-history'] as const;
 type CloudRow={data:Record<string,string>;updated_at:string};
 let lastCloudUpdate='';
 const headers=(session:OnlineSession)=>({apikey:SUPABASE_KEY,authorization:`Bearer ${session.accessToken}`,'content-type':'application/json'});
