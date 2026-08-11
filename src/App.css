@@ -500,3 +500,28 @@ html[data-theme=dark] .theme-preset-grid>button,html[data-preset=night] .theme-p
 @media(prefers-color-scheme:dark){html[data-theme=system]{--ui-surface:#221c2c;--ui-soft:#2d2539;--ui-border:#493c59;--ui-text:#f4eef8;--focus-ring:color-mix(in srgb,var(--app-accent) 70%,#fff)}html[data-theme=system] .app :is(input,select,textarea){background:#2b2436!important;color:#f4eef8!important;color-scheme:dark;border-color:#493c59!important}html[data-theme=system] .app :is(.mobile-topbar,.profile-tabs,.routine-tabs,.beauty-nav,.house-tabs,.settings-tabs){background:#221c2c!important;color:#f4eef8!important;border-color:#493c59!important}html[data-theme=system] .app :is(h1,h2,h3,h4,b,strong,label){color:#f4eef8}html[data-theme=system] .app :is(p,small,em){color:#cbbfd3}}
 @media(max-width:760px){.app :is(button,input,select,textarea){min-height:42px}.app :is(.agenda-confirm-modal,.profile-dialog){width:min(100%,440px);max-height:calc(100dvh - 32px);overflow-y:auto}.app .card-head{align-items:flex-start}.app .agenda-toast{max-width:calc(100vw - 28px)}}
 @media(prefers-reduced-motion:reduce){.app *,.app *::before,.app *::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* Full preset propagation fix v81 */
+html[data-preset] .app{--module-accent:var(--app-accent)}
+html[data-preset] .app :is(.finance-tabs,.routine-tabs,.beauty-nav,.house-tabs,.settings-tabs,.profile-tabs) button.active,
+html[data-preset] .app :is(.tabs,.symptoms,.agenda-periods,.sleep-history-filters,.sleep-library-tools) button.selected,
+html[data-preset] .app :is(.week,.agenda-week-days) button.today,
+html[data-preset] .app .agenda-week-days button.selected{background:var(--app-accent)!important;border-color:var(--app-accent)!important;color:#fff!important;box-shadow:0 4px 12px color-mix(in srgb,var(--app-accent) 24%,transparent)!important}
+html[data-preset] .app :is(.finance-tabs,.routine-tabs,.beauty-nav,.house-tabs,.settings-tabs,.profile-tabs){border-color:var(--theme-border)!important;background:var(--theme-surface)!important}
+html[data-preset] .app :is(.finance-hero,.workout-hero,.beauty-hero,.house-hero,.nutrition-hero,.sleep-hero,.cycle-hero,.diary-hero,.profile-hero,.settings-hero,.home-dashboard-hero){border-color:var(--app-accent)!important;background:linear-gradient(135deg,var(--theme-surface),var(--theme-soft))!important}
+html[data-preset] .app :is(.finance-hero,.workout-hero,.beauty-hero,.house-hero,.nutrition-hero,.sleep-hero,.cycle-hero,.diary-hero,.profile-hero,.settings-hero,.home-dashboard-hero) :is(b,small){color:var(--app-accent)!important}
+html[data-preset] .app :is(.card-head small,.routine-v2 .card small,.beauty-v2 .card small,.house-v2 .card small,.finance-module .card small,.diary-v2 .card small,.nutrition .card small,.sleep .card small){color:color-mix(in srgb,var(--app-accent) 82%,var(--theme-text))!important}
+html[data-preset] .app :is(.routine-ring,.beauty-ring){background:conic-gradient(var(--app-accent) calc(var(--value)*1%),var(--theme-border) 0)!important}
+html[data-preset] .app :is(.routine-bars i,.beauty-bars i,.diary-mood-chart i,.finance-trend i,.finance-category-list i,.nutrition-progress-list i,.sleep-insights-progress span,.sleep-environment-mini span){background:linear-gradient(90deg,var(--app-accent),color-mix(in srgb,var(--app-accent) 48%,#fff))!important}
+html[data-preset] .app :is(input[type=range],input[type=checkbox]){accent-color:var(--app-accent)!important}
+html[data-preset] .app :is(.routine-check,.agenda-check input,.beauty-routine-v2 input,.sleep-routine-item input):checked{background-color:var(--app-accent)!important;border-color:var(--app-accent)!important}
+html[data-preset] .app :is(.sleep-score-pill,.permission,.home-pending-badge,.gate-badge,.nutrition-progress-history .card-head>span){background:var(--theme-soft)!important;color:var(--app-accent)!important;border-color:var(--theme-border)!important}
+html[data-preset] .app :is(.quick-actions-grid button,.wellbeing-grid button,.home-timeline-item,.routine-item,.finance-budget,.finance-goal,.sleep-recent-summary>div,.nutrition-profile-summary article,.house-overview-grid .card){border-color:var(--theme-border)!important;background:color-mix(in srgb,var(--theme-surface) 88%,var(--theme-soft) 12%)!important}
+html[data-preset] .app .nav-group button.active{background:linear-gradient(90deg,var(--theme-soft),color-mix(in srgb,var(--theme-soft) 58%,var(--theme-surface)))!important;color:var(--app-accent)!important}
+html[data-preset] .app .nav-group button.active::before{background:var(--app-accent)!important}
+html[data-preset] .app :is(.mobile-brand>span:first-child,.mobile-profile-button){background:linear-gradient(135deg,color-mix(in srgb,var(--app-accent) 78%,#fff),var(--app-accent))!important}
+html[data-preset] .app :is(.mobile-menu-button,.mobile-profile-button>span){color:var(--app-accent)!important}
+html[data-preset] .app :is(.photo-upload,.backup-upload){border-color:var(--app-accent)!important}.app .photo-upload{background:var(--app-accent)!important}
+html[data-preset] .app :is(.home-inspiration,.growth,.notice,.beauty-reminder,.sleep-audio-note,.sleep-insight-link){border-color:var(--theme-border)!important;background:var(--theme-soft)!important}
+html[data-preset] .app :is(.card-head button,.agenda-row b,.finance-summary b,.house-summary b,.sleep-recent-summary b,.routine-progress-grid h3,.beauty-stats h3,.diary-stats h3){color:var(--app-accent)!important}
+html[data-preset] .app .card{box-shadow:0 8px 22px color-mix(in srgb,var(--app-accent) 7%,transparent)}
+html[data-preset=night] .app :is(.finance-tabs,.routine-tabs,.beauty-nav,.house-tabs,.settings-tabs,.profile-tabs){background:#221c2c!important}
