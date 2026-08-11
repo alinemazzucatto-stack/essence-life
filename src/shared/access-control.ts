@@ -1,13 +1,13 @@
 import { today } from './app-utils';
 
 export type SubscriptionPlan = 'free' | 'essential' | 'plus' | 'premium';
-export type AppPage = 'home' | 'sleep' | 'nutrition' | 'house' | 'agenda' | 'finance' | 'cycle' | 'routine' | 'diary' | 'workouts' | 'beauty' | 'settings' | 'profile';
+export type AppPage = 'home' | 'insights' | 'sleep' | 'nutrition' | 'house' | 'agenda' | 'finance' | 'cycle' | 'routine' | 'diary' | 'workouts' | 'beauty' | 'settings' | 'profile';
 export type GatedPage = Exclude<AppPage, 'home' | 'settings' | 'profile'>;
 export type Subscription = { plan: SubscriptionPlan; periodMonth: string; monthlyUsed: number; extraCredits: number; trialEnds?: string; trialUsed?: boolean; selectedPlan?: SubscriptionPlan };
 
 export const planNames: Record<SubscriptionPlan, string> = { free: 'Gratuito', essential: 'Essencial', plus: 'Essencial', premium: 'Pro' };
 const planRank: Record<SubscriptionPlan, number> = { free: 0, essential: 1, plus: 2, premium: 3 };
-const requiredPlanByPage: Record<GatedPage, SubscriptionPlan> = { agenda: 'free', routine: 'free', diary: 'essential', sleep: 'essential', nutrition: 'premium', workouts: 'premium', beauty: 'premium', cycle: 'essential', finance: 'premium', house: 'premium' };
+const requiredPlanByPage: Record<GatedPage, SubscriptionPlan> = { insights: 'premium', agenda: 'free', routine: 'free', diary: 'essential', sleep: 'essential', nutrition: 'premium', workouts: 'premium', beauty: 'premium', cycle: 'essential', finance: 'premium', house: 'premium' };
 
 export const readSubscription = (): Subscription => {
   const defaults: Subscription = { plan: 'free', periodMonth: today().slice(0, 7), monthlyUsed: 0, extraCredits: 3 };
@@ -18,6 +18,7 @@ export const planMeets = (current: SubscriptionPlan, required: SubscriptionPlan)
 export const requiredPlanForPage = (page: AppPage): SubscriptionPlan => page === 'home' || page === 'settings' || page === 'profile' ? 'free' : requiredPlanByPage[page];
 
 export const pageMeta: Record<AppPage, { title: string; copy: string }> = {
+  insights: { title: '✨ Insights', copy: 'Conecte seus registros e observe tendências do seu bem-estar.' },
   home: { title: '🌸 Bem-vinda ao Essence Life', copy: 'Sua vida organizada com leveza.' }, sleep: { title: '🌙 Sono', copy: 'Acompanhe seu descanso, regularidade e fatores que influenciam suas noites.' },
   nutrition: { title: '🥗 Nutrição', copy: 'Refeições, hidratação e objetivos no seu ritmo.' }, house: { title: '🏠 Casa & Compras', copy: 'Projetos, compras e orçamento em um só lugar.' },
   agenda: { title: '📅 Agenda', copy: 'Organize compromissos, hábitos e tarefas.' }, finance: { title: '💰 Finanças', copy: 'Entradas, saídas e metas com clareza.' },
