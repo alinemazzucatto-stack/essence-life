@@ -21,6 +21,22 @@ async function handleApi(request,env){
     const items=menu.items.slice(0,18).map((item,index)=>({id:`ai-${Date.now()}-${index}`,day:Math.max(1,Math.min(days,Number(item.day)||1)),mealType:String(item.mealType||'Refeição').slice(0,40),title:String(item.title||'Sugestão').slice(0,100),ingredients:(Array.isArray(item.ingredients)?item.ingredients:[]).map(value=>String(value).slice(0,80)).slice(0,12),note:String(item.note||'').slice(0,160)}));
     return Response.json({summary:String(menu.summary||'Sugestões criadas para você adaptar à sua rotina.').slice(0,220),items});
   }
+  if(url.pathname==='/api/workouts/generate'){
+    if(request.method!=='POST')return new Response('Method not allowed',{status:405});
+    if(!env.OPENAI_API_KEY)return Response.json({error:'A geração com IA ainda não está configurada.'},{status:503});
+    let body;try{body=await request.json()}catch{return Response.json({error:'Dados inválidos.'},{status:400})}
+    const goal=String(body?.goal||'Saúde e bem-estar').slice(0,80),level=String(body?.level||'Iniciante').slice(0,40),location=String(body?.location||'Casa').slice(0,60),equipment=String(body?.equipment||'Nenhum').slice(0,300),limitations=String(body?.limitations||'Nenhuma informada').slice(0,500);
+    const days=Math.max(1,Math.min(5,Number(body?.days)||3)),duration=Math.max(10,Math.min(90,Number(body?.duration)||30));
+    if(/dor (intensa|aguda)|lesão|lesao|cirurgia|gesta|grávid|gravidez|cardíac|cardiac|desmaio|falta de ar|hérnia|hernia/i.test(limitations))return Response.json({error:'Para dor, lesão, gestação ou condição clínica, procure orientação profissional antes de gerar um treino.'},{status:422});
+    const prompt=`Crie uma sugestão semanal de treino geral em português do Brasil. Objetivo: ${goal}. Nível: ${level}. Local: ${location}. Equipamentos: ${equipment}. Frequência: ${days} dia(s) por semana. Duração por sessão: ${duration} minutos. Limitações declaradas: ${limitations}. Seja conservador, evite cargas prescritas, movimentos de alto risco e linguagem médica. Inclua aquecimento e volta à calma. Responda SOMENTE JSON válido: {"summary":"aviso curto","plans":[{"name":"nome","goal":"objetivo","duration":30,"exercises":[{"name":"exercício","sets":"3","reps":"8-12 ou 30 segundos","load":"leve ou peso corporal"}]}]}. Gere exatamente ${days} planos diferentes, com 5 a 8 exercícios cada.`;
+    const ai=await fetch('https://api.openai.com/v1/responses',{method:'POST',headers:{authorization:`Bearer ${env.OPENAI_API_KEY}`,'content-type':'application/json'},body:JSON.stringify({model:'gpt-5.6-luna',input:prompt,reasoning:{effort:'low'},text:{verbosity:'low'},max_output_tokens:3500})});
+    if(!ai.ok)return Response.json({error:ai.status===429?'Muitas solicitações agora. Aguarde um pouco e tente novamente.':'Não foi possível gerar o treino agora.'},{status:ai.status===429?429:502});
+    const result=await ai.json(),output=String(result.output_text||result.output?.flatMap(item=>item.content||[]).find(item=>item.type==='output_text')?.text||'').trim().replace(/^```json\s*/i,'').replace(/```$/,'').trim();
+    let generated;try{generated=JSON.parse(output)}catch{return Response.json({error:'A IA retornou um formato inesperado. Tente novamente.'},{status:502})}
+    if(!Array.isArray(generated.plans)||!generated.plans.length)return Response.json({error:'Nenhum treino foi gerado. Tente novamente.'},{status:502});
+    const plans=generated.plans.slice(0,days).map((plan,index)=>({id:`ai-workout-${Date.now()}-${index}`,name:String(plan.name||`Treino ${index+1}`).slice(0,80),goal:String(plan.goal||goal).slice(0,60),duration:Math.max(10,Math.min(90,Number(plan.duration)||duration)),done:false,exercises:(Array.isArray(plan.exercises)?plan.exercises:[]).slice(0,10).map((exercise,exerciseIndex)=>({id:`ai-exercise-${Date.now()}-${index}-${exerciseIndex}`,name:String(exercise.name||'Exercício').slice(0,90),sets:String(exercise.sets||'3').slice(0,20),reps:String(exercise.reps||'8-12').slice(0,30),load:String(exercise.load||'Peso corporal').slice(0,50)}))}));
+    return Response.json({summary:String(generated.summary||'Revise e adapte as sugestões antes de começar.').slice(0,240),plans});
+  }
   if(url.pathname!=='/api/kiwify/webhook')return null;
   if(request.method!=='POST')return new Response('Method not allowed',{status:405});
   const supplied=url.searchParams.get('token')||request.headers.get('x-webhook-secret')||'';
