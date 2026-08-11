@@ -49,13 +49,14 @@ for (const file of files) {
   assets[pathname] = [body.toString("base64"), mimeTypes[extname(file)] ?? "application/octet-stream"];
 }
 
+const push = await readFile(resolve(process.cwd(), "worker/push.js"), "utf8");
 const api = await readFile(resolve(process.cwd(), "worker/api.js"), "utf8");
 
 await mkdir(server, { recursive: true });
 await mkdir(resolve(dist, ".openai"), { recursive: true });
 await writeFile(resolve(dist, ".openai/hosting.json"), await readFile(resolve(process.cwd(), ".openai/hosting.json")));
 const workerFile = resolve(server, "index.js");
-const worker = `${api}\nconst assets = ${JSON.stringify(assets)};
+const worker = `${push}\n${api}\nconst assets = ${JSON.stringify(assets)};
 function body(encoded) { const binary = atob(encoded); const bytes = new Uint8Array(binary.length); for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i); return bytes; }
 export default { async fetch(request, env) { const apiResponse = await handleApi(request, env); if (apiResponse) return apiResponse; const url = new URL(request.url); const pathname = url.pathname === "/" ? "/index.html" : url.pathname; const asset = assets[pathname] ?? assets["/index.html"]; if (!asset) return new Response("Not found", { status: 404 }); return new Response(body(asset[0]), { headers: { "content-type": asset[1], "cache-control": pathname === "/index.html" ? "no-cache" : "public, max-age=31536000, immutable" } }); } };
 `;

@@ -1,5 +1,6 @@
 async function handleApi(request,env){
   const url=new URL(request.url);
+  const pushResponse=await handlePushApi(request,env,url);if(pushResponse)return pushResponse;
   if(url.pathname==='/api/nutrition/menu'){
     if(request.method!=='POST')return new Response('Method not allowed',{status:405});
     if(!env.OPENAI_API_KEY)return Response.json({error:'A geração com IA ainda não está configurada.'},{status:503});

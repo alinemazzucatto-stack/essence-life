@@ -1,0 +1,28 @@
+const pushJson=(data,status=200)=>Response.json(data,{status,headers:{'cache-control':'no-store'}});
+const pushServiceHeaders=env=>({apikey:env.SUPABASE_SECRET_KEY,authorization:`Bearer ${env.SUPABASE_SECRET_KEY}`,'content-type':'application/json'});
+const pushBase64Url=value=>{const bytes=value instanceof Uint8Array?value:new TextEncoder().encode(value);let binary='';for(const byte of bytes)binary+=String.fromCharCode(byte);return btoa(binary).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'')};
+async function pushUser(request,env){const token=(request.headers.get('authorization')||'').replace(/^Bearer\s+/i,'');if(!token)return null;const response=await fetch(`${env.SUPABASE_URL}/auth/v1/user`,{headers:{apikey:env.SUPABASE_PUBLISHABLE_KEY,authorization:`Bearer ${token}`}});if(!response.ok)return null;return response.json()}
+async function vapidToken(endpoint,env){const header=pushBase64Url(JSON.stringify({typ:'JWT',alg:'ES256'}));const payload=pushBase64Url(JSON.stringify({aud:new URL(endpoint).origin,exp:Math.floor(Date.now()/1000)+60*60*12,sub:'mailto:alinelima364@outlook.com'}));const input=`${header}.${payload}`;const key=await crypto.subtle.importKey('jwk',JSON.parse(env.VAPID_PRIVATE_JWK),{name:'ECDSA',namedCurve:'P-256'},false,['sign']);const signature=new Uint8Array(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},key,new TextEncoder().encode(input)));return `${input}.${pushBase64Url(signature)}`}
+async function deliverPush(subscription,env){const endpoint=String(subscription?.endpoint||'');if(!endpoint)return{ok:false,status:400};const jwt=await vapidToken(endpoint,env);const response=await fetch(endpoint,{method:'POST',headers:{TTL:'86400',Urgency:'normal',Authorization:`vapid t=${jwt}, k=${env.VAPID_PUBLIC_KEY}`}});return{ok:response.ok,status:response.status}}
+async function handlePushApi(request,env,url){
+  if(url.pathname==='/api/push/config'){if(!env.VAPID_PUBLIC_KEY)return pushJson({error:'Notificações push ainda não configuradas.'},503);return pushJson({publicKey:env.VAPID_PUBLIC_KEY})}
+  if(url.pathname==='/api/push/register'){
+    if(request.method!=='POST')return new Response('Method not allowed',{status:405});
+    if(!env.SUPABASE_URL||!env.SUPABASE_SECRET_KEY||!env.SUPABASE_PUBLISHABLE_KEY)return pushJson({error:'Serviço de notificações indisponível.'},503);
+    const user=await pushUser(request,env);if(!user?.id)return pushJson({error:'Sessão inválida.'},401);
+    let body;try{body=await request.json()}catch{return pushJson({error:'Dados inválidos.'},400)}
+    const subscription=body?.subscription,endpoint=String(subscription?.endpoint||'').slice(0,1800);if(!endpoint)return pushJson({error:'Inscrição inválida.'},400);
+    const service=pushServiceHeaders(env);const device=await fetch(`${env.SUPABASE_URL}/rest/v1/push_devices?on_conflict=endpoint`,{method:'POST',headers:{...service,prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({user_id:user.id,endpoint,subscription,timezone:String(body?.timezone||'America/Sao_Paulo').slice(0,80),updated_at:new Date().toISOString()})});if(!device.ok)return pushJson({error:'Não foi possível registrar este dispositivo.'},502);
+    await fetch(`${env.SUPABASE_URL}/rest/v1/push_reminders?user_id=eq.${encodeURIComponent(user.id)}`,{method:'DELETE',headers:service});
+    const reminders=(Array.isArray(body?.reminders)?body.reminders:[]).slice(0,250).map(item=>({user_id:user.id,reminder_id:String(item.id||crypto.randomUUID()).slice(0,180),title:String(item.title||'Você tem um lembrete no Essence Life').slice(0,180),remind_at:new Date(item.remindAt).toISOString(),repeat_daily:item.repeatDaily===true,sent_at:null})).filter(item=>Number.isFinite(Date.parse(item.remind_at)));
+    if(reminders.length){const saved=await fetch(`${env.SUPABASE_URL}/rest/v1/push_reminders`,{method:'POST',headers:{...service,prefer:'return=minimal'},body:JSON.stringify(reminders)});if(!saved.ok)return pushJson({error:'Não foi possível atualizar os lembretes.'},502)}
+    return pushJson({ok:true,registered:reminders.length});
+  }
+  if(url.pathname==='/api/push/run'){
+    if(request.method!=='POST'||request.headers.get('x-push-cron-secret')!==env.PUSH_CRON_SECRET)return new Response('Unauthorized',{status:401});
+    const service=pushServiceHeaders(env),now=new Date().toISOString();const dueResponse=await fetch(`${env.SUPABASE_URL}/rest/v1/push_reminders?select=id,user_id,title,remind_at,repeat_daily&sent_at=is.null&remind_at=lte.${encodeURIComponent(now)}&order=remind_at.asc&limit=100`,{headers:service});if(!dueResponse.ok)return pushJson({error:'Falha ao consultar lembretes.'},502);const due=await dueResponse.json();let sent=0;
+    for(const reminder of due){const devicesResponse=await fetch(`${env.SUPABASE_URL}/rest/v1/push_devices?select=id,endpoint,subscription&user_id=eq.${encodeURIComponent(reminder.user_id)}`,{headers:service});const devices=devicesResponse.ok?await devicesResponse.json():[];for(const device of devices){const result=await deliverPush(device.subscription,env).catch(()=>({ok:false,status:500}));if(result.ok){sent++}else if(result.status===404||result.status===410)await fetch(`${env.SUPABASE_URL}/rest/v1/push_devices?id=eq.${device.id}`,{method:'DELETE',headers:service})}const next=reminder.repeat_daily?new Date(Date.parse(reminder.remind_at)+86400000).toISOString():null;await fetch(`${env.SUPABASE_URL}/rest/v1/push_reminders?id=eq.${reminder.id}`,{method:'PATCH',headers:{...service,prefer:'return=minimal'},body:JSON.stringify(next?{remind_at:next,sent_at:null}:{sent_at:new Date().toISOString()})});}
+    return pushJson({ok:true,processed:due.length,sent});
+  }
+  return null;
+}
