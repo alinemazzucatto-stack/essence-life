@@ -347,3 +347,6 @@ button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,b
 @media(max-width:480px){.agenda-reminder{grid-template-columns:auto 1fr}.agenda-reminder button{grid-column:1/-1;width:100%}}
 /* Agenda recurrence v51 */
 .agenda-actions .series-stop{border-color:#c9bbf5;background:#f2edff;color:#634bbd;font-weight:750}
+/* Agenda final review v52 */
+.agenda-form-error{margin:0;padding:10px 12px;border-radius:9px;background:#fff0f3;color:#a52f52;font-size:12px;font-weight:750}.agenda-actions .agenda-delete{color:#a43c5a;border-color:#efd3dd}.agenda-form-card input:invalid:focus,.agenda-form-card select:invalid:focus{border-color:#d34b73;box-shadow:0 0 0 3px rgba(211,75,115,.12)}
+@media(max-width:760px){.agenda-form-card .card-head{align-items:center}.agenda-form-card .card-head>button{flex:0 0 auto}.agenda-actions{width:100%}.agenda-actions button{min-height:38px}.agenda-empty{padding:18px 8px}.agenda-empty p{max-width:260px;margin:6px auto 12px}}
