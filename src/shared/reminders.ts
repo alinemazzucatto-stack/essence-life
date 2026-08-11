@@ -1,9 +1,9 @@
 export type AppReminder={id:string;sourceId?:string;title:string;time:string;enabled:boolean;date?:string};
 
-const read=():AppReminder[]=>{try{const value=JSON.parse(localStorage.getItem('essence:reminders')||'[]');return Array.isArray(value)?value:[]}catch{return[]}};
+export const readAppReminders=():AppReminder[]=>{try{const value=JSON.parse(localStorage.getItem('essence:reminders')||'[]');return Array.isArray(value)?value:[]}catch{return[]}};
 
 export function syncAppReminder(sourceId:string,title:string,time:string,enabled:boolean,date?:string){
-  const next=read().filter(item=>item.sourceId!==sourceId&&item.id!=='app-'+sourceId);
+  const next=readAppReminders().filter(item=>item.sourceId!==sourceId&&item.id!=='app-'+sourceId);
   if(enabled&&time)next.push({id:'app-'+sourceId,sourceId,title,time,enabled:true,date});
   localStorage.setItem('essence:reminders',JSON.stringify(next));
 }
