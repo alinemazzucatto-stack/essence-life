@@ -408,3 +408,7 @@ button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,b
 /* Beauty care tips v67 */
 .beauty-tips-intro{text-align:center}.beauty-tips-intro>small{color:#d94f8c;font-size:9px;font-weight:850;letter-spacing:.13em}.beauty-tips-intro h3{margin:7px 0}.beauty-tips-intro p{margin:0}.beauty-safety-note{max-width:720px;margin:15px auto 0;padding:12px;border-left:3px solid #d94f8c;border-radius:8px;background:#fff3f8;color:#6f5f68;font-size:11px;line-height:1.5;text-align:left}.beauty-tip-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.beauty-tip-card>span{font-size:25px}.beauty-tip-card h3{margin:8px 0 10px}.beauty-tip-card ul{display:grid;gap:8px;margin:0;padding-left:18px;color:#6f626d;font-size:11px;line-height:1.5}.beauty-tip-card li::marker{color:#e74f91}
 @media(max-width:760px){.beauty-tip-sections{grid-template-columns:1fr}.beauty-tips-intro{padding:17px}.beauty-tip-card{text-align:left}}
+
+
+/* Beauty reminder controls v68 */
+.beauty-reminder-toggle{display:flex!important;grid-template-columns:auto 1fr!important;align-items:center;gap:9px;padding:10px 12px;border:1px solid #ead7e2;border-radius:10px;background:#fff7fb}.beauty-reminder-toggle input{width:18px!important;height:18px;accent-color:#e74f91}
