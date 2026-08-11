@@ -383,3 +383,7 @@ button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,b
 
 /* Routine form tablet alignment v61 */
 @media(max-width:1024px){.routine-form-card>.card-head{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}.routine-form-card>.card-head>div{width:100%}.routine-form-card>.card-head h3,.routine-form-card>.card-head p{margin-left:auto;margin-right:auto}.routine-form-card>.card-head>button{align-self:center}}
+
+
+/* Routine selected day contrast v62 */
+.routine-v2 .week button.today,.routine-v2 .week button.today b,.routine-v2 .week button.today small{color:#fff}
