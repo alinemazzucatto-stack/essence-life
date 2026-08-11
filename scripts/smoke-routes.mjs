@@ -28,7 +28,7 @@ try {
   const authApi = await server.ssrLoadModule('/src/modules/auth/auth-api.ts');
   assert.equal(authApi.isDeveloperEmail('ALINELIMA364@OUTLOOK.COM'), true);
   assert.equal(authApi.isDeveloperEmail('cliente@example.com'), false);
-  for (const exportName of ['signUp', 'signIn', 'restoreOnlineSession', 'readEntitlement', 'signOut', 'isDeveloperEmail']) {
+  for (const exportName of ['signUp', 'signIn', 'restoreOnlineSession', 'requestPasswordReset', 'updateOnlinePassword', 'changeOnlinePassword', 'readEntitlement', 'signOut', 'isDeveloperEmail']) {
     assert.equal(typeof authApi[exportName], 'function', exportName + ' is not available from auth-api');
   }
 
