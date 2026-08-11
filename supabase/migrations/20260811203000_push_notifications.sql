@@ -23,3 +23,5 @@ create table if not exists public.push_reminders (
 create index if not exists push_reminders_due_idx on public.push_reminders(remind_at) where sent_at is null;
 alter table public.push_reminders enable row level security;
 revoke all on public.push_reminders from anon, authenticated;
+grant usage on schema public to service_role;
+grant select, insert, update, delete on public.push_devices, public.push_reminders to service_role;
