@@ -386,7 +386,7 @@ button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,b
 
 
 /* Routine selected day contrast v62 */
-.routine-v2 .week button.today,.routine-v2 .week button.today b,.routine-v2 .week button.today small{color:#fff}
+.routine-v2 .week button.today,.routine-v2 .week button.today:hover,.routine-v2 .week button.today:focus,.routine-v2 .week button.today b,.routine-v2 .week button.today small{color:#fff!important;opacity:1}
 
 
 /* Routine full mobile week v63 */
