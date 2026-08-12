@@ -614,3 +614,44 @@ html[data-preset] .app :is(button.primary,.primary),html[data-preset] .app :is(b
 .auth-forgot{align-self:flex-end;border:0;background:transparent;color:var(--accent);font-weight:800;padding:.1rem .2rem;text-decoration:underline;text-underline-offset:3px}
 .settings-sync-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.75rem}.settings-sync-card p{margin:.35rem 0 0}.settings-sync-card>button{grid-column:1/-1;justify-self:start}.settings-sync-status{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:50%;font-size:1.25rem;font-weight:900;background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--accent)}.settings-sync-status.synced{background:#e6f8ef;color:#168653}.settings-sync-status.offline{background:#fff3dd;color:#a76600}.settings-sync-status.error{background:#ffebef;color:#bd3151}.settings-sync-status.syncing{animation:sync-spin 1.2s linear infinite}@keyframes sync-spin{to{transform:rotate(360deg)}}
 .settings-sync-status.conflict{background:#fff1d8;color:#9a5b00}.settings-conflict-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.55rem}.settings-conflict-actions button{flex:1 1 12rem}
+
+/* Essence public brand palette */
+.landing-v2{background:#fcfbff;color:#362844}
+.landing-brand{display:inline-flex;align-items:center;gap:10px;color:#633693}
+.landing-brand img{width:46px;height:46px;object-fit:contain;padding:3px;border:1px solid #e4daf0;border-radius:14px;background:#fff;box-shadow:0 7px 18px rgba(83,48,117,.13)}
+.landing-brand span{font-weight:900;letter-spacing:-.02em}
+.landing-kicker{color:#a66b00!important}
+.landing-primary{background:linear-gradient(135deg,#61318f,#9576c8 70%,#e0a72d);box-shadow:0 11px 24px rgba(91,48,136,.24)}
+.landing-header nav button{border-color:#cdbce1;color:#633693}
+.landing-trust span:first-child{color:#633693}
+.visual-orbit{border-color:#d8c9e8}
+.visual-device{border-color:#ddd0eb;box-shadow:0 30px 65px rgba(80,44,115,.19)}
+.device-top b,.visual-device>p,.device-score strong,.visual-device footer{color:#70409f}
+.device-score{background:#f3edfa}
+.device-list i{background:#f0b82f;color:#51306f}
+.visual-float,.experience-preview{background:#4b2d65}
+.mini-progress i,.experience-preview>.progress span{background:#f2bb32}
+.experience-tabs button.active{background:#61318f;border-color:#61318f}
+.preview-caption span,.experience-preview>strong,.preview-row em{color:#f3c24a}
+.preview-row i,.landing-v2 .landing-how b{background:#7545a4}
+.landing-v2 .landing-modules article>span,.landing-v2 .landing-modules article>b,.landing-plans strong{color:#70409f}
+.landing-plans article.featured{border-color:#7545a4;background:#f5f0fb}
+.landing-plans em{background:#e5ad25;color:#3f2855}
+.landing-plans .featured button{background:#673795;border-color:#673795}
+.landing-v2 .landing-final{background:linear-gradient(135deg,#f5effb,#fff8e8)}
+.landing-v2 footer{background:#3d294d}
+.model-quiz{background:radial-gradient(circle at 12% 10%,rgba(149,118,200,.25),transparent 28%),radial-gradient(circle at 88% 18%,rgba(242,187,50,.18),transparent 30%),linear-gradient(145deg,#fff 0%,#f7f1fc 55%,#fff9ed 100%)}
+.model-brand{gap:10px;padding:7px 15px 7px 8px;color:#633693;border-color:rgba(99,54,147,.18)}
+.model-brand img{width:42px;height:42px;object-fit:contain;padding:3px;border:1px solid #e2d7ed;border-radius:13px;background:#fff}
+.model-brand span{font-weight:900}
+.model-progress i{background:linear-gradient(90deg,#633693,#9576c8 62%,#f0b82f)}
+.model-dots i.active{background:#7545a4;box-shadow:0 0 0 4px rgba(117,69,164,.12)}
+.model-intro>span,.model-step{color:#70409f}
+.model-options button:hover{border-color:#a98bc7;background:#fcfaff}
+.model-options button>i{background:#f1ebf7;color:#70409f}
+.model-result-tag{background:#f1eafb;color:#633693}
+.model-result>h2,.model-result>p strong{color:#70409f}
+.model-result-list>div{background:#f5f0fa}
+.model-result-list i{color:#70409f}
+.model-result>button{background:linear-gradient(90deg,#58307d,#8b65b6 72%,#d39b18);box-shadow:0 20px 42px -22px #64358e}
+@media(max-width:620px){.landing-brand img{width:40px;height:40px}.model-brand img{width:36px;height:36px}}
