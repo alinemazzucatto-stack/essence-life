@@ -655,3 +655,12 @@ html[data-preset] .app :is(button.primary,.primary),html[data-preset] .app :is(b
 .model-result-list i{color:#70409f}
 .model-result>button{background:linear-gradient(90deg,#58307d,#8b65b6 72%,#d39b18);box-shadow:0 20px 42px -22px #64358e}
 @media(max-width:620px){.landing-brand img{width:40px;height:40px}.model-brand img{width:36px;height:36px}}
+/* High-contrast featured sales plan */
+.lifetime-plans article.featured{background:linear-gradient(155deg,#3b2451,#694291);color:#fff;border-color:#8f68b6}
+.lifetime-plans article.featured .plan-label{color:#ffd56a!important}
+.lifetime-plans article.featured h3{color:#fff!important}
+.lifetime-plans article.featured .plan-from{color:#eadff2!important;background:rgba(255,255,255,.1)}
+.lifetime-plans article.featured>strong{color:#ffd56a!important}
+.lifetime-plans article.featured .plan-cash,.lifetime-plans article.featured>p,.lifetime-plans article.featured li{color:#f7f2fa!important}
+.lifetime-plans article.featured li:before{color:#ffd56a!important}
+.landing-plans .featured button{background:#f2bd3d!important;border-color:#f2bd3d!important;color:#3b2451!important}
