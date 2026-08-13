@@ -4,7 +4,7 @@
   "short_name": "Essence Life",
   "description": "Sua vida organizada com leveza.",
   "lang": "pt-BR",
-  "start_url": "/",
+  "start_url": "/app",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f5f1f5",
