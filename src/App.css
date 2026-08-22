@@ -707,3 +707,5 @@ body{background:linear-gradient(160deg,#f3e6e1 0%,#efe0db 52%,#f7ece7 100%)!impo
 @media(max-width:700px){.agenda-item{grid-template-columns:minmax(0,1fr) auto!important}.agenda-actions{grid-column:1/-1;opacity:1}.agenda-priority{grid-column:2;grid-row:1}.pomodoro-card{padding:18px!important}.pomodoro-clock{width:145px;height:145px}.pomodoro-clock b{font-size:34px}.home-timeline-item{grid-template-columns:50px 1fr auto!important}}
 /* Teclado Android: mantém o formulário rápido no campo visível */
 @media(max-width:1024px){.app main{padding-bottom:calc(180px + env(safe-area-inset-bottom))}.quick-create{scroll-margin-block:18px 40vh}.quick-create input[name=title]{scroll-margin-block:22px 42vh}}
+
+@media(min-width:600px) and (max-width:1024px){.quick-create{margin-bottom:45vh}.quick-create .form{padding-bottom:24px}}
