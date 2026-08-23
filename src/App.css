@@ -825,3 +825,15 @@ body .app .finance-module .finance-summary .finance-balance-card :is(small,span,
 .home-timeline-item.habit-item .home-item-meta i{background:#e7f3e9!important;color:#528161!important}
 .home-timeline-item.task-item .home-item-meta i{background:#f8e3df!important;color:#9a5e5a!important}
 .home-timeline-item .home-item-meta .home-time{display:inline-flex!important;align-items:center!important;min-height:20px!important;padding:3px 7px!important;border-radius:999px!important;background:#f4ece2!important;color:#7a6250!important}
+/* Contraste rosé global: superfícies mais vivas, sem escurecer a interface. */
+.app .card{background:linear-gradient(145deg,#fffefd 0%,#fff3f0 100%)!important;border-color:#ddbbb4!important;box-shadow:0 12px 26px rgba(91,55,54,.11)!important}
+.app :is(.quick-actions-grid>button,.wellbeing-grid>button,.settings-choice-grid>button,.theme-preset-grid>button,.house-cats button,.workout-models button,.routine-day-picker button,.cycle-moods button,.finance-budget,.finance-goal,.finance-stat-card,.agenda-item,.routine-item,.diary-entry,.workout-exercise-list>div,.workout-history>div,.cycle-history-row,.beauty-ai-item,.routine-ai-item){background:linear-gradient(145deg,#fae9e6 0%,#f5dcd7 100%)!important;border-color:#d8aaa1!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.78),0 4px 11px rgba(98,54,53,.09)!important}
+.app :is(.tabs,.finance-tabs,.diary-tabs,.workout-tabs,.symptoms,.sleep-navigation,.agenda-filters,.routine-filters){border-color:#d7b6b0!important;box-shadow:0 5px 13px rgba(91,55,54,.07)!important}
+.app :is(.hero,.sleep-hero,.nutrition-hero,.finance-hero,.agenda-hero,.routine-hero,.diary-hero,.workout-hero,.house-hero,.beauty-hero){border-color:#a96863!important;box-shadow:0 13px 28px rgba(91,55,54,.11)!important}
+/* Sono: resumo, score e trilhas na paleta rosé/cacau atual. */
+.app .sleep-overview-card{background:linear-gradient(135deg,#f6dedd 0%,#f9ebe6 100%)!important;border:1px solid #d39c93!important;box-shadow:0 13px 25px rgba(104,61,57,.13)!important}
+.app .sleep-overview-card :is(h3,p,small){color:#493536!important}
+.app .sleep-score-ring{background:conic-gradient(#c9857b 0 68%,#ecd6d0 68% 100%)!important;box-shadow:0 0 0 5px rgba(255,253,251,.78),0 5px 12px rgba(113,67,63,.12)!important}
+.app .sleep-score-ring span{background:#fffaf8!important}
+.app .sleep-score-ring :is(strong,small){color:#573737!important}
+.app :is(.sleep-progress span,.sleep-insights-progress span,.sleep-quality-progress span,.sleep-recent-progress span){background:linear-gradient(90deg,#c9857b,#e4aca2)!important}
