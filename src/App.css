@@ -837,3 +837,14 @@ body .app .finance-module .finance-summary .finance-balance-card :is(small,span,
 .app .sleep-score-ring span{background:#fffaf8!important}
 .app .sleep-score-ring :is(strong,small){color:#573737!important}
 .app :is(.sleep-progress span,.sleep-insights-progress span,.sleep-quality-progress span,.sleep-recent-progress span){background:linear-gradient(90deg,#c9857b,#e4aca2)!important}
+/* Rolagem dos dias: controle real, no mesmo degradê rosé utilizado globalmente. */
+.routine .week-scrollbar{height:13px!important;margin:7px 3px 3px!important;padding:3px 0!important;background:transparent!important}
+.routine .week-scrollbar input[type="range"]{display:block!important;width:100%!important;height:7px!important;margin:0!important;padding:0!important;appearance:none!important;-webkit-appearance:none!important;border:0!important;border-radius:999px!important;background:#ecd9d6!important;accent-color:#ce877e!important;cursor:grab!important}
+.routine .week-scrollbar input[type="range"]:active{cursor:grabbing!important}
+.routine .week-scrollbar input[type="range"]::-webkit-slider-runnable-track{height:7px!important;border-radius:999px!important;background:linear-gradient(90deg,#b97972 0%,#d98e86 54%,#efd5dc 54%,#efd5dc 100%)!important}
+.routine .week-scrollbar input[type="range"]::-webkit-slider-thumb{width:22px!important;height:22px!important;margin-top:-7px!important;appearance:none!important;-webkit-appearance:none!important;border:3px solid #fffaf8!important;border-radius:50%!important;background:#c9857b!important;box-shadow:0 2px 7px rgba(91,55,54,.25)!important}
+.routine .week-scrollbar input[type="range"]::-moz-range-track{height:7px!important;border-radius:999px!important;background:#efd5dc!important}
+.routine .week-scrollbar input[type="range"]::-moz-range-progress{height:7px!important;border-radius:999px!important;background:linear-gradient(90deg,#b97972,#d98e86)!important}
+.routine .week-scrollbar input[type="range"]::-moz-range-thumb{width:16px!important;height:16px!important;border:3px solid #fffaf8!important;border-radius:50%!important;background:#c9857b!important;box-shadow:0 2px 7px rgba(91,55,54,.25)!important}
+.routine .week-scrollbar input[type="range"]:disabled{opacity:.45!important;cursor:default!important}
+.app :is(.week-scrollbar i,.tabs-scrollbar i,.carousel-scrollbar i,.module-scrollbar i){background:linear-gradient(90deg,#b97972,#d98e86)!important}
