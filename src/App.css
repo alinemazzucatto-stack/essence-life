@@ -848,3 +848,5 @@ body .app .finance-module .finance-summary .finance-balance-card :is(small,span,
 .routine .week-scrollbar input[type="range"]::-moz-range-thumb{width:16px!important;height:16px!important;border:3px solid #fffaf8!important;border-radius:50%!important;background:#c9857b!important;box-shadow:0 2px 7px rgba(91,55,54,.25)!important}
 .routine .week-scrollbar input[type="range"]:disabled{opacity:.45!important;cursor:default!important}
 .app :is(.week-scrollbar i,.tabs-scrollbar i,.carousel-scrollbar i,.module-scrollbar i){background:linear-gradient(90deg,#b97972,#d98e86)!important}
+/* Seletores de conclusão: sempre círculos verdadeiros, sem deformar em telas estreitas. */
+.app :is(.home-timeline-item input[type="checkbox"],.agenda-check input[type="checkbox"],.routine-check){box-sizing:border-box!important;flex:0 0 29px!important;width:29px!important;min-width:29px!important;max-width:29px!important;height:29px!important;min-height:29px!important;max-height:29px!important;aspect-ratio:1 / 1!important;padding:0!important;border-radius:50%!important;align-self:center!important;justify-self:center!important}
