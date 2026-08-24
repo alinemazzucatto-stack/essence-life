@@ -898,3 +898,14 @@ html,body,#root{min-height:100%;min-height:100dvh}
 .app .profile-account-summary{align-items:center!important}
 .app .profile-account-summary>strong{display:grid!important;place-items:center!important;align-self:center!important;line-height:1.02!important;text-align:center!important}
 @media(max-width:620px){.app .profile-account-summary{align-items:center!important}.app .profile-account-summary>strong{align-self:center!important}}
+
+/* Ajustes de alinhamento: backup, menu móvel e abertura. */
+.app .backup-actions .backup-upload{width:100%!important;min-height:68px;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding-inline:18px!important;line-height:1.25}
+.app .backup-actions .backup-upload::after{content:"";display:block}
+.auth-page .auth-panel{display:grid!important;justify-items:center!important;text-align:center!important}
+.auth-page .auth-brand{width:100%;justify-content:center!important;text-align:center!important;margin-bottom:18px!important}
+.auth-page .auth-panel>p{width:100%;margin:0;text-align:center!important}
+@media(max-width:1024px){
+  .app aside{top:calc(96px + env(safe-area-inset-top))!important;padding-top:26px!important}
+  .app aside .nav-identity{margin-top:0!important;padding-top:2px!important}
+}
