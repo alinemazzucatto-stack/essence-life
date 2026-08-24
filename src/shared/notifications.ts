@@ -1,7 +1,9 @@
-import { Capacitor } from '@capacitor/core';
+import { Capacitor, registerPlugin } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 
 export type NotificationPermission = 'granted' | 'denied' | 'prompt' | 'unsupported';
+
+const NotificationSettings = registerPlugin<{ open: () => Promise<void> }>('NotificationSettings');
 
 const webPermission = (): NotificationPermission => {
   if (!('Notification' in window)) return 'unsupported';
@@ -39,4 +41,8 @@ export const sendNotificationTest = async () => {
     return;
   }
   new Notification(title, { body });
+};
+
+export const openNotificationSettings = async () => {
+  if (Capacitor.isNativePlatform()) await NotificationSettings.open();
 };

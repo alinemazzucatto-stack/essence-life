@@ -9,6 +9,7 @@ public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        registerPlugin(NotificationSettingsPlugin.class);
 
         // Keep the WebView stable when the keyboard opens. The web layer gets
         // the keyboard height and moves the active field above the keyboard.
