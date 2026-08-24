@@ -46,3 +46,27 @@ export const sendNotificationTest = async () => {
 export const openNotificationSettings = async () => {
   if (Capacitor.isNativePlatform()) await NotificationSettings.open();
 };
+const hydrationNotificationIds = Array.from({ length: 36 }, (_, index) => 831000 + index);
+
+export const cancelHydrationReminders = async () => {
+  if (!Capacitor.isNativePlatform()) return;
+  await LocalNotifications.cancel({ notifications: hydrationNotificationIds.map(id => ({ id })) });
+};
+
+export const scheduleHydrationReminders = async (intervalMinutes: number) => {
+  if (!Capacitor.isNativePlatform()) return;
+  const safeInterval = Math.max(15, Math.round(intervalMinutes));
+  await cancelHydrationReminders();
+  const now = Date.now();
+  await LocalNotifications.schedule({
+    notifications: hydrationNotificationIds.map((id, index) => ({
+      id,
+      title: 'Essence Life',
+      body: 'Hora de beber água e cuidar de você. 💧',
+      schedule: {
+        at: new Date(now + (index + 1) * safeInterval * 60 * 1000),
+        allowWhileIdle: true,
+      },
+    })),
+  });
+};
