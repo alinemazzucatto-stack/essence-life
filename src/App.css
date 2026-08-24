@@ -894,3 +894,7 @@ html,body,#root{min-height:100%;min-height:100dvh}
 .app .workouts-v2,.app .workout-create-card{min-width:0!important}
 .app .workout-create-card input[name="name"]{scroll-margin-block:120px!important}
 @media(max-width:1024px){.app:has(.workout-create-card){padding-bottom:max(28px,env(safe-area-inset-bottom))!important}.app .workout-create-card{overflow:visible!important}.app .workout-create-card .form{overflow:visible!important}}
+/* Perfil: indicador circular centralizado em celular e tablet. */
+.app .profile-account-summary{align-items:center!important}
+.app .profile-account-summary>strong{display:grid!important;place-items:center!important;align-self:center!important;line-height:1.02!important;text-align:center!important}
+@media(max-width:620px){.app .profile-account-summary{align-items:center!important}.app .profile-account-summary>strong{align-self:center!important}}
