@@ -1,21 +1,100 @@
 import { useState } from 'react';
 
-type Mode = 'today' | 'water' | 'smart';
+type Demo = 'day' | 'water' | 'reminders';
+
+const checkouts = {
+  mensal: 'https://pay.kiwify.com.br/yIJKlLK',
+  trimestral: 'https://pay.kiwify.com.br/UKuHm32',
+  anual: 'https://pay.kiwify.com.br/a1CTCMt',
+} as const;
+
+const modules = [
+  ['📅', 'Agenda que cabe na vida', 'Tarefas, hábitos e compromissos no mesmo lugar — com horário, categoria e lembrete.'],
+  ['🔔', 'Lembretes que aliviam a mente', 'Água, remédios, consultas e o que for importante para você não depender só da memória.'],
+  ['💧', 'Autocuidado possível', 'Acompanhe água, sono, alimentação, ciclo, treino e pequenas pausas sem pressão.'],
+  ['✦', 'IA quando você travar', 'Uma base para rotina, treino, cardápio e cuidados; você revisa tudo do seu jeito.'],
+  ['⏱️', 'Foco sem cobrança', 'Use o Pomodoro para dar atenção a uma coisa de cada vez e retomar seu ritmo.'],
+  ['💰', 'Vida prática organizada', 'Finanças, casa e compras para o cotidiano não ficar espalhado em vários aplicativos.'],
+];
 
 export default function Landing() {
-  const [mode, setMode] = useState<Mode>('today');
-  const [waterLevel, setWaterLevel] = useState(900);
-  const openApp = () => window.location.assign('/app');
-  const checkouts = { mensal: 'https://pay.kiwify.com.br/yIJKlLK', trimestral: 'https://pay.kiwify.com.br/UKuHm32', anual: 'https://pay.kiwify.com.br/a1CTCMt' } as const;
+  const [demo, setDemo] = useState<Demo>('day');
+  const [water, setWater] = useState(1000);
   const buy = (plan: keyof typeof checkouts) => window.location.assign(checkouts[plan]);
-  const waterLiters = (waterLevel / 1000).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  return <main className="sales-flow">
-    <header className="sales-header"><a href="/" className="sales-brand"><img src="/essence-life-logo.png" alt=""/>Essence Life</a><button onClick={openApp}>Já tenho acesso</button></header>
-    <section className="sales-hero"><div className="sales-copy"><span className="sales-pill">✦ SUA ROTINA, DO SEU JEITO</span><h1>Sua rotina, em um só lugar.</h1><p>Lembre, planeje e cuide de você com mais leveza.</p><button className="sales-cta" onClick={()=>document.getElementById('experimente')?.scrollIntoView({behavior:'smooth'})}>CONHECER O ESSENCE LIFE <b>→</b></button><div className="sales-mini"><span>📱 No celular e computador</span><span>✦ Apoio inteligente</span></div></div><div className="sales-phone"><div className="phone-top"><small>10:42</small><b>Essence Life</b><small>☼</small></div></div></section>
-    <section className="sales-trust"><article><i>⚡</i><b>Acesso imediato</b><span>Comece assim que sua compra for confirmada.</span></article><article><i>♡</i><b>7 dias de garantia</b><span>Conheça a experiência com tranquilidade.</span></article><article><i>🔒</i><b>Compra segura</b><span>Pagamento processado pela Kiwify.</span></article></section>
-    <section id="experimente" className="try-section"><span className="sales-pill">✦ EXPERIMENTE A SENSAÇÃO</span><h2>Toque em um item e sinta como funciona.</h2><div className="try-tabs">{([['today','Seu dia'],['water','Água'],['smart','IA']] as const).map(([key,label])=><button key={key} className={mode===key?'active':''} onClick={()=>setMode(key)}>{label}</button>)}</div><div className="try-cards" data-mode={mode}/><article className="water-demo" aria-label="Demonstração de registro de água"><div><span>💧 HIDRATAÇÃO DE HOJE</span><b>{waterLiters} L</b><small>de 2,5 L</small></div><div className="water-bar" aria-hidden="true"><i style={{width:`${Math.min(100,waterLevel/25)}%`}}/></div><button type="button" onClick={()=>{setMode('water');setWaterLevel(level=>Math.min(2500,level+250))}}>+ 250 ml</button><small className="water-hint">Toque para registrar um copo e preencher a barra.</small></article></section>
-    <section className="feature-split"><div><span>ROTINA POSSÍVEL</span><h2>Pare de montar sua rotina do zero toda semana.</h2><p>Tudo o que importa para o seu dia, sem excesso.</p><ul><li>Visão do dia, da semana e do mês</li><li>Lembretes no horário que você escolhe</li><li>Hábitos flexíveis para não desistir na primeira semana difícil</li></ul></div><aside><small>✦ IA QUANDO VOCÊ PRECISAR</small><b>Uma base de rotina em minutos, feita para adaptar.</b><p>Peça uma sugestão para rotina, treino, alimentação ou autocuidado e deixe com a sua cara.</p></aside></section>
-    <section className="feature-split reverse"><aside className="habit-card"><small>CONSTÂNCIA</small><b>Hábitos que finalmente ficam de pé.</b><p>Sem meta irreal. Você escolhe o ritmo e acompanha cada pequeno avanço.</p></aside><div><span>VIDA REAL</span><h2>Cuide de tudo sem esquecer de você.</h2><p>Use só o que fizer sentido para você.</p><ul><li>Registre sua água e refeições com leveza</li><li>Organize treinos e uma rotina de sono possível</li><li>Crie alertas para remédios, consultas e cuidados</li></ul></div></section>
-    <section id="planos" className="plan-decision"><span>PREMIUM</span><h2>Escolha o ritmo que combina com você.</h2><p>Todos os planos liberam a experiência completa do Essence Life.</p><div className="decision-grid decision-grid-premium"><article><small>PREMIUM MENSAL</small><h3>Comece no seu ritmo</h3><strong><b>R$ 39,90</b></strong><em>por mês · renovação mensal</em><ul><li>Todos os módulos do Essence Life</li><li>IA, lembretes e planejamento inteligente</li><li>Acesso completo enquanto a assinatura estiver ativa</li></ul><button onClick={()=>buy('mensal')}>QUERO O MENSAL →</button></article><article><small>✦ MAIS EQUILÍBRIO</small><h3>Mais tempo para a sua rotina</h3><strong><b>R$ 99,90</b></strong><em>a cada 3 meses</em><p className="decision-saving">Economize R$ 19,80</p><ul><li>Todos os módulos do Essence Life</li><li>IA, lembretes e planejamento inteligente</li><li>Acesso completo enquanto a assinatura estiver ativa</li></ul><button onClick={()=>buy('trimestral')}>QUERO O TRIMESTRAL →</button></article><article className="pro"><small>✦ MELHOR VALOR</small><h3>Um ano de leveza</h3><strong><b>R$ 319,90</b></strong><em>por ano</em><p className="decision-saving">Economize R$ 158,90</p><ul><li>Todos os módulos do Essence Life</li><li>IA, lembretes e planejamento inteligente</li><li>Acesso completo enquanto a assinatura estiver ativa</li></ul><button onClick={()=>buy('anual')}>QUERO O ANUAL →</button></article></div><footer>🔒 Compra 100% segura &nbsp; • &nbsp; ⚡ Acesso imediato &nbsp; • &nbsp; ♡ 7 dias de garantia</footer></section>
-  </main>
+  const goToPlans = () => document.getElementById('planos')?.scrollIntoView({ behavior: 'smooth' });
+  const waterPct = Math.min(100, Math.round(water / 25));
+  const waterText = (water / 1000).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+  return <main className="sales-flow sales-refresh">
+    <header className="sales-header">
+      <a href="/" className="sales-brand"><img src="/essence-life-logo.png" alt=""/>Essence Life</a>
+      <button type="button" onClick={() => window.location.assign('/app')}>Já tenho acesso</button>
+    </header>
+
+    <section className="sales-hero sales-refresh-hero">
+      <div className="sales-copy">
+        <span className="sales-pill">✦ SUA VIDA, NO SEU RITMO</span>
+        <h1>Você não precisa lembrar de tudo sozinha.</h1>
+        <p>O Essence Life organiza tarefas, compromissos, hábitos e autocuidado para que a correria não faça você esquecer de beber água, tomar um remédio ou cuidar de você.</p>
+        <div className="sales-hero-actions">
+          <button className="sales-cta" type="button" onClick={() => document.getElementById('recursos')?.scrollIntoView({ behavior: 'smooth' })}>CONHECER O ESSENCE LIFE <b>→</b></button>
+          <button className="sales-text-cta" type="button" onClick={goToPlans}>Ver planos</button>
+        </div>
+        <div className="sales-mini"><span>✦ Organização sem rigidez</span><span>🔔 Lembretes no seu ritmo</span><span>📱 Celular e computador</span></div>
+      </div>
+      <div className="sales-phone sales-real-phone" aria-label="Tela real do aplicativo Essence Life"/>
+    </section>
+
+    <section className="sales-trust sales-refresh-trust">
+      <article><i>⚡</i><b>Acesso imediato</b><span>Entre assim que sua compra for confirmada.</span></article>
+      <article><i>♡</i><b>7 dias de garantia</b><span>Conheça a experiência com tranquilidade.</span></article>
+      <article><i>🔒</i><b>Compra segura</b><span>Pagamento protegido pela Kiwify.</span></article>
+    </section>
+
+    <section className="sales-problem">
+      <span className="sales-pill">PARA A VIDA REAL</span>
+      <h2>Quando a cabeça já está cheia, qualquer detalhe pode escapar.</h2>
+      <p>O Essence Life não é sobre fazer mais. É sobre tirar da memória o que pesa e deixar o seu dia mais claro.</p>
+      <div>
+        <article><span>🧠</span><b>Menos coisas na cabeça</b><small>Registre na hora e pare de tentar guardar tudo.</small></article>
+        <article><span>🔔</span><b>Mais chance de lembrar</b><small>Configure alertas para horários e cuidados importantes.</small></article>
+        <article><span>🌿</span><b>Mais leveza para continuar</b><small>Planeje o possível, inclusive nos dias que não saem como esperado.</small></article>
+      </div>
+      <small className="sales-disclaimer">Uma ferramenta de organização e bem-estar; não substitui acompanhamento médico, psicológico ou nutricional.</small>
+    </section>
+
+    <section id="recursos" className="sales-modules">
+      <span className="sales-pill">TUDO CONVERSA ENTRE SI</span>
+      <h2>Um app para lembrar, organizar e se cuidar.</h2>
+      <p>Escolha os módulos que fazem sentido hoje. O resto pode esperar.</p>
+      <div className="sales-module-grid">{modules.map(([icon,title,copy]) => <article key={title}><i>{icon}</i><h3>{title}</h3><p>{copy}</p></article>)}</div>
+    </section>
+
+    <section className="sales-demo">
+      <div className="sales-demo-copy"><span className="sales-pill">EXPERIMENTE A SENSAÇÃO</span><h2>Um toque e seu próximo passo fica visível.</h2><p>É assim que o Essence Life ajuda: uma ação pequena por vez, sem bagunça e sem culpa.</p><div className="try-tabs">{([['day','Seu dia'],['water','Água'],['reminders','Lembretes']] as const).map(([key,label]) => <button type="button" key={key} className={demo === key ? 'active' : ''} onClick={() => setDemo(key)}>{label}</button>)}</div></div>
+      <article className="sales-demo-device">
+        {demo === 'day' && <><img src="/essence-app-home.png" alt="Tela inicial do Essence Life"/><div className="sales-demo-overlay"><small>PRÓXIMO PASSO</small><b>Café da tarde</b><span>Hoje, às 16:00</span></div></>}
+        {demo === 'water' && <><img src="/essence-app-water.png" alt="Tela de hidratação do Essence Life"/><div className="sales-water-interaction"><div><small>ÁGUA DE HOJE</small><b>{waterText} L <em>de 2,5 L</em></b></div><div className="water-bar"><i style={{width: `${waterPct}%`}}/></div><button type="button" onClick={() => setWater(value => Math.min(2500, value + 250))}>+ 250 ml</button></div></>}
+        {demo === 'reminders' && <div className="sales-reminder-demo"><span>🔔</span><small>LEMBRETE DO ESSENCE LIFE</small><h3>Hora de beber água</h3><p>Um copo agora já conta para a sua meta de hoje.</p><button type="button" onClick={() => setDemo('water')}>Registrar 250 ml</button></div>}
+      </article>
+    </section>
+
+    <section className="sales-how">
+      <span className="sales-pill">COMECE DO SEU JEITO</span>
+      <h2>Não é mais uma rotina impossível para cumprir.</h2>
+      <div><article><b>1</b><h3>Conte o que importa</h3><p>Algumas respostas rápidas mostram por onde começar.</p></article><article><b>2</b><h3>Monte um dia possível</h3><p>Organize o que cabe na sua realidade, não em uma agenda perfeita.</p></article><article><b>3</b><h3>Use como apoio diário</h3><p>O app lembra, acompanha e ajuda você a recomeçar quando precisar.</p></article></div>
+    </section>
+
+    <section id="planos" className="plan-decision sales-plans-refresh">
+      <span>ACESSO PREMIUM</span>
+      <h2>Escolha o tempo que combina com você.</h2>
+      <p>Os três planos incluem todos os módulos e a experiência completa do Essence Life.</p>
+      <div className="decision-grid decision-grid-premium">
+        <article><small>PREMIUM MENSAL</small><h3>Comece no seu ritmo</h3><strong><b>R$ 39,90</b></strong><em>por mês · renovação mensal</em><ul><li>Todos os módulos do app</li><li>Lembretes, IA e planejamento</li><li>Cancele quando quiser</li></ul><button type="button" onClick={() => buy('mensal')}>QUERO O MENSAL →</button></article>
+        <article className="featured"><small>✦ MAIS EQUILÍBRIO</small><h3>Mais tempo para sua rotina</h3><strong><b>R$ 99,90</b></strong><em>a cada 3 meses</em><p className="decision-saving">Economize R$ 19,80</p><ul><li>Todos os módulos do app</li><li>Lembretes, IA e planejamento</li><li>Renovação trimestral</li></ul><button type="button" onClick={() => buy('trimestral')}>QUERO O TRIMESTRAL →</button></article>
+        <article className="pro"><small>✦ MELHOR VALOR</small><h3>Um ano de leveza</h3><strong><b>R$ 319,90</b></strong><em>por ano</em><p className="decision-saving">Economize R$ 158,90</p><ul><li>Todos os módulos do app</li><li>Lembretes, IA e planejamento</li><li>Melhor custo por mês</li></ul><button type="button" onClick={() => buy('anual')}>QUERO O ANUAL →</button></article>
+      </div>
+      <footer>🔒 Compra segura &nbsp; • &nbsp; ⚡ Acesso imediato &nbsp; • &nbsp; ♡ 7 dias de garantia</footer>
+    </section>
+  </main>;
 }
