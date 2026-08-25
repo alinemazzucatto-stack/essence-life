@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-type Demo = 'day' | 'water' | 'reminders';
+type Demo = 'day' | 'agenda' | 'pomodoro' | 'reminders';
 
 const checkouts = {
   mensal: 'https://pay.kiwify.com.br/yIJKlLK',
@@ -19,11 +19,14 @@ const modules = [
 
 export default function Landing() {
   const [demo, setDemo] = useState<Demo>('day');
-  const [water, setWater] = useState(1000);
+  const demoScreens: Record<Demo, { label: string; description: string; src: string }> = {
+    day: { label: 'Início', description: 'Prioridades, hábitos e o próximo passo em um só lugar.', src: '/sales-home.png' },
+    agenda: { label: 'Agenda', description: 'Seu dia visualizado por horário, com tarefas e compromissos.', src: '/sales-agenda.png' },
+    pomodoro: { label: 'Foco', description: 'Um ciclo de cada vez para proteger sua concentração.', src: '/sales-pomodoro.png' },
+    reminders: { label: 'Lembretes', description: 'Lembretes configuráveis para aquilo que você não quer esquecer.', src: '/sales-reminders.png' },
+  };
   const buy = (plan: keyof typeof checkouts) => window.location.assign(checkouts[plan]);
   const goToPlans = () => document.getElementById('planos')?.scrollIntoView({ behavior: 'smooth' });
-  const waterPct = Math.min(100, Math.round(water / 25));
-  const waterText = (water / 1000).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return <main className="sales-flow sales-refresh">
     <header className="sales-header">
@@ -71,11 +74,10 @@ export default function Landing() {
     </section>
 
     <section className="sales-demo">
-      <div className="sales-demo-copy"><span className="sales-pill">EXPERIMENTE A SENSAÇÃO</span><h2>Um toque e seu próximo passo fica visível.</h2><p>É assim que o Essence Life ajuda: uma ação pequena por vez, sem bagunça e sem culpa.</p><div className="try-tabs">{([['day','Seu dia'],['water','Água'],['reminders','Lembretes']] as const).map(([key,label]) => <button type="button" key={key} className={demo === key ? 'active' : ''} onClick={() => setDemo(key)}>{label}</button>)}</div></div>
-      <article className="sales-demo-device">
-        {demo === 'day' && <><img src="/essence-app-home.png" alt="Tela inicial do Essence Life"/><div className="sales-demo-overlay"><small>PRÓXIMO PASSO</small><b>Café da tarde</b><span>Hoje, às 16:00</span></div></>}
-        {demo === 'water' && <><img src="/essence-app-water.png" alt="Tela de hidratação do Essence Life"/><div className="sales-water-interaction"><div><small>ÁGUA DE HOJE</small><b>{waterText} L <em>de 2,5 L</em></b></div><div className="water-bar"><i style={{width: `${waterPct}%`}}/></div><button type="button" onClick={() => setWater(value => Math.min(2500, value + 250))}>+ 250 ml</button></div></>}
-        {demo === 'reminders' && <div className="sales-reminder-demo"><span>🔔</span><small>LEMBRETE DO ESSENCE LIFE</small><h3>Hora de beber água</h3><p>Um copo agora já conta para a sua meta de hoje.</p><button type="button" onClick={() => setDemo('water')}>Registrar 250 ml</button></div>}
+      <div className="sales-demo-copy"><span className="sales-pill">CONHEÇA POR DENTRO</span><h2>Um toque e seu próximo passo fica visível.</h2><p>Veja as telas reais do Essence Life: organização, foco e lembretes para a sua rotina.</p><div className="try-tabs">{(['day', 'agenda', 'pomodoro', 'reminders'] as Demo[]).map((item) => <button type="button" key={item} className={demo === item ? 'active' : ''} onClick={() => setDemo(item)}>{demoScreens[item].label}</button>)}</div></div>
+      <article className="sales-demo-device sales-demo-screen">
+        <img src={demoScreens[demo].src} alt={`Tela ${demoScreens[demo].label} do aplicativo Essence Life`}/>
+        <div className="sales-screen-caption"><small>{demoScreens[demo].label}</small><b>{demoScreens[demo].description}</b></div>
       </article>
     </section>
 
