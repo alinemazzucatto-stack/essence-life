@@ -921,3 +921,6 @@ html,body,#root{min-height:100%;min-height:100dvh}
 
 /* Pomodoro — título centralizado acima do cronômetro */
 .pomodoro-card .pomodoro-head{display:grid!important;place-items:center!important;justify-content:center!important;text-align:center!important}.pomodoro-card .pomodoro-head>div{display:grid!important;place-items:center!important;text-align:center!important;width:100%!important}.pomodoro-card .pomodoro-head h3{margin:5px 0 0!important;text-align:center!important}.pomodoro-card .pomodoro-head>span{display:none!important}
+
+/* Página de vendas — três planos Premium */
+.decision-grid-premium{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1060px}.decision-grid-premium article{min-height:400px}.decision-grid-premium .decision-saving{margin:-3px 0 0;color:#a55f58;font-size:12px;font-weight:800}.decision-grid-premium article.pro .decision-saving{color:#f1ce98}.decision-grid-premium article strong{display:block;margin-top:3px}.decision-grid-premium article strong b{font-size:30px}@media(max-width:820px){.decision-grid-premium{grid-template-columns:1fr;max-width:460px}.decision-grid-premium article{min-height:0}}
