@@ -70,3 +70,20 @@ export const scheduleHydrationReminders = async (intervalMinutes: number) => {
     })),
   });
 };
+
+export const scheduleDailyReminder = async (id: string, title: string, time: string, enabled: boolean) => {
+  if (!Capacitor.isNativePlatform()) return;
+  const notificationId = 840000 + Array.from(id).reduce((total, char) => (total * 31 + char.charCodeAt(0)) % 100000, 0);
+  await LocalNotifications.cancel({ notifications: [{ id: notificationId }] });
+  if (!enabled) return;
+  const [hour, minute] = time.split(':').map(Number);
+  if (!Number.isFinite(hour) || !Number.isFinite(minute)) return;
+  await LocalNotifications.schedule({
+    notifications: [{
+      id: notificationId,
+      title: 'Essence Life',
+      body: title,
+      schedule: { on: { hour, minute }, repeats: true, allowWhileIdle: true },
+    }],
+  });
+};
