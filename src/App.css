@@ -932,3 +932,6 @@ html,body,#root{min-height:100%;min-height:100dvh}
 .home-timeline-item .home-item-title .home-row-icon{display:inline-grid!important;place-items:center!important;width:23px!important;height:23px!important;flex:0 0 23px!important;border-radius:50%!important;background:#f2edff!important;font-size:14px!important;line-height:1!important}
 .home-timeline-item .home-item-copy>small{grid-row:3!important;margin-left:30px!important;text-align:left!important}
 @media(max-width:420px){.home-timeline-item .home-item-meta{gap:5px!important}.home-timeline-item .home-item-title{font-size:14px!important}.home-timeline-item .home-item-copy>small{margin-left:30px!important}}
+/* Hidratação segue a mesma hierarquia: etiqueta primeiro, título abaixo. */
+.home-water-habit .water-habit-head>div:nth-child(2){display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:6px!important;min-width:0!important}
+.home-water-habit .water-habit-head>div:nth-child(2)>b{display:flex!important;align-items:center!important;gap:7px!important;width:100%!important;margin:0!important;text-align:left!important}
