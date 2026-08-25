@@ -935,3 +935,11 @@ html,body,#root{min-height:100%;min-height:100dvh}
 /* Hidratação segue a mesma hierarquia: etiqueta primeiro, título abaixo. */
 .home-water-habit .water-habit-head>div:nth-child(2){display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:6px!important;min-width:0!important}
 .home-water-habit .water-habit-head>div:nth-child(2)>b{display:flex!important;align-items:center!important;gap:7px!important;width:100%!important;margin:0!important;text-align:left!important}
+/* Abertura do aplicativo: leve, breve e centrada em qualquer tela. */
+.essence-launch{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:radial-gradient(circle at 50% 42%,#fff 0 26%,#fff8fa 66%,#f3e4e8 100%);color:#5d3437;animation:essence-launch-in .46s ease-out both}
+.essence-launch img{width:min(50vw,238px);height:min(50vw,238px);object-fit:contain;filter:drop-shadow(0 14px 24px rgba(112,61,64,.14));animation:essence-logo-float 1.1s cubic-bezier(.2,.8,.2,1) both}
+.essence-launch span{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.03em;animation:essence-wordmark .7s .24s ease-out both}
+@keyframes essence-launch-in{from{opacity:0}to{opacity:1}}
+@keyframes essence-logo-float{0%{opacity:0;transform:scale(.74) translateY(12px)}68%{opacity:1;transform:scale(1.04) translateY(-3px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes essence-wordmark{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.essence-launch,.essence-launch img,.essence-launch span{animation:none}}
