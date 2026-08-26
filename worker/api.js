@@ -1,3 +1,4 @@
+/* oxlint-disable no-unused-vars -- concatenated into the generated Sites worker */
 async function handleApi(request,env){
   const url=new URL(request.url);
   const pushResponse=await handlePushApi(request,env,url);if(pushResponse)return pushResponse;

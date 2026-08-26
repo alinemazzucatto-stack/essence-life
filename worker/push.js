@@ -1,3 +1,4 @@
+/* oxlint-disable no-unused-vars -- concatenated into the generated Sites worker */
 const pushJson=(data,status=200)=>Response.json(data,{status,headers:{'cache-control':'no-store'}});
 const pushServiceHeaders=env=>({apikey:env.SUPABASE_SECRET_KEY,'content-type':'application/json'});
 const pushBase64Url=value=>{const bytes=value instanceof Uint8Array?value:new TextEncoder().encode(value);let binary='';for(const byte of bytes)binary+=String.fromCharCode(byte);return btoa(binary).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'')};
