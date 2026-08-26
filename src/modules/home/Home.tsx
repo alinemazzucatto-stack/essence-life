@@ -22,7 +22,7 @@ return ({'saúde':'🩺','bem-estar':'🌿','treinos':'🏋️','casa':'🏠','t
 };
 function Home({session,pendingHabits,pendingTasks,completedHabits,completedTasks,totalToday,completedToday,dayProgress,waterToday,quickCreate,setQuickCreate,openPage,registerHomeWater,unregisterHomeWater,completeHomeHabit,completeHomeTask,setHomeTasks,setHomeHabits}:HomeProps){
 const [notice,setNotice]=useState('');
-const [energy,setEnergy]=useState<EnergyLevel>(()=>read<EnergyLevel>(`essence:daily-energy:`,'steady'));
+const [energy,setEnergy]=useState<EnergyLevel>(()=>read<Record<string,EnergyLevel>>('essence:daily-energy',{})[today()]||'steady');
 const quickCreateRef=useRef<HTMLElement|null>(null);
 useEffect(()=>{if(!quickCreate)return;const revealTitle=()=>{const title=quickCreateRef.current?.querySelector<HTMLInputElement>('input[name="title"]');quickCreateRef.current?.scrollIntoView({behavior:'smooth',block:'start'});title?.focus({preventScroll:true});title?.scrollIntoView({behavior:'smooth',block:'center'})};const timers=[0,360,850].map(delay=>window.setTimeout(revealTitle,delay));window.visualViewport?.addEventListener('resize',revealTitle);return()=>{timers.forEach(window.clearTimeout);window.visualViewport?.removeEventListener('resize',revealTitle)}},[quickCreate]);
 const showNotice=(message:string)=>{setNotice(message);window.setTimeout(()=>setNotice(''),2600)};
@@ -40,7 +40,7 @@ low:{title:'Hoje está mais difícil',text:'Vamos reduzir a pressão e cuidar ap
 steady:{title:'No seu ritmo',text:'Seu planejamento continua leve e pode ser ajustado ao longo do dia.'},
 high:{title:'Você está com energia',text:'Aproveite o momento para adiantar uma prioridade sem sobrecarregar o restante do dia.'}
 }[energy];
-const updateEnergy=(level:EnergyLevel)=>{setEnergy(level);localStorage.setItem(`essence:daily-energy:${today()}`,JSON.stringify(level));showNotice('Ritmo do dia atualizado')};
+const updateEnergy=(level:EnergyLevel)=>{setEnergy(level);const history=read<Record<string,EnergyLevel>>('essence:daily-energy',{});localStorage.setItem('essence:daily-energy',JSON.stringify({...history,[today()]:level}));showNotice('Ritmo do dia atualizado')};
 const dateLabel=new Intl.DateTimeFormat('pt-BR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
 return <section className="home home-v2">
 <article className="hero home-dashboard-hero"><div className="home-welcome"><small>{dateLabel}</small><h3>{greeting()}, {session.name}!</h3><p>{totalToday?<>Você concluiu <b>{completedToday} de {totalToday}</b> ações de hoje.</>:'Seu dia está livre. Escolha um pequeno passo para começar.'}</p></div><div className="home-progress-ring" style={{'--progress':`${dayProgress}%`} as React.CSSProperties}><span><strong>{dayProgress}%</strong><small>do dia</small></span><div className="home-progress-track"><i style={{width:dayProgress+'%'}}/></div></div><div className="home-next"><small>PRÓXIMO PASSO</small><b>{nextTask?.title||timeline[0]?.title||'Planejar com leveza'}</b><span>{nextTask?.time||timeline[0]?.time||'No seu ritmo'}</span><button className="primary" onClick={()=>openPage('agenda')}>Ver meu dia</button></div></article>
