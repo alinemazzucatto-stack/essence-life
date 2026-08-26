@@ -16,7 +16,7 @@ const [app, home, profile, access, notifications, capacitor, packageJson] = awai
 const contract = (condition, message) => assert.equal(Boolean(condition), true, message);
 
 contract(app.includes("Capacitor.isNativePlatform()"), 'Native platform detection was removed');
-contract(app.includes("const appRoute=nativeApp||path==='/app'||path==='/app/'"), 'Native app no longer opens the app route directly');
+contract(app.includes('const appRoute=nativeApp||isProtectedAppPath(path)'), 'Native app no longer opens the app route directly');
 contract(app.includes("appRoute?<EssenceApp/>:<DiscoveryQuiz/>"), 'Sales quiz is no longer isolated from the installed app');
 contract(app.includes("sessionStorage.getItem('essence:launch-played')"), 'Launch animation may repeat in the same session');
 
