@@ -23,3 +23,16 @@ dist-ssr
 *.sln
 *.sw?
 /.openai/*.tgz
+# Local build and deployment artifacts
+/*.apk
+/*.tar.gz
+/.sites-v*/
+/site-package.*
+
+# Local audit/refactor workspaces and generated media
+/refactor-*-work/
+/output/
+
+# Historical source snapshots kept outside the active source tree
+*.broken-backup
+*.finance-refactor-backup
