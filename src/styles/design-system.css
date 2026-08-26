@@ -1,0 +1,140 @@
+/* Essence Life design system.
+ * Keep shared visual rules here instead of adding module-specific overrides.
+ */
+:root {
+  --essence-page: #f1dfdf;
+  --essence-surface: #fffaf8;
+  --essence-surface-raised: #fffdfb;
+  --essence-soft: #f4dede;
+  --essence-soft-strong: #efd0cb;
+  --essence-border: #dfbdb7;
+  --essence-accent: #c9857b;
+  --essence-accent-light: #e7b5ae;
+  --essence-ink: #3d2b2a;
+  --essence-muted: #806f6c;
+  --essence-success: #58af72;
+  --essence-shadow: 0 10px 24px rgba(91, 55, 54, .1);
+}
+
+html:not([data-theme='dark']):not([data-preset='night']) body,
+html:not([data-theme='dark']):not([data-preset='night']) .app {
+  background: var(--essence-page);
+  color: var(--essence-ink);
+}
+
+html:not([data-theme='dark']):not([data-preset='night']) .app .card {
+  background: linear-gradient(145deg, var(--essence-surface-raised), #fff3f0) !important;
+  border-color: var(--essence-border) !important;
+  box-shadow: var(--essence-shadow) !important;
+}
+
+html:not([data-theme='dark']):not([data-preset='night']) .app :is(
+  .quick-actions-grid > button,
+  .wellbeing-grid > button,
+  .settings-choice-grid > button,
+  .theme-preset-grid > button,
+  .house-cats button,
+  .workout-models button,
+  .finance-budget,
+  .finance-goal,
+  .agenda-item,
+  .routine-item,
+  .diary-entry
+) {
+  background: linear-gradient(145deg, #fae9e6, var(--essence-soft-strong)) !important;
+  border-color: #d8aaa1 !important;
+  color: var(--essence-ink) !important;
+}
+
+html:not([data-theme='dark']):not([data-preset='night']) .app :is(
+  button.primary,
+  a.primary,
+  .primary,
+  .tabs button.active,
+  .finance-tabs button.active,
+  .profile-tabs button.active,
+  .routine-tabs button.active,
+  .workout-tabs button.active,
+  .diary-tabs button.active,
+  .cycle-tabs button.active,
+  .nutrition-tabs button.active,
+  .sleep-tabs button.active,
+  .agenda-tabs button.active,
+  .beauty-nav button.active,
+  .house-tabs button.active,
+  .settings-tabs button.active
+) {
+  background: linear-gradient(100deg, var(--essence-accent), var(--essence-accent-light)) !important;
+  border-color: var(--essence-accent) !important;
+  color: var(--essence-ink) !important;
+  -webkit-text-fill-color: var(--essence-ink) !important;
+}
+
+html:not([data-theme='dark']):not([data-preset='night']) .app :is(
+  .tabs,
+  .finance-tabs,
+  .profile-tabs,
+  .routine-tabs,
+  .workout-tabs,
+  .diary-tabs,
+  .cycle-tabs,
+  .nutrition-tabs,
+  .sleep-tabs,
+  .agenda-tabs,
+  .beauty-nav,
+  .house-tabs,
+  .settings-tabs,
+  .agenda-periods
+) {
+  background: var(--essence-surface) !important;
+  border: 1px solid var(--essence-border) !important;
+  border-radius: 15px !important;
+}
+
+html:not([data-theme='dark']):not([data-preset='night']) .app :is(
+  .tabs,
+  .finance-tabs,
+  .profile-tabs,
+  .routine-tabs,
+  .workout-tabs,
+  .diary-tabs,
+  .cycle-tabs,
+  .nutrition-tabs,
+  .sleep-tabs,
+  .agenda-tabs,
+  .beauty-nav,
+  .house-tabs,
+  .settings-tabs,
+  .agenda-periods
+) > button:not(.active) {
+  background: var(--essence-surface-raised) !important;
+  border: 1px solid var(--essence-border) !important;
+  color: #573737 !important;
+}
+
+.app :is(.card-head, .hero, [class$='-hero']) {
+  min-width: 0;
+}
+
+.app :is(.card-head, .hero, [class$='-hero']) :is(h1, h2, h3, p),
+.app :is(.card-head, .hero, [class$='-hero']) > div {
+  max-width: 100%;
+}
+
+.app :is(button, a.primary, label.backup-upload) {
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .app :is(.card, .hero, [class$='-hero']) {
+    min-width: 0;
+  }
+
+  .app :is(button, a.primary, label.backup-upload) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}

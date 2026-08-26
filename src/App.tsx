@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import './App.css';
+import './styles/design-system.css';
 import { AuthScreen, PurchaseRequired } from './modules/auth';
 import { signOut } from './modules/auth/auth-api';
 
@@ -63,57 +64,3 @@ const completeHomeHabit=(habitId:string)=>setHomeHabits(items=>{const current=it
 const registerHomeWater=()=>{const amount=250;let entries:{id:string;date:string;time:string;ml:number}[]=[];try{const saved=JSON.parse(localStorage.getItem('essence:water-entries')||'[]');if(Array.isArray(saved))entries=saved}catch{}const entry={id:id(),date:today(),time:new Date().toTimeString().slice(0,5),ml:amount};const nextEntries=[entry,...entries];localStorage.setItem('essence:water-entries',JSON.stringify(nextEntries));const nextTotal=nextEntries.filter(item=>item.date===today()).reduce((sum,item)=>sum+(Number(item.ml)||0),0);setWater(nextTotal);localStorage.setItem('essence:water',String(nextTotal));return nextTotal};
 const unregisterHomeWater=()=>{let entries:{id:string;date:string;time:string;ml:number}[]=[];try{const saved=JSON.parse(localStorage.getItem('essence:water-entries')||'[]');if(Array.isArray(saved))entries=saved}catch{}const index=entries.findIndex(item=>item.date===today());if(index<0)return water;const nextEntries=entries.filter((_,entryIndex)=>entryIndex!==index);localStorage.setItem('essence:water-entries',JSON.stringify(nextEntries));const nextTotal=nextEntries.filter(item=>item.date===today()).reduce((sum,item)=>sum+(Number(item.ml)||0),0);setWater(nextTotal);localStorage.setItem('essence:water',String(nextTotal));return nextTotal};return <AuthenticatedLayout session={session} page={page} mobileNavOpen={mobileNavOpen} onToggleMobileNav={()=>setMobileNavOpen(value=>!value)} openPage={openPage} isLocked={isLocked} showPlanLocks={!(developerMode||localHost)} onLogout={()=>{void signOut().finally(()=>{localStorage.removeItem('essence:session');setSession(null);window.location.assign('/')})}}>{lockedFeature?<AccessGate title={pageMeta[lockedFeature.page].title} required={gateRequired} onOpenPlans={openProfilePlans}/>:<>{page==='home'&&<Home session={session} pendingHabits={pendingHabits} pendingTasks={pendingTasks} completedHabits={completedHabits} completedTasks={completedTasks} totalToday={totalToday} completedToday={completedToday} dayProgress={dayProgress} waterToday={water} quickCreate={quickCreate} setQuickCreate={setQuickCreate} openPage={openPage} registerHomeWater={registerHomeWater} unregisterHomeWater={unregisterHomeWater} completeHomeHabit={completeHomeHabit} completeHomeTask={completeHomeTask} setHomeTasks={setHomeTasks} setHomeHabits={setHomeHabits}/>}{page==='agenda'&&<Agenda/>}{page==='pomodoro'&&<Pomodoro/>}{page==='sleep'&&<SleepModule/>}{page==='workouts'&&<Workouts/>}{page==='beauty'&&<BeautyCare/>}{page==='diary'&&<Diary/>}{page==='insights'&&<Insights openPage={openPage}/>} {page==='settings'&&<Settings onInstall={installApp} canInstall={!!installPrompt} isInstalled={isInstalled}/>}
 {page==='profile'&&<Profile session={session} onUpdate={setSession} onInstall={installApp} canInstall={!!installPrompt} isInstalled={isInstalled} onOpenSettings={()=>openPage("settings")}/>}{page==='routine'&&<Routine/>}{page==='cycle'&&<Cycle/>}{page==='finance'&&<Finance canAccess={developerMode||localHost||planMeets(subscription.plan,'premium')} onOpenPlans={()=>openPage('profile')}/>}{page==='house'&&<House canAccessFinance={developerMode||localHost||planMeets(subscription.plan,'premium')}/>} {page==='nutrition'&&<Nutrition setWater={setWater}/>}</>}</AuthenticatedLayout>}function App(){const path=window.location.pathname;const nativeApp=Capacitor.isNativePlatform()||Capacitor.getPlatform()==='android'||Capacitor.getPlatform()==='ios'||window.location.protocol==='capacitor:'||navigator.userAgent.includes('; wv)');const appRoute=nativeApp||isProtectedAppPath(path);const [showLaunch,setShowLaunch]=useState(()=>{if(!appRoute)return false;try{if(sessionStorage.getItem('essence:launch-played')==='true')return false;sessionStorage.setItem('essence:launch-played','true')}catch{}return true});useEffect(()=>{if(!showLaunch)return;const timer=window.setTimeout(()=>setShowLaunch(false),1350);return()=>window.clearTimeout(timer)},[showLaunch]);const checkout=path==='/comprar/essencial'||path==='/comprar/pro';if(showLaunch&&appRoute)return <main className="essence-launch" aria-label="Abrindo Essence Life"><i aria-hidden="true"/><img src="/essence-life-launch.png" alt="Essence Life"/><span>Essence Life</span><small>Organizando seu dia com leveza</small></main>;return <Suspense fallback={moduleFallback}>{checkout?<Checkout/>:appRoute?<EssenceApp/>:<DiscoveryQuiz/>}</Suspense>}export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
