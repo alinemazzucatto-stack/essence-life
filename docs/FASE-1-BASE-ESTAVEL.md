@@ -57,3 +57,15 @@ Esses itens não são necessários para executar a versão atual. Eles foram adi
 - corrigir avisos reais do código ativo;
 - criar testes dos fluxos críticos acima;
 - iniciar a biblioteca visual compartilhada sem modificar a aparência aprovada.
+## Proteções automatizadas adicionadas
+
+O comando `npm test` protege os seguintes contratos:
+
+- aplicativo nativo entra diretamente no app, sem o quiz comercial;
+- animação de abertura não se repete na mesma sessão;
+- tarefas e hábitos podem ser concluídos e reabertos;
+- hidratação acrescenta 250 ml por registro;
+- os três períodos Premium e os três checkouts permanecem configurados;
+- regras de acesso essenciais não mudam silenciosamente;
+- notificações nativas mantêm repetição e funcionamento em segundo plano;
+- proteção de teclado nativo permanece ativa.
