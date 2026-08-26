@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createServer } from 'vite';
 
-const routes = ['/', '/app', '/vendas', '/comprar/essencial', '/comprar/pro'];
+const routes = ['/', '/app', '/app/profile', '/vendas', '/comprar/essencial', '/comprar/pro'];
 const server = await createServer({ logLevel: 'silent', server: { host: '127.0.0.1', port: 0 } });
 
 try {
@@ -31,6 +31,12 @@ try {
   for (const exportName of ['signUp', 'signIn', 'restoreOnlineSession', 'requestPasswordReset', 'updateOnlinePassword', 'changeOnlinePassword', 'readEntitlement', 'signOut', 'isDeveloperEmail']) {
     assert.equal(typeof authApi[exportName], 'function', exportName + ' is not available from auth-api');
   }
+
+  const routeAccess = await server.ssrLoadModule('/src/shared/route-access.ts');
+  assert.equal(routeAccess.isProtectedAppPath('/app'), true);
+  assert.equal(routeAccess.isProtectedAppPath('/app/'), true);
+  assert.equal(routeAccess.isProtectedAppPath('/app/profile'), true);
+  assert.equal(routeAccess.isProtectedAppPath('/comprar/pro'), false);
 
   console.log('Smoke test passed: ' + routes.length + ' routes, access rules, and auth exports.');
 } finally {
