@@ -138,3 +138,17 @@ html:not([data-theme='dark']):not([data-preset='night']) .app :is(
     overflow-wrap: anywhere;
   }
 }
+
+/* Check-in adaptativo do dia */
+.home-energy-checkin { display:grid; gap:16px; text-align:center; }
+.home-energy-checkin h3 { margin:5px 0; }
+.home-energy-checkin p { margin:0; }
+.home-energy-options { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.home-energy-options button { min-height:72px; display:grid; place-items:center; gap:4px; padding:10px; border:1px solid var(--essence-border); border-radius:16px; background:var(--essence-surface-raised); color:var(--essence-ink); font-weight:800; }
+.home-energy-options button span { font-size:22px; }
+.home-energy-options button.active { background:linear-gradient(100deg,var(--essence-accent),var(--essence-accent-light)); box-shadow:0 8px 20px rgba(153,92,84,.16); }
+.home-energy-guidance { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px; border-radius:16px; background:var(--essence-soft); color:var(--essence-ink); }
+.home-energy-guidance div { display:grid; gap:3px; text-align:left; }
+.home-energy-guidance span { color:var(--essence-muted); }
+.home-energy-guidance button { flex:0 0 auto; padding:11px 14px; border:1px solid var(--essence-border); border-radius:12px; background:var(--essence-surface); color:var(--essence-ink); font-weight:800; }
+@media (max-width:560px) { .home-energy-options{grid-template-columns:1fr}.home-energy-options button{min-height:54px;grid-template-columns:auto 1fr}.home-energy-guidance{align-items:stretch;flex-direction:column}.home-energy-guidance button{width:100%} }
