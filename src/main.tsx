@@ -44,6 +44,6 @@ if (Capacitor.isNativePlatform()) {
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js?rev=rose-v42').catch(() => undefined)
+    navigator.serviceWorker.register('/sw.js?rev=adaptive-v43').catch(() => undefined)
   })
 }
