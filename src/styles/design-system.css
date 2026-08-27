@@ -151,7 +151,14 @@ html:not([data-theme='dark']):not([data-preset='night']) .app :is(
 .home-energy-guidance div { display:grid; gap:3px; text-align:left; }
 .home-energy-guidance span { color:var(--essence-muted); }
 .home-energy-guidance button { flex:0 0 auto; padding:11px 14px; border:1px solid var(--essence-border); border-radius:12px; background:var(--essence-surface); color:var(--essence-ink); font-weight:800; }
-@media (max-width:560px) { .home-energy-options{grid-template-columns:1fr}.home-energy-options button{min-height:54px;grid-template-columns:auto 1fr}.home-energy-guidance{align-items:stretch;flex-direction:column}.home-energy-guidance button{width:100%} }
+.home-adaptive-plan { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px; border:1px solid var(--essence-border); border-radius:16px; background:linear-gradient(105deg,var(--essence-surface),var(--essence-soft)); }
+.home-adaptive-plan>div { display:flex; align-items:center; gap:12px; text-align:left; }
+.home-adaptive-plan>div>span { display:grid; place-items:center; flex:0 0 42px; width:42px; height:42px; border-radius:14px; background:var(--essence-surface-raised); font-size:21px; }
+.home-adaptive-plan>div>div { display:grid; gap:2px; }
+.home-adaptive-plan small { color:var(--essence-accent); font-size:9px; font-weight:900; letter-spacing:.12em; }
+.home-adaptive-plan p { margin:0; color:var(--essence-muted); font-size:12px; }
+.home-adaptive-plan button { flex:0 0 auto; padding:11px 14px; border:1px solid var(--essence-border); border-radius:12px; background:linear-gradient(100deg,var(--essence-accent),var(--essence-accent-light)); color:var(--essence-ink); font-weight:850; }
+@media (max-width:560px) { .home-energy-options{grid-template-columns:1fr}.home-energy-options button{min-height:54px;grid-template-columns:auto 1fr}.home-energy-guidance,.home-adaptive-plan{align-items:stretch;flex-direction:column}.home-energy-guidance button,.home-adaptive-plan button{width:100%} }
 /* Revisão semanal integrada */
 .insights-weekly-review { display:grid; gap:16px; }
 .insights-review-title { display:flex; align-items:center; gap:12px; }

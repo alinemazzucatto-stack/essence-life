@@ -33,13 +33,21 @@ const diaryCount=read<{date:string}[]>('essence:diary',[]).filter(entry=>entry.d
 const workoutCount=read<{date:string}[]>('essence:workout-sessions',[]).filter(entry=>entry.date===today()).length;
 const nextTask=[...pendingTasks].sort((a,b)=>{
 const weight=(priority:string)=>priority.toLowerCase()==='alta'?0:priority.toLowerCase()==='baixa'?2:1;
-return weight(a.priority)-weight(b.priority)||(a.time||'99:99').localeCompare(b.time||'99:99');
+const energyWeight=(priority:string)=>energy==='low'?-weight(priority):energy==='high'?weight(priority):0;
+return energyWeight(a.priority)-energyWeight(b.priority)||(a.time||'99:99').localeCompare(b.time||'99:99');
 })[0];
 const energyCopy={
 low:{title:'Hoje está mais difícil',text:'Vamos reduzir a pressão e cuidar apenas do próximo passo possível.'},
 steady:{title:'No seu ritmo',text:'Seu planejamento continua leve e pode ser ajustado ao longo do dia.'},
 high:{title:'Você está com energia',text:'Aproveite o momento para adiantar uma prioridade sem sobrecarregar o restante do dia.'}
 }[energy];
+const careSuggestion=waterToday<750
+?{icon:'💧',title:'Um copo de água',copy:'Um registro rápido para cuidar da hidratação.',action:()=>{const total=registerHomeWater();showNotice('Água registrada · '+total+' ml hoje')}}
+:!sleep
+?{icon:'🌙',title:'Registrar seu sono',copy:'Ajuda o Essence a entender melhor o seu ritmo.',action:()=>openPage('sleep')}
+:diaryCount===0&&energy==='low'
+?{icon:'📘',title:'Uma pausa no diário',copy:'Uma frase já pode aliviar o que está na cabeça.',action:()=>openPage('diary')}
+:{icon:'🌿',title:'Cuidar sem pressão',copy:'Mantenha apenas o próximo passo que fizer sentido.',action:()=>openPage('agenda')};
 const updateEnergy=(level:EnergyLevel)=>{setEnergy(level);const history=read<Record<string,EnergyLevel>>('essence:daily-energy',{});localStorage.setItem('essence:daily-energy',JSON.stringify({...history,[today()]:level}));showNotice('Ritmo do dia atualizado')};
 const dateLabel=new Intl.DateTimeFormat('pt-BR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
 return <section className="home home-v2">
@@ -53,6 +61,7 @@ return <section className="home home-v2">
 <button type="button" className={energy==='high'?'active':''} onClick={()=>updateEnergy('high')}><span>✨</span>Com energia</button>
 </div>
 <div className="home-energy-guidance"><div><b>{energyCopy.title}</b><span>{energyCopy.text}</span></div>{nextTask&&<button type="button" onClick={()=>openPage('agenda')}>Próximo: {nextTask.title}</button>}</div>
+<div className="home-adaptive-plan"><div><span>{careSuggestion.icon}</span><div><small>SUGESTÃO PARA O SEU MOMENTO</small><b>{careSuggestion.title}</b><p>{careSuggestion.copy}</p></div></div><button type="button" onClick={careSuggestion.action}>Fazer agora</button></div>
 </article>
 <article className="card quick-actions"><div className="card-head quick-actions-head"><div><span className="quick-actions-kicker">ATALHOS DO DIA</span><h3>Ações rápidas</h3><p>Registre o que importa sem interromper seu momento.</p></div></div><div className="quick-actions-grid"><button type="button" onClick={()=>setQuickCreate('task')}><span>＋</span><b>Nova tarefa</b></button><button type="button" onClick={()=>setQuickCreate('habit')}><span>✦</span><b>Novo hábito</b></button><button type="button" onClick={()=>{const total=registerHomeWater();showNotice(`Água registrada · ${total} ml hoje`)}}><span>💧</span><b>+ 250 ml de água</b></button><button type="button" onClick={()=>openPage('diary')}><span>✎</span><b>Escrever no diário</b></button></div></article>
 {quickCreate&&<article ref={quickCreateRef} className="card quick-create" tabIndex={-1}><div className="card-head"><div><h3>{quickCreate==='task'?'Nova tarefa':'Novo hábito'}</h3><p>{quickCreate==='task'?'Adicione uma ação para hoje.':'Crie um hábito simples para começar hoje.'}</p></div><button type="button" onClick={()=>setQuickCreate(null)}>Fechar</button></div><form className="form" onSubmit={event=>{event.preventDefault();const form=new FormData(event.currentTarget);const title=String(form.get('title')||'').trim();if(!title)return;const reminderEnabled=form.get('reminderEnabled')==='on',reminderTime=String(form.get('reminderTime')||form.get('time')||'09:00');if(quickCreate==='task'){const entry={id:id(),title,date:today(),time:String(form.get('time')||''),category:String(form.get('category')||'Pessoal'),priority:'Normal',reminderEnabled,reminderTime,done:false};setHomeTasks(items=>{const next=[entry,...items];localStorage.setItem('essence:tasks',JSON.stringify(next));return next});if(reminderEnabled)syncDatedReminder(entry.id,'Tarefa: '+title,entry.date,reminderTime)}else{const entry={id:id(),name:title,time:String(form.get('time')||''),category:String(form.get('category')||'Pessoal'),days:['SEG','TER','QUA','QUI','SEX','SÁB','DOM'],reminderEnabled,reminderTime,done:false};setHomeHabits(items=>{const next=[entry,...items];localStorage.setItem('essence:routine-items',JSON.stringify(next));return next});syncAppReminder(entry.id,'Hábito: '+title,reminderTime,reminderEnabled)}if(reminderEnabled)void requestReminderPermission();showNotice(quickCreate==='task'?'Tarefa adicionada ao dia':'Hábito adicionado ao dia');setQuickCreate(null)}}><label className="wide">{quickCreate==='task'?'O que você precisa fazer?':'Qual hábito deseja criar?'}<input name="title" placeholder={quickCreate==='task'?'Ex.: Enviar mensagem':'Ex.: Caminhar 20 minutos'} required autoFocus onFocus={event=>window.setTimeout(()=>event.currentTarget.scrollIntoView({behavior:'smooth',block:'center'}),120)}/></label><label>Horário<input name="time" type="time"/></label><label>Categoria<select name="category"><option>Pessoal</option><option>Saúde</option><option>Bem-estar</option><option>Trabalho</option><option>Casa</option><option>Estudos</option></select></label><label className="house-check"><input name="reminderEnabled" type="checkbox"/> Ativar lembrete</label><label>Horário do lembrete<input name="reminderTime" type="time" defaultValue="09:00"/></label><button className="primary wide">Adicionar ao meu dia</button></form></article>}
