@@ -1,4 +1,4 @@
-const CACHE = 'essence-life-shell-v43-adaptive';
+const CACHE = 'essence-life-shell-v44-insights';
 self.addEventListener('install', event => { event.waitUntil(self.skipWaiting()) });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))),self.clients.claim()])) });
 self.addEventListener('fetch', event => {
