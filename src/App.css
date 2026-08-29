@@ -987,3 +987,58 @@ html,body,#root{min-height:100%;min-height:100dvh}
   .sales-demo-device.sales-demo-screen { padding: 12px; }
   .sales-demo-device.sales-demo-screen > img { width: min(100%, 290px); max-height: none; }
 }
+/* Agenda focus mode and unscheduled queue */
+.agenda-focus-toggle{display:flex;justify-content:flex-end;margin-top:10px}.agenda-focus-toggle button{border:1px solid #e5cfd0;border-radius:999px;background:#fffaf9;color:#754f54;padding:8px 12px;font:inherit;font-size:11px;font-weight:800;cursor:pointer}.agenda-focus-toggle button.selected{background:#f5e3e5;color:#9d5269;border-color:#d99aae}.agenda-unscheduled{display:grid;gap:8px;margin:14px 0;padding:12px;border:1px solid #ead8d5;border-radius:16px;background:linear-gradient(135deg,#fffaf4,#fff4f5)}.agenda-unscheduled>b{font-size:11px;color:#754f54;letter-spacing:.04em}.agenda-unscheduled button{display:flex;align-items:center;gap:8px;width:100%;border:1px solid #ecd9d4;border-radius:10px;background:#fff;color:#624b4d;padding:9px 10px;text-align:left;font:inherit;font-size:12px;font-weight:700;cursor:pointer}.agenda-unscheduled button:hover,.agenda-unscheduled button:focus-visible{border-color:#c98a9d;outline:none;box-shadow:0 0 0 3px #c98a9d22}
+/* Ajuste fino do menu móvel: conteúdo alinhado mais à esquerda */
+@media (max-width: 1024px){.app aside{padding-left:6px!important;padding-right:10px!important}.app aside .nav-identity{margin-left:2px!important}.app aside .nav-group .nav-section-title{margin-left:4px!important}.app aside .nav-group button{padding-left:6px!important}.app aside .nav-account-group .logout{padding-left:6px!important}}
+
+/* Menu móvel: itens alinhados à esquerda dentro do painel */
+@media (max-width: 1024px){.app aside .nav-group button,.app aside .logout{justify-content:flex-start!important;text-align:left!important}.app aside .nav-group button span:not(:last-child){flex:0 0 auto}.app aside .nav-group button span:nth-child(2){text-align:left!important}.app aside .nav-identity{justify-content:flex-start!important;text-align:left!important}}
+
+/* Menu móvel: painel branco mais compacto e alinhado ao conteúdo */
+@media (max-width: 620px){.app aside{width:min(54vw,215px)!important}}
+
+/* Aparência escolhida em Configurações deve alcançar a fundação inteira do app. */
+body{background:var(--theme-background,#f3e6e1)!important;color:var(--theme-text,#3d2b2a)}
+.app{background:var(--theme-background,#f3e6e1)!important;color:var(--theme-text,#3d2b2a)}
+.app aside{background:linear-gradient(180deg,var(--theme-surface,#fffdfb),var(--theme-background,#f3e6e1))!important;border-color:var(--theme-border,#ead9d0)!important}
+
+/* Override final: a paleta escolhida vence estilos legados do tema Essence. */
+html[data-preset] body,html[data-preset] .app{background:var(--theme-background)!important;color:var(--theme-text)!important}
+html[data-preset] .app .card{background:linear-gradient(180deg,var(--theme-surface),var(--theme-soft))!important;border-color:var(--theme-border)!important;color:var(--theme-text)!important}
+html[data-preset] .app aside,html[data-preset] .app .mobile-topbar{background:linear-gradient(180deg,var(--theme-surface),var(--theme-background))!important;border-color:var(--theme-border)!important}
+html[data-preset] .app :is(.home-dashboard-hero,.hero,.settings-hero,.profile-hero,.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.diary-hero,.beauty-hero,.house-hero){background:linear-gradient(135deg,var(--theme-surface),var(--theme-soft))!important;border-color:var(--theme-border)!important}
+html[data-preset] .app :is(.home-next,.home-inspiration,.growth,.notice,.beauty-reminder,.sleep-audio-note,.sleep-insight-link){background:var(--theme-soft)!important;border-color:var(--theme-border)!important}
+html[data-preset] .app :is(.primary,.settings-tabs button.active,.tabs button.active){background:var(--app-accent)!important;border-color:var(--app-accent)!important}
+
+
+/* A apar�ncia selecionada no html deve prevalecer sobre vari�veis antigas do container. */
+html[data-preset] .app{--app-accent:inherit;--theme-background:inherit;--theme-surface:inherit;--theme-soft:inherit;--theme-border:inherit;--theme-text:inherit}
+
+
+/* Tema escuro completo: todos os elementos principais acompanham o modo selecionado. */
+html[data-theme=dark] body,html[data-theme=dark] .app{background:#15121b!important;color:#f7eff5!important}
+html[data-theme=dark] .app aside,html[data-theme=dark] .app .mobile-topbar{background:#1d1824!important;border-color:#3b3047!important;color:#f7eff5!important}
+html[data-theme=dark] .app main{background:#15121b!important;color:#f7eff5!important}
+html[data-theme=dark] .app .card,html[data-theme=dark] .app .settings-tabs,html[data-theme=dark] .app .tabs,html[data-theme=dark] .app :is(.agenda-tabs,.routine-tabs,.sleep-tabs,.cycle-tabs,.nutrition-tabs,.beauty-nav,.house-tabs,.profile-tabs){background:#211b29!important;border-color:#44364f!important;color:#f7eff5!important}
+html[data-theme=dark] .app :is(.hero,.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.diary-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.home-dashboard-hero){background:linear-gradient(135deg,#2a202f,#211a28)!important;border-color:#5a435c!important;color:#fff7fb!important}
+html[data-theme=dark] .app :is(h1,h2,h3,h4,h5,h6,b,strong,label,legend){color:#fff7fb!important}
+html[data-theme=dark] .app :is(p,small,span,li,time){color:#d6c8d8!important}
+html[data-theme=dark] .app :is(input,select,textarea){background:#2a2232!important;color:#fff7fb!important;border-color:#55435e!important}
+html[data-theme=dark] .app :is(button,.card button,.tabs button){background:#2b2234!important;color:#f7eff5!important;border-color:#55435e!important}
+html[data-theme=dark] .app :is(button:hover,button:focus-visible){background:#3a2d46!important;color:#fff!important}
+html[data-theme=dark] .app :is(.primary,.settings-tabs button.active,.tabs button.active,.agenda-tabs button.active,.routine-tabs button.active,.sleep-tabs button.active,.cycle-tabs button.active,.nutrition-tabs button.active,.beauty-nav button.active,.house-tabs button.active,.profile-tabs button.active){background:linear-gradient(135deg,#b56e98,#7f5a9f)!important;border-color:#c487aa!important;color:#fff!important}
+html[data-theme=dark] .app :is(.nav-group button.active,.settings-choice-grid button.selected){background:#3a2b45!important;color:#f0b9d0!important}
+html[data-theme=dark] .app :is(.home-next,.home-inspiration,.growth,.notice,.beauty-reminder,.sleep-audio-note,.sleep-insight-link){background:#2a2232!important;border-color:#55435e!important}
+html[data-theme=dark] .app .progress,html[data-theme=dark] .app .agenda-progress{background:#44364f!important}
+html[data-theme=dark] .app .progress span,html[data-theme=dark] .app .agenda-progress span{background:linear-gradient(90deg,#c487aa,#8d75bd)!important}
+html[data-theme=dark] .app a,html[data-theme=dark] .app .nav-brand,html[data-theme=dark] .app .card strong{color:#e6a9c5!important}
+
+/* Contraste global do tema escuro: nenhum texto escuro sobre fundo escuro. */
+html[data-theme=dark] body .app :is(h1,h2,h3,h4,h5,h6,p,span,b,strong,small,em,i,label,legend,li,dt,dd,time,a,button){color:#f7eff5!important;-webkit-text-fill-color:#f7eff5!important}
+html[data-theme=dark] body .app :is(input,select,textarea){color:#fff7fb!important;-webkit-text-fill-color:#fff7fb!important}
+html[data-theme=dark] body .app :is(.muted,.subtitle,.hint,.helper,.settings-note,.card p,small,p){color:#d8c9dc!important;-webkit-text-fill-color:#d8c9dc!important}
+html[data-theme=dark] body .app :is(a,.nav-brand,.card strong,.card a,.settings-card>small,.settings-hero b){color:#f0b3cf!important;-webkit-text-fill-color:#f0b3cf!important}
+html[data-theme=dark] body .app :is(.primary,.settings-tabs button.active,.tabs button.active,.agenda-tabs button.active,.routine-tabs button.active,.sleep-tabs button.active,.cycle-tabs button.active,.nutrition-tabs button.active,.beauty-nav button.active,.house-tabs button.active,.profile-tabs button.active){color:#fff!important;-webkit-text-fill-color:#fff!important}
+html[data-theme=dark] body .app :is(.primary,.settings-tabs button.active,.tabs button.active,.agenda-tabs button.active,.routine-tabs button.active,.sleep-tabs button.active,.cycle-tabs button.active,.nutrition-tabs button.active,.beauty-nav button.active,.house-tabs button.active,.profile-tabs button.active) :is(b,strong,span,small,em){color:#fff!important;-webkit-text-fill-color:#fff!important}
+html[data-theme=dark] body .app svg{color:#f0b3cf!important;fill:currentColor}

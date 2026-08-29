@@ -28,6 +28,14 @@ export const requestNotificationPermission = async (): Promise<NotificationPermi
   return status === 'default' ? 'prompt' : status;
 };
 
+const notificationBody = (title: string, category?: string) => {
+  if (category === 'Hidratação') return title + ' · que tal registrar 250 ml?';
+  if (category === 'Medicação') return title + ' · toque para confirmar o registro.';
+  if (category === 'Compromisso') return title + ' · confira seu próximo passo.';
+  if (category === 'Hábito') return title + ' · faça no seu ritmo.';
+  return title;
+};
+
 export const sendNotificationTest = async () => {
   const title = 'Essence Life';
   const body = 'Seu lembrete está funcionando ✨';
@@ -71,7 +79,7 @@ export const scheduleHydrationReminders = async (intervalMinutes: number) => {
   });
 };
 
-export const scheduleDailyReminder = async (id: string, title: string, time: string, enabled: boolean) => {
+export const scheduleDailyReminder = async (id: string, title: string, time: string, enabled: boolean, category?: string) => {
   if (!Capacitor.isNativePlatform()) return;
   const notificationId = 840000 + Array.from(id).reduce((total, char) => (total * 31 + char.charCodeAt(0)) % 100000, 0);
   await LocalNotifications.cancel({ notifications: [{ id: notificationId }] });
@@ -82,7 +90,7 @@ export const scheduleDailyReminder = async (id: string, title: string, time: str
     notifications: [{
       id: notificationId,
       title: 'Essence Life',
-      body: title,
+      body: notificationBody(title, category),
       schedule: { on: { hour, minute }, repeats: true, allowWhileIdle: true },
     }],
   });
