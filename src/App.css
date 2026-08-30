@@ -1042,3 +1042,6 @@ html[data-theme=dark] body .app :is(a,.nav-brand,.card strong,.card a,.settings-
 html[data-theme=dark] body .app :is(.primary,.settings-tabs button.active,.tabs button.active,.agenda-tabs button.active,.routine-tabs button.active,.sleep-tabs button.active,.cycle-tabs button.active,.nutrition-tabs button.active,.beauty-nav button.active,.house-tabs button.active,.profile-tabs button.active){color:#fff!important;-webkit-text-fill-color:#fff!important}
 html[data-theme=dark] body .app :is(.primary,.settings-tabs button.active,.tabs button.active,.agenda-tabs button.active,.routine-tabs button.active,.sleep-tabs button.active,.cycle-tabs button.active,.nutrition-tabs button.active,.beauty-nav button.active,.house-tabs button.active,.profile-tabs button.active) :is(b,strong,span,small,em){color:#fff!important;-webkit-text-fill-color:#fff!important}
 html[data-theme=dark] body .app svg{color:#f0b3cf!important;fill:currentColor}
+
+
+
