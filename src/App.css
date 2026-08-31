@@ -1064,3 +1064,6 @@ body,.app,.app main,.app .authenticated-layout{background:linear-gradient(180deg
 
 /* Shared module heroes and CTA hierarchy */
 .app :is(.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.diary-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.agenda-v3-hero){border-radius:var(--radius-lg,20px)!important;border:1px solid var(--color-border,#ddd4f1)!important;background:linear-gradient(135deg,#fff 0%,var(--color-hero,#f7f3ff) 100%)!important;padding:var(--space-lg,24px)!important;box-shadow:0 10px 24px rgba(71,52,111,.07)!important}.app :is(.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.diary-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.agenda-v3-hero) h1,.app :is(.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.diary-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.agenda-v3-hero) h2{color:var(--color-text,#352a34)!important}.app :is(.card-head,.module-header)>.primary{box-shadow:none!important}.app .card:not(:first-child) .outline,.app .card-head button:not(.primary){background:#fff!important;color:var(--color-primary-dark,#5f45f5)!important}
+
+/* Consistent navigation labels */
+.app aside .nav-group button span:first-child{display:none!important}.app aside .nav-group button{gap:0!important}.app aside .nav-group button span:nth-child(2){margin-left:0!important}
