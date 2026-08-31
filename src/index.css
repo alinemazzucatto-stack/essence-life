@@ -94,3 +94,5 @@ code {
 
 /* Essence Life visual tokens */
 :root{--color-primary:#6e54f7;--color-primary-dark:#5f45f5;--color-highlight:#e95493;--color-text:#352a34;--color-muted:#756a73;--color-border:#ddd4f1;--color-hero:#f7f3ff;--color-positive:#32c896;--color-warning:#f7a000;--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--font-xs:12px;--font-sm:14px;--font-md:16px;--font-lg:20px;--font-xl:24px;--font-2xl:32px;--font-3xl:40px}
+
+:root{--font-body:Inter,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:Inter,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}body{font-family:var(--font-body)}h1,h2,h3,h4,h5,h6,.nav-brand{font-family:var(--font-heading)}
