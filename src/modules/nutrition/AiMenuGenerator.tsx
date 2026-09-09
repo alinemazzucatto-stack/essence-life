@@ -39,7 +39,7 @@ export default function AiMenuGenerator({ profile, onAdd }: { profile: Profile; 
     setAdded(new Set(items.map(item => item.id)));
   };
   return <article className="card nutrition-ai-card">
-    <div className="nutrition-ai-heading"><span aria-hidden="true">✨</span><div><small>RECURSO PRO COM IA</small><h3>Criar sugestões de cardápio</h3><p>A IA usa seu objetivo, número de refeições e preferências para montar uma prévia editável.</p></div></div>
+    <div className="nutrition-ai-heading"><div><h3>Criar sugestões de cardápio</h3><p>A IA usa seu objetivo, número de refeições e preferências para montar uma prévia editável.</p></div><span className="nutrition-ai-orb-wrap"><i className="nutrition-ai-glow" aria-hidden="true"/><img className="nutrition-ai-orb-img" src="/workout-ai-bot.webp" alt="Robô assistente de IA acenando" width="108"/></span></div>
     <div className="nutrition-ai-profile"><span><small>OBJETIVO</small><b>{profile.goal}</b></span><span><small>REFEIÇÕES</small><b>{profile.meals} por dia</b></span><span><small>PREFERÊNCIAS</small><b>{profile.restrictions || 'Não informadas'}</b></span></div>
     <div className="nutrition-ai-controls">
       <label>Período<select value={days} onChange={event => setDays(Number(event.target.value))}><option value={1}>1 dia</option><option value={3}>3 dias</option></select></label>

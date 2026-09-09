@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { createServer } from 'vite';
 
 const routes = ['/', '/app', '/app/profile', '/vendas', '/comprar/essencial', '/comprar/pro'];
-const server = await createServer({ logLevel: 'silent', server: { host: '127.0.0.1', port: 0 } });
+const server = await createServer({ logLevel: 'silent', cacheDir: 'node_modules/.vite-test', server: { host: '127.0.0.1', port: 0 } });
 
 try {
   await server.listen();

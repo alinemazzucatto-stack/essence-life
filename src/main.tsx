@@ -69,6 +69,6 @@ if (notificationAction) {
 }
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js?rev=essence-life-v46').catch(() => undefined)
+    navigator.serviceWorker.register('/sw.js?rev=essence-life-v49-agenda-audit').catch(() => undefined)
   })
 }
