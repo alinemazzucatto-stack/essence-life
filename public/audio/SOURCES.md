@@ -13,4 +13,12 @@ As gravações abaixo são distribuídas em domínio público, CC0 ou outra lice
 - Lareira acesa — “Dry grass burning in open fireplace.ogg”, por ezwa, domínio público: https://commons.wikimedia.org/wiki/File:Dry_grass_burning_in_open_fireplace.ogg
 - Ruído branco — “Whitenoisesound.ogg”, domínio público por ausência de autoria protegível: https://commons.wikimedia.org/wiki/File:Whitenoisesound.ogg
 
-O arquivo de chuva foi incorporado ao app. Os demais sons usam as transcodificações MP3 oficiais do Wikimedia Commons e dependem de conexão com a internet.
+## SoundBible.com (incorporados localmente)
+
+- water.mp3 (Água corrente) — “Water”, por Lisa Redfern, domínio público: https://soundbible.com/2032-Water.html
+- crickets.mp3 (Grilos à noite) — “Crickets Chirping At Night”, por Lisa Redfern, domínio público: https://soundbible.com/2083-Crickets-Chirping-At-Night.html
+- wind.mp3 (Vento suave) — “Wind”, por Stilgar, domínio público: https://soundbible.com/1247-Wind.html
+- temple-bell.mp3 (Sino zen) — “Zen Buddhist Temple Bell”, por Mike Koenig, Atribuição 3.0: https://soundbible.com/1491-Zen-Buddhist-Temple-Bell.html
+- gong.mp3 (Gongo) — “Metal Gong 1”, por Dianakc, Atribuição 3.0: https://soundbible.com/2062-Metal-Gong-1.html
+
+O arquivo de chuva, água corrente, grilos, vento, sino zen e gongo foram incorporados ao app. Os demais sons usam as transcodificações MP3 oficiais do Wikimedia Commons e dependem de conexão com a internet.

@@ -1,0 +1,70 @@
+import { useEffect, useMemo, useRef, useState } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import type { LocalSession } from '../../shared/app.types';
+import type { AppPage } from '../../shared/access-control';
+import { createId as id, greeting, today } from '../../shared/app-utils';
+import { requestReminderPermission, syncAppReminder, syncDatedReminder } from '../../shared/reminders';
+
+type HomeTask={id:string;title:string;date:string;time?:string;category?:string;priority:string;reminderEnabled?:boolean;reminderTime?:string;done:boolean;kind?:'task'|'habit'|'event'};
+type HomeHabit={id:string;name:string;time:string;category:string;days:string[];reminderEnabled?:boolean;reminderTime?:string;done:boolean;doneDate?:string};
+type QuickCreate='task'|'habit'|null;
+type EnergyLevel='low'|'steady'|'high';
+type Mood='tired'|'unfocused'|'neutral'|'good'|'happy';
+type HomeProps={session:LocalSession;pendingHabits:HomeHabit[];pendingTasks:HomeTask[];completedHabits:HomeHabit[];completedTasks:HomeTask[];totalToday:number;completedToday:number;dayProgress:number;waterToday:number;quickCreate:QuickCreate;setQuickCreate:Dispatch<SetStateAction<QuickCreate>>;openPage:(page:AppPage)=>void;registerHomeWater:(amount?:number)=>number;unregisterHomeWater:(amount?:number)=>number;completeHomeHabit:(habitId:string)=>void;completeHomeTask:(taskId:string)=>void;setHomeTasks:Dispatch<SetStateAction<HomeTask[]>>;setHomeHabits:Dispatch<SetStateAction<HomeHabit[]>>};
+
+const read=<T,>(key:string,fallback:T):T=>{try{return JSON.parse(localStorage.getItem(key)||'') as T}catch{return fallback}};
+const categoryIcon=(category:string,title:string)=>{
+const text=`${category} ${title}`.toLowerCase();
+if(text.includes('água')||text.includes('agua')||text.includes('hidrata'))return '💧';
+if(text.includes('remédio')||text.includes('remedio')||text.includes('medica')||text.includes('venlafaxina'))return '💊';
+if(text.includes('treino'))return '🏋️';
+if(text.includes('caminhar')||text.includes('caminhada'))return '🚶';
+return ({'saúde':'🩺','bem-estar':'🌿','treinos':'🏋️','casa':'🏠','trabalho':'💼','estudos':'📚','nutrição':'🥗','sono':'🌙','finanças':'💰','beleza':'🪞','pessoal':'✨'}[category.toLowerCase()]||'✓');
+};
+const moodOptions:{key:Mood;icon:string;label:string;energy:EnergyLevel;color:string}[]=[
+{key:'tired',icon:'😔',label:'Cansada',energy:'low',color:'#dfe3ea'},
+{key:'unfocused',icon:'😕',label:'Sem foco',energy:'low',color:'#f6e8cf'},
+{key:'neutral',icon:'😐',label:'Neutra',energy:'steady',color:'#f3d7de'},
+{key:'good',icon:'🙂',label:'Bem',energy:'steady',color:'#e5e0f5'},
+{key:'happy',icon:'😄',label:'Muito animada',energy:'high',color:'#fbdfcf'},
+];
+const weeklyPhrases=['Pequenos progressos também são progressos','Você não precisa fazer tudo hoje','Cuidar de você também é produtividade','Um passo de cada vez já é o suficiente','Sua constância importa mais que a perfeição','Hoje também é um bom dia para recomeçar','Respeite o seu tempo e o seu ritmo','Cada pequena ação conta'];
+const weeklyPhrase=(()=>{const now=new Date();const start=new Date(now.getFullYear(),0,1);const dayOfYear=Math.floor((now.getTime()-start.getTime())/86400000);const week=Math.floor(dayOfYear/7);return weeklyPhrases[week%weeklyPhrases.length]})();
+function Home({session,pendingHabits,pendingTasks,completedHabits,completedTasks,totalToday,waterToday,quickCreate,setQuickCreate,openPage,registerHomeWater,unregisterHomeWater,completeHomeHabit,completeHomeTask,setHomeTasks,setHomeHabits}:HomeProps){
+const [notice,setNotice]=useState(()=>localStorage.getItem('essence:last-snoozed-notification')?'Lembrete adiado recentemente. Revise quando estiver pronto.':'');useEffect(()=>{if(!notice)return;const timer=window.setTimeout(()=>setNotice(''),4200);return()=>window.clearTimeout(timer)},[notice]);
+const [mood,setMood]=useState<Mood|null>(()=>read<Record<string,Mood>>('essence:daily-mood-v2',{})[today()]||null);
+const energy:EnergyLevel=mood?(moodOptions.find(option=>option.key===mood)?.energy||'steady'):(()=>{const sleeps=read<{date:string;quality?:number}[]>('essence:sleeps',[]);const latest=sleeps.sort((a,b)=>b.date.localeCompare(a.date))[0];return latest?.date===today()&&Number(latest.quality||0)<=2?'low':'steady'})();
+const quickCreateRef=useRef<HTMLElement|null>(null);
+useEffect(()=>{if(!quickCreate)return;const revealTitle=()=>{const title=quickCreateRef.current?.querySelector<HTMLInputElement>('input[name="title"]');quickCreateRef.current?.scrollIntoView({behavior:'smooth',block:'start'});title?.focus({preventScroll:true});title?.scrollIntoView({behavior:'smooth',block:'center'})};const timers=[0,360,850].map(delay=>window.setTimeout(revealTitle,delay));window.visualViewport?.addEventListener('resize',revealTitle);return()=>{timers.forEach(window.clearTimeout);window.visualViewport?.removeEventListener('resize',revealTitle)}},[quickCreate]);
+const showNotice=(message:string)=>{setNotice(message);window.setTimeout(()=>setNotice(''),2600)};
+const updateMood=(value:Mood)=>{setMood(value);const history=read<Record<string,Mood>>('essence:daily-mood-v2',{});localStorage.setItem('essence:daily-mood-v2',JSON.stringify({...history,[today()]:value}))};
+const timeline=useMemo(()=>[...pendingTasks.map(item=>({id:item.id,title:item.title,time:item.time||'',category:item.category||'Pessoal',kind:(item.kind==='event'?'event' as const:'task' as const),done:false})),...pendingHabits.map(item=>({id:item.id,title:item.name,time:item.time||'',category:item.category||'Pessoal',kind:'habit' as const,done:false})),...completedTasks.map(item=>({id:item.id,title:item.title,time:item.time||'',category:item.category||'Pessoal',kind:(item.kind==='event'?'event' as const:'task' as const),done:true})),...completedHabits.map(item=>({id:item.id,title:item.name,time:item.time||'',category:item.category||'Pessoal',kind:'habit' as const,done:true}))].sort((a,b)=>(a.time||'99:99').localeCompare(b.time||'99:99')),[pendingTasks,pendingHabits,completedTasks,completedHabits]);
+const waterGoal=Number(localStorage.getItem('essence:water-goal')||2000);
+const nextBill=read<{type?:string;status?:string;due?:string;title?:string;description?:string}[]>('essence:finance',[]).find(item=>item.type==='Saída'&&item.status==='Pendente'&&!!item.due&&item.due<=today());
+const nextTask=[...pendingTasks].sort((a,b)=>{
+const weight=(priority:string)=>priority.toLowerCase()==='alta'?0:priority.toLowerCase()==='baixa'?2:1;
+const energyWeight=(priority:string)=>energy==='low'?-weight(priority):energy==='high'?weight(priority):0;
+return energyWeight(a.priority)-energyWeight(b.priority)||(a.time||'99:99').localeCompare(b.time||'99:99');
+})[0];
+const nextHabit=[...pendingHabits].sort((a,b)=>a.time.localeCompare(b.time))[0];const nextAction=nextTask?{title:nextTask.title,time:nextTask.time,page:'agenda' as AppPage,kind:'tarefa' as const}:nextHabit?{title:nextHabit.name,time:nextHabit.time,page:'routine' as AppPage,kind:'hábito' as const}:nextBill?{title:nextBill.title||nextBill.description||'Revisar conta pendente',time:'',page:'finance' as AppPage,kind:'conta' as const}:null;
+const nextIcon=nextAction?categoryIcon(nextAction.kind==='conta'?'Finanças':nextAction.kind==='hábito'?'Bem-estar':'Pessoal',nextAction.title):'🌿';
+const pendingCount=pendingTasks.length+pendingHabits.length;
+const dayVibe=(()=>{
+if(totalToday===0)return{icon:'🤍',title:'Um dia tranquilo te espera',body:'Nenhuma tarefa pendente para hoje. Aproveite com intenção.'};
+if(pendingCount===0)return{icon:'🌿',title:'Você concluiu tudo por hoje',body:'Que tal descansar um pouco? Você já fez o suficiente.'};
+if(energy==='low')return{icon:'🌙',title:'Vá com calma hoje',body:'Escolha só o essencial e respeite o seu ritmo.'};
+if(pendingCount>=4)return{icon:'🌷',title:'Um dia mais cheio pela frente',body:`Você tem ${pendingCount} pendências. Uma de cada vez já é o suficiente.`};
+return{icon:'🌼',title:'Um dia leve pela frente',body:`Você tem ${pendingCount===1?'1 pendência':pendingCount+' pendências'} hoje. No seu ritmo.`};
+})();
+return <section className="home home-v2">
+<div className="home-greeting"><h1>{greeting()}, {session.name}</h1><p>{weeklyPhrase}</p></div>
+{notice&&<div className="agenda-toast home-toast" role="status">✓ {notice}</div>}
+<article className="peace-card"><span className="peace-icon" aria-hidden="true">{dayVibe.icon}</span><div><h2>{dayVibe.title}</h2><p>{dayVibe.body}</p></div><span className="flower" aria-hidden="true">🌸</span></article>
+<article className="mood-card"><span className="mood-symbol" aria-hidden="true">💚</span><div className="mood-content"><h2>Como você está hoje?</h2><div className="mood-options">{moodOptions.map(option=><button type="button" key={option.key} className={mood===option.key?'selected':''} onClick={()=>updateMood(option.key)}><span className="mood-icon-circle" aria-hidden="true" style={{background:option.color}}>{option.icon}</span><small>{option.label}</small></button>)}</div></div></article>
+{nextAction&&<article className="next-card"><span className="next-icon" aria-hidden="true">{nextIcon}</span><div className="next-content"><span>SEU PRÓXIMO PASSO</span><h2>{nextAction.title}{nextAction.time?` — ${nextAction.time}`:''}</h2><button type="button" className="primary-button" onClick={()=>openPage(nextAction.page)}>Ver compromisso</button></div><span className="home-next-deco" aria-hidden="true">🌿</span></article>}
+<article className="today-card"><h2>Hoje</h2>{timeline.length?timeline.map(item=><div className={'today-item'+(item.done?' is-done':'')} key={item.kind+item.id}><button type="button" className={'checkbox'+(item.done?' is-done':'')} onClick={()=>{if(item.kind==='habit')completeHomeHabit(item.id);else completeHomeTask(item.id);showNotice(item.done?'Ação reaberta':'Ação concluída')}} aria-label={`Concluir ${item.title}`}/><span className="item-title">{item.title}</span><time>{item.time||'—'}</time></div>):<p className="home-day-empty">Nada por aqui ainda. Toque em "+ Adicionar" para começar.</p>}</article>
+<div className="hydration-row"><button type="button" className={'checkbox'+(waterToday>0?' is-done':'')} onClick={()=>{const total=registerHomeWater();showNotice(`Água registrada · ${total} ml hoje`)}} aria-label="Registrar 250 ml de água"/><article className="hydration-card"><div className="hydration-header"><span aria-hidden="true">💧</span><span className="hydration-label">HIDRATAÇÃO</span><span>{(waterToday/1000).toLocaleString('pt-BR',{minimumFractionDigits:waterToday%1000===0?0:2,maximumFractionDigits:2})} / {(waterGoal/1000).toLocaleString('pt-BR',{maximumFractionDigits:1})} L</span></div><h2>Beber água</h2><div className="water-progress"><div style={{width:Math.min(100,Math.round(waterToday/waterGoal*100))+'%'}}/></div><div className="hydration-actions"><button type="button" disabled={waterToday===0} onClick={()=>{const total=unregisterHomeWater();showNotice(`Registro removido · ${total} ml hoje`)}} aria-label="Remover 250 ml">−</button><button type="button" onClick={()=>{const total=registerHomeWater();showNotice(`Água registrada · ${total} ml hoje`)}} aria-label="Adicionar 250 ml">+</button></div></article></div>
+<button type="button" className="add-button" onClick={()=>setQuickCreate('task')}>+ Adicionar</button>
+{quickCreate&&<article ref={quickCreateRef} className="card quick-create" tabIndex={-1}><div className="card-head"><div><h3>{quickCreate==='task'?'Nova tarefa':'Novo hábito'}</h3><p>{quickCreate==='task'?'Adicione uma ação para hoje.':'Crie um hábito simples para começar hoje.'}</p></div><button type="button" onClick={()=>setQuickCreate(null)}>Fechar</button></div><div className="quick-create-type-switch"><button type="button" className={quickCreate==='task'?'active':''} onClick={()=>setQuickCreate('task')}>Tarefa</button><button type="button" className={quickCreate==='habit'?'active':''} onClick={()=>setQuickCreate('habit')}>Hábito</button></div><form className="form" onSubmit={event=>{event.preventDefault();const form=new FormData(event.currentTarget);const title=String(form.get('title')||'').trim();if(!title)return;const reminderEnabled=form.get('reminderEnabled')==='on',reminderTime=String(form.get('reminderTime')||form.get('time')||'09:00');if(quickCreate==='task'){const entry={id:id(),title,date:today(),time:String(form.get('time')||''),category:String(form.get('category')||'Pessoal'),priority:'Normal',reminderEnabled,reminderTime,done:false};setHomeTasks(items=>{const next=[entry,...items];localStorage.setItem('essence:tasks',JSON.stringify(next));return next});if(reminderEnabled)syncDatedReminder(entry.id,'Tarefa: '+title,entry.date,reminderTime)}else{const entry={id:id(),name:title,time:String(form.get('time')||''),category:String(form.get('category')||'Pessoal'),days:['SEG','TER','QUA','QUI','SEX','SÁB','DOM'],reminderEnabled,reminderTime,done:false};setHomeHabits(items=>{const next=[entry,...items];localStorage.setItem('essence:routine-items',JSON.stringify(next));return next});syncAppReminder(entry.id,'Hábito: '+title,reminderTime,reminderEnabled)}if(reminderEnabled)void requestReminderPermission();showNotice(quickCreate==='task'?'Tarefa adicionada ao dia':'Hábito adicionado ao dia');setQuickCreate(null)}}><label className="wide">{quickCreate==='task'?'O que você precisa fazer?':'Qual hábito deseja criar?'}<input name="title" placeholder={quickCreate==='task'?'Ex.: Enviar mensagem':'Ex.: Caminhar 20 minutos'} required autoFocus onFocus={event=>window.setTimeout(()=>event.currentTarget.scrollIntoView({behavior:'smooth',block:'center'}),120)}/></label><label>Horário<input name="time" type="time"/></label><label>Categoria<select name="category"><option>Pessoal</option><option>Saúde</option><option>Bem-estar</option><option>Trabalho</option><option>Casa</option><option>Estudos</option></select></label><label className="house-check"><input name="reminderEnabled" type="checkbox"/> Ativar lembrete</label><label>Horário do lembrete<input name="reminderTime" type="time" defaultValue="09:00"/></label><button className="primary wide">Adicionar ao meu dia</button></form></article>}
+</section>}
+export default Home;

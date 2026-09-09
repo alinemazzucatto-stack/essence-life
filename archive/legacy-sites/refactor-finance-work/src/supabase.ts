@@ -1,0 +1,16 @@
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://snnqwkjwnnbibikqeurr.supabase.co';
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_dPL3lYONn3QfLE_41tg3xg_Et0LwU6I';
+
+export type OnlineSession = { accessToken:string; refreshToken:string; user:{id:string;email:string;name:string} };
+const SESSION_KEY='essence:online-session';
+const headers={apikey:SUPABASE_KEY,'content-type':'application/json'};
+
+async function parse(response:Response){const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.msg||data.message||data.error_description||'Não foi possível concluir. Tente novamente.');return data}
+function normalize(data:any):OnlineSession|null{const user=data?.user;if(!data?.access_token||!data?.refresh_token||!user?.email)return null;return{accessToken:data.access_token,refreshToken:data.refresh_token,user:{id:user.id,email:user.email.toLowerCase(),name:user.user_metadata?.name||user.email.split('@')[0]}}}
+function save(session:OnlineSession|null){if(session)localStorage.setItem(SESSION_KEY,JSON.stringify(session));else localStorage.removeItem(SESSION_KEY)}
+
+export async function signUp(name:string,email:string,password:string){const response=await fetch(`${SUPABASE_URL}/auth/v1/signup`,{method:'POST',headers,body:JSON.stringify({email,password,data:{name},options:{emailRedirectTo:`${location.origin}/app`}})});const session=normalize(await parse(response));if(session)save(session);return session}
+export async function signIn(email:string,password:string){const response=await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`,{method:'POST',headers,body:JSON.stringify({email,password})});const session=normalize(await parse(response));if(!session)throw new Error('Confirme seu e-mail antes de entrar.');save(session);return session}
+export async function restoreOnlineSession():Promise<OnlineSession|null>{let saved:OnlineSession|null=null;try{saved=JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch{return null}if(!saved?.refreshToken)return null;const response=await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=refresh_token`,{method:'POST',headers,body:JSON.stringify({refresh_token:saved.refreshToken})});if(!response.ok){save(null);return null}const session=normalize(await response.json());save(session);return session}
+export async function readEntitlement(session:OnlineSession):Promise<'free'|'essential'|'premium'>{const response=await fetch(`${SUPABASE_URL}/rest/v1/entitlements?select=plan,status&limit=1`,{headers:{apikey:SUPABASE_KEY,authorization:`Bearer ${session.accessToken}`}});if(!response.ok)return'free';const[row]=await response.json();if(row?.status!=='active')return'free';return row.plan==='pro'?'premium':row.plan==='essential'?'essential':'free'}
+export async function signOut(){let saved:OnlineSession|null=null;try{saved=JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch{}if(saved?.accessToken)await fetch(`${SUPABASE_URL}/auth/v1/logout`,{method:'POST',headers:{apikey:SUPABASE_KEY,authorization:`Bearer ${saved.accessToken}`}}).catch(()=>undefined);save(null)}

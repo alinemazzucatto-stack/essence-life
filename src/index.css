@@ -1,10 +1,10 @@
 :root {
   --text: #6b6375;
-  --text-h: #08060d;
+  --text-h: #0d0706;
   --bg: #fff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
-  --accent: #aa3bff;
+  --accent: #d37567;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
@@ -93,6 +93,6 @@ code {
 }
 
 /* Essence Life visual tokens */
-:root{--color-primary:#6e54f7;--color-primary-dark:#5f45f5;--color-highlight:#e95493;--color-text:#352a34;--color-muted:#756a73;--color-border:#ddd4f1;--color-hero:#f7f3ff;--color-positive:#32c896;--color-warning:#f7a000;--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--font-xs:12px;--font-sm:14px;--font-md:16px;--font-lg:20px;--font-xl:24px;--font-2xl:32px;--font-3xl:40px}
+:root{--color-primary:#d78174;--color-primary-dark:#d37567;--color-highlight:#e95493;--color-text:#352a34;--color-muted:#756a73;--color-border:#f1d8d4;--color-hero:#fcf7f6;--color-positive:#32c896;--color-warning:#f7a000;--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--font-xs:12px;--font-sm:14px;--font-md:16px;--font-lg:20px;--font-xl:24px;--font-2xl:32px;--font-3xl:40px}
 
 :root{--font-body:Inter,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:Inter,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}body{font-family:var(--font-body)}h1,h2,h3,h4,h5,h6,.nav-brand{font-family:var(--font-heading)}
