@@ -92,5 +92,5 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .home-v2 .home-task-check{flex-basis:28px!important;width:28px!important;height:28px!important;border-radius:0!important}
 @media(max-width:600px){.home-v2 .home-task-row{grid-template-columns:28px minmax(0,1fr) auto!important}.home-v2 .home-task-check{flex-basis:26px!important;width:26px!important;height:26px!important}.home-v2 .home-task-tools{transform:none!important}}
 .home-v2 .home-task-check{flex:0 0 24px!important;width:24px!important;height:24px!important;min-width:24px!important;min-height:24px!important;padding:0!important;border-width:2px!important;border-radius:0!important;box-sizing:border-box!important}
-.home-v2 .home-task-tools{transform:translateY(-2px)!important}
-@media(max-width:600px){.home-v2 .home-task-row{grid-template-columns:26px minmax(0,1fr) auto!important}.home-v2 .home-task-check{flex-basis:22px!important;width:22px!important;height:22px!important;min-width:22px!important;min-height:22px!important}.home-v2 .home-task-tools{transform:translateY(-1px)!important}}
+.home-v2 .home-task-tools{transform:translateY(-8px)!important}
+@media(max-width:600px){.home-v2 .home-task-row{grid-template-columns:26px minmax(0,1fr) auto!important}.home-v2 .home-task-check{flex-basis:22px!important;width:22px!important;height:22px!important;min-width:22px!important;min-height:22px!important}.home-v2 .home-task-tools{transform:translateY(-6px)!important}}
