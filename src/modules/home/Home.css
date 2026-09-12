@@ -171,3 +171,5 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .task-editor-modal footer .task-editor-footer-tools>button{flex-basis:38px!important;min-width:38px!important;width:38px!important;height:38px!important}
 .task-editor-modal footer .task-editor-footer-tools>button{flex-basis:30px!important;min-width:30px!important;width:30px!important;height:30px!important}
 .task-editor-modal footer .task-editor-footer-tools .task-editor-delete::before,.task-editor-modal footer .task-editor-footer-tools .task-editor-copy::before{width:26px!important;height:26px!important;background-size:280% 280%!important}
+.task-editor-modal footer .task-editor-footer-tools>button{flex-basis:27px!important;min-width:27px!important;width:27px!important;height:28px!important}
+.task-editor-modal footer .task-editor-footer-tools .task-editor-delete::before,.task-editor-modal footer .task-editor-footer-tools .task-editor-copy::before{width:23px!important;height:23px!important;background-size:220% 220%!important}
