@@ -148,3 +148,5 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .task-editor-fields>label:nth-of-type(4)>span{width:100%!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:6px!important;font-size:0!important}
 .task-editor-fields>label:nth-of-type(4)>span::before{content:'🏷️  Categoria';font-size:1rem!important;line-height:1!important}
 .task-editor-fields>label:nth-of-type(4)>span .task-editor-link{margin-left:auto!important;padding:0!important;font-size:.78rem!important;white-space:nowrap!important}
+.task-editor-footer-tools{display:flex;align-items:center;gap:18px;margin-right:auto}.task-editor-footer-tools button{width:24px;height:30px;padding:0;border:0;background:transparent;color:#77716e;font-size:1.05rem;line-height:1;cursor:pointer}.task-editor-footer-tools .task-editor-delete{color:#c9345d;font-size:1rem}.task-editor-footer-tools .task-editor-copy{font-size:1.15rem}.task-editor-footer-tools button:hover{opacity:.7}
+@media(max-width:600px){.task-editor-footer-tools{gap:10px}.task-editor-footer-tools button{width:22px}.task-editor-modal footer{align-items:center}}
