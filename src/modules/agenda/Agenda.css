@@ -89,3 +89,11 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-week-strip button{min-height:70px!important}
 .app .agenda-v3 .agenda-view-switch button{min-height:28px!important}
 @media(max-width:700px){.app .agenda-v3-board>.agenda-week-strip,.app .agenda-v3-board>.agenda-v3-toolbar{margin-inline:6px!important}.app .agenda-v3 .agenda-week-strip button{min-height:64px!important}.app .agenda-v3 .agenda-view-switch button{min-height:27px!important}}
+
+/* Timeline alignment and compact appointment cards. */
+.app .agenda-v3-board .agenda-date-nav{margin-inline:14px!important;padding-inline:0!important}
+.app .agenda-v3 .agenda-timeline-entry{min-height:112px!important;padding:14px 18px!important}
+.app .agenda-v3 .agenda-timeline-entry-edit>span{margin-top:3px!important;top:3px!important}
+.app .agenda-v3 .agenda-task-title{margin-top:9px!important}
+.app .agenda-v3 .agenda-task-time{margin-top:6px!important}
+@media(max-width:700px){.app .agenda-v3-board .agenda-date-nav{margin-inline:6px!important}.app .agenda-v3 .agenda-timeline-entry{min-height:92px!important;padding:11px 14px!important}.app .agenda-v3 .agenda-task-title{margin-top:7px!important}.app .agenda-v3 .agenda-task-time{margin-top:4px!important}}
