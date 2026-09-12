@@ -53,7 +53,7 @@ export default function Agenda(){
 
     <article className="card agenda-v3-board">
       <div className="agenda-week-strip" aria-label="Dias da semana">
-        {weekFor(selectedDate).slice(0,5).map(date=>{const d=new Date(date+'T12:00:00'); const weekday=new Intl.DateTimeFormat('pt-BR',{weekday:'short'}).format(d).replace('.','').slice(0,3).toUpperCase(); return <button type="button" key={date} className={date===selectedDate?'selected':''} onClick={()=>{setSelectedDate(date);setView('day')}}><small>{weekday}</small><b>{d.getDate()}</b><i aria-hidden="true"/></button>})}
+        {weekFor(selectedDate).map(date=>{const d=new Date(date+'T12:00:00'); const weekday=new Intl.DateTimeFormat('pt-BR',{weekday:'short'}).format(d).replace('.','').slice(0,3).toUpperCase(); return <button type="button" key={date} className={date===selectedDate?'selected':''} onClick={()=>{setSelectedDate(date);setView('day')}}><small>{weekday}</small><b>{d.getDate()}</b><i aria-hidden="true"/></button>})}
       </div>
       <div className="agenda-v3-toolbar">
         <div className="agenda-view-switch" role="tablist" aria-label="Visualização da agenda">

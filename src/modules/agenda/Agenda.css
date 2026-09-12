@@ -1,17 +1,17 @@
 /* Agenda: single source of truth */
 .app .agenda-v3{display:grid;gap:14px;background:#FFF9F5;color:#3B2635}
-.app .agenda-v3-board{display:flex;flex-direction:column;gap:0;padding:0 14px 18px;border:0;border-radius:0;background:#FFF9F5;box-shadow:none}
-.app .agenda-week-strip{order:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;align-items:stretch;margin:4px 0 12px;padding:8px 14px;overflow:visible}
-.app .agenda-week-strip button{display:grid;place-items:center;gap:4px;min-height:92px;padding:9px 5px;border:0;border-radius:15px;background:transparent;color:#3B2635;cursor:pointer}
+.app .agenda-v3-board{display:flex;flex-direction:column;gap:0;padding:0 14px 18px;border:0!important;border-radius:0;background:transparent!important;box-shadow:none!important}
+.app .agenda-week-strip{order:1;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;align-items:stretch;margin:0 34px 10px;padding:4px 0;overflow:visible}
+.app .agenda-week-strip button{display:grid;place-items:center;gap:3px;min-height:76px;padding:6px 3px;border:0;border-radius:15px;background:transparent;color:#3B2635;cursor:pointer}
 .app .agenda-week-strip button small{font-size:.78rem;font-weight:600;color:#3B2635;text-transform:uppercase}
 .app .agenda-week-strip button b{font-family:Georgia,serif;font-size:1.55rem;font-weight:500;color:#3B2635}
 .app .agenda-week-strip button i{width:7px;height:7px;border-radius:50%;background:#EADBD8}
 .app .agenda-week-strip button.selected{background:#E9786A;color:#FFF9F5}
 .app .agenda-week-strip button.selected small,.app .agenda-week-strip button.selected b{color:#FFF9F5}
 .app .agenda-week-strip button.selected i{background:#FFF9F5}
-.app .agenda-v3-toolbar{order:2;display:block;margin:0 8px 12px;padding:3px;border:1px solid #EADBD8;border-radius:16px;background:#FFF9F5}
+.app .agenda-v3-toolbar{order:2;display:block;margin:0 34px 12px;padding:3px;border:1px solid #EADBD8;border-radius:16px;background:#FFF9F5}
 .app .agenda-view-switch{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0;background:#F7F1F5;border-radius:13px}
-.app .agenda-view-switch button{min-height:36px;border:0;border-radius:10px;background:transparent;color:#806A78;font-size:.82rem}
+.app .agenda-view-switch button{min-height:32px;border:0;border-radius:10px;background:transparent;color:#806A78;font-size:.82rem}
 .app .agenda-view-switch button.selected{background:#E9786A;color:#FFF9F5}
 .app .agenda-v3-toolbar-actions{display:none}
 .app .agenda-day-view,.app .agenda-week-view,.app .agenda-month-view{order:3}
@@ -43,7 +43,7 @@
 .app .agenda-task-time small{color:#252525;font-size:1rem}
 .app .agenda-floating-add{position:fixed;right:20px;bottom:82px;display:grid;place-items:center;width:58px;height:58px;border:2px solid #FFF9F5;border-radius:50%;background:#E9786A;color:#FFF9F5;font-size:2rem;line-height:1;box-shadow:0 8px 18px rgba(59,38,53,.18);z-index:10}
 .app .agenda-floating-add:hover{background:#D96558}
-@media(max-width:700px){.app .agenda-v3-board{padding-inline:8px}.app .agenda-week-strip{gap:4px;padding-inline:4px}.app .agenda-week-strip button{min-height:76px}.app .agenda-week-strip button b{font-size:1.38rem}.app .agenda-time-slot{grid-template-columns:58px minmax(0,1fr)}.app .agenda-timeline-entry{min-height:116px;margin-left:12px;padding:14px 16px}.app .agenda-date-nav>b{font-size:1.02rem}.app .agenda-task-title{font-size:1.35rem}}
+@media(max-width:700px){.app .agenda-v3-board{padding-inline:8px}.app .agenda-week-strip{gap:3px;margin-inline:10px;padding-inline:0}.app .agenda-week-strip button{min-height:68px;padding-inline:1px}.app .agenda-week-strip button small{font-size:.68rem}.app .agenda-week-strip button b{font-size:1.2rem}.app .agenda-v3-toolbar{margin-inline:10px}.app .agenda-time-slot{grid-template-columns:58px minmax(0,1fr)}.app .agenda-timeline-entry{min-height:116px;margin-left:12px;padding:14px 16px}.app .agenda-date-nav>b{font-size:1.02rem}.app .agenda-task-title{font-size:1.35rem}}
 .app .agenda-timeline-entry.task.is-done{background:#FFF0EC;border-color:#E9786A}
 /* Essence Life task-board refinement */
 .agenda-model-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:30px 34px 20px;border-bottom:1px solid #eee5e2}.agenda-model-head h1{margin:0;color:#241c21;font-family:Georgia,serif;font-size:clamp(1.7rem,3vw,2.45rem);letter-spacing:-.03em}.agenda-model-head h1 span{font-family:inherit;font-size:.65em;color:#806a78}.agenda-model-head p{margin:8px 0 0;color:#806a78;font-size:1.05rem}.agenda-model-actions{display:flex;align-items:center;gap:12px}.agenda-notify-button,.agenda-new-task{min-height:52px;border:1px solid #eadbd8;border-radius:16px;background:#fff;color:#3b2635;font:inherit;font-weight:800}.agenda-notify-button{width:58px;font-size:1.5rem}.agenda-new-task{padding:0 22px;border-color:#214c45;background:#214c45;color:#fff9f5;font-size:1.05rem}.agenda-v3-board>.agenda-week-strip{margin:20px 34px 0}.agenda-v3-board>.agenda-v3-toolbar{margin-inline:34px}.agenda-floating-add{display:none!important}.agenda-v3-form{border-radius:26px!important;padding:28px!important;background:#fffdfb!important}.agenda-v3-form .card-head{padding-bottom:18px;border-bottom:1px solid #eee5e2}.agenda-v3-form .card-head h3{font-family:Georgia,serif;font-size:2rem}.agenda-v3-form label{color:#4f4a49;font-size:.95rem}.agenda-v3-form input,.agenda-v3-form select{min-height:48px;border-radius:14px;border-color:#e4d9d5;background:#fff}.agenda-v3-form .primary{min-height:50px;border-radius:25px;background:#214c45}
@@ -53,7 +53,7 @@
 
 /* Agenda uses the active appearance preset palette. */
 html[data-preset] .app .agenda-v3{background:var(--theme-background)!important;color:var(--ui-text)!important}
-html[data-preset] .app .agenda-v3-board{background:var(--theme-background)!important}
+html[data-preset] .app .agenda-v3-board{background:transparent!important}
 html[data-preset] .app .agenda-v3 :is(.agenda-model-head,.agenda-v3-toolbar){border-color:var(--theme-border)!important}
 html[data-preset] .app .agenda-v3 :is(.agenda-model-head h1,.agenda-model-head p,.agenda-date-nav>b,.agenda-week-strip button,.agenda-week-strip button small,.agenda-week-strip button b){color:var(--ui-text)!important}
 html[data-preset] .app .agenda-v3 .agenda-model-head h1 span{color:var(--ui-muted)!important}
@@ -74,3 +74,10 @@ html[data-preset] .app .agenda-v3 .agenda-timeline-entry-edit>span{color:var(--a
 html[data-preset] .app .agenda-v3 .agenda-task-title{color:var(--ui-text)!important}
 html[data-preset] .app .agenda-v3 .agenda-task-time{color:var(--ui-text)!important}
 html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-accent)!important;border-color:var(--theme-surface)!important}
+
+/* Final agenda spacing: open canvas, full week, matching controls. */
+.app .agenda-v3-board{background:transparent!important;border:0!important;box-shadow:none!important}
+.app .agenda-v3-board>.agenda-week-strip{grid-template-columns:repeat(7,minmax(0,1fr))!important;margin:0 34px 10px!important;padding:4px 0!important}
+.app .agenda-v3-board>.agenda-v3-toolbar{margin:0 34px 12px!important}
+.app .agenda-v3 .agenda-view-switch button{min-height:32px!important}
+@media(max-width:700px){.app .agenda-v3-board>.agenda-week-strip{margin:0 10px 10px!important}.app .agenda-v3-board>.agenda-v3-toolbar{margin:0 10px 12px!important}}
