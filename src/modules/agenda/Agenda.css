@@ -60,7 +60,8 @@ html[data-preset] .app .agenda-v3 .agenda-model-head h1 span{color:var(--ui-mute
 html[data-preset] .app .agenda-v3 .agenda-model-head p{color:var(--ui-muted)!important}
 html[data-preset] .app .agenda-v3 .agenda-week-strip button i{background:var(--theme-border)!important}
 html[data-preset] .app .agenda-v3 .agenda-week-strip button.selected{background:var(--app-accent)!important}
-html[data-preset] .app .agenda-v3 .agenda-week-strip button.selected :is(small,b,i){color:#fff!important;background-color:#fff!important}
+html[data-preset] .app .agenda-v3 .agenda-week-strip button.selected :is(small,b){color:#fff!important;background:transparent!important}
+html[data-preset] .app .agenda-v3 .agenda-week-strip button.selected i{width:7px!important;height:7px!important;min-width:7px!important;min-height:7px!important;border-radius:50%!important;background:#fff!important}
 html[data-preset] .app .agenda-v3 .agenda-v3-toolbar{background:var(--theme-surface)!important}
 html[data-preset] .app .agenda-v3 .agenda-view-switch{background:var(--theme-soft)!important}
 html[data-preset] .app .agenda-v3 .agenda-view-switch button{color:var(--ui-muted)!important}
