@@ -70,3 +70,10 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .home-v2 .home-task-tools{gap:12px!important;align-self:end!important;margin-bottom:1px!important;flex-direction:row!important;align-items:center!important}
 .home-v2 .home-task-star{font-size:1.45rem!important}.home-v2 .home-task-edit{font-size:.82rem!important}.home-v2 .home-task-delete{font-size:1.05rem!important}
 @media(max-width:600px){.home-v2 .home-task-row{min-height:72px!important;padding:9px 10px!important;gap:8px!important}.home-v2 .home-task-check{flex-basis:32px!important;width:32px!important;height:32px!important;border-radius:7px!important}.home-v2 .home-task-info strong{font-size:.94rem!important}.home-v2 .home-task-info>div{gap:3px!important;margin-top:4px!important}.home-v2 .home-task-info span,.home-v2 .home-task-info time,.home-v2 .home-task-info b{padding:3px 5px!important;font-size:.62rem!important}.home-v2 .home-task-tools{gap:5px!important;margin-bottom:0!important}.home-v2 .home-task-star{font-size:1.1rem!important}.home-v2 .home-task-edit{font-size:.68rem!important}.home-v2 .home-task-delete{font-size:.88rem!important}}
+
+/* Final task row details */
+.home-v2 .home-task-check{border-radius:3px!important}
+.home-v2 .home-task-info b.priority-normal{background:#e8f4e9!important;color:#4e8a55!important}
+.home-v2 .home-task-delete{font-size:0!important;color:#8b8582!important}
+.home-v2 .home-task-delete::before{content:'🗑️';font-size:1.05rem;line-height:1}
+@media(max-width:600px){.home-v2 .home-task-delete::before{font-size:.9rem}}
