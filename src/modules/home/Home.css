@@ -50,3 +50,13 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .home-v2 .home-task-bell,
 .home-v2 .home-task-actions button.home-new-task{height:33px!important;min-height:33px!important;box-sizing:border-box!important}
 @media(max-width:600px){.home-v2 .home-task-tabs button,.home-v2 .home-task-bell,.home-v2 .home-task-actions button.home-new-task{height:30px!important;min-height:30px!important}}
+
+/* Task row refined to match the reference card */
+.home-v2 .home-task-row{min-height:92px!important;padding:15px 22px!important;border-radius:18px!important;gap:18px!important;background:#fff!important}
+.home-v2 .home-task-check{flex:0 0 42px!important;width:42px!important;height:42px!important;border:3px solid #cfcac7!important;border-radius:14px!important}
+.home-v2 .home-task-info strong{font-size:1.18rem!important;line-height:1.15!important;font-weight:500!important}
+.home-v2 .home-task-info>div{gap:10px!important;margin-top:8px!important;flex-wrap:nowrap!important}
+.home-v2 .home-task-info span,.home-v2 .home-task-info time,.home-v2 .home-task-info b{padding:6px 12px!important;border-radius:9px!important;font-size:.9rem!important;white-space:nowrap!important}
+.home-v2 .home-task-tools{gap:26px!important;align-items:center!important}
+.home-v2 .home-task-star{font-size:2rem!important}.home-v2 .home-task-edit{font-size:1.05rem!important}.home-v2 .home-task-delete{font-size:1.35rem!important}
+@media(max-width:600px){.home-v2 .home-task-row{min-height:100px!important;padding:13px 11px!important;gap:10px!important}.home-v2 .home-task-check{flex-basis:36px!important;width:36px!important;height:36px!important;border-radius:11px!important}.home-v2 .home-task-info strong{font-size:1rem!important}.home-v2 .home-task-info>div{gap:5px!important;margin-top:7px!important;flex-wrap:wrap!important}.home-v2 .home-task-info span,.home-v2 .home-task-info time,.home-v2 .home-task-info b{padding:5px 7px!important;font-size:.76rem!important}.home-v2 .home-task-tools{gap:7px!important}.home-v2 .home-task-star{font-size:1.35rem!important}.home-v2 .home-task-edit{font-size:.82rem!important}.home-v2 .home-task-delete{font-size:1rem!important}}
