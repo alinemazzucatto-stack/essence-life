@@ -130,3 +130,8 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .task-editor-priorities button{text-align:center}
 .task-editor-day-priority{ text-align:left}
 .task-editor-day-priority input{margin-left:auto}
+.task-editor-fields>.task-editor-wide:nth-child(2)>span{font-size:0!important}
+.task-editor-fields>.task-editor-wide:nth-child(2)>span::before{content:'📅  Quando?';font-size:1.05rem}
+.task-editor-reminder>span{font-size:0!important}
+.task-editor-reminder>span::before{content:'🔔  Lembrete ';font-size:1rem}
+.task-editor-reminder>span::after{content:'desativado';font-size:1rem}
