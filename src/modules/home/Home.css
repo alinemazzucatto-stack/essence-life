@@ -128,6 +128,9 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .task-editor-reminder{justify-content:flex-start;gap:18px;text-align:left}
 .task-editor-reminder button{padding:0}
 .task-editor-priorities button{text-align:center}
+.task-editor-priorities{width:100%;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.task-editor-priorities button{width:100%!important;color:#252125!important;background:#fff!important;box-sizing:border-box!important}
+.task-editor-priorities button.selected{color:#252125!important;background:#fff0ec!important;border-color:#e9786a!important}
 .task-editor-day-priority{ text-align:left}
 .task-editor-day-priority input{margin-left:auto}
 .task-editor-fields>.task-editor-wide:nth-child(2)>span{font-size:0!important}
