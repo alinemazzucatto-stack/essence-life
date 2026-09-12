@@ -139,3 +139,5 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .task-editor-reminder>span{font-size:0!important}
 .task-editor-reminder>span::before{content:'🔔  Lembrete ';font-size:1rem}
 .task-editor-reminder>span::after{content:'desativado';font-size:1rem}
+.task-editor-priorities button,.task-editor-priorities button.selected,.task-editor-priorities button:focus,.task-editor-priorities button:active{color:#000!important;-webkit-text-fill-color:#000!important;text-shadow:none!important}
+.task-editor-day-priority{font-size:.88rem!important}.task-editor-day-priority b{font-size:.88rem!important}.task-editor-day-priority small{font-size:.76rem!important}
