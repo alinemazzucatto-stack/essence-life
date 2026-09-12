@@ -82,3 +82,10 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3-board>.agenda-v3-toolbar{margin:0 34px 12px!important}
 .app .agenda-v3 .agenda-view-switch button{min-height:32px!important}
 @media(max-width:700px){.app .agenda-v3-board>.agenda-week-strip{margin:0 10px 10px!important}.app .agenda-v3-board>.agenda-v3-toolbar{margin:0 10px 12px!important}}
+
+/* Week controls: slightly wider, with compact view buttons. */
+.app .agenda-v3-board>.agenda-week-strip{margin-inline:14px!important;gap:3px!important}
+.app .agenda-v3-board>.agenda-v3-toolbar{margin-inline:14px!important}
+.app .agenda-v3 .agenda-week-strip button{min-height:70px!important}
+.app .agenda-v3 .agenda-view-switch button{min-height:28px!important}
+@media(max-width:700px){.app .agenda-v3-board>.agenda-week-strip,.app .agenda-v3-board>.agenda-v3-toolbar{margin-inline:6px!important}.app .agenda-v3 .agenda-week-strip button{min-height:64px!important}.app .agenda-v3 .agenda-view-switch button{min-height:27px!important}}
