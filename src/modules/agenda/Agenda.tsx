@@ -51,7 +51,7 @@ export default function Agenda(){
 
     {formOpen&&!editing&&<TaskCreateModal kind="task" onClose={closeForm} setTasks={setTasks} setHabits={(()=>undefined) as any} onNotice={notify}/>} 
 
-    <article className="card agenda-v3-board"><div className="agenda-model-head"><div><h1>Tarefas de Hoje <span>({todayTasks.filter(task=>!task.done).length}/{todayTasks.length})</span></h1><p>Tudo o que você planejou para o seu dia</p></div><div className="agenda-model-actions"><button type="button" className="agenda-notify-button" aria-label="Lembretes">♧</button><button type="button" className="agenda-new-task" onClick={()=>openCreate()}>＋ Nova tarefa</button></div></div>
+    <article className="card agenda-v3-board">
       <div className="agenda-week-strip" aria-label="Dias da semana">
         {weekFor(selectedDate).slice(0,5).map(date=>{const d=new Date(date+'T12:00:00'); const weekday=new Intl.DateTimeFormat('pt-BR',{weekday:'short'}).format(d).replace('.','').slice(0,3).toUpperCase(); return <button type="button" key={date} className={date===selectedDate?'selected':''} onClick={()=>{setSelectedDate(date);setView('day')}}><small>{weekday}</small><b>{d.getDate()}</b><i aria-hidden="true"/></button>})}
       </div>
