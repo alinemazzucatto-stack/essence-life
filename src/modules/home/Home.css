@@ -44,3 +44,9 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .home-v2 .home-task-bell{width:36px!important;height:33px!important}
 .home-v2 .home-task-actions button.home-new-task{min-height:33px!important;padding:0 9px!important;font-size:.72rem!important}
 @media(max-width:600px){.home-v2 .home-task-tabs button{padding:5px 1px!important;font-size:.62rem!important}.home-v2 .home-task-bell{width:30px!important;height:30px!important}.home-v2 .home-task-actions button.home-new-task{min-height:30px!important;padding:0 6px!important;font-size:.6rem!important}}
+
+/* Uniform control height */
+.home-v2 .home-task-tabs button,
+.home-v2 .home-task-bell,
+.home-v2 .home-task-actions button.home-new-task{height:33px!important;min-height:33px!important;box-sizing:border-box!important}
+@media(max-width:600px){.home-v2 .home-task-tabs button,.home-v2 .home-task-bell,.home-v2 .home-task-actions button.home-new-task{height:30px!important;min-height:30px!important}}
