@@ -189,3 +189,4 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .home-v2 .today-card{display:none!important}
 .today-card{display:none!important}
 .home-v2{display:flex!important;flex-direction:column!important}.home-v2 .home-greeting{order:1}.home-v2 .peace-card{order:2}.home-v2 .mood-card{order:3}.home-v2 .next-card{order:4}.home-v2 .home-task-board{order:5}.home-v2 .hydration-row{order:6}.home-v2 .home-reflection-grid{order:7}.home-v2>.add-button{order:8}.home-v2 .home-toast,.home-v2 .day-complete{order:0}
+.mood-options>button:nth-child(1) .mood-face{transform:rotate(-8deg);color:#71809a}.mood-options>button:nth-child(2) .mood-face{transform:rotate(8deg) scale(.92);color:#b48455}.mood-options>button:nth-child(3) .mood-face{color:#a97886}.mood-options>button:nth-child(4) .mood-face{transform:scale(1.05);color:#78699c}.mood-options>button:nth-child(5) .mood-face{transform:rotate(-4deg) scale(1.08);color:#c16d55}
