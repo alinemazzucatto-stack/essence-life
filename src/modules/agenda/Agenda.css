@@ -97,3 +97,12 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-task-title{margin-top:9px!important}
 .app .agenda-v3 .agenda-task-time{margin-top:6px!important}
 @media(max-width:700px){.app .agenda-v3-board .agenda-date-nav{margin-inline:6px!important}.app .agenda-v3 .agenda-timeline-entry{min-height:92px!important;padding:11px 14px!important}.app .agenda-v3 .agenda-task-title{margin-top:7px!important}.app .agenda-v3 .agenda-task-time{margin-top:4px!important}}
+
+/* Override legacy event-card rules from App.css. */
+.app .agenda-v3 .agenda-day-view{width:calc(100% - 28px)!important;margin-inline:14px!important}
+.app .agenda-v3 .agenda-day-view .agenda-date-nav{width:100%!important;margin-inline:0!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event{min-height:112px!important;padding:14px 18px!important;border-radius:18px!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event .agenda-timeline-entry-edit>span{font-size:.72rem!important;margin-top:3px!important;top:3px!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event b.agenda-task-title{font-size:1.35rem!important;margin-top:8px!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event>time.agenda-task-time{padding:0!important;margin-top:5px!important;font-size:.86rem!important}
+@media(max-width:700px){.app .agenda-v3 .agenda-day-view{width:calc(100% - 12px)!important;margin-inline:6px!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event{min-height:92px!important;padding:11px 14px!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event b.agenda-task-title{font-size:1.05rem!important;margin-top:6px!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event>time.agenda-task-time{margin-top:3px!important;font-size:.72rem!important}}
