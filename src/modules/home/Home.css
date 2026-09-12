@@ -153,3 +153,10 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .task-editor-footer-tools .task-editor-delete{font-size:0!important;color:#b35a68!important}.task-editor-footer-tools .task-editor-delete::before{content:'⌫';font-size:1.25rem!important;line-height:1!important}
 .task-editor-footer-tools .task-editor-copy{font-size:0!important;color:#77716e!important}.task-editor-footer-tools .task-editor-copy::before{content:'⧉';font-size:1.25rem!important;line-height:1!important}
 .task-editor-modal .task-editor-save{background:#e9786a!important;color:#fff!important;border-radius:12px!important;min-height:42px!important;padding:0 20px!important;box-shadow:0 5px 12px rgba(233,120,106,.22)!important}
+.task-editor-footer-tools .task-editor-delete::before{content:''!important;display:block;width:22px;height:22px;background:url('/coscbsovcbdv%20b.png') center/contain no-repeat}
+.task-editor-footer-tools .task-editor-copy::before{content:''!important;display:block;width:22px;height:22px;background:url('/coscbsovcbdv%20b%20(1).png') center/contain no-repeat;filter:invert(1)}
+.task-editor-footer-tools .task-editor-copy::before{filter:none!important}
+.task-editor-modal footer .task-editor-footer-tools{display:flex!important;visibility:visible!important;opacity:1!important;flex:0 0 auto!important;min-width:58px!important;width:auto!important;align-items:center!important;justify-content:flex-start!important;position:relative!important;z-index:2!important}
+.task-editor-modal footer .task-editor-footer-tools>button{display:flex!important;visibility:visible!important;opacity:1!important;flex:0 0 24px!important;min-width:24px!important;width:24px!important;height:30px!important;align-items:center!important;justify-content:center!important}
+.task-editor-modal footer .task-editor-footer-tools .task-editor-delete::before{content:'🗑'!important;background-color:transparent!important}
+.task-editor-modal footer .task-editor-footer-tools .task-editor-copy::before{content:'⧉'!important;background-color:transparent!important}
