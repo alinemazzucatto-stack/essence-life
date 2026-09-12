@@ -77,3 +77,8 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .home-v2 .home-task-delete{font-size:0!important;color:#8b8582!important}
 .home-v2 .home-task-delete::before{content:'🗑️';font-size:1.05rem;line-height:1}
 @media(max-width:600px){.home-v2 .home-task-delete::before{font-size:.9rem}}
+
+.home-v2 .home-task-check{border-radius:0!important}
+.home-v2 .home-task-tools{align-self:center!important;flex-direction:row!important;white-space:nowrap!important}
+.home-v2 .home-task-star.is-favorite{color:#e6b832!important}
+.home-v2 .home-task-delete{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:22px!important;height:22px!important}
