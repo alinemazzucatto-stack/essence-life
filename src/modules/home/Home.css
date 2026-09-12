@@ -60,3 +60,13 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .home-v2 .home-task-tools{gap:26px!important;align-items:center!important}
 .home-v2 .home-task-star{font-size:2rem!important}.home-v2 .home-task-edit{font-size:1.05rem!important}.home-v2 .home-task-delete{font-size:1.35rem!important}
 @media(max-width:600px){.home-v2 .home-task-row{min-height:100px!important;padding:13px 11px!important;gap:10px!important}.home-v2 .home-task-check{flex-basis:36px!important;width:36px!important;height:36px!important;border-radius:11px!important}.home-v2 .home-task-info strong{font-size:1rem!important}.home-v2 .home-task-info>div{gap:5px!important;margin-top:7px!important;flex-wrap:wrap!important}.home-v2 .home-task-info span,.home-v2 .home-task-info time,.home-v2 .home-task-info b{padding:5px 7px!important;font-size:.76rem!important}.home-v2 .home-task-tools{gap:7px!important}.home-v2 .home-task-star{font-size:1.35rem!important}.home-v2 .home-task-edit{font-size:.82rem!important}.home-v2 .home-task-delete{font-size:1rem!important}}
+
+/* Compact single-line task card */
+.home-v2 .home-task-row{min-height:76px!important;padding:10px 18px!important;gap:14px!important}
+.home-v2 .home-task-check{flex:0 0 38px!important;width:38px!important;height:38px!important;border-radius:8px!important}
+.home-v2 .home-task-info strong{text-align:left!important;font-size:1.08rem!important;line-height:1.1!important}
+.home-v2 .home-task-info>div{gap:6px!important;margin-top:5px!important;flex-wrap:nowrap!important}
+.home-v2 .home-task-info span,.home-v2 .home-task-info time,.home-v2 .home-task-info b{padding:4px 8px!important;border-radius:7px!important;font-size:.72rem!important}
+.home-v2 .home-task-tools{gap:12px!important;align-self:end!important;margin-bottom:1px!important;flex-direction:row!important;align-items:center!important}
+.home-v2 .home-task-star{font-size:1.45rem!important}.home-v2 .home-task-edit{font-size:.82rem!important}.home-v2 .home-task-delete{font-size:1.05rem!important}
+@media(max-width:600px){.home-v2 .home-task-row{min-height:72px!important;padding:9px 10px!important;gap:8px!important}.home-v2 .home-task-check{flex-basis:32px!important;width:32px!important;height:32px!important;border-radius:7px!important}.home-v2 .home-task-info strong{font-size:.94rem!important}.home-v2 .home-task-info>div{gap:3px!important;margin-top:4px!important}.home-v2 .home-task-info span,.home-v2 .home-task-info time,.home-v2 .home-task-info b{padding:3px 5px!important;font-size:.62rem!important}.home-v2 .home-task-tools{gap:5px!important;margin-bottom:0!important}.home-v2 .home-task-star{font-size:1.1rem!important}.home-v2 .home-task-edit{font-size:.68rem!important}.home-v2 .home-task-delete{font-size:.88rem!important}}
