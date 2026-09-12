@@ -163,3 +163,7 @@ html body .home-v2 .home-task-board .home-task-actions button.home-new-task:hove
 .task-editor-modal footer .task-editor-footer-tools .task-editor-delete::before{content:''!important;width:24px!important;height:24px!important;background:url('/task-trash.png') center/contain no-repeat!important;font-size:0!important}
 .task-editor-modal footer .task-editor-footer-tools .task-editor-copy::before{content:''!important;width:24px!important;height:24px!important;background:url('/task-copy.png') center/contain no-repeat!important;font-size:0!important;filter:none!important}
 .task-editor-modal footer .task-editor-save,.task-editor-modal footer button[type='submit']{background:#e9786a!important;background-color:#e9786a!important;color:#fff!important;border:0!important;min-height:44px!important;border-radius:13px!important;padding:0 22px!important;box-shadow:0 5px 12px rgba(233,120,106,.2)!important}
+.task-editor-modal footer .task-editor-footer-tools>button{flex-basis:32px!important;min-width:32px!important;width:32px!important;height:34px!important}
+.task-editor-modal footer .task-editor-footer-tools .task-editor-delete::before,.task-editor-modal footer .task-editor-footer-tools .task-editor-copy::before{width:30px!important;height:30px!important}
+.task-editor-modal footer .task-editor-cancel{font-size:.9rem!important}
+.task-editor-modal footer .task-editor-save,.task-editor-modal footer button[type='submit']{min-height:40px!important;padding:0 16px!important;border-radius:11px!important;font-size:.9rem!important}
