@@ -8,7 +8,7 @@ import TaskCreateModal from '../home/TaskCreateModal';
 type AgendaKind = 'task' | 'habit' | 'event';
 type Task = { id:string; title:string; date:string; time?:string; category?:string; priority:string; notes?:string; reminder?:string; recurrence?:string; recurrenceEnd?:string; seriesId?:string; kind?:AgendaKind; duration?:string; done:boolean };
 const cats = ['Pessoal','Trabalho','Casa','Saúde','Estudos','Outro'];
-const categoryClass = (category?:string) => ({Pessoal:'category-personal',Trabalho:'category-work',Casa:'category-home','Saúde':'category-health',Estudos:'category-study',Outro:'category-other'}[category||'Outro']||'category-other');
+const categoryClass = (category?:string) => { const normalized=(category||'Outro').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim(); return ({pessoal:'category-personal',trabalho:'category-work',casa:'category-home',saude:'category-health',estudos:'category-study',outro:'category-other'} as Record<string,string>)[normalized]||'category-other'; };
 const kinds: Record<AgendaKind, {label:string; icon:string}> = { task:{label:'Tarefa',icon:'✓'}, habit:{label:'Hábito',icon:'↻'}, event:{label:'Compromisso',icon:'◷'} };
 const isoDate = (value:Date) => [value.getFullYear(),String(value.getMonth()+1).padStart(2,'0'),String(value.getDate()).padStart(2,'0')].join('-');
 const dateLabel = (value:string) => { const label=new Intl.DateTimeFormat('pt-BR',{weekday:'long',day:'numeric',month:'long'}).format(new Date(value+'T12:00:00')); return label.charAt(0).toUpperCase()+label.slice(1); };
