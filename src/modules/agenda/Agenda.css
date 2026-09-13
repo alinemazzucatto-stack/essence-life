@@ -110,4 +110,6 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 /* Keep appointment cards aligned with the full control width above. */
 .app .agenda-v3 .agenda-time-slot>div{padding-left:0!important}
 .app .agenda-v3 .agenda-timeline-entry{margin-left:0!important;margin-right:0!important;width:100%!important;box-sizing:border-box!important}
-@media(max-width:700px){.app .agenda-v3 .agenda-time-slot>div{padding-left:0!important}.app .agenda-v3 .agenda-timeline-entry{margin-left:0!important;margin-right:0!important}}
+.app .agenda-v3 .agenda-time-slot{grid-template-columns:52px minmax(0,1fr)!important}
+.app .agenda-v3 .agenda-date-nav>b{justify-self:start!important;transform:translateX(-8px)}
+@media(max-width:700px){.app .agenda-v3 .agenda-time-slot{grid-template-columns:46px minmax(0,1fr)!important}.app .agenda-v3 .agenda-time-slot>div{padding-left:0!important}.app .agenda-v3 .agenda-timeline-entry{margin-left:0!important;margin-right:0!important}.app .agenda-v3 .agenda-date-nav>b{transform:translateX(-4px)}}
