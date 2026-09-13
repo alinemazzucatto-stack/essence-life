@@ -154,3 +154,5 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-other{background:#F5F1F0!important;border-color:#D9CECA!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry[class*="category-"] .agenda-timeline-entry-edit>span{color:#806A78!important}
 @media(max-width:700px){.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event{min-height:60px!important;padding:6px 11px!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event b.agenda-task-title{margin-top:2px!important;font-size:1rem!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event>time.agenda-task-time{margin-top:1px!important;font-size:.68rem!important}}
+.agenda-v3-form label:has(select[name="category"]):after{content:"● Estudos   ● Saúde   ● Trabalho   ● Casa   ● Pessoal";display:block;margin-top:5px;color:#806A78;font-size:.68rem;letter-spacing:.01em;white-space:nowrap}
+@media(max-width:700px){.agenda-v3-form label:has(select[name="category"]):after{font-size:.6rem;letter-spacing:-.02em}}
