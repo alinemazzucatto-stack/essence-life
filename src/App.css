@@ -984,33 +984,11 @@ body,.app,.app main,.app .authenticated-layout{background:linear-gradient(180deg
 .app .home-timeline-chevron.is-open{transform:rotate(180deg)}
 
 
-.app .agenda-timeline-entry.event{grid-template-columns:22px minmax(0,1fr) auto!important;gap:6px!important;padding:6px 9px!important}
-.app .agenda-timeline-entry.event .agenda-round-check{width:20px!important;height:20px!important;min-width:20px!important;min-height:20px!important}
-.app .agenda-timeline-entry.event div>span{font-size:.5rem!important}
 .app .agenda-month-grid i{width:16px!important;height:16px!important;line-height:1!important;padding:0!important;font-size:.6rem!important;font-weight:800!important;background:var(--essence-primary,#9c4f5f)!important;color:#fff!important;right:3px!important;bottom:3px!important}
 .app .agenda-month-grid button{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:4px!important}
 .app .agenda-month-grid i{position:static!important;display:inline-flex!important;width:15px!important;height:15px!important;line-height:1!important;padding:0!important;font-size:.55rem!important;font-weight:800!important;background:#f3ddd8!important;color:#a9645c!important}
 .app .agenda-month-grid button{white-space:nowrap!important;padding:0 4px!important}
 .app .agenda-month-grid i{background:#dcefe1!important;color:#3e714a!important}
-.app .agenda-timeline-entry.event{grid-template-columns:16px minmax(0,1fr) auto!important;gap:5px!important;padding:5px 8px!important;min-height:0!important;border-radius:10px!important}
-.app .agenda-timeline-entry.event .agenda-round-check{width:16px!important;height:16px!important;min-width:16px!important;min-height:16px!important;border-width:1.5px!important}
-.app .agenda-timeline-entry.event>time{padding:4px 7px!important}
-.app .agenda-timeline-entry.event{grid-template-columns:12px minmax(0,1fr) auto!important;gap:4px!important;padding:3px 7px!important;min-height:0!important}
-.app .agenda-timeline-entry.event .agenda-round-check{width:12px!important;height:12px!important;min-width:12px!important;min-height:12px!important;border-width:1.5px!important}
-.app .agenda-timeline-entry.event div{gap:0!important}
-.app .agenda-timeline-entry.event div>span{font-size:.45rem!important;letter-spacing:.02em!important}
-.app .agenda-timeline-entry.event b{font-size:.72rem!important}
-.app .agenda-timeline-entry.event>time{padding:2px 5px!important;font-size:.58rem!important}
-.app .agenda-timeline-entry.event{grid-template-columns:9px minmax(0,1fr) auto!important;gap:3px!important;padding:2px 6px!important;min-height:0!important}
-.app .agenda-timeline-entry.event .agenda-round-check{width:9px!important;height:9px!important;min-width:9px!important;min-height:9px!important;border-width:1px!important}
-.app .agenda-timeline-entry.event div>span{font-size:.4rem!important}
-.app .agenda-timeline-entry.event b{font-size:.66rem!important}
-.app .agenda-timeline-entry.event>time{padding:1px 4px!important;font-size:.54rem!important}
-.app .agenda-timeline-entry.event{grid-template-columns:minmax(0,1fr) auto!important;gap:6px!important;padding:3px 9px!important;min-height:0!important}
-.app .agenda-timeline-entry.event .agenda-round-check{display:none!important}
-.app .agenda-timeline-entry.event div>span{font-size:.52rem!important}
-.app .agenda-timeline-entry.event b{font-size:.86rem!important}
-.app .agenda-timeline-entry.event>time{padding:3px 7px!important;font-size:.66rem!important}
 .app :is(.tabs,.finance-tabs,.profile-tabs,.cycle-tabs,.routine-tabs,.workout-tabs,.beauty-nav,.diary-tabs,.settings-tabs,.house-tabs,.nutrition-tabs,.sleep-tabs,.agenda-tabs) :is(button.active,button.selected),.app .nutrition-tabs button.selected{font-weight:600!important}
 .app .home-repeat-yesterday{display:inline-flex!important;align-items:center;gap:5px;margin:2px 0 12px;padding:0!important;border:none!important;background:none!important;color:var(--app-accent,#c9857b)!important;font-size:12px!important;font-weight:700!important;cursor:pointer}
 .app .home-weekly-summary{display:block!important;margin-top:6px!important;color:#8a6f6c!important;font-size:11px!important;font-weight:600!important}
