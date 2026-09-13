@@ -140,4 +140,7 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event .agenda-timeline-entry-edit>span{margin-top:0!important;top:0!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event b.agenda-task-title{margin-top:3px!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event>time.agenda-task-time{margin-top:2px!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event:nth-of-type(even){background:#F2ECF7!important;border-color:#D8C7E3!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event:nth-of-type(even) .agenda-timeline-entry-edit>span{color:#806A9A!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event:nth-of-type(even) .agenda-timeline-entry-edit>span:before{background:#B99BD2!important}
 @media(max-width:700px){.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event{min-height:60px!important;padding:6px 11px!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event b.agenda-task-title{margin-top:2px!important;font-size:1rem!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event>time.agenda-task-time{margin-top:1px!important;font-size:.68rem!important}}
