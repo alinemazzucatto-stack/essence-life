@@ -168,6 +168,13 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-health):before{background:#8FB77F!important}
 .app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-work):before{background:#E9786A!important}
 .app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-home):before{background:#C5B47D!important}
+.app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.agenda-timeline-entry):before{display:none!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry{position:relative!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry:before{content:"";position:absolute;left:-18px;top:24px;width:10px;height:10px;border:2px solid #FFF9F5;border-radius:50%;background:#E9786A;z-index:2}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal:before,.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-study:before{background:#B99BD2!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-health:before{background:#8FB77F!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-work:before{background:#E9786A!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-home:before{background:#C5B47D!important}
 @media(max-width:700px){.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event{min-height:54px!important;padding:5px 10px!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event .agenda-timeline-entry-edit>span{font-size:.68rem!important;height:9px!important;min-height:9px!important;padding-left:17px!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event .agenda-timeline-entry-edit>span:before{width:9px!important;height:9px!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event b.agenda-task-title{margin-top:1px!important;font-size:.98rem!important;line-height:1!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event>time.agenda-task-time{margin-top:1px!important;font-size:.66rem!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event .agenda-task-time:before{font-size:.78rem!important}.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.event .agenda-task-time small{font-size:.66rem!important}}
 .app .agenda-v3 .agenda-timeline-entry-edit>span{display:none!important}
 .app .agenda-v3 .agenda-timeline-entry .agenda-task-title{margin-top:0!important}
