@@ -148,30 +148,33 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.color-alt{background:#F2ECF7!important;border-color:#D8C7E3!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.color-alt .agenda-timeline-entry-edit>span{color:#806A9A!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.color-alt .agenda-timeline-entry-edit>span:before{background:#B99BD2!important}
-.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-personal{background:#F2ECF7!important;border-color:#D8C7E3!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-personal{background:#EAF1F7!important;border-color:#BFD2E2!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-work{background:#FFF0EC!important;border-color:#E9786A!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-home{background:#F3F0E8!important;border-color:#D8CBAE!important}
-.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-health{background:#EEF5EA!important;border-color:#B9D0AD!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-health{background:#E4F1DF!important;border-color:#A8C79D!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-study{background:#F2ECF7!important;border-color:#D8C7E3!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-other{background:#F5F1F0!important;border-color:#D9CECA!important}
-.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal{background:#F2ECF7!important;border-color:#D8C7E3!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal{background:#EAF1F7!important;border-color:#BFD2E2!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-work{background:#FFF0EC!important;border-color:#E9786A!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-home{background:#F3F0E8!important;border-color:#D8CBAE!important}
-.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-health{background:#EEF5EA!important;border-color:#B9D0AD!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-health{background:#E4F1DF!important;border-color:#A8C79D!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-study{background:#F2ECF7!important;border-color:#D8C7E3!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry[class*="category-"] .agenda-timeline-entry-edit>span{color:#806A78!important}
-.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal .agenda-timeline-entry-edit>span:before,.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-study .agenda-timeline-entry-edit>span:before{background:#B99BD2!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal .agenda-timeline-entry-edit>span:before{background:#7EA8C7!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-study .agenda-timeline-entry-edit>span:before{background:#B99BD2!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-health .agenda-timeline-entry-edit>span:before{background:#8FB77F!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-work .agenda-timeline-entry-edit>span:before{background:#E9786A!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-home .agenda-timeline-entry-edit>span:before{background:#C5B47D!important}
-.app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-personal):before,.app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-study):before{background:#B99BD2!important}
+.app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-personal):before{background:#7EA8C7!important}
+.app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-study):before{background:#B99BD2!important}
 .app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-health):before{background:#8FB77F!important}
 .app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-work):before{background:#E9786A!important}
 .app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.category-home):before{background:#C5B47D!important}
 .app .agenda-v3 .agenda-day-view .agenda-time-slot>div:has(.agenda-timeline-entry):before{display:none!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry{position:relative!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry:before{content:"";position:absolute;left:-18px;top:24px;width:10px;height:10px;border:2px solid #FFF9F5;border-radius:50%;background:#E9786A;z-index:2}
-.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal:before,.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-study:before{background:#B99BD2!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal:before{background:#7EA8C7!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-study:before{background:#B99BD2!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-health:before{background:#8FB77F!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-work:before{background:#E9786A!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-home:before{background:#C5B47D!important}
