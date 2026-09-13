@@ -174,6 +174,8 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-timeline-entry-edit>span{display:flex!important;align-items:center!important;height:10px!important;min-height:10px!important;margin-top:0!important;top:0!important;padding-left:17px!important;font-size:.68rem!important;line-height:1!important;letter-spacing:.03em!important}
 .app .agenda-v3 .agenda-timeline-entry-edit>span:before{width:9px!important;height:9px!important;top:0!important}
 .app .agenda-v3 .agenda-timeline-entry .agenda-task-title{margin-top:5px!important}
-@media(max-width:700px){.app .agenda-v3 .agenda-timeline-entry-edit>span{height:9px!important;min-height:9px!important;font-size:.6rem!important;padding-left:14px!important}.app .agenda-v3 .agenda-timeline-entry-edit>span:before{width:8px!important;height:8px!important}.app .agenda-v3 .agenda-timeline-entry .agenda-task-title{margin-top:3px!important}}
+.app .agenda-v3 .agenda-timeline-entry-edit>span{font-size:.58rem!important;letter-spacing:.02em!important}
+.app .agenda-v3 .agenda-task-time{gap:3px!important}
+@media(max-width:700px){.app .agenda-v3 .agenda-timeline-entry-edit>span{height:9px!important;min-height:9px!important;font-size:.52rem!important;padding-left:14px!important}.app .agenda-v3 .agenda-timeline-entry-edit>span:before{width:8px!important;height:8px!important}.app .agenda-v3 .agenda-timeline-entry .agenda-task-title{margin-top:3px!important}.app .agenda-v3 .agenda-task-time{gap:2px!important}}
 .agenda-v3-form label:has(select[name="category"]):after{content:"● Estudos   ● Saúde   ● Trabalho   ● Casa   ● Pessoal";display:block;margin-top:5px;color:#806A78;font-size:.68rem;letter-spacing:.01em;white-space:nowrap}
 @media(max-width:700px){.agenda-v3-form label:has(select[name="category"]):after{font-size:.6rem;letter-spacing:-.02em}}
