@@ -10,7 +10,7 @@ type Task = { id:string; title:string; date:string; time?:string; category?:stri
 const cats = ['Pessoal','Trabalho','Casa','Saúde','Estudos','Outro'];
 const kinds: Record<AgendaKind, {label:string; icon:string}> = { task:{label:'Tarefa',icon:'✓'}, habit:{label:'Hábito',icon:'↻'}, event:{label:'Compromisso',icon:'◷'} };
 const isoDate = (value:Date) => [value.getFullYear(),String(value.getMonth()+1).padStart(2,'0'),String(value.getDate()).padStart(2,'0')].join('-');
-const dateLabel = (value:string) => new Intl.DateTimeFormat('pt-BR',{weekday:'long',day:'numeric',month:'long'}).format(new Date(value+'T12:00:00'));
+const dateLabel = (value:string) => { const label=new Intl.DateTimeFormat('pt-BR',{weekday:'long',day:'numeric',month:'long'}).format(new Date(value+'T12:00:00')); return label.charAt(0).toUpperCase()+label.slice(1); };
 const shortLabel = (value:string) => new Intl.DateTimeFormat('pt-BR',{day:'2-digit',month:'short'}).format(new Date(value+'T12:00:00'));
 const monthDays = (value:string) => { const base = new Date(value+'T12:00:00'); return Array.from({length:new Date(base.getFullYear(),base.getMonth()+1,0).getDate()},(_,index)=>isoDate(new Date(base.getFullYear(),base.getMonth(),index+1,12))); };
 const weekFor = (value:string) => { const base = new Date(value+'T12:00:00'); base.setDate(base.getDate()-((base.getDay()+6)%7)); return Array.from({length:7},(_,index)=>{ const current = new Date(base); current.setDate(base.getDate()+index); return isoDate(current); }); };
