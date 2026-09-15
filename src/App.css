@@ -973,6 +973,14 @@ body,.app,.app main,.app .authenticated-layout{background:linear-gradient(180deg
 .app :is(.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.finance-hero,.insights-hero,.pomodoro-hero,.diary-hero)>div>b,.app :is(.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.finance-hero,.insights-hero,.pomodoro-hero,.diary-hero)>div>small{display:block;margin-bottom:6px}
 
 .app :is(.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.diary-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.finance-hero,.insights-hero)>div>b,.app :is(.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.diary-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.finance-hero,.insights-hero)>div>small{font-size:10px!important;letter-spacing:.04em!important;font-weight:800!important;white-space:nowrap!important;color:var(--app-accent,#E9786A)!important;text-transform:uppercase!important}
+.app .pomodoro-card{background:linear-gradient(145deg,#FFF9F5,#F7F1F5)!important;border:1px solid #EADBD8!important;box-shadow:0 12px 28px rgba(59,38,53,.09)!important;color:#3B2635!important}
+.app .pomodoro-card :is(h3,b,label){color:#3B2635!important}.app .pomodoro-card :is(small,.pomodoro-tip){color:#806A78!important}
+.app .pomodoro-clock{border:4px solid #EADBD8!important;background:#FFF!important;box-shadow:0 0 0 10px #F7F1F5!important}
+.app .pomodoro-clock b{color:#3B2635!important}.app .pomodoro-clock small{color:#806A78!important}
+.app .pomodoro-ring-track{stroke:#EADBD8!important}.app .pomodoro-ring-fill{stroke:#E9786A!important}
+.app .pomodoro-presets button{background:#FFF!important;color:#3B2635!important;border-color:#EADBD8!important}.app .pomodoro-presets button.selected{background:#E9786A!important;color:#FFF!important;border-color:#E9786A!important}
+.app .pomodoro-focus input{background:#FFF!important;border-color:#EADBD8!important;color:#3B2635!important}.app .pomodoro-focus input::placeholder{color:#A58E9A!important}
+.app .pomodoro-actions>button:first-child{background:#F7F1F5!important;border-color:#EADBD8!important;color:#806A78!important}.app .pomodoro-actions .primary{background:#E9786A!important;color:#FFF!important;box-shadow:0 6px 14px rgba(233,120,106,.22)!important}
 .app :is(.sleep-hero,.nutrition-hero,.workout-hero,.cycle-hero,.diary-hero,.beauty-hero,.house-hero,.profile-hero,.settings-hero,.finance-hero,.insights-hero)>div>p{font-size:13px!important;color:#6d6170!important;margin:0!important;line-height:1.5!important}
 
 /* Fix: light-background selected/active buttons whose text was being forced white by a generic rule */
