@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './Pomodoro.css';
 
 const formatTime=(seconds:number)=>`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;
 const presets:[number,string,string][]=[[25,'Foco','◎'],[5,'Pausa curta','▱'],[15,'Pausa longa','♧']];
