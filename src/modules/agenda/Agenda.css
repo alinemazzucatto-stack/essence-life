@@ -151,13 +151,13 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-personal{background:#EAF1F7!important;border-color:#BFD2E2!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-work{background:#FFF0EC!important;border-color:#E9786A!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-home{background:#F3F0E8!important;border-color:#D8CBAE!important}
-.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-health{background:#E4F1DF!important;border-color:#A8C79D!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-health{background:#DDEED6!important;border-color:#99BF8D!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-study{background:#F2ECF7!important;border-color:#D8C7E3!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry.category-other{background:#F5F1F0!important;border-color:#D9CECA!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal{background:#EAF1F7!important;border-color:#BFD2E2!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-work{background:#FFF0EC!important;border-color:#E9786A!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-home{background:#F3F0E8!important;border-color:#D8CBAE!important}
-.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-health{background:#E4F1DF!important;border-color:#A8C79D!important}
+.app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-health{background:#DDEED6!important;border-color:#99BF8D!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-study{background:#F2ECF7!important;border-color:#D8C7E3!important}
 .app .agenda-v3 .agenda-day-view .agenda-timeline-entry[class*="category-"] .agenda-timeline-entry-edit>span{color:#806A78!important}
 .app .agenda-v3 .agenda-day-view article.agenda-timeline-entry.category-personal .agenda-timeline-entry-edit>span:before{background:#7EA8C7!important}
