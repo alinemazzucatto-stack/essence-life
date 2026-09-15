@@ -226,17 +226,17 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-month-view .agenda-date-nav>b{text-align:center;text-transform:capitalize;font-size:1.18rem}
 .app .agenda-v3 .agenda-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;padding:10px;border:1px solid #EADBD8;border-radius:16px;background:#FFFDFB}
 .app .agenda-v3 .agenda-month-grid>small{text-align:center;color:#806A78;font-size:.7rem;font-weight:700;text-transform:uppercase;padding:2px 0 6px}
-.app .agenda-v3 .agenda-month-grid>button,.app .agenda-v3 .agenda-month-blank{min-height:58px;border:1px solid transparent;border-radius:11px;background:#FFF;color:#3B2635}
+.app .agenda-v3 .agenda-month-grid>button,.app .agenda-v3 .agenda-month-blank{min-width:0;min-height:58px;box-sizing:border-box;border:1px solid transparent;border-radius:11px;background:#FFF;color:#3B2635}
 .app .agenda-v3 .agenda-month-grid>button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;position:relative;cursor:pointer}
 .app .agenda-v3 .agenda-month-grid>button:hover{border-color:#EADBD8}
 .app .agenda-v3 .agenda-month-grid>button b{font:500 1rem Georgia,serif}
 .app .agenda-v3 .agenda-month-grid>button.today b{color:#E9786A;font-weight:700}
 .app .agenda-v3 .agenda-month-grid>button.selected{background:#E9786A;color:#FFF9F5;box-shadow:0 3px 8px rgba(233,120,106,.2)}
 .app .agenda-v3 .agenda-month-grid>button.selected b{color:#FFF9F5}
-.app .agenda-v3 .agenda-month-dots{display:flex;gap:3px;height:7px}
-.app .agenda-v3 .agenda-month-dots i{width:7px;height:7px;border-radius:50%;background:#B99BD2}
+.app .agenda-v3 .agenda-month-dots{display:flex;justify-content:center;gap:3px;width:100%;max-width:100%;height:7px;overflow:hidden}
+.app .agenda-v3 .agenda-month-dots i{display:block;flex:0 0 7px;width:7px;height:7px;min-width:7px;min-height:7px;border-radius:50%;background:#B99BD2}
 .app .agenda-v3 .agenda-month-dots i.category-health{background:#8FB77F}.app .agenda-v3 .agenda-month-dots i.category-personal{background:#7EA8C7}.app .agenda-v3 .agenda-month-dots i.category-work{background:#E9786A}.app .agenda-v3 .agenda-month-dots i.category-home{background:#C5B47D}
 .app .agenda-v3 .agenda-month-grid>button.selected .agenda-month-dots i{background:#FFF9F5!important}
 .app .agenda-v3 .agenda-month-grid>button em{position:absolute;right:4px;bottom:3px;color:#806A78;font-size:.55rem;font-style:normal}
 .app .agenda-v3 .agenda-month-grid>button.selected em{color:#FFF9F5}
-@media(max-width:700px){.app .agenda-v3 .agenda-month-view{padding-inline:8px}.app .agenda-v3 .agenda-month-grid{gap:3px;padding:7px}.app .agenda-v3 .agenda-month-grid>button,.app .agenda-v3 .agenda-month-blank{min-height:48px}.app .agenda-v3 .agenda-month-grid>small{font-size:.62rem}.app .agenda-v3 .agenda-month-grid>button b{font-size:.86rem}.app .agenda-v3 .agenda-month-dots i{width:6px;height:6px}}
+@media(max-width:700px){.app .agenda-v3 .agenda-month-view{padding-inline:8px}.app .agenda-v3 .agenda-month-grid{gap:3px;padding:7px}.app .agenda-v3 .agenda-month-grid>button,.app .agenda-v3 .agenda-month-blank{min-height:48px}.app .agenda-v3 .agenda-month-grid>small{font-size:.62rem}.app .agenda-v3 .agenda-month-grid>button b{font-size:.86rem}.app .agenda-v3 .agenda-month-dots i{flex-basis:6px;width:6px;height:6px;min-width:6px;min-height:6px}}
