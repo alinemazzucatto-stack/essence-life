@@ -220,3 +220,23 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-week-item.category-study{background:#F1EAF7;border-color:#DCCBE9}.app .agenda-v3 .agenda-week-item.category-health{background:#EAF3E6;border-color:#C4DDBB}.app .agenda-v3 .agenda-week-item.category-personal{background:#EAF1F7;border-color:#C9DCEB}.app .agenda-v3 .agenda-week-item.category-work{background:#FFF0EC;border-color:#F1B2A8}.app .agenda-v3 .agenda-week-item.category-home{background:#F6F1E6;border-color:#E3D5AF}
 .app .agenda-v3 .agenda-week-empty{padding:5px 2px;color:#B09DA7;font-size:.68rem;text-align:center}
 @media(max-width:700px){.app .agenda-v3 .agenda-week-grid{gap:6px!important}.app .agenda-v3 .agenda-week-day-head{padding:8px}.app .agenda-v3 .agenda-week-day-head small{font-size:.64rem}.app .agenda-v3 .agenda-week-day-head b{font-size:1.05rem}.app .agenda-v3 .agenda-week-item{padding:6px 5px}.app .agenda-v3 .agenda-week-item strong{font-size:.7rem}.app .agenda-v3 .agenda-week-item small{font-size:.56rem}}
+/* Monthly view: aligned calendar with category markers. */
+.app .agenda-v3 .agenda-month-view{padding:0 14px 18px}
+.app .agenda-v3 .agenda-month-view .agenda-date-nav{margin:10px 0 16px;padding:0}
+.app .agenda-v3 .agenda-month-view .agenda-date-nav>b{text-align:center;text-transform:capitalize;font-size:1.18rem}
+.app .agenda-v3 .agenda-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;padding:10px;border:1px solid #EADBD8;border-radius:16px;background:#FFFDFB}
+.app .agenda-v3 .agenda-month-grid>small{text-align:center;color:#806A78;font-size:.7rem;font-weight:700;text-transform:uppercase;padding:2px 0 6px}
+.app .agenda-v3 .agenda-month-grid>button,.app .agenda-v3 .agenda-month-blank{min-height:58px;border:1px solid transparent;border-radius:11px;background:#FFF;color:#3B2635}
+.app .agenda-v3 .agenda-month-grid>button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;position:relative;cursor:pointer}
+.app .agenda-v3 .agenda-month-grid>button:hover{border-color:#EADBD8}
+.app .agenda-v3 .agenda-month-grid>button b{font:500 1rem Georgia,serif}
+.app .agenda-v3 .agenda-month-grid>button.today b{color:#E9786A;font-weight:700}
+.app .agenda-v3 .agenda-month-grid>button.selected{background:#E9786A;color:#FFF9F5;box-shadow:0 3px 8px rgba(233,120,106,.2)}
+.app .agenda-v3 .agenda-month-grid>button.selected b{color:#FFF9F5}
+.app .agenda-v3 .agenda-month-dots{display:flex;gap:3px;height:7px}
+.app .agenda-v3 .agenda-month-dots i{width:7px;height:7px;border-radius:50%;background:#B99BD2}
+.app .agenda-v3 .agenda-month-dots i.category-health{background:#8FB77F}.app .agenda-v3 .agenda-month-dots i.category-personal{background:#7EA8C7}.app .agenda-v3 .agenda-month-dots i.category-work{background:#E9786A}.app .agenda-v3 .agenda-month-dots i.category-home{background:#C5B47D}
+.app .agenda-v3 .agenda-month-grid>button.selected .agenda-month-dots i{background:#FFF9F5!important}
+.app .agenda-v3 .agenda-month-grid>button em{position:absolute;right:4px;bottom:3px;color:#806A78;font-size:.55rem;font-style:normal}
+.app .agenda-v3 .agenda-month-grid>button.selected em{color:#FFF9F5}
+@media(max-width:700px){.app .agenda-v3 .agenda-month-view{padding-inline:8px}.app .agenda-v3 .agenda-month-grid{gap:3px;padding:7px}.app .agenda-v3 .agenda-month-grid>button,.app .agenda-v3 .agenda-month-blank{min-height:48px}.app .agenda-v3 .agenda-month-grid>small{font-size:.62rem}.app .agenda-v3 .agenda-month-grid>button b{font-size:.86rem}.app .agenda-v3 .agenda-month-dots i{width:6px;height:6px}}
