@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const formatTime=(seconds:number)=>`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;
-const presets:[number,string][]=[[25,'Foco'],[5,'Pausa curta'],[15,'Pausa longa']];
+const presets:[number,string,string][]=[[25,'Foco','◎'],[5,'Pausa curta','▱'],[15,'Pausa longa','♧']];
 const RADIUS=45;
 const CIRCUMFERENCE=2*Math.PI*RADIUS;
 
@@ -19,10 +19,10 @@ export default function Pomodoro(){
   const dashOffset=CIRCUMFERENCE*(1-progress);
 
   return <section className="pomodoro-module">
-    <article className="workout-hero pomodoro-hero"><div><b>FOCO COM LEVEZA</b><p>Escolha uma tarefa, comece um ciclo e cuide de uma coisa de cada vez.</p></div><span>◷</span></article>
+    <article className="workout-hero pomodoro-hero"><div className="pomodoro-hero-art" aria-hidden="true">◒</div><div><b>FOCO COM LEVEZA</b><p>Escolha uma tarefa, comece um ciclo<br className="pomodoro-desktop-break"/> e cuide de uma coisa de cada vez.</p></div><span aria-hidden="true">⌁</span></article>
     <article className="card pomodoro-card pomodoro-workspace">
       <div className="pomodoro-head">
-        <div><small>POMODORO</small><h3>{focus||'Hora de focar'}</h3></div>
+        <div className="pomodoro-title"><small>POMODORO</small><h3>{focus||'Hora de focar'}</h3><strong>{sessions?`${sessions} ${sessions===1?'sessão concluída':'sessões concluídas'}`:'Nenhuma sessão ainda'}</strong></div>
         <div className="pomodoro-sessions" aria-label={`${sessions} sessão(ões) concluída(s)`}>
           {sessions>0?<>{Array.from({length:Math.min(sessions,6)}).map((_,index)=><i key={index} className="pomodoro-session-dot"/>)}{sessions>6&&<small>+{sessions-6}</small>}</>:<small>Nenhuma sessão ainda</small>}
         </div>
@@ -34,10 +34,10 @@ export default function Pomodoro(){
         </svg>
         <b>{formatTime(seconds)}</b><small>{running?'foco em andamento':'pronta para começar'}</small>
       </div>
-      <div className="pomodoro-presets">{presets.map(([minutes,label])=><button type="button" className={total===minutes*60?'selected':''} key={minutes} onClick={()=>choose(minutes)}><b>{label}</b><span>{minutes} min</span></button>)}</div>
-      <label className="pomodoro-focus">No que você quer focar?<input value={focus} onChange={event=>setFocus(event.target.value)} placeholder="Ex.: responder mensagens"/></label>
-      <div className="pomodoro-actions"><button type="button" onClick={reset} aria-label="Reiniciar Pomodoro">↻</button><button type="button" className="primary" onClick={()=>setRunning(value=>!value)}>{running?'Pausar foco':'Começar foco'} ▶</button></div>
+      <div className="pomodoro-presets">{presets.map(([minutes,label,icon])=><button type="button" className={total===minutes*60?'selected':''} key={minutes} onClick={()=>choose(minutes)}><i aria-hidden="true">{icon}</i><span><b>{label}</b><strong>{minutes} min</strong></span></button>)}</div>
+      <label className="pomodoro-focus"><span>No que você quer focar?</span><div><i aria-hidden="true">⌕</i><input value={focus} onChange={event=>setFocus(event.target.value)} placeholder="Ex.: responder mensagens" aria-label="No que você quer focar?"/></div></label>
+      <div className="pomodoro-actions"><button type="button" onClick={reset} aria-label="Reiniciar Pomodoro">↻</button><button type="button" className="primary" onClick={()=>setRunning(value=>!value)}>{running?'Pausar foco':'Começar foco'} <span aria-hidden="true">▶</span></button></div>
+      <div className="pomodoro-tip"><i aria-hidden="true">✧</i><span>Dica: quando o ciclo terminar, faça uma pausa breve antes de começar o próximo.</span></div>
     </article>
-    <p className="pomodoro-tip">Dica: quando o ciclo terminar, faça uma pausa breve antes de começar o próximo.</p>
   </section>;
 }
