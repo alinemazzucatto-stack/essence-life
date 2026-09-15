@@ -27,6 +27,7 @@ export default function Agenda(){
   const [editScope,setEditScope] = useState<'one'|'future'>('one');
   const [message,setMessage] = useState('');
   const [formError,setFormError] = useState('');
+  const [categoryFilter,setCategoryFilter] = useState('Todas');
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(()=>localStorage.setItem('essence:tasks',JSON.stringify(tasks)),[tasks]);
@@ -34,10 +35,11 @@ export default function Agenda(){
   const ordered = useMemo(()=>[...tasks].sort((a,b)=>(a.date+(a.time||'23:59')).localeCompare(b.date+(b.time||'23:59'))),[tasks]);
   const selectedWeek = weekFor(selectedDate);
   const selectedMonth = monthDays(selectedDate);
-  const selectedTasks = ordered.filter(task=>task.date===selectedDate);
+  const visibleTasks = categoryFilter==='Todas'?ordered:ordered.filter(task=>task.category===categoryFilter);
+  const selectedTasks = visibleTasks.filter(task=>task.date===selectedDate);
   const unscheduled = selectedTasks.filter(task=>!task.time);
-  const weekTasks = ordered.filter(task=>selectedWeek.includes(task.date));
-  const monthTasks = ordered.filter(task=>selectedMonth.includes(task.date));
+  const weekTasks = visibleTasks.filter(task=>selectedWeek.includes(task.date));
+  const monthTasks = visibleTasks.filter(task=>selectedMonth.includes(task.date));
   const todayTasks = tasks.filter(task=>task.date===today());
   const completed = todayTasks.filter(task=>task.done).length;
   const next = ordered.find(task=>!task.done && task.date>=today());
@@ -60,6 +62,7 @@ export default function Agenda(){
         <div className="agenda-view-switch" role="tablist" aria-label="Visualização da agenda">
           {([['day','Dia'],['week','Semana'],['month','Mês']] as const).map(([value,label])=><button type="button" role="tab" aria-selected={view===value} key={value} className={view===value?'selected':''} onClick={()=>setView(value)}>{label}</button>)}
         </div>
+        <label className="agenda-category-filter">Filtrar categoria<select value={categoryFilter} onChange={event=>setCategoryFilter(event.target.value)} aria-label="Filtrar compromissos por categoria"><option>Todas</option>{cats.map(category=><option key={category}>{category}</option>)}</select></label>
 
       </div>
       {view==='day' && <div className="agenda-day-view">

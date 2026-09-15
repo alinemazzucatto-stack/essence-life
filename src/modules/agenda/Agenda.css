@@ -240,3 +240,8 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-month-grid>button em{position:absolute;right:4px;bottom:3px;color:#806A78;font-size:.55rem;font-style:normal}
 .app .agenda-v3 .agenda-month-grid>button.selected em{color:#FFF9F5}
 @media(max-width:700px){.app .agenda-v3 .agenda-month-view{padding-inline:8px}.app .agenda-v3 .agenda-month-grid{gap:3px;padding:7px}.app .agenda-v3 .agenda-month-grid>button,.app .agenda-v3 .agenda-month-blank{min-height:48px}.app .agenda-v3 .agenda-month-grid>small{font-size:.62rem}.app .agenda-v3 .agenda-month-grid>button b{font-size:.86rem}.app .agenda-v3 .agenda-month-dots i{flex-basis:6px;width:6px;height:6px;min-width:6px;min-height:6px}}
+.app .agenda-v3 .agenda-category-filter{display:flex;align-items:center;justify-content:flex-end;gap:7px;margin:8px 2px 0;color:#806A78;font-size:.7rem}
+.app .agenda-v3 .agenda-category-filter select{min-height:27px;padding:2px 8px;border:1px solid #EADBD8;border-radius:8px;background:#FFF;color:#3B2635;font-size:.72rem}
+.app .agenda-v3 .agenda-week-day.today{border-color:#E9786A}.app .agenda-v3 .agenda-week-day.today .agenda-week-day-head{background:#FFF5F1}
+.app .agenda-v3 .agenda-week-empty{min-height:34px;display:grid;place-items:center}
+@media(max-width:700px){.app .agenda-v3 .agenda-category-filter{justify-content:space-between;margin-inline:2px}}
