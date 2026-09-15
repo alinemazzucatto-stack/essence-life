@@ -205,3 +205,18 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 .app .agenda-v3 .agenda-week-grid>button span{grid-column:2!important;grid-row:2!important;font-size:.72rem!important;white-space:nowrap!important}
 .app .agenda-v3 .agenda-week-grid>button.selected{border-color:#E9786A!important;background:#FFF0EC!important}
 @media(max-width:700px){.app .agenda-v3 .agenda-week-view{padding-inline:8px!important}.app .agenda-v3 .agenda-week-grid{gap:6px!important}.app .agenda-v3 .agenda-week-grid>button{min-height:52px!important;padding:6px 9px!important;grid-template-columns:34px 1fr!important}.app .agenda-v3 .agenda-week-grid>button small{font-size:.68rem!important}.app .agenda-v3 .agenda-week-grid>button b{font-size:1rem!important}.app .agenda-v3 .agenda-week-grid>button span{font-size:.64rem!important}}
+/* Weekly view: readable day columns with the actual appointments. */
+.app .agenda-v3 .agenda-week-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:start!important}
+.app .agenda-v3 .agenda-week-day{min-width:0;border:1px solid #EADBD8;border-radius:14px;background:#FFFDFB;overflow:hidden}
+.app .agenda-v3 .agenda-week-day.selected{border-color:#E9786A;box-shadow:0 3px 10px rgba(59,38,53,.07)}
+.app .agenda-v3 .agenda-week-day-head{width:100%;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:2px 8px;padding:10px 11px;border:0;border-bottom:1px solid #F0E5E1;background:#FFF;color:#3B2635;text-align:left;cursor:pointer}
+.app .agenda-v3 .agenda-week-day-head small{grid-column:1;text-transform:capitalize;font-size:.75rem;font-weight:700;color:#806A78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app .agenda-v3 .agenda-week-day-head b{grid-column:2;grid-row:1 / span 2;font:500 1.3rem Georgia,serif;align-self:center}
+.app .agenda-v3 .agenda-week-day-head span{grid-column:1;color:#A58E9A;font-size:.66rem}
+.app .agenda-v3 .agenda-week-items{display:grid;gap:5px;padding:7px}
+.app .agenda-v3 .agenda-week-item{display:flex;align-items:center;justify-content:space-between;gap:6px;min-width:0;padding:7px 8px;border:1px solid #EADBD8;border-radius:9px;background:#FDF3F0;color:#3B2635;text-align:left;cursor:pointer}
+.app .agenda-v3 .agenda-week-item strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:500 .8rem Georgia,serif}
+.app .agenda-v3 .agenda-week-item small{flex:0 0 auto;color:#806A78;font-size:.62rem}
+.app .agenda-v3 .agenda-week-item.category-study{background:#F1EAF7;border-color:#DCCBE9}.app .agenda-v3 .agenda-week-item.category-health{background:#EAF3E6;border-color:#C4DDBB}.app .agenda-v3 .agenda-week-item.category-personal{background:#EAF1F7;border-color:#C9DCEB}.app .agenda-v3 .agenda-week-item.category-work{background:#FFF0EC;border-color:#F1B2A8}.app .agenda-v3 .agenda-week-item.category-home{background:#F6F1E6;border-color:#E3D5AF}
+.app .agenda-v3 .agenda-week-empty{padding:5px 2px;color:#B09DA7;font-size:.68rem;text-align:center}
+@media(max-width:700px){.app .agenda-v3 .agenda-week-grid{gap:6px!important}.app .agenda-v3 .agenda-week-day-head{padding:8px}.app .agenda-v3 .agenda-week-day-head small{font-size:.64rem}.app .agenda-v3 .agenda-week-day-head b{font-size:1.05rem}.app .agenda-v3 .agenda-week-item{padding:6px 5px}.app .agenda-v3 .agenda-week-item strong{font-size:.7rem}.app .agenda-v3 .agenda-week-item small{font-size:.56rem}}
