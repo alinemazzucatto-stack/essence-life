@@ -189,3 +189,9 @@ html[data-preset] .app .agenda-v3 .agenda-floating-add{background:var(--app-acce
 @media(max-width:700px){.app .agenda-v3 .agenda-timeline-entry-edit>span{height:9px!important;min-height:9px!important;font-size:.52rem!important;padding-left:14px!important}.app .agenda-v3 .agenda-timeline-entry-edit>span:before{width:8px!important;height:8px!important}.app .agenda-v3 .agenda-timeline-entry .agenda-task-title{margin-top:3px!important}.app .agenda-v3 .agenda-task-time{gap:2px!important}}
 .agenda-v3-form label:has(select[name="category"]):after{content:"● Estudos   ● Saúde   ● Trabalho   ● Casa   ● Pessoal";display:block;margin-top:5px;color:#806A78;font-size:.68rem;letter-spacing:.01em;white-space:nowrap}
 @media(max-width:700px){.agenda-v3-form label:has(select[name="category"]):after{font-size:.6rem;letter-spacing:-.02em}}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry{box-shadow:0 3px 10px rgba(59,38,53,.06)!important;transition:transform .18s ease,box-shadow .18s ease!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry:hover{transform:translateY(-1px)!important;box-shadow:0 6px 14px rgba(59,38,53,.1)!important}
+.app .agenda-v3 .agenda-day-view .agenda-timeline-entry-edit>span{font-weight:700!important;opacity:.88!important}
+.app .agenda-v3 .agenda-day-view .agenda-task-title{font-weight:600!important;letter-spacing:-.02em!important}
+.app .agenda-v3 .agenda-day-view .agenda-task-time{color:#806A78!important;font-weight:500!important}
+.app .agenda-v3 .agenda-day-view .agenda-date-nav button{box-shadow:0 2px 5px rgba(59,38,53,.06)!important}
