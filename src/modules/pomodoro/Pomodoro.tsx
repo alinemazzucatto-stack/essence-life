@@ -5,6 +5,7 @@ const formatTime=(seconds:number)=>`${String(Math.floor(seconds/60)).padStart(2,
 const presets:[number,string,string][]=[[25,'Foco','◎'],[5,'Pausa curta','▱'],[15,'Pausa longa','♧']];
 const RADIUS=45;
 const CIRCUMFERENCE=2*Math.PI*RADIUS;
+function LeafSprig({className}:{className:string}){return <svg className={className} viewBox="0 0 100 150" aria-hidden="true"><path d="M18 145C42 110 56 76 62 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/><path d="M38 106C18 102 10 88 13 69c19 4 28 17 25 37ZM49 79C32 75 25 61 29 44c17 4 24 16 20 35ZM61 51C45 44 43 29 50 15c15 8 18 21 11 36ZM50 116c18-2 29-13 31-31-18 0-29 11-31 31ZM58 88c17-2 27-13 28-29-16 0-26 11-28 29Z" fill="currentColor"/></svg>}
 
 export default function Pomodoro(){
   const [total,setTotal]=useState(25*60);
@@ -22,7 +23,7 @@ export default function Pomodoro(){
   const markerY=50-RADIUS*Math.cos(2*Math.PI*progress);
 
   return <section className="pomodoro-module">
-    <article className="workout-hero pomodoro-hero"><div className="pomodoro-hero-art" aria-hidden="true"/><div className="pomodoro-hero-copy"><b>FOCO COM LEVEZA</b><p>Escolha uma tarefa, comece um ciclo<br className="pomodoro-desktop-break"/> e cuide de uma coisa de cada vez.</p></div></article>
+    <article className="workout-hero pomodoro-hero"><div className="pomodoro-hero-art" aria-hidden="true"><LeafSprig className="pomodoro-coral-sprig"/></div><div className="pomodoro-hero-copy"><b>FOCO COM LEVEZA</b><p>Escolha uma tarefa, comece um ciclo<br className="pomodoro-desktop-break"/> e cuide de uma coisa de cada vez.</p></div><LeafSprig className="pomodoro-hero-branch"/></article>
     <article className="card pomodoro-card pomodoro-workspace">
       <div className="pomodoro-head">
         <div className="pomodoro-title"><small>POMODORO</small><h3>{focus||'Hora de focar'}</h3><strong>{sessions?`${sessions} ${sessions===1?'sessão concluída':'sessões concluídas'}`:'Nenhuma sessão ainda'}</strong></div>
@@ -30,7 +31,7 @@ export default function Pomodoro(){
           {sessions>0?<>{Array.from({length:Math.min(sessions,6)}).map((_,index)=><i key={index} className="pomodoro-session-dot"/>)}{sessions>6&&<small>+{sessions-6}</small>}</>:<small>Nenhuma sessão ainda</small>}
         </div>
       </div>
-      <div className="pomodoro-clock">
+      <div className="pomodoro-clock"><LeafSprig className="pomodoro-clock-branch"/>
         <svg className="pomodoro-ring" viewBox="0 0 100 100" aria-hidden="true">
           <circle className="pomodoro-ring-track" cx="50" cy="50" r={RADIUS}/>
           <circle className="pomodoro-ring-fill" cx="50" cy="50" r={RADIUS} style={{strokeDasharray:CIRCUMFERENCE,strokeDashoffset:dashOffset}}/><circle className="pomodoro-ring-marker" cx={markerX} cy={markerY} r="4.5"/>
