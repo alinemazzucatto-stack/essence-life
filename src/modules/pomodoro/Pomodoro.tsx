@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './Pomodoro.css';
 
 const formatTime=(seconds:number)=>`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;
-const presets:[number,string,'focus'|'short'|'long'][]=[[25,'Foco','focus'],[5,'Pausa curta','short'],[15,'Pausa longa','long']];
+const presets:[number,string,'focus'|'short'|'long'][]=[[5,'Pausa curta','short'],[15,'Pausa longa','long'],[25,'Foco','focus']];
 const RADIUS=45;
 const CIRCUMFERENCE=2*Math.PI*RADIUS;
 function LeafSprig({className}:{className:string}){return <svg className={className} viewBox="0 0 100 150" aria-hidden="true"><path d="M18 145C42 110 56 76 62 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/><path d="M38 106C18 102 10 88 13 69c19 4 28 17 25 37ZM49 79C32 75 25 61 29 44c17 4 24 16 20 35ZM61 51C45 44 43 29 50 15c15 8 18 21 11 36ZM50 116c18-2 29-13 31-31-18 0-29 11-31 31ZM58 88c17-2 27-13 28-29-16 0-26 11-28 29Z" fill="currentColor"/></svg>}
