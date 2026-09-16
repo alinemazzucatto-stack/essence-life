@@ -1706,3 +1706,9 @@ body .app .diary-v2 .diary-entry>div button:first-child{display:grid!important;p
 body .app .diary-v2 .diary-entry>div button:last-child{color:#bd7180!important}
 body .app .diary-v2 .diary-entry:last-child{border-bottom:0!important}
 @media(max-width:560px){body .app .diary-v2 .diary-entry{grid-template-columns:1fr!important;padding-left:15px!important}body .app .diary-v2 .diary-entry>div{justify-content:flex-start!important}}
+
+/* Ajuste tipográfico do cabeçalho de cada registro. */
+body .app .diary-v2 .diary-entry>span{display:flex!important;flex-direction:column!important}
+body .app .diary-v2 .diary-entry>span>b{min-height:20px!important;line-height:1.45!important}
+body .app .diary-v2 .diary-entry>span>p{order:2!important;margin-top:5px!important}
+body .app .diary-v2 .diary-entry>span>small{order:3!important;margin:6px 0 0!important;line-height:1.3!important}
