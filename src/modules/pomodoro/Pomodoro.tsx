@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './Pomodoro.css';
 
 const formatTime=(seconds:number)=>`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;
 const presets:[number,string,string][]=[[25,'Foco','◎'],[5,'Pausa curta','▱'],[15,'Pausa longa','♧']];
@@ -20,7 +19,7 @@ export default function Pomodoro(){
   const dashOffset=CIRCUMFERENCE*(1-progress);
 
   return <section className="pomodoro-module">
-    <article className="workout-hero pomodoro-hero"><div className="pomodoro-hero-art" aria-hidden="true"><img src="/home-peace-flower-reference.svg" alt=""/></div><div className="pomodoro-hero-copy"><b>FOCO COM LEVEZA</b><p>Escolha uma tarefa, comece um ciclo<br className="pomodoro-desktop-break"/> e cuide de uma coisa de cada vez.</p></div><img className="pomodoro-hero-branch" src="/home-peace-flower-reference.svg" alt="" aria-hidden="true"/></article>
+    <article className="workout-hero pomodoro-hero"><div className="pomodoro-hero-art" aria-hidden="true">◒</div><div><b>FOCO COM LEVEZA</b><p>Escolha uma tarefa, comece um ciclo<br className="pomodoro-desktop-break"/> e cuide de uma coisa de cada vez.</p></div><span aria-hidden="true">⌁</span></article>
     <article className="card pomodoro-card pomodoro-workspace">
       <div className="pomodoro-head">
         <div className="pomodoro-title"><small>POMODORO</small><h3>{focus||'Hora de focar'}</h3><strong>{sessions?`${sessions} ${sessions===1?'sessão concluída':'sessões concluídas'}`:'Nenhuma sessão ainda'}</strong></div>
