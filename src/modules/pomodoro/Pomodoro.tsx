@@ -19,6 +19,8 @@ export default function Pomodoro(){
   const reset=()=>{setRunning(false);setSeconds(total)};
   const progress=total>0?Math.min(1,Math.max(0,(total-seconds)/total)):0;
   const dashOffset=CIRCUMFERENCE*(1-progress);
+  const markerX=50+RADIUS*Math.sin(2*Math.PI*progress);
+  const markerY=50-RADIUS*Math.cos(2*Math.PI*progress);
 
   return <section className="pomodoro-module">
     <article className="workout-hero pomodoro-hero"><div className="pomodoro-hero-art" aria-hidden="true"><LeafSprig className="pomodoro-coral-sprig"/></div><div className="pomodoro-hero-copy"><b>FOCO COM LEVEZA</b><p>Escolha uma tarefa, comece um ciclo<br className="pomodoro-desktop-break"/> e cuide de uma coisa de cada vez.</p></div><LeafSprig className="pomodoro-hero-branch"/></article>
@@ -32,7 +34,7 @@ export default function Pomodoro(){
       <div className="pomodoro-clock"><LeafSprig className="pomodoro-clock-branch"/>
         <svg className="pomodoro-ring" viewBox="0 0 100 100" aria-hidden="true">
           <circle className="pomodoro-ring-track" cx="50" cy="50" r={RADIUS}/>
-          <circle className="pomodoro-ring-fill" cx="50" cy="50" r={RADIUS} style={{strokeDasharray:CIRCUMFERENCE,strokeDashoffset:dashOffset}}/>
+          <circle className="pomodoro-ring-fill" cx="50" cy="50" r={RADIUS} style={{strokeDasharray:CIRCUMFERENCE,strokeDashoffset:dashOffset}}/><circle className="pomodoro-ring-marker" cx={markerX} cy={markerY} r="4.5"/>
         </svg>
         <b>{formatTime(seconds)}</b><small>{running?'foco em andamento':'pronta para começar'}</small>
       </div>
