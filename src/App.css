@@ -1738,3 +1738,9 @@ body .app .diary-v2 .diary-entry>div{margin-top:-1px!important}
 body .app .diary-v2 .diary-entry>div button{padding:3px 6px!important;font-size:9px!important}
 body .app .diary-v2 .diary-entry>div button:first-child{width:24px!important;height:24px!important;font-size:12px!important}
 @media(max-width:560px){body .app .diary-v2 .diary-filter-controls{grid-template-columns:1fr 1fr!important}body .app .diary-v2 .diary-filter-controls label,body .app .diary-v2 .diary-filter-controls button{width:100%!important;justify-content:center!important}body .app .diary-v2 .diary-entry>span>small{right:8px!important;top:12px!important}}
+
+/* Os registros aparecem somente sob demanda, dentro do próprio filtro. */
+body .app .diary-v2 .diary-filter-results{display:grid!important;gap:0!important;margin-top:2px!important;padding-top:10px!important;border-top:1px solid #eadfea!important}
+body .app .diary-v2 .diary-filter-results>small{margin-bottom:4px!important;color:#a887c1!important;font-size:9px!important;font-weight:850!important;letter-spacing:.1em!important}
+body .app .diary-v2 .diary-filter-results .diary-entry{background:transparent!important}
+body .app .diary-v2 .diary-filter-empty{margin:4px 0 0!important;color:#806a78!important;font-size:11px!important}
