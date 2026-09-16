@@ -1712,3 +1712,10 @@ body .app .diary-v2 .diary-entry>span{display:flex!important;flex-direction:colu
 body .app .diary-v2 .diary-entry>span>b{min-height:20px!important;line-height:1.45!important}
 body .app .diary-v2 .diary-entry>span>p{order:2!important;margin-top:5px!important}
 body .app .diary-v2 .diary-entry>span>small{order:3!important;margin:6px 0 0!important;line-height:1.3!important}
+
+/* Data e tags ficam como metadado no topo direito; a reflexão continua livre abaixo. */
+body .app .diary-v2 .diary-entry{position:relative!important}
+body .app .diary-v2 .diary-entry>span>b{padding-right:112px!important}
+body .app .diary-v2 .diary-entry>span>small{position:absolute!important;top:16px!important;right:0!important;order:unset!important;margin:0!important;white-space:nowrap!important;text-align:right!important}
+body .app .diary-v2 .diary-entry>span>p{padding-right:0!important}
+@media(max-width:560px){body .app .diary-v2 .diary-entry>span>b{padding-right:102px!important}body .app .diary-v2 .diary-entry>span>small{right:0!important;top:16px!important;font-size:9px!important}}
