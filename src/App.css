@@ -1744,3 +1744,33 @@ body .app .diary-v2 .diary-filter-results{display:grid!important;gap:0!important
 body .app .diary-v2 .diary-filter-results>small{margin-bottom:4px!important;color:#a887c1!important;font-size:9px!important;font-weight:850!important;letter-spacing:.1em!important}
 body .app .diary-v2 .diary-filter-results .diary-entry{background:transparent!important}
 body .app .diary-v2 .diary-filter-empty{margin:4px 0 0!important;color:#806a78!important;font-size:11px!important}
+
+/* Revisão de consistência: Reflexões, Cartas, Insights e Privacidade no sistema de cores atual. */
+body .app .diary-v2 .diary-weekly-theme{padding:18px!important;border:1px solid #dfd0ec!important;border-left:4px solid #b99bce!important;border-radius:16px!important;background:linear-gradient(135deg,#fdfaff,#f4eef9)!important;text-align:left!important}
+body .app .diary-v2 .diary-weekly-badge{width:42px!important;height:42px!important;margin:0 0 9px!important;background:#eee4f7!important;box-shadow:none!important;font-size:21px!important}
+body .app .diary-v2 .diary-weekly-theme>small{color:#9b7dbd!important;font-size:9px!important;font-weight:850!important;letter-spacing:.1em!important}
+body .app .diary-v2 .diary-weekly-phrase{max-width:none!important;margin:7px 0 13px!important;color:#3b2635!important;font:600 17px/1.35 Georgia,serif!important;text-align:left!important}
+body .app .diary-v2 .diary-weekly-tips{max-width:none!important;margin:0!important;gap:7px!important}
+body .app .diary-v2 .diary-weekly-tip{padding:9px 10px!important;border-color:#e3d8ec!important;border-left:3px solid #b99bce!important;border-radius:10px!important;background:#fffdfd!important;color:#62545f!important;font-size:11px!important;line-height:1.35!important}
+body .app .diary-v2 .diary-weekly-tip span{width:17px!important;height:17px!important;flex-basis:17px!important;background:#b99bce!important;font-size:9px!important}
+body .app .diary-v2 .diary-letters-hero{padding:17px 18px!important;border-color:#d6e3ef!important;border-left:4px solid #86b4d2!important;border-radius:16px!important;background:linear-gradient(135deg,#fcfeff,#eef6fb)!important}
+body .app .diary-v2 .diary-letters-hero b{display:block!important;margin-bottom:4px!important;color:#5e88a4!important;font-size:10px!important;letter-spacing:.09em!important}
+body .app .diary-v2 .diary-letters-hero p{margin:0!important;color:#62545f!important;font-size:12px!important;line-height:1.38!important}
+body .app .diary-v2 .diary-letters-hero span{font-size:30px!important}
+body .app .diary-v2 .diary-letter-card{padding:14px!important;border-color:#e4d8ec!important;border-top:3px solid #b99bce!important;border-radius:14px!important;background:#fffdfd!important;box-shadow:none!important}
+body .app .diary-v2 .diary-letter-card.locked{background:#faf7fc!important;border-top-color:#b99bce!important;opacity:1!important}
+body .app .diary-v2 .diary-letter-card.revealed{background:#f8fcf7!important;border-top-color:#76946c!important}
+body .app .diary-v2 .diary-letter-head b{color:#3b2635!important;font-size:14px!important;line-height:1.25!important}
+body .app .diary-v2 .diary-letter-card small{color:#947f96!important;font-size:10px!important;line-height:1.35!important}
+body .app .diary-v2 .diary-letter-card p{color:#62545f!important;font-size:12px!important;line-height:1.45!important}
+body .app .diary-v2 .diary-stats{gap:9px!important}
+body .app .diary-v2 .diary-stat-tile{min-height:78px!important;padding:12px!important;border-color:#e7dce7!important;background:#fffdfd!important;box-shadow:none!important}
+body .app .diary-v2 .diary-stat-tile:nth-child(1) .diary-stat-icon{background:#f3edfa!important}.app .diary-v2 .diary-stat-tile:nth-child(2) .diary-stat-icon{background:#fff0ed!important}.app .diary-v2 .diary-stat-tile:nth-child(3) .diary-stat-icon{background:#eff7ec!important}.app .diary-v2 .diary-stat-tile:nth-child(4) .diary-stat-icon{background:#edf5fa!important}
+body .app .diary-v2 .diary-data-grid{gap:9px!important}
+body .app .diary-v2 .diary-data-grid .card{min-height:94px!important;padding:13px!important;border-color:#e7dce7!important;background:#fffdfd!important;text-align:left!important;box-shadow:none!important}
+body .app .diary-v2 .diary-data-grid .card h3{margin:0 0 8px!important;font-size:14px!important;line-height:1.2!important}
+body .app .diary-v2 .diary-data-grid .card button,body .app .diary-v2 .diary-data-grid .card label{margin:0!important;padding:8px 9px!important;border-color:#e4d7e9!important;border-radius:9px!important;background:#faf7fc!important;color:#806a78!important;font-size:10px!important;text-align:center!important}
+body .app .diary-v2 .diary-data-grid .danger{border-left:3px solid #d98ba1!important}
+body .app .diary-v2 .diary-security{padding:17px!important;border-left:4px solid #86b4d2!important;background:linear-gradient(135deg,#fcfeff,#f1f8fc)!important;text-align:left!important}
+body .app .diary-v2 .diary-security h3{margin:0 0 5px!important;font-size:16px!important}.app .diary-v2 .diary-security p{margin:0 0 11px!important;font-size:12px!important;line-height:1.4!important}
+@media(max-width:560px){body .app .diary-v2 .diary-weekly-theme{padding:15px!important}body .app .diary-v2 .diary-weekly-phrase{font-size:16px!important}body .app .diary-v2 .diary-letters-hero{align-items:flex-start!important;padding:15px!important}body .app .diary-v2 .diary-letters-hero span{font-size:26px!important}body .app .diary-v2 .diary-data-grid{grid-template-columns:1fr!important}}
