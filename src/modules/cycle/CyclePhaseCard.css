@@ -7,22 +7,25 @@
   overflow: hidden;
   padding: 24px;
   border-radius: 18px;
-  border: 1px solid #e8cfc9;
-  background: linear-gradient(145deg, #fff9f5, #f8e8e6);
-  box-shadow: 0 14px 26px rgba(91, 55, 54, .09);
+  border: 1px solid #e5cfc8;
+  background:
+    radial-gradient(circle at 14% 22%, rgba(233, 120, 106, .15) 0 14px, transparent 15px),
+    radial-gradient(circle at 86% 78%, rgba(183, 125, 99, .13) 0 36px, transparent 37px),
+    linear-gradient(145deg, #fffdfb, #f7e5e2);
+  box-shadow: 0 15px 30px rgba(91, 55, 54, .11);
   color: #3b2635;
   text-align: center;
 }
 
 .cycle-phase-card__orb {
   position: absolute;
-  right: -30px;
-  bottom: -76px;
-  width: 190px;
-  height: 190px;
-  border: 1px solid rgba(183, 125, 99, .18);
+  right: -22px;
+  bottom: -66px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(183, 125, 99, .25);
   border-radius: 50%;
-  box-shadow: 0 0 0 20px rgba(183, 125, 99, .05), 0 0 0 45px rgba(183, 125, 99, .035);
+  box-shadow: 0 0 0 15px rgba(183, 125, 99, .06), 0 0 0 34px rgba(183, 125, 99, .035);
 }
 
 .cycle-phase-card :is(small, h3, strong, p) {
@@ -33,6 +36,13 @@
 }
 
 .cycle-phase-card small {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 9px;
+  border: 1px solid #f0ccc5;
+  border-radius: 999px;
+  background: rgba(255, 253, 251, .78);
   color: #e9786a;
   font-size: 10px;
   font-weight: 850;
@@ -45,7 +55,17 @@
   letter-spacing: -.03em;
 }
 
-.cycle-phase-card strong { font-size: 13px; }
+.cycle-phase-card strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  margin-top: 2px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #f1dfdb;
+  color: #704650;
+  font-size: 12px;
+}
 
 .cycle-phase-card p {
   width: 100%;
