@@ -15,3 +15,5 @@
 @media(max-width:650px){.cl-cycle-signals .cl-cycle-signal{position:relative!important}}
 
 @media(max-width:650px){.cl-cycle-card .cl-next-period{width:calc(100% + 118px)!important;max-width:none!important}.cl-cycle-card .cl-cycle-description{width:calc(100% + 118px)!important;max-width:none!important;margin-right:-118px!important;text-align:center!important}}
+
+@media(max-width:650px){.cl-cycle-card{padding-bottom:16px!important}.cl-cycle-content{min-height:250px!important}.cl-cycle-divider{margin-top:0!important}.cl-cycle-signals{margin-top:8px!important}}
