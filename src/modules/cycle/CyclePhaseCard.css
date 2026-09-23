@@ -48,11 +48,11 @@
 .cycle-phase-card strong { font-size: 13px; }
 
 .cycle-phase-card p {
-  max-width: 235px;
+  max-width: 285px;
   margin-top: 11px;
   color: #806f7a;
-  font-size: 13px;
-  line-height: 1.42;
+  font-size: 12px;
+  line-height: 1.32;
 }
 
 @media (max-width: 780px) {
