@@ -152,3 +152,43 @@ html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick
   html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action b { margin-top: 7px; font-size: 11px !important; }
   html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action small { font-size: 9px !important; }
 }
+
+/* Ilustração do cuidado sugerido e ação reversível. */
+html body .app main section.cycle.cycle-module .cycle-today-care {
+  grid-template-columns: 68px minmax(0, 1fr) auto !important;
+  gap: 13px !important;
+  min-height: 92px;
+  overflow: hidden;
+}
+
+html body .app main section.cycle.cycle-module .cycle-today-care .cycle-today-art {
+  display: grid;
+  width: 64px;
+  height: 58px;
+  place-items: center;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #fff6f2, #fae5e0);
+}
+
+html body .app main section.cycle.cycle-module .cycle-today-care .cycle-today-art svg {
+  width: 61px;
+  height: 50px;
+}
+
+html body .app main section.cycle.cycle-module .cycle-today-care .cycle-today-art > span {
+  font-size: 23px;
+}
+
+html body .app main section.cycle.cycle-module .cycle-today-care button {
+  min-width: 116px;
+}
+
+@media (max-width: 560px) {
+  html body .app main section.cycle.cycle-module .cycle-today-care {
+    grid-template-columns: 62px minmax(0, 1fr) !important;
+    gap: 10px !important;
+  }
+  html body .app main section.cycle.cycle-module .cycle-today-care .cycle-today-art { width: 58px; height: 52px; }
+  html body .app main section.cycle.cycle-module .cycle-today-care .cycle-today-art svg { width: 55px; height: 46px; }
+  html body .app main section.cycle.cycle-module .cycle-today-care button { grid-column: 1 / -1; width: 100%; margin-top: 2px; }
+}
