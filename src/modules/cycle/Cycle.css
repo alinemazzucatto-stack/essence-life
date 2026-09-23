@@ -19,3 +19,131 @@ html body .app main section.cycle.cycle-module .cycle-overview > article.cycle-c
   color: rgba(255, 255, 255, .84) !important;
   -webkit-text-fill-color: rgba(255, 255, 255, .84) !important;
 }
+
+/* Ações rápidas — cards de entrada, no ritmo visual do módulo. */
+html body .app main section.cycle.cycle-module .cycle-quick-section {
+  margin-top: 16px;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 4px 10px;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-heading h3 {
+  margin: 0;
+  color: #4b2f3c;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-heading button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #df7180;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-heading button span {
+  font-size: 16px;
+  line-height: .6;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-actions {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 34px auto 1fr !important;
+  justify-items: start !important;
+  align-content: start !important;
+  min-height: 126px !important;
+  padding: 12px !important;
+  border: 1px solid #f0dfdc !important;
+  border-radius: 16px !important;
+  background: linear-gradient(145deg, #fffefd, #fff9f7) !important;
+  box-shadow: 0 8px 19px rgba(110, 68, 74, .05) !important;
+  color: #4b2f3c !important;
+  text-align: left !important;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action > span {
+  display: grid !important;
+  width: 34px !important;
+  height: 34px !important;
+  place-items: center !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background: #ffe7e9 !important;
+  color: #e77885 !important;
+  font-size: 21px !important;
+  line-height: 1 !important;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action-care > span {
+  background: #edf4e9 !important;
+  color: #77956e !important;
+  font-size: 19px !important;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action-data > span {
+  background: #f1eafa !important;
+  color: #a275ba !important;
+  font-size: 18px !important;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action b {
+  margin-top: 9px;
+  color: #4b2f3c !important;
+  font-size: 12px !important;
+  line-height: 1.15 !important;
+  text-align: left !important;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action small {
+  display: block !important;
+  margin-top: 4px;
+  padding-right: 10px;
+  color: #8c7280 !important;
+  font-size: 10px !important;
+  font-weight: 500;
+  line-height: 1.25 !important;
+  text-align: left !important;
+}
+
+html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action i {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff0f0;
+  color: #e77885;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1;
+}
+
+@media (max-width: 560px) {
+  html body .app main section.cycle.cycle-module .cycle-quick-section { margin-top: 13px; }
+  html body .app main section.cycle.cycle-module .cycle-quick-actions { gap: 7px !important; }
+  html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action { min-height: 119px !important; padding: 10px !important; border-radius: 14px !important; }
+  html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action b { margin-top: 7px; font-size: 11px !important; }
+  html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action small { font-size: 9px !important; }
+}
