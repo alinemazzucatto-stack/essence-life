@@ -1,17 +1,21 @@
 /* Local overrides for Novos Ciclos: loaded with the module after global styles. */
-body .app .cycle-module .cycle-current-card {
+html body .app main section.cycle.cycle-module .cycle-overview > article.cycle-current-card {
   background: linear-gradient(145deg, #5f3847, #9b5a68 64%, #c27b7c) !important;
+  background-color: #5f3847 !important;
   border-color: transparent !important;
 }
 
-body .app .cycle-module .cycle-current-card :is(h3, strong, small, p) {
+html body .app main section.cycle.cycle-module .cycle-overview > article.cycle-current-card :is(h3, strong, small, p) {
   color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
 }
 
-body .app .cycle-module .cycle-current-card small {
+html body .app main section.cycle.cycle-module .cycle-overview > article.cycle-current-card small {
   color: rgba(255, 255, 255, .78) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, .78) !important;
 }
 
-body .app .cycle-module .cycle-current-card p {
+html body .app main section.cycle.cycle-module .cycle-overview > article.cycle-current-card p {
   color: rgba(255, 255, 255, .84) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, .84) !important;
 }
