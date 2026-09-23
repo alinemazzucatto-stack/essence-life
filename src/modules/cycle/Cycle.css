@@ -93,6 +93,11 @@ html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick
   line-height: 1 !important;
 }
 
+html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action > span svg {
+  width: 19px;
+  height: 19px;
+}
+
 html body .app main section.cycle.cycle-module .cycle-quick-actions .cycle-quick-action-care > span {
   background: #edf4e9 !important;
   color: #77956e !important;
