@@ -1,39 +1,35 @@
+import type { ReactNode } from 'react';
 import './CyclePhaseCard.css';
 
 type CyclePhaseCardProps = { phase: string; cycleDay: number; daysUntilPeriod: number | null };
+type PhaseDetail = { label: string; description: string; energy: string; sensitivity: string; rest: string };
 
-const details: Record<string, { title: string; text: string; energy: string; sensitivity: string; rest: string }> = {
-  Menstrual: { title: 'Fase menstrual', text: 'Seu corpo está em um novo começo. Acolha seu ritmo e priorize o conforto que fizer sentido hoje.', energy: 'Pode diminuir', sensitivity: 'Pode aumentar', rest: 'Pode ser maior' },
-  Folicular: { title: 'Fase folicular', text: 'Após a menstruação, a energia costuma voltar aos poucos. É um bom momento para explorar o que te anima.', energy: 'Pode aumentar', sensitivity: 'Pode diminuir', rest: 'Pode ser menor' },
-  Ovulatória: { title: 'Fase ovulatória', text: 'Nesta fase, você pode perceber mais disposição e conexão. Observe seu corpo com curiosidade e gentileza.', energy: 'Pode aumentar', sensitivity: 'Pode aumentar', rest: 'Pode ser menor' },
-  Lútea: { title: 'Fase lútea', text: 'Seu corpo está se preparando para a próxima menstruação. Nesta fase, você pode perceber mudanças na energia, no humor e uma maior necessidade de descanso.', energy: 'Pode diminuir', sensitivity: 'Pode aumentar', rest: 'Pode ser maior' },
+const phases: Record<string, PhaseDetail> = {
+  Menstrual: { label: 'Fase menstrual', description: 'Seu corpo está iniciando um novo ciclo. Nesta fase, é comum perceber menor energia e uma maior necessidade de descanso e autocuidado.', energy: 'Pode diminuir', sensitivity: 'Pode aumentar', rest: 'Pode ser maior' },
+  Folicular: { label: 'Fase folicular', description: 'Seu corpo está se preparando para a ovulação. A energia pode aumentar gradualmente, trazendo mais disposição e sensação de renovação.', energy: 'Pode aumentar', sensitivity: 'Pode diminuir', rest: 'Pode ser menor' },
+  Ovulatória: { label: 'Fase ovulatória', description: 'Você está no período próximo à ovulação. Algumas pessoas percebem mais energia, disposição e sociabilidade nesta fase.', energy: 'Pode aumentar', sensitivity: 'Pode aumentar', rest: 'Pode ser menor' },
+  Lútea: { label: 'Fase lútea', description: 'Seu corpo está se preparando para a próxima menstruação. Nesta fase, você pode perceber mudanças na energia, no humor e uma maior necessidade de descanso.', energy: 'Pode diminuir', sensitivity: 'Pode aumentar', rest: 'Pode ser maior' },
 };
 
-function Icon({ name }: { name: 'calendar' | 'bolt' | 'heart' | 'moon' }) {
-  if (name === 'calendar') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18"/></svg>;
-  if (name === 'bolt') return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.2 2 4.8 13h6.5L10.8 22l8.4-11h-6.5L13.2 2Z"/></svg>;
-  if (name === 'heart') return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 21S3.7 16 3.7 9.6C3.7 6.6 5.8 4.5 8.5 4.5c1.6 0 2.9.8 3.5 2 0 0 .1.2.1.2s.1-.2.1-.2c.7-1.2 2-2 3.5-2 2.7 0 4.8 2.1 4.8 5.1C20.5 16 12 21 12 21Z"/></svg>;
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M20.7 15.6A9 9 0 0 1 8.4 3.3 9 9 0 1 0 20.7 15.6Z"/></svg>;
-}
+function CalendarIcon({ size = 24 }: { size?: number }) { return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18"/></svg>; }
+function BoltIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 10-13h-7z" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinejoin="round"/></svg>; }
+function HeartIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.5-8.8 10.5S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.3Z" fill="none" stroke="currentColor" strokeWidth="1.9"/></svg>; }
+function MoonIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 15.4A8.7 8.7 0 0 1 8.6 3.4 8.8 8.8 0 1 0 20.6 15.4Z" fill="none" stroke="currentColor" strokeWidth="1.9"/></svg>; }
+function Arrow({ direction }: { direction: 'up' | 'down' }) { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d={direction === 'up' ? 'm6 14 6-6 6 6M12 8v12' : 'm6 10 6 6 6-6M12 16V4'} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>; }
+function Sparkle() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 1.7 8.3L22 12l-8.3 1.7L12 22l-1.7-8.3L2 12l8.3-1.7L12 2Z" fill="none" stroke="currentColor" strokeWidth="1.4"/></svg>; }
 
-function Branch({ className }: { className: string }) {
-  return <svg className={className} viewBox="0 0 180 220" aria-hidden="true"><path d="M20 220C58 155 85 98 158 13"/><path d="M65 150c-39-8-43-39-34-58 29 9 42 32 34 58ZM93 111c-6-36 15-51 37-55 4 31-10 49-37 55ZM118 76c6-32 28-39 47-34-5 29-22 40-47 34ZM45 187c-27 5-43-12-45-31 25-4 41 10 45 31Z"/></svg>;
-}
+function BotanicalDecoration() { return <svg viewBox="0 0 170 170" aria-hidden="true"><path d="M15 155C50 115 85 75 145 20" stroke="#B7BEA9" strokeWidth="2" strokeLinecap="round" fill="none"/><ellipse cx="45" cy="124" rx="12" ry="27" transform="rotate(-48 45 124)" fill="#D5DBC9"/><ellipse cx="72" cy="94" rx="11" ry="26" transform="rotate(-42 72 94)" fill="#CBD1BF"/><ellipse cx="103" cy="65" rx="11" ry="27" transform="rotate(-35 103 65)" fill="#DCE0D1"/><ellipse cx="127" cy="43" rx="10" ry="25" transform="rotate(40 127 43)" fill="#C8CFBB"/></svg>; }
+
+function MoonIllustration() { return <div className="cl-moon-scene"><div className="cl-moon-glow"/><svg viewBox="0 0 340 300" className="cl-moon-svg" aria-hidden="true"><defs><linearGradient id="clMoonGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#FFD7CA"/><stop offset="55%" stopColor="#F5A797"/><stop offset="100%" stopColor="#E7837D"/></linearGradient><linearGradient id="clLeafGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#CDD2BD"/><stop offset="100%" stopColor="#9FA68C"/></linearGradient><filter id="clMoonShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="#B75E68" floodOpacity=".12"/></filter></defs><path d="M52 239C98 200 122 170 144 134" stroke="#AEB49D" strokeWidth="2" strokeLinecap="round" fill="none"/><ellipse cx="79" cy="217" rx="12" ry="27" transform="rotate(-48 79 217)" fill="url(#clLeafGradient)"/><ellipse cx="109" cy="184" rx="11" ry="25" transform="rotate(-32 109 184)" fill="url(#clLeafGradient)"/><ellipse cx="124" cy="163" rx="10" ry="24" transform="rotate(29 124 163)" fill="#C6CBB9"/><path d="M222 56C282 66 311 128 286 185C262 240 198 258 149 223C184 222 215 200 229 169C248 127 235 84 202 59C208 58 215 57 222 56" fill="url(#clMoonGradient)" filter="url(#clMoonShadow)"/><path d="M231 72C272 92 289 139 270 180C251 221 208 239 169 220C199 214 224 194 236 166C252 130 247 96 231 72" fill="#F9B8AA" opacity=".42"/><path d="m154 87 5 15 15 5-15 5-5 15-5-15-15-5 15-5zM190 127l3 10 10 3-10 3-3 10-3-10-10-3 10-3z" fill="#E78B83"/><circle cx="168" cy="162" r="3.5" fill="#E78B83"/><circle cx="126" cy="72" r="4" fill="#E78B83" opacity=".45"/></svg><span className="cl-moon-sparkle"><Sparkle /></span></div>; }
+
+function CycleSignal({ icon, title, description, trend, tone }: { icon: ReactNode; title: string; description: string; trend: 'up' | 'down'; tone: string }) { return <div className="cl-cycle-signal"><div className={`cl-cycle-signal-icon cl-cycle-signal-icon-${tone}`}>{icon}</div><div className="cl-cycle-signal-text"><strong>{title}</strong><span>{description}</span></div><div className="cl-cycle-signal-trend" aria-label={trend === 'up' ? 'Tendência de aumento' : 'Tendência de diminuição'}><Arrow direction={trend}/></div></div>; }
 
 export default function CyclePhaseCard({ phase, cycleDay, daysUntilPeriod }: CyclePhaseCardProps) {
-  const info = details[phase] ?? { title: 'Seu ciclo', text: 'Registre sua última menstruação para acompanhar as estimativas do seu ciclo com mais clareza.', energy: 'Acompanhe seu ritmo', sensitivity: 'Observe seu corpo', rest: 'Cuide de você' };
-  const day = cycleDay > 0 ? `Dia ${cycleDay} do ciclo` : 'Configure sua referência';
-  const period = daysUntilPeriod === null ? 'Sem estimativa' : `~ ${daysUntilPeriod} ${daysUntilPeriod === 1 ? 'dia' : 'dias'}`;
-  const signals = [{ icon: 'bolt' as const, label: 'Energia', value: info.energy, tone: 'gold' }, { icon: 'heart' as const, label: 'Sensibilidade', value: info.sensitivity, tone: 'coral' }, { icon: 'moon' as const, label: 'Descanso', value: info.rest, tone: 'lilac' }];
-  return <article className="cl-phase-card" aria-label={`Fase do ciclo: ${info.title}`}>
-    <Branch className="cl-phase-branch cl-phase-branch--top" /><Branch className="cl-phase-branch cl-phase-branch--bottom" />
-    <div className="cl-phase-card__main"><div className="cl-phase-copy">
-      <span className="cl-phase-eyebrow">Fase estimada</span><h2>{info.title}</h2>
-      <div className="cl-phase-day"><Icon name="calendar" />{day}</div>
-      <div className="cl-phase-period"><Icon name="calendar" /><span>Próxima menstruação em <strong>{period}</strong></span><b aria-hidden="true">›</b></div>
-      <p>{info.text}</p>
-    </div><div className="cl-phase-moon" aria-hidden="true"><span className="cl-phase-orbit"/><span className="cl-phase-star cl-phase-star--one">✦</span><span className="cl-phase-star cl-phase-star--two">✦</span><div className="cl-phase-crescent"/></div></div>
-    <div className="cl-phase-divider" />
-    <div className="cl-phase-signals">{signals.map((signal) => <div className="cl-phase-signal" key={signal.label}><span className={`cl-phase-signal__icon ${signal.tone}`}><Icon name={signal.icon} /></span><span><strong>{signal.label}</strong><small>{signal.value}</small></span><b aria-hidden="true">{signal.value.includes('diminuir') ? '↓' : '↑'}</b></div>)}</div>
-  </article>;
+  const current = phases[phase] ?? { label: 'Seu ciclo', description: 'Registre sua última menstruação para acompanhar as estimativas do seu ciclo com mais clareza.', energy: 'Acompanhe seu ritmo', sensitivity: 'Observe seu corpo', rest: 'Cuide de você' };
+  const periodValue = daysUntilPeriod === null ? 'Sem estimativa' : `~ ${daysUntilPeriod} ${daysUntilPeriod === 1 ? 'dia' : 'dias'}`;
+  return <section className="cl-cycle-card" aria-label={`Informações do ciclo: ${current.label}`}>
+    <div className="cl-cycle-decoration cl-cycle-decoration-top"><BotanicalDecoration /></div><div className="cl-cycle-decoration cl-cycle-decoration-bottom"><BotanicalDecoration /></div>
+    <div className="cl-cycle-content"><div className="cl-cycle-main"><span className="cl-cycle-eyebrow">Fase estimada</span><h2 className="cl-cycle-title">{current.label}</h2><div className="cl-cycle-day"><CalendarIcon size={21}/><span>{cycleDay > 0 ? `Dia ${cycleDay} do ciclo` : 'Configure sua referência'}</span></div><div className="cl-next-period"><div className="cl-next-period-icon"><CalendarIcon size={26}/></div><div className="cl-next-period-content"><span className="cl-next-period-label">Próxima menstruação em</span><strong className="cl-next-period-value">{periodValue}</strong></div></div><p className="cl-cycle-description">{current.description}</p></div><div className="cl-cycle-illustration" aria-hidden="true"><MoonIllustration /></div></div>
+    <div className="cl-cycle-divider"/><div className="cl-cycle-signals"><CycleSignal icon={<BoltIcon/>} title="Energia" description={current.energy} trend={current.energy.includes('diminuir') ? 'down' : 'up'} tone="energy"/><CycleSignal icon={<HeartIcon/>} title="Sensibilidade" description={current.sensitivity} trend={current.sensitivity.includes('diminuir') ? 'down' : 'up'} tone="sensitivity"/><CycleSignal icon={<MoonIcon/>} title="Descanso" description={current.rest} trend={current.rest.includes('menor') ? 'down' : 'up'} tone="rest"/></div>
+  </section>;
 }
