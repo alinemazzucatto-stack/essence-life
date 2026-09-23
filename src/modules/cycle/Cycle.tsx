@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import './Cycle.css';
 import { createId as id, today } from '../../shared/app-utils';
 import { removeAppReminder, requestReminderPermission, syncAppReminder, syncDatedReminder } from '../../shared/reminders';
 type Entry={id:string;date:string;flow:string;energy?:number;symptoms:string[];notes:string;mood?:string;moods?:string[];pain?:number};

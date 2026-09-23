@@ -1,0 +1,17 @@
+/* Local overrides for Novos Ciclos: loaded with the module after global styles. */
+body .app .cycle-module .cycle-current-card {
+  background: linear-gradient(145deg, #5f3847, #9b5a68 64%, #c27b7c) !important;
+  border-color: transparent !important;
+}
+
+body .app .cycle-module .cycle-current-card :is(h3, strong, small, p) {
+  color: #fff !important;
+}
+
+body .app .cycle-module .cycle-current-card small {
+  color: rgba(255, 255, 255, .78) !important;
+}
+
+body .app .cycle-module .cycle-current-card p {
+  color: rgba(255, 255, 255, .84) !important;
+}
