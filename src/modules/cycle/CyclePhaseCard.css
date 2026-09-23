@@ -2,25 +2,27 @@
   position: relative;
   display: grid;
   align-content: center;
-  justify-items: start;
-  min-height: 184px;
+  justify-items: center;
+  min-height: 194px;
   overflow: hidden;
   padding: 24px;
   border-radius: 18px;
-  background: linear-gradient(145deg, #5f3847, #9b5a68 64%, #c27b7c);
-  box-shadow: 0 16px 28px rgba(95, 56, 71, .18);
-  color: #fff;
+  border: 1px solid #e8cfc9;
+  background: linear-gradient(145deg, #fff9f5, #f8e8e6);
+  box-shadow: 0 14px 26px rgba(91, 55, 54, .09);
+  color: #3b2635;
+  text-align: center;
 }
 
 .cycle-phase-card__orb {
   position: absolute;
-  right: -45px;
-  bottom: -70px;
+  right: -30px;
+  bottom: -76px;
   width: 190px;
   height: 190px;
-  border: 1px solid rgba(255, 255, 255, .22);
+  border: 1px solid rgba(183, 125, 99, .18);
   border-radius: 50%;
-  box-shadow: 0 0 0 20px rgba(255, 255, 255, .06), 0 0 0 45px rgba(255, 255, 255, .04);
+  box-shadow: 0 0 0 20px rgba(183, 125, 99, .05), 0 0 0 45px rgba(183, 125, 99, .035);
 }
 
 .cycle-phase-card :is(small, h3, strong, p) {
@@ -31,7 +33,7 @@
 }
 
 .cycle-phase-card small {
-  color: rgba(255, 255, 255, .78);
+  color: #e9786a;
   font-size: 10px;
   font-weight: 850;
   letter-spacing: .12em;
@@ -48,11 +50,11 @@
 .cycle-phase-card p {
   max-width: 235px;
   margin-top: 11px;
-  color: rgba(255, 255, 255, .84);
+  color: #806f7a;
   font-size: 13px;
   line-height: 1.42;
 }
 
 @media (max-width: 780px) {
-  .cycle-phase-card { grid-column: 1 / -1; min-height: 172px; }
+  .cycle-phase-card { grid-column: 1 / -1; min-height: 204px; padding: 22px 20px; }
 }
