@@ -1,0 +1,7 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "essence-life",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-09-24",
+  "workers_dev": true
+}
