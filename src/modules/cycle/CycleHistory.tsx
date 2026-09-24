@@ -40,6 +40,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
   const recent = [...entries].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
   const flowDays = entries.filter(entry => entry.flow !== 'Sem fluxo').length;
   const regularity = entries.length >= 2 ? 'Ciclo regular' : 'Em acompanhamento';
+  const monthTitle = monthFormatter.format(monthDate).replace(/^./, letter => letter.toUpperCase());
 
   return <section className="cycle-history-view">
     <header className="cycle-history-heading">
@@ -50,7 +51,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
     <article className="cycle-history-calendar">
       <div className="cycle-history-month">
         <button type="button" onClick={onPrevious} aria-label="Mês anterior">‹</button>
-        <h3>{monthFormatter.format(monthDate)}</h3>
+        <h3>{monthTitle}</h3>
         <button type="button" onClick={onNext} aria-label="Próximo mês">›</button>
       </div>
       <div className="cycle-history-calendar-body">
