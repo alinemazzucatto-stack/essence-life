@@ -74,13 +74,13 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
             })}
           </div>
         </div>
-        <aside className="cycle-history-legend" aria-label="Legenda do calendário">
+        <div className="cycle-history-legend" role="list" aria-label="Legenda do calendário">
           <span><i className="period" />Menstruação</span>
           <span><i className="fertile" />Período fértil</span>
           <span><i className="ovulation" />Ovulação</span>
           <span><i className="symptoms" />Sintomas registrados</span>
           <span><i className="record" />Registro completo</span>
-        </aside>
+        </div>
       </div>
     </article>
 
