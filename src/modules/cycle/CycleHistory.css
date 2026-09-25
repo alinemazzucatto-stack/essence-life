@@ -76,6 +76,12 @@
 /* Legenda abaixo do mês: pares com a mesma largura e o estado final centrado.
    Sem marcadores genéricos sobre os números do calendário. */
 .cycle-history-days button i{display:none!important}
+.cycle-history-legend .symptom-key{background:#dfb16d!important}
+.cycle-history-days button.model-period{border-color:#facdda!important;background:#ffdce6!important;color:#8b2043!important}
+.cycle-history-days button.model-fertile{border-color:#fad7e1!important;background:#ffe5ed!important;color:#922445!important}
+.cycle-history-days button.model-ovulation{border-color:#e3d5f5!important;background:#eadffc!important;color:#74449d!important}
+.cycle-history-days button.model-record{border:2px solid #9b3154!important;background:#fffdfb!important;color:#49132d!important}
+.cycle-history-days button.model-record::after{content:''!important;position:absolute!important;bottom:5px!important;left:50%!important;width:5px!important;height:5px!important;transform:translateX(-50%)!important;border-radius:50%!important;background:#e37a90!important}
 @media(max-width:560px){
   .cycle-history-calendar{padding:11px 14px 12px!important}
   .cycle-history-month{grid-template-columns:29px minmax(0,1fr) 29px!important}

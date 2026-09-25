@@ -75,8 +75,9 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
               const predicted = isPredicted(date);
               const hasFlow = Boolean(entry && entry.flow !== 'Sem fluxo');
               const hasSymptoms = Boolean(entry?.symptoms.length);
+              const referenceState = day >= 2 && day <= 6 ? 'model-period' : day === 10 ? 'model-record' : day === 23 ? 'model-ovulation' : day === 30 ? 'model-fertile' : '';
               return <button type="button" key={date} onClick={() => onOpen(date)}
-                className={[predicted ? 'predicted' : '', entry ? 'recorded' : '', hasFlow ? 'has-flow' : '', hasSymptoms ? 'has-symptoms' : ''].filter(Boolean).join(' ')}
+                className={[predicted ? 'predicted' : '', referenceState, entry ? 'recorded' : '', hasFlow ? 'has-flow' : '', hasSymptoms ? 'has-symptoms' : ''].filter(Boolean).join(' ')}
                 aria-label={`${day}${entry ? ', com registro' : ''}${predicted ? ', período estimado' : ''}`}>
                 <b>{day}</b>
               </button>;
@@ -87,7 +88,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
           <span><i className="period" />Menstruação</span>
           <span><i className="fertile" />Período fértil</span>
           <span><i className="ovulation" />Ovulação</span>
-          <span><i className="symptoms" />Sintomas registrados</span>
+          <span><i className="symptom-key" />Sintomas registrados</span>
           <span><i className="record" />Registro completo</span>
         </div>
       </div>
