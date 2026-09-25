@@ -78,7 +78,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
               return <button type="button" key={date} onClick={() => onOpen(date)}
                 className={[predicted ? 'predicted' : '', entry ? 'recorded' : '', hasFlow ? 'has-flow' : '', hasSymptoms ? 'has-symptoms' : ''].filter(Boolean).join(' ')}
                 aria-label={`${day}${entry ? ', com registro' : ''}${predicted ? ', período estimado' : ''}`}>
-                <b>{day}</b>{entry && !hasFlow && <i aria-hidden="true" />}
+                <b>{day}</b>
               </button>;
             })}
           </div>

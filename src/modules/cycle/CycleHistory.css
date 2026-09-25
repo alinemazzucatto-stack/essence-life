@@ -72,3 +72,12 @@
   .cycle-history-days span,.cycle-history-days button{min-height:34px!important}
   .cycle-history-legend{font-size:9px!important}
 }
+
+/* Legenda abaixo do mês: pares com a mesma largura e o estado final centrado.
+   Sem marcadores genéricos sobre os números do calendário. */
+.cycle-history-days button i{display:none!important}
+@media(max-width:560px){
+  .cycle-history-legend{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px 14px!important;padding:14px 5px 0!important;font-size:10px!important}
+  .cycle-history-legend span{min-height:18px!important;justify-content:flex-start!important;white-space:nowrap!important}
+  .cycle-history-legend span:nth-child(5){grid-column:1 / -1;justify-content:center!important}
+}
