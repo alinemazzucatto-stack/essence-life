@@ -11,3 +11,28 @@
 @media(max-width:700px){.cycle-history-view{gap:16px}.cycle-history-heading{padding:5px 5px 0}.cycle-history-calendar,.cycle-history-records,.cycle-history-summary{border-radius:18px}.cycle-history-calendar{padding:15px}.cycle-history-month{grid-template-columns:38px 1fr 38px}.cycle-history-month h3{font-size:18px}.cycle-history-month button{width:38px;height:38px;font-size:28px}.cycle-history-calendar-body{grid-template-columns:1fr;gap:12px;margin-top:14px}.cycle-history-week,.cycle-history-days{gap:4px}.cycle-history-week{margin-bottom:8px}.cycle-history-week b{font-size:9px}.cycle-history-days span,.cycle-history-days button{min-height:42px}.cycle-history-days button{border-radius:9px;font-size:14px}.cycle-history-legend{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 5px;padding:10px 0 0;border-top:1px solid #f0e3df;border-left:0;font-size:10px}.cycle-history-legend span{gap:5px;white-space:nowrap}.cycle-history-legend i{width:9px;height:9px;border-radius:3px}.cycle-history-records,.cycle-history-summary{padding:16px}.cycle-section-title h3{font-size:21px}.cycle-section-title>button,.cycle-section-title>small{font-size:12px}.cycle-history-row{grid-template-columns:46px 42px minmax(0,1fr) 16px!important;gap:8px!important;padding:11px 10px!important;border-radius:14px!important}.cycle-history-row time b{font-size:11px}.cycle-history-row time small{font-size:10px}.cycle-history-entry-icon{width:42px;height:42px;font-size:20px}.cycle-history-entry-copy b{font-size:13px}.cycle-history-entry-copy small{font-size:10px}.cycle-history-row>i{font-size:25px}.cycle-summary-metrics{gap:7px;margin-top:14px}.cycle-summary-metrics article{grid-template-columns:29px minmax(0,1fr);gap:6px;min-height:70px;padding:8px 6px;border-radius:11px}.cycle-summary-metrics article>span{width:29px;height:29px}.cycle-summary-metrics article>span svg{width:16px;height:16px}.cycle-summary-metrics small{font-size:8px;line-height:1.15}.cycle-summary-metrics strong{margin-top:3px;font-size:12px}.cycle-history-note{grid-template-columns:23px minmax(0,1fr) 13px;gap:7px;margin-top:11px;padding:10px;font-size:10px;line-height:1.3}.cycle-history-note span{font-size:18px}.cycle-history-note i{font-size:12px}}
 @media(max-width:620px){.app .cycle-history-record-list .cycle-history-row{display:grid!important;grid-template-columns:46px 42px minmax(0,1fr) 16px!important;align-items:center!important;gap:8px!important;width:100%!important;margin:0!important;padding:11px 10px!important;background:#fffdfc!important;border:1px solid #f1deda!important;box-shadow:none!important}.app .cycle-history-record-list .cycle-history-row>:last-child{display:block!important;width:auto!important}.app .cycle-history-record-list .cycle-history-row>i{display:block!important;width:auto!important;color:#c84461!important;font-size:25px!important}.app .cycle-history-record-list .cycle-history-entry-copy small{white-space:nowrap!important}}
 @media(max-width:560px){.cycle-history-calendar{padding:12px}.cycle-history-month{grid-template-columns:30px 1fr 30px}.cycle-history-month h3{font-size:14px}.cycle-history-month button{width:30px;height:30px;font-size:22px}.cycle-history-calendar-body{gap:10px;margin-top:10px}.cycle-history-week,.cycle-history-days{gap:3px}.cycle-history-week{margin-bottom:6px}.cycle-history-week b{font-size:7px}.cycle-history-days span,.cycle-history-days button{min-height:32px}.cycle-history-days button{border-radius:7px;font-size:12px}.cycle-history-days button.has-symptoms:not(.has-flow)::after{bottom:4px;width:4px;height:4px}}
+
+/* Últimos registros: linhas compactas e estáveis, como o modelo de referência.
+   Cada coluna tem uma função fixa: data, ícone, texto e ação. */
+.cycle-history-record-list{gap:7px}
+.cycle-history-row{grid-template-columns:68px 48px minmax(0,1fr) 18px!important;gap:11px!important;min-height:64px;padding:8px 13px!important;border-radius:13px!important}
+.cycle-history-entry-icon{width:46px;height:46px}
+.cycle-history-entry-icon svg{width:24px;height:24px}
+.cycle-history-entry-icon.symptom svg{width:27px;height:27px}
+.cycle-history-row time b{font-size:13px;line-height:1.08}
+.cycle-history-row time small{margin-top:3px;font-size:11px;line-height:1}
+.cycle-history-entry-copy b{font-size:14px;line-height:1.12}
+.cycle-history-entry-copy small{margin-top:3px;font-size:11px;line-height:1.15}
+.cycle-history-row>i{font-size:28px}
+@media(max-width:700px){
+  .cycle-history-record-list{gap:5px;margin-top:11px}
+  .cycle-history-row,.app .cycle-history-record-list .cycle-history-row{grid-template-columns:47px 36px minmax(0,1fr) 12px!important;gap:7px!important;min-height:45px;padding:5px 9px!important;border-radius:10px!important}
+  .cycle-history-entry-icon{width:35px;height:35px}
+  .cycle-history-entry-icon svg{width:18px;height:18px}
+  .cycle-history-entry-icon.symptom svg{width:21px;height:21px}
+  .cycle-history-row time b{font-size:10px;line-height:1.05}
+  .cycle-history-row time small{margin-top:2px;font-size:9px;line-height:1}
+  .cycle-history-entry-copy b{font-size:11px;line-height:1.08}
+  .cycle-history-entry-copy small{margin-top:2px;font-size:9px;line-height:1.1}
+  .cycle-history-row>i,.app .cycle-history-record-list .cycle-history-row>i{font-size:20px!important}
+}
