@@ -83,6 +83,17 @@
 .cycle-history-days button.model-record{border:2px solid #9b3154!important;background:#fffdfb!important;color:#49132d!important}
 .cycle-history-days button.model-record::after{content:''!important;position:absolute!important;bottom:5px!important;left:50%!important;width:5px!important;height:5px!important;transform:translateX(-50%)!important;border-radius:50%!important;background:#e37a90!important}
 @media(max-width:560px){
+  .cycle-history-calendar{padding:15px 14px!important}
+  .cycle-history-month{grid-template-columns:34px minmax(0,1fr) 34px!important}
+  .cycle-history-month button{box-sizing:border-box!important;display:grid!important;place-items:center!important;width:34px!important;min-width:34px!important;height:34px!important;min-height:34px!important;padding:0!important;aspect-ratio:1!important;border-radius:50%!important;line-height:1!important}
+  .cycle-history-calendar-body{margin-top:13px!important;gap:12px!important}
+  .cycle-history-week,.cycle-history-days{gap:5px!important}
+  .cycle-history-week{margin-bottom:8px!important}
+  .cycle-history-days span,.cycle-history-days button{min-height:32px!important}
+  .cycle-history-days button{font-size:12px!important}
+  .cycle-history-legend{padding-top:12px!important}
+}
+@media(max-width:560px){
   .cycle-history-calendar{padding:11px 14px 12px!important}
   .cycle-history-month{grid-template-columns:29px minmax(0,1fr) 29px!important}
   .cycle-history-month h3{font-size:12px!important}
