@@ -9,8 +9,17 @@ type Props = {
 
 const weekday = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SÁB'];
 const monthFormatter = new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' });
-const shortDate = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short' });
 const shortWeekday = new Intl.DateTimeFormat('pt-BR', { weekday: 'short' });
+
+function recordDateLabel(date: Date) {
+  const month = new Intl.DateTimeFormat('pt-BR', { month: 'short' }).format(date).replace('.', '');
+  return `${String(date.getDate()).padStart(2, '0')} ${month}.`;
+}
+
+function recordWeekdayLabel(date: Date) {
+  const value = shortWeekday.format(date).replace('.', '');
+  return `${value.charAt(0).toUpperCase()}${value.slice(1)}.`;
+}
 
 function recordTitle(entry: Entry) {
   if (entry.flow !== 'Sem fluxo') return 'Menstruação';
@@ -94,7 +103,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
           const date = new Date(`${entry.date}T12:00:00`);
           const flow = entry.flow !== 'Sem fluxo';
           return <button type="button" className="cycle-history-row" key={entry.id} onClick={() => onOpen(entry.date)}>
-            <time><b>{shortDate.format(date).replace('.', '')}</b><small>{shortWeekday.format(date).replace('.', '')}</small></time>
+            <time><b>{recordDateLabel(date)}</b><small>{recordWeekdayLabel(date)}</small></time>
             <span className={`cycle-history-entry-icon ${flow ? 'flow' : entry.symptoms.length ? 'symptom' : ''}`}><RecordIcon entry={entry} /></span>
             <span className="cycle-history-entry-copy"><b>{recordTitle(entry)}</b><small>{recordDetails(entry)}</small></span>
             <i aria-hidden="true">›</i>
