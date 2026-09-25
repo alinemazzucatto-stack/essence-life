@@ -98,6 +98,8 @@
 .cycle-history-days button:not(.predicted):not(.model-period):not(.model-fertile):not(.model-ovulation):not(.model-record):not(.recorded):not(.has-flow){border-color:transparent!important;background:#fffdfc!important}
 .cycle-history-days button.has-symptoms:not(.has-flow)::after,.cycle-history-days button.model-record::after{display:none!important}
 @media(max-width:560px){.cycle-history-view{gap:10px!important}.cycle-history-heading{padding-top:2px!important}.cycle-history-heading p{margin-top:5px!important}}
+.cycle-history-heading-icon{display:grid;place-items:center;justify-self:end;width:58px;height:58px;border-radius:18px;background:#fff0ed;color:#d27868}.cycle-history-heading-icon svg{width:31px;height:31px}.cycle-history-heading-leaf{display:none!important}.cycle-history-view h2,.cycle-history-view h3{color:#4b2f3c}.cycle-history-heading p{color:#806a78}.cycle-history-calendar,.cycle-history-records,.cycle-history-summary{border-color:#eadbd8;background:linear-gradient(145deg,#fffdfb,#fff7f4)}
+@media(max-width:560px){.cycle-history-view{gap:8px!important}.cycle-history-heading{grid-template-columns:minmax(0,1fr) 48px!important;min-height:0!important;padding:1px 4px 0!important}.cycle-history-heading-icon{width:42px!important;height:42px!important;border-radius:13px!important}.cycle-history-heading-icon svg{width:23px!important;height:23px!important}}
 @media(max-width:560px){
   .cycle-history-calendar{padding:11px 14px 12px!important}
   .cycle-history-month{grid-template-columns:29px minmax(0,1fr) 29px!important}

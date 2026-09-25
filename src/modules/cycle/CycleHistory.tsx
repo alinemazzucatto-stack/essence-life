@@ -54,7 +54,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
   return <section className="cycle-history-view">
     <header className="cycle-history-heading">
       <div><h2>Seu histórico do ciclo</h2><p>Acompanhe seus registros e veja como seu ciclo vem se comportando.</p></div>
-      <svg className="cycle-history-heading-leaf" viewBox="0 0 110 150" fill="none" aria-hidden="true"><path d="M16 145C36 105 56 66 89 14" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"/><path d="M42 100C25 96 14 82 12 62c18 2 30 15 30 38ZM58 73c3-20 16-33 35-39-2 20-15 33-35 39ZM78 44c5-18 17-27 33-30-3 18-15 28-33 30Z" fill="currentColor"/><path d="M38 94c-7-13-2-27 12-35 8 13 3 27-12 35Z" fill="#f3a7ab"/></svg>
+      <span className="cycle-history-heading-icon" aria-label="Calendário do ciclo"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="5" stroke="currentColor" strokeWidth="2"/><path d="M10 4v6M22 4v6M5 13h22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M12 18h3M19 18h1M12 22h1M17 22h3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg></span>
     </header>
 
     <article className="cycle-history-calendar">
