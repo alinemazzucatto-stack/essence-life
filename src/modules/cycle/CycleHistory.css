@@ -93,6 +93,9 @@
   .cycle-history-days button{font-size:12px!important}
   .cycle-history-legend{padding-top:12px!important}
 }
+
+/* Dias neutros não usam caixas contornadas; a cor passa a carregar a hierarquia. */
+.cycle-history-days button:not(.predicted):not(.model-period):not(.model-fertile):not(.model-ovulation):not(.model-record):not(.recorded):not(.has-flow){border-color:transparent!important;background:#fffdfc!important}
 @media(max-width:560px){
   .cycle-history-calendar{padding:11px 14px 12px!important}
   .cycle-history-month{grid-template-columns:29px minmax(0,1fr) 29px!important}
