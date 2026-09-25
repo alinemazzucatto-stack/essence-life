@@ -77,7 +77,17 @@
    Sem marcadores genéricos sobre os números do calendário. */
 .cycle-history-days button i{display:none!important}
 @media(max-width:560px){
-  .cycle-history-legend{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:8px 8px!important;padding:14px 3px 0!important;font-size:10px!important}
-  .cycle-history-legend span{grid-column:span 2;min-height:18px!important;justify-content:center!important;white-space:nowrap!important}
-  .cycle-history-legend span:nth-child(4),.cycle-history-legend span:nth-child(5){grid-column:span 3;justify-content:center!important}
+  .cycle-history-calendar{padding:11px 14px 12px!important}
+  .cycle-history-month{grid-template-columns:29px minmax(0,1fr) 29px!important}
+  .cycle-history-month h3{font-size:12px!important}
+  .cycle-history-month button{width:28px!important;height:28px!important;border-radius:50%!important;font-size:20px!important}
+  .cycle-history-calendar-body{margin-top:10px!important;gap:10px!important}
+  .cycle-history-week,.cycle-history-days{gap:4px!important}
+  .cycle-history-week{margin-bottom:7px!important}
+  .cycle-history-week b{font-size:7px!important}
+  .cycle-history-days span,.cycle-history-days button{min-height:29px!important}
+  .cycle-history-days button{border-radius:7px!important;font-size:11px!important}
+  .cycle-history-legend{grid-template-columns:repeat(5,max-content)!important;justify-content:space-between!important;gap:0!important;padding:10px 0 0!important;font-size:7.2px!important}
+  .cycle-history-legend span,.cycle-history-legend span:nth-child(4),.cycle-history-legend span:nth-child(5){grid-column:auto!important;min-height:12px!important;justify-content:flex-start!important;gap:3px!important;white-space:nowrap!important}
+  .cycle-history-legend i{width:7px!important;height:7px!important}
 }
