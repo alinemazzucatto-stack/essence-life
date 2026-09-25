@@ -47,3 +47,28 @@
   .cycle-history-legend{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px 6px!important;padding:10px 0 0!important;border-top:1px solid #f0e3df!important;border-left:0!important}
   .cycle-history-legend span{justify-content:flex-start;white-space:normal}
 }
+
+/* Calendário compacto, mas legível: a versão anterior diminuía os dias demais
+   em telas estreitas e fazia a composição parecer provisória. */
+@media(max-width:560px){
+  .cycle-history-calendar{padding:16px!important;border-radius:18px!important}
+  .cycle-history-month{grid-template-columns:36px minmax(0,1fr) 36px!important}
+  .cycle-history-month h3{font-size:16px!important;letter-spacing:-.02em}
+  .cycle-history-month button{width:36px!important;height:36px!important;border-radius:12px!important;font-size:25px!important}
+  .cycle-history-calendar-body{margin-top:14px!important;gap:13px!important}
+  .cycle-history-week,.cycle-history-days{gap:5px!important}
+  .cycle-history-week{margin-bottom:9px!important}
+  .cycle-history-week b{font-size:8px!important;letter-spacing:.04em}
+  .cycle-history-days span,.cycle-history-days button{min-height:36px!important}
+  .cycle-history-days button{border-radius:9px!important;font-size:13px!important;font-weight:650!important}
+  .cycle-history-days button.has-symptoms:not(.has-flow)::after{bottom:5px!important;width:5px!important;height:5px!important}
+  .cycle-history-legend{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px 5px!important;padding:13px 1px 0!important;font-size:10px!important}
+  .cycle-history-legend span{align-items:center!important;gap:5px!important;line-height:1.15!important}
+  .cycle-history-legend i{width:10px!important;height:10px!important;border-radius:50%!important}
+}
+@media(max-width:360px){
+  .cycle-history-calendar{padding:13px!important}
+  .cycle-history-week,.cycle-history-days{gap:4px!important}
+  .cycle-history-days span,.cycle-history-days button{min-height:34px!important}
+  .cycle-history-legend{font-size:9px!important}
+}
