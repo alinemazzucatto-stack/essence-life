@@ -54,7 +54,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
   return <section className="cycle-history-view">
     <header className="cycle-history-heading">
       <div><h2>Seu histórico do ciclo</h2><p>Acompanhe seus registros e veja como seu ciclo vem se comportando.</p></div>
-      <span className="cycle-history-heading-icon" aria-label="Calendário do ciclo"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="5" stroke="currentColor" strokeWidth="2"/><path d="M10 4v6M22 4v6M5 13h22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M12 18h3M19 18h1M12 22h1M17 22h3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg></span>
+      <svg className="cycle-history-heading-flower" viewBox="0 0 64 82" fill="none" aria-hidden="true"><path d="M12 80C21 57 35 34 55 6" stroke="#b9c9af" strokeWidth="2" strokeLinecap="round"/><path d="M25 52c-10-3-15-10-15-19 10 2 16 9 15 19ZM38 35c1-10 7-17 17-20-1 10-7 17-17 20ZM18 67c-8 0-13-5-14-12 8 0 13 5 14 12Z" fill="#c6d3bc"/><path d="M25 28c-8-8-4-16 4-19 8 7 5 15-4 19ZM31 27c-1-11 6-17 15-16 1 10-5 17-15 16ZM30 31c8-7 16-3 18 5-8 7-16 4-18-5ZM26 32c-9 4-15-1-15-9 9-4 15 1 15 9Z" fill="#f7bdc1"/><circle cx="28" cy="27" r="4" fill="#ef8d98"/></svg>
     </header>
 
     <article className="cycle-history-calendar">
@@ -92,6 +92,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
           <span><i className="record" />Registro completo</span>
         </div>
       </div>
+      <p className="cycle-history-calendar-note"><svg viewBox="0 0 24 28" fill="none" aria-hidden="true"><path d="M4 26C9 17 14 9 21 3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/><path d="M9 16C4 16 1 12 1 7c5 0 8 4 8 9ZM14 11c1-5 4-8 9-9-1 5-4 8-9 9Z" fill="currentColor"/></svg><span>Os dias marcados no calendário mostram seus registros e as fases do ciclo.<br/>Toque em um dia para ver mais detalhes.</span></p>
     </article>
 
     <article className="cycle-history-records">
