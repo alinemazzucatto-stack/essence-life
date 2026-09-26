@@ -222,9 +222,9 @@
 
 /* Espaçamentos verticais mais diretos entre cada título e seu conteúdo. */
 @media(max-width:560px){
-  .cycle-history-calendar{margin-top:-8px!important}
-  .cycle-history-record-list{margin-top:5px!important}
-  .cycle-summary-metrics{margin-top:6px!important}
+  .cycle-history-calendar{margin-top:-14px!important}
+  .cycle-history-record-list{margin-top:1px!important}
+  .cycle-summary-metrics{margin-top:2px!important}
 }
 
 @media(max-width:560px){
