@@ -155,6 +155,18 @@
 .cycle-note-leaf{display:block;width:25px;height:25px;object-fit:contain;opacity:.78;filter:saturate(.58)}
 @media(max-width:560px){.cycle-history-calendar-note .cycle-note-leaf{width:17px!important;height:17px!important}.cycle-history-note .cycle-note-leaf{width:22px!important;height:22px!important}}
 
+/* Mantém o título e a descrição de cada registro ancorados à esquerda após o ícone. */
+.cycle-history-row .cycle-history-entry-copy{
+  justify-self:start!important;
+  min-width:0;
+  text-align:left!important;
+}
+.cycle-history-row .cycle-history-entry-copy b,
+.cycle-history-row .cycle-history-entry-copy small{
+  width:100%;
+  text-align:left!important;
+}
+
 @media(max-width:560px){
   .cycle-summary-metrics article{align-items:center!important;text-align:left!important}
   .cycle-summary-metrics article>span,.cycle-summary-metrics article>span.summary-calendar,.cycle-summary-metrics article>span.summary-flow,.cycle-summary-metrics article>span.summary-regular{background:#ffe3e7!important;color:#df526a!important}
