@@ -109,7 +109,7 @@
   .cycle-history-view{gap:6px!important}
   .cycle-history-heading{grid-template-columns:minmax(0,1fr) 72px!important;align-items:start!important;padding:5px 2px 1px!important}
   .cycle-history-heading>div,.cycle-history-heading h2,.cycle-history-heading p{text-align:left!important;justify-self:start!important}
-  .cycle-history-heading h2{font-size:20px!important;line-height:1.08!important;letter-spacing:-.035em!important}
+  .cycle-history-heading h2{font-size:20px!important;font-weight:800!important;line-height:1.08!important;letter-spacing:-.035em!important}
   .cycle-history-heading p{max-width:225px!important;margin:3px 0 0!important;font-size:11px!important;line-height:1.28!important}
   .cycle-history-heading-flower{width:72px!important;height:60px!important;margin:0!important;opacity:1!important}
   .cycle-history-calendar{padding:7px 8px 8px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
