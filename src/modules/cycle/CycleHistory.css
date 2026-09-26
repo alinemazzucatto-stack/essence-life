@@ -205,6 +205,21 @@
   vertical-align:baseline!important;
 }
 
+/* Hierarquia uniforme para os três títulos principais do histórico. */
+.cycle-history-heading h2,
+.cycle-history-records .cycle-section-title h3,
+.cycle-history-summary .cycle-section-title h3{
+  font-size:24px!important;
+  font-weight:400!important;
+  letter-spacing:-.025em!important;
+  line-height:1.12!important;
+}
+@media(max-width:560px){
+  .cycle-history-heading h2,
+  .cycle-history-records .cycle-section-title h3,
+  .cycle-history-summary .cycle-section-title h3{font-size:20px!important}
+}
+
 @media(max-width:560px){
   .cycle-summary-metrics article{align-items:center!important;text-align:left!important}
   .cycle-summary-metrics article>span,.cycle-summary-metrics article>span.summary-calendar,.cycle-summary-metrics article>span.summary-flow,.cycle-summary-metrics article>span.summary-regular{background:#ffe3e7!important;color:#df526a!important}
