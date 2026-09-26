@@ -152,3 +152,12 @@
 .cycle-history-record-list .cycle-history-entry-icon.flow{background:#ffe0e6!important;color:#df526a!important}
 .cycle-history-record-list .cycle-history-entry-icon.symptom{background:#f0e7fb!important;color:#9264c5!important}
 .cycle-history-record-list .cycle-history-entry-icon.flow svg,.cycle-history-record-list .cycle-history-entry-icon.symptom svg{color:inherit!important}
+
+@media(max-width:560px){
+  .cycle-summary-metrics article{align-items:center!important;text-align:left!important}
+  .cycle-summary-metrics article>span,.cycle-summary-metrics article>span.summary-calendar,.cycle-summary-metrics article>span.summary-flow,.cycle-summary-metrics article>span.summary-regular{background:#ffe3e7!important;color:#df526a!important}
+  .cycle-summary-metrics article>span svg{color:#df526a!important}
+  .cycle-summary-metrics article>div{min-width:0!important;text-align:left!important}
+  .cycle-summary-metrics article small{font-size:7.5px!important;text-align:left!important}
+  .cycle-summary-metrics article strong{font-size:11px!important;text-align:left!important}
+}
