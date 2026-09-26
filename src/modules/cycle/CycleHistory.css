@@ -149,4 +149,5 @@
   .cycle-history-heading{display:block!important;min-height:0!important;padding:5px 60px 0 2px!important}
   .cycle-history-heading-flower{position:absolute!important;top:16px!important;right:-3px!important;width:56px!important;height:70px!important;object-fit:contain!important;object-position:center!important}
   .cycle-history-calendar{margin-top:-1px!important}
+  .cycle-history-days button:not(.model-period):not(.model-fertile):not(.model-ovulation):not(.model-record):not(.has-flow){color:#75626e!important}
 }
