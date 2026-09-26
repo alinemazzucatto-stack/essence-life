@@ -1,5 +1,5 @@
 import './CycleHistory.css';
-import cycleHistoryFlowers from '../../assets/cycle-history-flowers-cropped.png';
+import cycleHistoryFlowers from '../../assets/cycle-history-flowers-v2.png';
 
 type Entry = { id: string; date: string; flow: string; moods?: string[]; mood?: string; symptoms: string[] };
 type Props = {
