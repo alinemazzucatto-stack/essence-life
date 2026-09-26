@@ -142,3 +142,11 @@
   .cycle-history-legend span,.cycle-history-legend span:nth-child(4),.cycle-history-legend span:nth-child(5){grid-column:auto!important;min-height:12px!important;justify-content:flex-start!important;gap:3px!important;white-space:nowrap!important}
   .cycle-history-legend i{width:7px!important;height:7px!important}
 }
+
+/* A arte fica ancorada no canto, sem reservar uma coluna nem aumentar a altura do cabeçalho. */
+@media(max-width:560px){
+  .cycle-history-view{gap:3px!important}
+  .cycle-history-heading{display:block!important;min-height:0!important;padding:5px 60px 0 2px!important}
+  .cycle-history-heading-flower{position:absolute!important;top:-5px!important;right:-3px!important;width:56px!important;height:70px!important;object-fit:contain!important;object-position:center!important}
+  .cycle-history-calendar{margin-top:-1px!important}
+}
