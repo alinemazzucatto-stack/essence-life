@@ -152,6 +152,8 @@
 .cycle-history-record-list .cycle-history-entry-icon.flow{background:#ffe0e6!important;color:#df526a!important}
 .cycle-history-record-list .cycle-history-entry-icon.symptom{background:#f0e7fb!important;color:#9264c5!important}
 .cycle-history-record-list .cycle-history-entry-icon.flow svg,.cycle-history-record-list .cycle-history-entry-icon.symptom svg{color:inherit!important}
+.cycle-note-leaf{display:block;width:25px;height:25px;object-fit:contain;opacity:.78;filter:saturate(.58)}
+@media(max-width:560px){.cycle-history-calendar-note .cycle-note-leaf{width:17px!important;height:17px!important}.cycle-history-note .cycle-note-leaf{width:22px!important;height:22px!important}}
 
 @media(max-width:560px){
   .cycle-summary-metrics article{align-items:center!important;text-align:left!important}

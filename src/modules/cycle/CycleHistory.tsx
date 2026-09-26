@@ -1,5 +1,6 @@
 import './CycleHistory.css';
 import cycleHistoryFlowers from '../../assets/cycle-history-flowers-v2.png';
+import cycleNoteLeaf from '../../assets/cycle-note-leaf.png';
 
 type Entry = { id: string; date: string; flow: string; moods?: string[]; mood?: string; symptoms: string[] };
 type Props = {
@@ -92,7 +93,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
           <span><i className="record" />Registro completo</span>
         </div>
       </div>
-      <p className="cycle-history-calendar-note"><svg viewBox="0 0 24 28" fill="none" aria-hidden="true"><path d="M4 26C9 17 14 9 21 3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/><path d="M9 16C4 16 1 12 1 7c5 0 8 4 8 9ZM14 11c1-5 4-8 9-9-1 5-4 8-9 9Z" fill="currentColor"/></svg><span>Os dias marcados no calendário mostram seus registros e as fases do ciclo.<br/>Toque em um dia para ver mais detalhes.</span></p>
+      <p className="cycle-history-calendar-note"><img className="cycle-note-leaf" src={cycleNoteLeaf} alt="" aria-hidden="true"/><span>Os dias marcados no calendário mostram seus registros e as fases do ciclo.<br/>Toque em um dia para ver mais detalhes.</span></p>
     </article>
 
     <article className="cycle-history-records">
@@ -121,7 +122,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
         <article><span className="summary-flow"><SummaryIcon type="flow" /></span><div><small>Duração da menstruação</small><strong>{flowDays ? `${flowDays} ${flowDays === 1 ? 'dia' : 'dias'}` : '—'}</strong></div></article>
         <article><span className="summary-regular"><SummaryIcon type="regularity" /></span><div><small>Regularidade</small><strong>{regularity}</strong></div></article>
       </section>
-      <p className="cycle-history-note"><span aria-hidden="true"><svg viewBox="0 0 30 34" fill="none"><path d="M4 31C10 20 16 11 25 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M12 20C5 20 1 15 1 9c7 0 11 4 11 11ZM18 13c1-6 5-10 11-11-1 6-5 10-11 11Z" fill="currentColor"/></svg></span>Seu ciclo tem se mantido regular nos últimos meses.<i aria-hidden="true">✦</i></p>
+      <p className="cycle-history-note"><span aria-hidden="true"><img className="cycle-note-leaf" src={cycleNoteLeaf} alt=""/></span>Seu ciclo tem se mantido regular nos últimos meses.<i aria-hidden="true">✦</i></p>
     </article>
   </section>;
 }
