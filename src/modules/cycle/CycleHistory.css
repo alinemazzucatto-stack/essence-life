@@ -100,18 +100,18 @@
 @media(max-width:560px){.cycle-history-view{gap:10px!important}.cycle-history-heading{padding-top:2px!important}.cycle-history-heading p{margin-top:5px!important}}
 .cycle-history-heading-icon{display:grid;place-items:center;justify-self:end;width:58px;height:58px;border-radius:18px;background:#fff0ed;color:#d27868}.cycle-history-heading-icon svg{width:31px;height:31px}.cycle-history-heading-leaf{display:none!important}.cycle-history-view h2,.cycle-history-view h3{color:#4b2f3c}.cycle-history-heading p{color:#806a78}.cycle-history-calendar,.cycle-history-records,.cycle-history-summary{border-color:#eadbd8;background:linear-gradient(145deg,#fffdfb,#fff7f4)}
 @media(max-width:560px){.cycle-history-view{gap:8px!important}.cycle-history-heading{grid-template-columns:minmax(0,1fr) 48px!important;min-height:0!important;padding:1px 4px 0!important}.cycle-history-heading-icon{width:42px!important;height:42px!important;border-radius:13px!important}.cycle-history-heading-icon svg{width:23px!important;height:23px!important}}
-.cycle-history-heading-icon{display:none!important}.cycle-history-heading-flower{width:64px;height:82px;justify-self:end;align-self:end}.cycle-history-calendar-note{display:grid;grid-template-columns:25px minmax(0,1fr);gap:8px;align-items:center;margin:13px 0 0;padding:10px 12px;border-radius:10px;background:#fff0ed;color:#8a6d78;font-size:10px;line-height:1.32}.cycle-history-calendar-note svg{width:22px;height:27px;color:#9dbb95}.cycle-history-calendar-note span{display:block}
-@media(max-width:560px){.cycle-history-heading{grid-template-columns:minmax(0,1fr) 54px!important}.cycle-history-heading-flower{width:54px!important;height:69px!important}.cycle-history-calendar-note{grid-template-columns:20px minmax(0,1fr);gap:6px;margin-top:10px;padding:8px 9px;font-size:8px;line-height:1.3}.cycle-history-calendar-note svg{width:18px;height:23px}}
+.cycle-history-heading-icon{display:none!important}.cycle-history-heading-flower{width:88px;height:72px;justify-self:end;align-self:center;object-fit:contain;object-position:center}.cycle-history-calendar-note{display:grid;grid-template-columns:25px minmax(0,1fr);gap:8px;align-items:center;margin:13px 0 0;padding:10px 12px;border-radius:10px;background:#fff0ed;color:#8a6d78;font-size:10px;line-height:1.32}.cycle-history-calendar-note svg{width:22px;height:27px;color:#9dbb95}.cycle-history-calendar-note span{display:block}
+@media(max-width:560px){.cycle-history-heading{grid-template-columns:minmax(0,1fr) 72px!important}.cycle-history-heading-flower{width:72px!important;height:60px!important}.cycle-history-calendar-note{grid-template-columns:20px minmax(0,1fr);gap:6px;margin-top:10px;padding:8px 9px;font-size:8px;line-height:1.3}.cycle-history-calendar-note svg{width:18px;height:23px}}
 
 /* Histórico — composição móvel da referência: conteúdo editorial contínuo,
    não uma pilha de cartões genéricos. */
 @media(max-width:560px){
   .cycle-history-view{gap:6px!important}
-  .cycle-history-heading{grid-template-columns:minmax(0,1fr) 48px!important;align-items:start!important;padding:5px 2px 1px!important}
+  .cycle-history-heading{grid-template-columns:minmax(0,1fr) 72px!important;align-items:start!important;padding:5px 2px 1px!important}
   .cycle-history-heading>div,.cycle-history-heading h2,.cycle-history-heading p{text-align:left!important;justify-self:start!important}
   .cycle-history-heading h2{font-size:20px!important;line-height:1.08!important;letter-spacing:-.035em!important}
   .cycle-history-heading p{max-width:225px!important;margin:3px 0 0!important;font-size:11px!important;line-height:1.28!important}
-  .cycle-history-heading-flower{width:48px!important;height:62px!important;margin:0!important;opacity:.96!important}
+  .cycle-history-heading-flower{width:72px!important;height:60px!important;margin:0!important;opacity:1!important}
   .cycle-history-calendar{padding:7px 8px 8px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
   .cycle-history-month{grid-template-columns:25px minmax(0,1fr) 25px!important}
   .cycle-history-month h3{font-size:11px!important;font-weight:800!important}

@@ -1,4 +1,5 @@
 import './CycleHistory.css';
+import cycleHistoryFlowers from '../../assets/cycle-history-flowers-cropped.png';
 
 type Entry = { id: string; date: string; flow: string; moods?: string[]; mood?: string; symptoms: string[] };
 type Props = {
@@ -54,7 +55,7 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
   return <section className="cycle-history-view">
     <header className="cycle-history-heading">
       <div><h2>Seu histórico do ciclo</h2><p>Acompanhe seus registros e veja como seu ciclo vem se comportando.</p></div>
-      <svg className="cycle-history-heading-flower" viewBox="0 0 64 82" fill="none" aria-hidden="true"><path d="M12 80C21 57 35 34 55 6" stroke="#b9c9af" strokeWidth="2" strokeLinecap="round"/><path d="M25 52c-10-3-15-10-15-19 10 2 16 9 15 19ZM38 35c1-10 7-17 17-20-1 10-7 17-17 20ZM18 67c-8 0-13-5-14-12 8 0 13 5 14 12Z" fill="#c6d3bc"/><path d="M25 28c-8-8-4-16 4-19 8 7 5 15-4 19ZM31 27c-1-11 6-17 15-16 1 10-5 17-15 16ZM30 31c8-7 16-3 18 5-8 7-16 4-18-5ZM26 32c-9 4-15-1-15-9 9-4 15 1 15 9Z" fill="#f7bdc1"/><circle cx="28" cy="27" r="4" fill="#ef8d98"/></svg>
+      <img className="cycle-history-heading-flower" src={cycleHistoryFlowers} alt="" aria-hidden="true" />
     </header>
 
     <article className="cycle-history-calendar">
