@@ -183,6 +183,28 @@
   .cycle-history-note i{width:22px!important;height:22px!important;font-size:19px!important}
 }
 
+/* Cabeçalho dos registros: título e ação compartilham a mesma linha de base. */
+.cycle-history-records .cycle-section-title{
+  align-items:baseline!important;
+}
+.cycle-history-records .cycle-section-title h3,
+.cycle-history-records .cycle-section-title>button{
+  margin:0!important;
+  line-height:1!important;
+}
+.cycle-history-records .cycle-section-title>button{
+  display:inline-flex!important;
+  align-items:baseline!important;
+  gap:4px;
+  padding:0!important;
+}
+.cycle-history-records .cycle-section-title>button span{
+  display:inline-block!important;
+  padding:0!important;
+  line-height:.7!important;
+  vertical-align:baseline!important;
+}
+
 @media(max-width:560px){
   .cycle-summary-metrics article{align-items:center!important;text-align:left!important}
   .cycle-summary-metrics article>span,.cycle-summary-metrics article>span.summary-calendar,.cycle-summary-metrics article>span.summary-flow,.cycle-summary-metrics article>span.summary-regular{background:#ffe3e7!important;color:#df526a!important}
