@@ -147,3 +147,8 @@
   .cycle-history-days button b{font-weight:500!important}
   .cycle-history-days button:not(.has-flow),.cycle-history-days button:not(.has-flow) b{color:#a18d99!important}
 }
+
+/* Ícones de registros: fluxo em coral e sintomas em lilás. */
+.cycle-history-record-list .cycle-history-entry-icon.flow{background:#ffe0e6!important;color:#df526a!important}
+.cycle-history-record-list .cycle-history-entry-icon.symptom{background:#f0e7fb!important;color:#9264c5!important}
+.cycle-history-record-list .cycle-history-entry-icon.flow svg,.cycle-history-record-list .cycle-history-entry-icon.symptom svg{color:inherit!important}
