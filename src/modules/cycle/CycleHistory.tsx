@@ -122,7 +122,6 @@ export default function CycleHistory({ monthDate, days, offset, entries, recorde
         <article><span className="summary-flow"><SummaryIcon type="flow" /></span><div><small>Duração da menstruação</small><strong>{flowDays ? `${flowDays} ${flowDays === 1 ? 'dia' : 'dias'}` : '—'}</strong></div></article>
         <article><span className="summary-regular"><SummaryIcon type="regularity" /></span><div><small>Regularidade</small><strong>{regularity}</strong></div></article>
       </section>
-      <p className="cycle-history-note"><span aria-hidden="true"><img className="cycle-note-leaf" src={cycleNoteLeaf} alt=""/></span>Seu ciclo tem se mantido regular nos últimos meses.<i aria-hidden="true">✦</i></p>
     </article>
   </section>;
 }
