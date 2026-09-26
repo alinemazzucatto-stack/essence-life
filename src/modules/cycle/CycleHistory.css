@@ -102,6 +102,30 @@
 @media(max-width:560px){.cycle-history-view{gap:8px!important}.cycle-history-heading{grid-template-columns:minmax(0,1fr) 48px!important;min-height:0!important;padding:1px 4px 0!important}.cycle-history-heading-icon{width:42px!important;height:42px!important;border-radius:13px!important}.cycle-history-heading-icon svg{width:23px!important;height:23px!important}}
 .cycle-history-heading-icon{display:none!important}.cycle-history-heading-flower{width:64px;height:82px;justify-self:end;align-self:end}.cycle-history-calendar-note{display:grid;grid-template-columns:25px minmax(0,1fr);gap:8px;align-items:center;margin:13px 0 0;padding:10px 12px;border-radius:10px;background:#fff0ed;color:#8a6d78;font-size:10px;line-height:1.32}.cycle-history-calendar-note svg{width:22px;height:27px;color:#9dbb95}.cycle-history-calendar-note span{display:block}
 @media(max-width:560px){.cycle-history-heading{grid-template-columns:minmax(0,1fr) 54px!important}.cycle-history-heading-flower{width:54px!important;height:69px!important}.cycle-history-calendar-note{grid-template-columns:20px minmax(0,1fr);gap:6px;margin-top:10px;padding:8px 9px;font-size:8px;line-height:1.3}.cycle-history-calendar-note svg{width:18px;height:23px}}
+
+/* Histórico — composição móvel da referência: conteúdo editorial contínuo,
+   não uma pilha de cartões genéricos. */
+@media(max-width:560px){
+  .cycle-history-view{gap:6px!important}
+  .cycle-history-heading{grid-template-columns:minmax(0,1fr) 48px!important;align-items:start!important;padding:5px 2px 1px!important}
+  .cycle-history-heading h2{font-size:18px!important;line-height:1.08!important;letter-spacing:-.035em!important}
+  .cycle-history-heading p{max-width:225px!important;margin:3px 0 0!important;font-size:10px!important;line-height:1.28!important}
+  .cycle-history-heading-flower{width:48px!important;height:62px!important;margin:0!important;opacity:.96!important}
+  .cycle-history-calendar{padding:7px 8px 8px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+  .cycle-history-month{grid-template-columns:25px minmax(0,1fr) 25px!important}
+  .cycle-history-month h3{font-size:11px!important;font-weight:800!important}
+  .cycle-history-month button{width:23px!important;min-width:23px!important;height:23px!important;min-height:23px!important;border:1px solid #f5dddc!important;background:#fffdfc!important;font-size:17px!important}
+  .cycle-history-calendar-body{margin-top:8px!important;gap:8px!important}
+  .cycle-history-week,.cycle-history-days{gap:3px!important}
+  .cycle-history-week{margin-bottom:5px!important}
+  .cycle-history-week b{font-size:6.5px!important;font-weight:750!important;color:#9a8a95!important}
+  .cycle-history-days span,.cycle-history-days button{min-height:25px!important}
+  .cycle-history-days button{border-radius:6px!important;font-size:9px!important;font-weight:700!important}
+  .cycle-history-legend{padding:8px 0 0!important;font-size:6.7px!important}
+  .cycle-history-legend i{width:7px!important;height:7px!important}
+  .cycle-history-calendar-note{grid-template-columns:19px minmax(0,1fr)!important;gap:6px!important;margin-top:8px!important;padding:7px 8px!important;border-radius:8px!important;background:#fff0ed!important;font-size:7.2px!important;line-height:1.25!important}
+  .cycle-history-calendar-note svg{width:17px!important;height:20px!important}
+}
 @media(max-width:560px){
   .cycle-history-calendar{padding:11px 14px 12px!important}
   .cycle-history-month{grid-template-columns:29px minmax(0,1fr) 29px!important}

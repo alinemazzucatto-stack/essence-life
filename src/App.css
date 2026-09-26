@@ -1942,3 +1942,9 @@ body .app :is(.pomodoro-hero-copy,.routine-hero-copy,.diary-hero-copy,.insights-
   .app .cycle-module .cycle-hero-foliage{right:-8px!important;bottom:-15px!important;width:46px!important;height:56px!important}
   .app .cycle-module .cycle-primary-tabs{margin:0!important}
 }
+@media(max-width:560px){
+  .app .cycle-module .cycle-primary-tabs{gap:3px!important;padding:3px!important;border-color:#f4d9d8!important;border-radius:14px!important;background:#fff1f0!important}
+  .app .cycle-module .cycle-primary-tabs button{min-height:34px!important;gap:3px!important;border-radius:10px!important;font-size:9px!important;font-weight:750!important;color:#ab536a!important}
+  .app .cycle-module .cycle-primary-tabs button span{font-size:12px!important}
+  .app .cycle-module .cycle-primary-tabs button.active{background:linear-gradient(135deg,#aa506a,#c76e80)!important;box-shadow:0 3px 8px rgba(150,60,83,.16)!important}
+}
