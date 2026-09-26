@@ -167,6 +167,22 @@
   text-align:left!important;
 }
 
+/* Destaque delicado para a estrela de regularidade. */
+.cycle-history-note i{
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  color:#efa338;
+  font-size:25px!important;
+  font-weight:700;
+  line-height:1;
+  text-shadow:0 2px 7px rgba(239,163,56,.28);
+}
+@media(max-width:560px){
+  .cycle-history-note i{width:22px!important;height:22px!important;font-size:19px!important}
+}
+
 @media(max-width:560px){
   .cycle-summary-metrics article{align-items:center!important;text-align:left!important}
   .cycle-summary-metrics article>span,.cycle-summary-metrics article>span.summary-calendar,.cycle-summary-metrics article>span.summary-flow,.cycle-summary-metrics article>span.summary-regular{background:#ffe3e7!important;color:#df526a!important}
