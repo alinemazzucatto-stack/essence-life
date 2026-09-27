@@ -16,18 +16,19 @@
 
 /* Escala e composição alinhadas às abas Visão geral e Histórico. */
 @media(max-width:760px){
-  .cycle-insights-intro{min-height:72px;padding:2px 78px 0 2px}
-  .cycle-insights-intro h2{font-size:20px;font-weight:800;line-height:1.08;letter-spacing:-.035em}
+  .cycle-insights-view{gap:8px}
+  .cycle-insights-intro{min-height:60px;padding:2px 78px 0 2px}
+  .cycle-insights-intro h2{font-size:20px;font-weight:400;line-height:1.08;letter-spacing:-.035em}
   .cycle-insights-intro p{margin-top:3px;font-size:11px;line-height:1.28}
   .cycle-insights-intro>img{top:4px;right:-5px;width:76px;height:68px}
-  .cycle-insights-hero{grid-template-columns:1.12fr .88fr;gap:8px}
-  .cycle-insights-regularity{grid-template-columns:48px minmax(0,1fr);gap:11px;align-items:center;justify-items:stretch;min-height:157px;padding:15px}
+  .cycle-insights-hero{grid-template-columns:1.28fr .72fr;align-items:start;gap:8px}
+  .cycle-insights-regularity{grid-template-columns:48px minmax(0,1fr);gap:11px;align-items:center;justify-items:stretch;min-height:132px;padding:14px}
   .cycle-insights-icon.calendar{width:48px;height:48px}
   .cycle-insights-regularity b{font-size:12px}
   .cycle-insights-regularity h3{margin:1px 0 4px;font-size:25px}
   .cycle-insights-regularity p{max-width:150px;font-size:10px;line-height:1.27}
   .cycle-insights-sprig{right:6px;bottom:8px;width:38px;height:48px}
-  .cycle-insights-duration{display:grid;grid-template-columns:67px minmax(0,1fr);align-items:center;justify-items:stretch;gap:10px;min-height:157px;padding:13px;text-align:left}
+  .cycle-insights-duration{display:grid;grid-template-columns:67px minmax(0,1fr);align-items:center;justify-items:stretch;gap:10px;min-height:146px;padding:13px;text-align:left}
   .cycle-insights-ring{width:67px;height:67px;border-width:7px}
   .cycle-insights-ring b{font-size:23px}.cycle-insights-ring span{font-size:10px}
   .cycle-insights-duration>div:last-child>b{display:block;font-size:12px;line-height:1.2}
