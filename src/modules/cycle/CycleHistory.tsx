@@ -1,5 +1,5 @@
 import './CycleHistory.css';
-import cycleHistoryFlowers from '../../assets/cycle-history-flowers-v2.png';
+import cycleHistoryFlowers from '../../assets/cycle-insights-botanical.png';
 import cycleNoteLeaf from '../../assets/cycle-note-leaf.png';
 
 type Entry = { id: string; date: string; flow: string; moods?: string[]; mood?: string; symptoms: string[] };
