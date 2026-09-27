@@ -6,26 +6,32 @@
 .cycle-insights-recommendations>div:last-child{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:11px}.cycle-insights-recommendations button{position:relative;display:grid;grid-template-columns:37px minmax(0,1fr);column-gap:7px;align-items:center;min-height:64px;padding:9px;border:1px solid #f1dfdc;border-radius:12px;background:#fffafa;text-align:left}.cycle-insights-recommendations button>span{grid-row:span 2;display:grid;place-items:center;width:35px;height:35px;border-radius:50%;background:#ffe5e8;color:#d85f73;font-size:16px}.cycle-insights-recommendations b{overflow:hidden;color:#52132e;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.cycle-insights-recommendations small{grid-column:2;overflow:hidden;color:#8d7080;font-size:8px;line-height:1.2;text-overflow:ellipsis;white-space:nowrap}.cycle-insights-recommendations button>i{position:absolute;right:6px;bottom:5px;color:#df6476;font-size:16px;font-style:normal}
 @media(max-width:620px){.cycle-insights-view{gap:8px}.cycle-insights-intro{min-height:67px;padding:4px 62px 0 2px}.cycle-insights-intro h2{font-size:20px}.cycle-insights-intro p{max-width:240px;font-size:11px}.cycle-insights-intro>img{top:0;right:-2px;width:54px;height:64px}.cycle-insights-hero{grid-template-columns:1fr;gap:7px}.cycle-insights-regularity{grid-template-columns:43px minmax(0,1fr);min-height:91px;padding:12px}.cycle-insights-icon{width:40px;height:40px;font-size:19px}.cycle-insights-regularity h3{font-size:18px}.cycle-insights-regularity p{font-size:9px}.cycle-insights-regularity>i{font-size:31px}.cycle-insights-duration{min-height:75px;padding:11px}.cycle-insights-ring{width:58px;height:58px;border-width:6px}.cycle-insights-ring b{font-size:19px}.cycle-insights-duration>div:last-child>b{font-size:11px}.cycle-insights-duration p{font-size:9px}.cycle-insights-metrics{gap:6px}.cycle-insights-metrics article{grid-template-columns:28px minmax(0,1fr);min-height:61px;padding:7px}.cycle-insights-metrics .cycle-insights-icon{width:27px;height:27px;font-size:14px}.cycle-insights-metrics small{font-size:6.5px}.cycle-insights-metrics strong{font-size:9px}.cycle-insights-pattern,.cycle-insights-symptoms,.cycle-insights-recommendations{padding:12px}.cycle-insights-view .cycle-section-title h3{font-size:18px}.cycle-insights-view .cycle-section-title p{font-size:10px}.cycle-pattern-plot{margin-top:9px}.cycle-pattern-lines{height:102px}.cycle-pattern-lines svg{height:77px}.cycle-symptom-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.cycle-insights-recommendations>div:last-child{grid-template-columns:1fr;gap:6px}.cycle-insights-recommendations button{min-height:54px}}
 
-/* Insights: leitura móvel em linhas, não em pequenos blocos comprimidos. */
-.cycle-insights-icon svg,.cycle-insights-recommendations button>span svg{display:block;width:55%;height:55%}
-.cycle-insights-recommendations button>span svg{width:57%;height:57%}
+/* Estrutura editorial: indicadores e recomendações são grupos de leitura,
+   não uma sequência de mini-cards isolados. */
+.cycle-insights-metrics{gap:0;border:1px solid #eadbd8;border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#fffdfb,#fff7f4);box-shadow:0 10px 24px rgba(91,47,60,.035)}
+.cycle-insights-metrics article{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.cycle-insights-metrics article+article{border-left:1px solid #f0dfdd!important}
+.cycle-insights-recommendations>div:last-child{gap:0;border:1px solid #f1dfdc;border-radius:13px;overflow:hidden;background:#fffafa}
+.cycle-insights-recommendations button{border:0!important;border-radius:0!important;background:transparent!important}
+.cycle-insights-recommendations button+button{border-top:1px solid #f1dfdc!important}
 .cycle-symptom-cards article:only-child{grid-column:1/-1}
 @media(max-width:620px){
   body .app .cycle-insights-view{gap:10px!important}
-  body .app .cycle-insights-intro{min-height:72px!important;padding:4px 62px 0 2px!important;text-align:left!important}
+  body .app .cycle-insights-intro{min-height:72px!important;padding:4px 60px 0 2px!important;text-align:left!important}
   body .app .cycle-insights-intro h2{font-size:20px!important;font-weight:400!important;text-align:left!important}
   body .app .cycle-insights-intro p{font-size:11px!important;text-align:left!important}
-  body .app .cycle-insights-hero{gap:8px!important}
-  body .app .cycle-insights-regularity{min-height:98px!important;padding:13px!important;text-align:left!important}
+  body .app .cycle-insights-regularity{grid-template-columns:46px minmax(0,1fr)!important;min-height:102px!important;padding:13px!important;text-align:left!important}
   body .app .cycle-insights-regularity>div,body .app .cycle-insights-duration>div:last-child{text-align:left!important}
-  body .app .cycle-insights-duration{min-height:78px!important;padding:12px!important}
-  body .app .cycle-insights-metrics{grid-template-columns:1fr!important;gap:6px!important}
-  body .app .cycle-insights-metrics article{grid-template-columns:38px minmax(0,1fr)!important;min-height:62px!important;padding:9px 11px!important;text-align:left!important}
-  body .app .cycle-insights-metrics .cycle-insights-icon{width:36px!important;height:36px!important}
+  body .app .cycle-insights-regularity h3{font-size:20px!important}
+  body .app .cycle-insights-regularity p{font-size:10px!important}
+  body .app .cycle-insights-duration{min-height:82px!important;padding:12px!important}
+  body .app .cycle-insights-metrics{grid-template-columns:1fr!important;gap:0!important;border-radius:15px!important}
+  body .app .cycle-insights-metrics article{grid-template-columns:40px minmax(0,1fr)!important;min-height:63px!important;padding:9px 11px!important;text-align:left!important}
+  body .app .cycle-insights-metrics article+article{border-top:1px solid #f0dfdd!important;border-left:0!important}
+  body .app .cycle-insights-metrics .cycle-insights-icon{width:36px!important;height:36px!important;font-size:18px!important}
   body .app .cycle-insights-metrics small{font-size:7px!important}
-  body .app .cycle-insights-metrics strong{font-size:11px!important;text-align:left!important}
+  body .app .cycle-insights-metrics strong{font-size:12px!important;text-align:left!important}
   body .app .cycle-insights-pattern,body .app .cycle-insights-symptoms,body .app .cycle-insights-recommendations{padding:13px!important;text-align:left!important}
-  body .app .cycle-insights-view .cycle-section-title{align-items:baseline!important;text-align:left!important}
   body .app .cycle-insights-view .cycle-section-title h3{font-size:19px!important;font-weight:400!important;text-align:left!important}
   body .app .cycle-insights-view .cycle-section-title p{font-size:10px!important;text-align:left!important}
   body .app .cycle-symptom-cards{grid-template-columns:1fr!important;margin-top:9px!important}
@@ -33,8 +39,8 @@
   body .app .cycle-symptom-cards article>span{width:38px!important;height:38px!important}
   body .app .cycle-symptom-cards b{font-size:10px!important;text-align:left!important}
   body .app .cycle-symptom-cards strong{font-size:16px!important;text-align:left!important}
-  body .app .cycle-insights-recommendations>div:last-child{grid-template-columns:1fr!important;gap:7px!important}
-  body .app .cycle-insights-recommendations button{grid-template-columns:42px minmax(0,1fr)!important;min-height:59px!important;padding:9px 30px 9px 10px!important;text-align:left!important}
+  body .app .cycle-insights-recommendations>div:last-child{grid-template-columns:1fr!important;gap:0!important}
+  body .app .cycle-insights-recommendations button{grid-template-columns:42px minmax(0,1fr)!important;min-height:58px!important;padding:9px 30px 9px 10px!important;text-align:left!important}
   body .app .cycle-insights-recommendations button>span{width:38px!important;height:38px!important}
   body .app .cycle-insights-recommendations button b,body .app .cycle-insights-recommendations button small{width:100%!important;text-align:left!important}
   body .app .cycle-insights-recommendations button b{font-size:11px!important}
