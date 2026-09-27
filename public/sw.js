@@ -1,4 +1,4 @@
-const CACHE = 'essence-life-shell-v50-module-refresh';
+const CACHE = 'essence-life-shell-v51-cycle-insights-layout';
 self.addEventListener('install', event => { event.waitUntil(self.skipWaiting()) });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))),self.clients.claim()])) });
 self.addEventListener('fetch', event => {
