@@ -1,0 +1,411 @@
+﻿
+        <!-- CONTENT -->
+        <div class="content">
+            <!-- HOME SCREEN -->
+            <div id="home" class="screen active" style="background-color: #FFF8FA;">
+                <div class="content-header">
+                    <div><h1>ðŸ  Bem-vindo, Maria!</h1><p>Quarta-feira, 24 de Julho</p></div>
+                </div>
+                <div class="content-area">
+                    <div class="screen-grid">
+                        <!-- RESUMO DO DIA - CARD PRINCIPAL REDESENHADO -->
+                        <div class="card full-width" style="background: linear-gradient(135deg, #FFFFFF 0%, #FFF2F8 100%); border: 2px solid var(--primary); padding: 28px;">
+                            <div style="display: grid; grid-template-columns: 1fr 1.2fr 1.2fr; gap: 32px; align-items: stretch;">
+                                <!-- ESQUERDA: SAUDAÃ‡ÃƒO E RESUMO -->
+                                <div>
+                                    <div style="font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 12px;">Bom dia,<br>Maria! ðŸŒ¸</div>
+                                    <div style="font-size: 14px; line-height: 1.6; color: var(--text-secondary);">
+                                        <div style="margin-bottom: 8px;"><strong>3 hÃ¡bitos</strong></div>
+                                        <div style="margin-bottom: 8px;"><strong>3 tarefas</strong></div>
+                                        <div><strong>2 eventos</strong></div>
+                                    </div>
+                                    <p style="font-size: 12px; color: var(--primary); font-style: italic; margin-top: 16px;">Vamos avanÃ§ar um passo?</p>
+                                </div>
+
+                                <!-- CENTRO: BARRA DE PROGRESSO GRANDE -->
+                                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                    <div style="font-size: 48px; font-weight: 700; color: var(--primary); margin-bottom: 16px;">72%</div>
+                                    <div style="width: 100%; height: 12px; background: var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px;">
+                                        <div style="height: 100%; width: 72%; background: linear-gradient(90deg, var(--primary) 0%, #FF85C8 100%); border-radius: 10px;"></div>
+                                    </div>
+                                    <div style="font-size: 13px; color: var(--text-secondary); text-align: center;">Progresso do dia</div>
+                                </div>
+
+                                <!-- DIREITA: SEQUÃŠNCIA E BOTÃƒO -->
+                                <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center;">
+                                    <div style="text-align: center; margin-bottom: 20px;">
+                                        <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 4px;">Sua sequÃªncia</div>
+                                        <div style="font-size: 42px; font-weight: 700; color: var(--warning);">7</div>
+                                        <div style="font-size: 14px; color: var(--text-secondary);">ðŸ”¥ dias</div>
+                                    </div>
+                                    <button class="btn-primary" style="width: 100%; padding: 16px 24px; font-size: 15px; font-weight: 600; border-radius: 12px;" onclick="abrirPlanejamentoDia()">ðŸ“… Planejar meu dia</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HÃBITOS E TAREFAS - 2 COLUNAS -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <!-- HÃBITOS DO DIA -->
+                            <div class="card">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                    <div class="card-title" style="margin: 0; font-size: 16px;">ðŸŽ¯ HÃ¡bitos de Hoje</div>
+                                    <div style="font-size: 13px; font-weight: 700; color: var(--primary);">1 de 3</div>
+                                </div>
+                                <div class="progress-bar" style="margin-bottom: 20px; height: 7px;">
+                                    <div class="progress-fill" style="width: 33%;"></div>
+                                </div>
+                                <div style="display: grid; gap: 14px;">
+                                    <!-- ÃGUA COM CONTROLE INTERATIVO -->
+                                    <div style="padding: 16px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--info);">
+                                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                                            <div>
+                                                <div style="font-weight: 700; font-size: 16px;">ðŸ’§ Beber 2L</div>
+                                                <div style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">1.2L de 2L â€¢ 60%</div>
+                                            </div>
+                                            <input type="checkbox" style="width: 28px; height: 28px; cursor: pointer; accent-color: var(--info);">
+                                        </div>
+                                        <div class="progress-bar" style="height: 5px; margin-bottom: 12px;">
+                                            <div class="progress-fill" style="width: 60%; background: var(--info);"></div>
+                                        </div>
+                                        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center;">
+                                            <button style="background: var(--border); color: var(--text-primary); border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px;">âˆ’</button>
+                                            <div style="text-align: center; font-size: 12px; color: var(--text-secondary);">250 ml</div>
+                                            <button style="background: var(--info); color: white; border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px;">+</button>
+                                        </div>
+                                    </div>
+                                    <!-- TREINO -->
+                                    <div style="padding: 16px; background: linear-gradient(135deg, rgba(255, 105, 180, 0.08) 0%, rgba(255, 105, 180, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--primary);">
+                                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                                            <div>
+                                                <div style="font-weight: 700; font-size: 16px;">ðŸ‹ï¸ Treinar (Perna)</div>
+                                                <div style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">ðŸ•’ 18:00 â€¢ 1h30m</div>
+                                            </div>
+                                            <input type="checkbox" style="width: 28px; height: 28px; cursor: pointer; accent-color: var(--primary);">
+                                        </div>
+                                    </div>
+                                    <!-- MEDITAÃ‡ÃƒO -->
+                                    <div style="padding: 16px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--info);">
+                                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                                            <div>
+                                                <div style="font-weight: 700; font-size: 16px;">ðŸ§˜ Meditar</div>
+                                                <div style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">â±ï¸ 10 minutos</div>
+                                            </div>
+                                            <input type="checkbox" style="width: 28px; height: 28px; cursor: pointer; accent-color: var(--info);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-primary" style="width: 100%; margin-top: 20px; padding: 18px; font-size: 15px; font-weight: 600;" onclick="abrirCriarHabito()">âž• Criar HÃ¡bito</button>
+                            </div>
+
+                            <!-- TAREFAS DO DIA -->
+                            <div class="card">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                    <div class="card-title" style="margin: 0; font-size: 16px;">ðŸ“‹ Tarefas Hoje</div>
+                                    <div style="font-size: 13px; font-weight: 700; color: var(--text-secondary);">3 tarefas</div>
+                                </div>
+                                <div style="display: grid; gap: 14px;">
+                                    <!-- REUNIÃƒO -->
+                                    <div style="padding: 16px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--warning);">
+                                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                                            <div style="flex: 1;">
+                                                <div style="font-weight: 700; font-size: 16px;">â˜ ReuniÃ£o com time</div>
+                                                <div style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">ðŸ•’ 14:30 â€¢ ðŸ“ Trabalho</div>
+                                            </div>
+                                            <div style="display: flex; gap: 8px; align-items: center;">
+                                                <span style="font-size: 11px; font-weight: 700; padding: 4px 10px; background: var(--warning); color: white; border-radius: 6px;">Alta</span>
+                                                <input type="checkbox" style="width: 28px; height: 28px; cursor: pointer; accent-color: var(--warning); margin-left: 8px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- COMPRAS -->
+                                    <div style="padding: 16px; background: linear-gradient(135deg, rgba(255, 105, 180, 0.08) 0%, rgba(255, 105, 180, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--primary);">
+                                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                                            <div style="flex: 1;">
+                                                <div style="font-weight: 700; font-size: 16px;">â˜ Fazer compras</div>
+                                                <div style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">ðŸ“ Supermercado â€¢ Flex</div>
+                                            </div>
+                                            <div style="display: flex; gap: 8px; align-items: center;">
+                                                <span style="font-size: 11px; font-weight: 700; padding: 4px 10px; background: var(--primary); color: white; border-radius: 6px;">MÃ©dia</span>
+                                                <input type="checkbox" style="width: 28px; height: 28px; cursor: pointer; accent-color: var(--primary); margin-left: 8px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- LIMPEZA -->
+                                    <div style="padding: 16px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--success);">
+                                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                                            <div style="flex: 1;">
+                                                <div style="font-weight: 700; font-size: 16px;">â˜ Limpar casa</div>
+                                                <div style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">â±ï¸ 30-45 min â€¢ ðŸ  Casa</div>
+                                            </div>
+                                            <div style="display: flex; gap: 8px; align-items: center;">
+                                                <span style="font-size: 11px; font-weight: 700; padding: 4px 10px; background: var(--success); color: white; border-radius: 6px;">Baixa</span>
+                                                <input type="checkbox" style="width: 28px; height: 28px; cursor: pointer; accent-color: var(--success); margin-left: 8px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-primary" style="width: 100%; margin-top: 20px; padding: 18px; font-size: 15px; font-weight: 600;" onclick="abrirCriarTarefa()">âž• Nova Tarefa</button>
+                            </div>
+                        </div>
+
+                        <!-- AGENDA CRONOLÃ“GICA MELHORADA -->
+                        <div class="card full-width">
+                            <div class="card-title">ðŸ“… Sua Agenda de Hoje</div>
+                            <div style="display: grid; gap: 12px;">
+                                <!-- ITEM 1 -->
+                                <div style="display: grid; grid-template-columns: 90px 1fr 80px 40px; gap: 16px; padding: 16px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--warning); align-items: center;">
+                                    <div style="font-weight: 700; font-size: 15px; color: var(--warning);">14:30</div>
+                                    <div>
+                                        <div style="font-weight: 700; font-size: 15px;">ReuniÃ£o com o time</div>
+                                        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 3px;">ðŸ“ Trabalho</div>
+                                    </div>
+                                    <div style="text-align: center; font-size: 12px; color: var(--text-secondary); background: var(--bg); padding: 6px 12px; border-radius: 6px; font-weight: 600;">Pendente</div>
+                                    <div style="font-size: 22px; text-align: center;">ðŸ“Œ</div>
+                                </div>
+
+                                <!-- ITEM 2 -->
+                                <div style="display: grid; grid-template-columns: 90px 1fr 80px 40px; gap: 16px; padding: 16px; background: linear-gradient(135deg, rgba(255, 105, 180, 0.08) 0%, rgba(255, 105, 180, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--primary); align-items: center;">
+                                    <div style="font-weight: 700; font-size: 15px; color: var(--primary);">18:00</div>
+                                    <div>
+                                        <div style="font-weight: 700; font-size: 15px;">Treino de Pernas</div>
+                                        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 3px;">ðŸ’ª HÃ¡bito â€¢ 1h30m</div>
+                                    </div>
+                                    <div style="text-align: center; font-size: 12px; color: var(--text-secondary); background: var(--bg); padding: 6px 12px; border-radius: 6px; font-weight: 600;">Pendente</div>
+                                    <div style="font-size: 22px; text-align: center;">ðŸ‹ï¸</div>
+                                </div>
+
+                                <!-- ITEM 3 -->
+                                <div style="display: grid; grid-template-columns: 90px 1fr 80px 40px; gap: 16px; padding: 16px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.03) 100%); border-radius: 12px; border-left: 5px solid var(--info); align-items: center;">
+                                    <div style="font-weight: 700; font-size: 15px; color: var(--info);">AmanhÃ£ 08:00</div>
+                                    <div>
+                                        <div style="font-weight: 700; font-size: 15px;">MeditaÃ§Ã£o</div>
+                                        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 3px;">ðŸ§˜ Bem-estar â€¢ 10 min</div>
+                                    </div>
+                                    <div style="text-align: center; font-size: 12px; color: var(--text-secondary); background: var(--bg); padding: 6px 12px; border-radius: 6px; font-weight: 600;">PrÃ³ximo</div>
+                                    <div style="font-size: 22px; text-align: center;">ðŸŒ¸</div>
+                                </div>
+                            </div>
+                            <button class="btn-secondary" style="width: 100%; margin-top: 16px; padding: 14px;">Ver agenda completa</button>
+                        </div>
+
+                        <!-- INSIGHT PERSONALIZADO DESTACADO -->
+                        <div class="card full-width" style="background: linear-gradient(135deg, #FFF8FA 0%, #FFE8F5 100%); border: 2px solid var(--primary); padding: 24px;">
+                            <div style="display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;">
+                                <div style="font-size: 48px; line-height: 1;">ðŸŒ±</div>
+                                <div>
+                                    <div style="font-weight: 700; font-size: 17px; margin-bottom: 12px; color: var(--text-primary);">VocÃª estÃ¡ em uma sequÃªncia incrÃ­vel!</div>
+                                    <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                                        <p>VocÃª manteve seus hÃ¡bitos por <strong>7 dias seguidos</strong>. Falta apenas <strong>800 ml de Ã¡gua</strong> para completar sua meta de hoje.</p>
+                                    </div>
+                                    <div style="background: rgba(255, 255, 255, 0.6); padding: 12px; border-radius: 8px; margin-bottom: 16px;">
+                                        <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">Meta de Ã¡gua</div>
+                                        <div class="progress-bar" style="height: 6px;">
+                                            <div class="progress-fill" style="width: 60%;"></div>
+                                        </div>
+                                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 6px;">1.2L de 2L</div>
+                                    </div>
+                                    <button class="btn-primary" style="width: 100%; padding: 16px; font-size: 14px; font-weight: 600;" onclick="adicionarAgua(250)">ðŸ’§ Registrar 250 ml</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AÃ‡Ã•ES RÃPIDAS MELHORADAS -->
+                        <div class="card full-width">
+                            <div class="card-title">âš¡ AÃ§Ãµes RÃ¡pidas</div>
+                            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;">
+                                <!-- CHECK-IN -->
+                                <div style="padding: 18px; background: var(--bg); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s; border: 2px solid transparent;" onclick="switchScreen('diario')" onmouseover="this.style.background='#E5E7EB'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.background='var(--bg)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                    <div style="font-size: 32px; margin-bottom: 10px;">ðŸ˜Š</div>
+                                    <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Fazer Check-in</div>
+                                </div>
+
+                                <!-- DIÃRIO -->
+                                <div style="padding: 18px; background: var(--bg); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s; border: 2px solid transparent;" onclick="switchScreen('diario')" onmouseover="this.style.background='#E5E7EB'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.background='var(--bg)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                    <div style="font-size: 32px; margin-bottom: 10px;">ðŸ“</div>
+                                    <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Escrever DiÃ¡rio</div>
+                                </div>
+
+                                <!-- TREINO -->
+                                <div style="padding: 18px; background: var(--bg); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s; border: 2px solid transparent;" onclick="switchScreen('treinos')" onmouseover="this.style.background='#E5E7EB'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.background='var(--bg)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                    <div style="font-size: 32px; margin-bottom: 10px;">ðŸ‹ï¸</div>
+                                    <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Registrar Treino</div>
+                                </div>
+
+                                <!-- TAREFA -->
+                                <div style="padding: 18px; background: var(--bg); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s; border: 2px solid transparent;" onclick="switchScreen('rotina')" onmouseover="this.style.background='#E5E7EB'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.background='var(--bg)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                    <div style="font-size: 32px; margin-bottom: 10px;">âœ…</div>
+                                    <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Criar Tarefa</div>
+                                </div>
+
+                                <!-- MEDITAR -->
+                                <div style="padding: 18px; background: var(--bg); border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.3s; border: 2px solid transparent;" onclick="switchScreen('diario')" onmouseover="this.style.background='#E5E7EB'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.background='var(--bg)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                    <div style="font-size: 32px; margin-bottom: 10px;">ðŸ§˜</div>
+                                    <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Meditar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- DIÃRIO SCREEN (Unificado com Bem-estar) -->
+            <div id="diario" class="screen">
+                <div class="content-header">
+                    <div><h1>ðŸ“” DiÃ¡rio & Bem-estar</h1><p>Seus sentimentos, notas, meditaÃ§Ãµes e progresso emocional</p></div>
+                </div>
+                <div class="content-area">
+                    <div class="screen-grid">
+                        <!-- CHECK-IN EMOCIONAL - DESTAQUE PRINCIPAL -->
+                        <div class="card full-width" style="background: linear-gradient(135deg, #FFF8FA 0%, #FFE8F5 100%); border: 2px solid var(--primary);">
+                            <div style="display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;">
+                                <div>
+                                    <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Como vocÃª estÃ¡ se sentindo hoje?</div>
+                                    <p style="font-size: 13px; color: var(--text-secondary);">Registre seu humor em 30 segundos</p>
+                                </div>
+                                <div style="display: flex; gap: 12px;">
+                                    <button class="btn-primary" style="padding: 12px 20px;" onclick="registrarBemEstar()">ðŸ“ Registrar</button>
+                                    <button class="btn-secondary" style="padding: 12px 20px;" onclick="iniciarMeditacao('MeditaÃ§Ã£o Relaxante')">ðŸ§˜ Meditar</button>
+                                </div>
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 16px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255, 105, 180, 0.2);">
+                                <div style="cursor: pointer; text-align: center; opacity: 0.5; transition: all 0.3s;" onclick="selecionarEmocao(this, 'ðŸ˜¢', 'DifÃ­cil')">
+                                    <div style="font-size: 36px; margin-bottom: 4px;">ðŸ˜¢</div>
+                                    <div style="font-size: 10px; font-weight: 600;">DifÃ­cil</div>
+                                </div>
+                                <div style="cursor: pointer; text-align: center; opacity: 0.5; transition: all 0.3s;" onclick="selecionarEmocao(this, 'ðŸ˜', 'Meh')">
+                                    <div style="font-size: 36px; margin-bottom: 4px;">ðŸ˜</div>
+                                    <div style="font-size: 10px; font-weight: 600;">Meh</div>
+                                </div>
+                                <div style="cursor: pointer; text-align: center; opacity: 1; transform: scale(1.15); color: var(--primary);" onclick="selecionarEmocao(this, 'ðŸ˜Š', 'Bem')">
+                                    <div style="font-size: 36px; margin-bottom: 4px;">ðŸ˜Š</div>
+                                    <div style="font-size: 10px; font-weight: 600;">Bem</div>
+                                </div>
+                                <div style="cursor: pointer; text-align: center; opacity: 0.5; transition: all 0.3s;" onclick="selecionarEmocao(this, 'ðŸ˜„', 'Ã“timo')">
+                                    <div style="font-size: 36px; margin-bottom: 4px;">ðŸ˜„</div>
+                                    <div style="font-size: 10px; font-weight: 600;">Ã“timo</div>
+                                </div>
+                                <div style="cursor: pointer; text-align: center; opacity: 0.5; transition: all 0.3s;" onclick="selecionarEmocao(this, 'ðŸ”¥', 'IncrÃ­vel')">
+                                    <div style="font-size: 36px; margin-bottom: 4px;">ðŸ”¥</div>
+                                    <div style="font-size: 10px; font-weight: 600;">IncrÃ­vel</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PROGRESSO EMOCIONAL - VISUAL -->
+                        <div class="card full-width">
+                            <div class="card-title">ðŸ“Š Seu Progresso Emocional</div>
+                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                                <div style="padding: 16px; background: var(--bg); border-radius: 12px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                                        <div style="font-size: 20px;">ðŸŒ¿</div>
+                                        <div style="font-size: 13px; font-weight: 700; color: var(--primary);">78%</div>
+                                    </div>
+                                    <div style="font-weight: 600; font-size: 12px; margin-bottom: 8px;">Tranquilidade</div>
+                                    <div class="progress-bar" style="height: 4px;">
+                                        <div class="progress-fill" style="width: 78%;"></div>
+                                    </div>
+                                    <div style="font-size: 10px; color: var(--success); margin-top: 4px;">â†‘ 6% nesta semana</div>
+                                </div>
+                                <div style="padding: 16px; background: var(--bg); border-radius: 12px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                                        <div style="font-size: 20px;">âš¡</div>
+                                        <div style="font-size: 13px; font-weight: 700; color: var(--success);">82%</div>
+                                    </div>
+                                    <div style="font-weight: 600; font-size: 12px; margin-bottom: 8px;">MotivaÃ§Ã£o</div>
+                                    <div class="progress-bar" style="height: 4px;">
+                                        <div class="progress-fill" style="width: 82%; background: var(--success);"></div>
+                                    </div>
+                                    <div style="font-size: 10px; color: var(--success); margin-top: 4px;">â†‘ 8% nesta semana</div>
+                                </div>
+                                <div style="padding: 16px; background: var(--bg); border-radius: 12px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                                        <div style="font-size: 20px;">ðŸŽ¯</div>
+                                        <div style="font-size: 13px; font-weight: 700; color: var(--info);">75%</div>
+                                    </div>
+                                    <div style="font-weight: 600; font-size: 12px; margin-bottom: 8px;">Foco</div>
+                                    <div class="progress-bar" style="height: 4px;">
+                                        <div class="progress-fill" style="width: 75%; background: var(--info);"></div>
+                                    </div>
+                                    <div style="font-size: 10px; color: var(--text-secondary); margin-top: 4px;">â†“ 2% nesta semana</div>
+                                </div>
+                                <div style="padding: 16px; background: var(--bg); border-radius: 12px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                                        <div style="font-size: 20px;">âš ï¸</div>
+                                        <div style="font-size: 13px; font-weight: 700; color: var(--warning);">40%</div>
+                                    </div>
+                                    <div style="font-weight: 600; font-size: 12px; margin-bottom: 8px;">Estresse</div>
+                                    <div class="progress-bar" style="height: 4px;">
+                                        <div class="progress-fill" style="width: 40%; background: var(--warning);"></div>
+                                    </div>
+                                    <div style="font-size: 10px; color: var(--success); margin-top: 4px;">â†“ 5% nesta semana</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NOTA DO DIA -->
+                        <div class="card full-width">
+                            <div class="card-title">âœï¸ Deixe uma nota sobre hoje</div>
+                            <textarea class="form-input" id="notaDoDia" style="min-height: 90px; margin-bottom: 12px; font-size: 14px;" placeholder="O que aconteceu? Como vocÃª se sentiu? Quais foram suas conquistas?"></textarea>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn-secondary" style="font-size: 12px;">ðŸ† Conquista</button>
+                                <button class="btn-secondary" style="font-size: 12px;">ðŸ˜Ÿ Ansiedade</button>
+                                <button class="btn-secondary" style="font-size: 12px;">ðŸ’­ Pensamentos</button>
+                                <button class="btn-primary" onclick="salvarNotaDoDia()" style="margin-left: auto;">Salvar âœ¨</button>
+                            </div>
+                        </div>
+
+                        <!-- HUMOR DA SEMANA - MELHORADO -->
+                        <div class="card full-width">
+                            <div class="card-title">ðŸ“ˆ Seu Humor Esta Semana</div>
+                            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 20px;">
+                                <div style="text-align: center; padding: 12px; background: var(--bg); border-radius: 8px; border: 2px solid var(--border);">
+                                    <div style="font-size: 28px; margin-bottom: 4px;">ðŸ˜Š</div>
+                                    <div style="font-size: 11px; font-weight: 600;">Seg</div>
+                                    <div style="font-size: 9px; color: var(--text-secondary); margin-top: 2px;">78%</div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: var(--bg); border-radius: 8px; border: 2px solid var(--border);">
+                                    <div style="font-size: 28px; margin-bottom: 4px;">ðŸ˜„</div>
+                                    <div style="font-size: 11px; font-weight: 600;">Ter</div>
+                                    <div style="font-size: 9px; color: var(--text-secondary); margin-top: 2px;">85%</div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: var(--bg); border-radius: 8px; border: 2px solid var(--border);">
+                                    <div style="font-size: 28px; margin-bottom: 4px;">ðŸ˜Š</div>
+                                    <div style="font-size: 11px; font-weight: 600;">Qua</div>
+                                    <div style="font-size: 9px; color: var(--text-secondary); margin-top: 2px;">80%</div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: var(--bg); border-radius: 8px; border: 2px solid var(--border);">
+                                    <div style="font-size: 28px; margin-bottom: 4px;">ðŸ˜</div>
+                                    <div style="font-size: 11px; font-weight: 600;">Qui</div>
+                                    <div style="font-size: 9px; color: var(--text-secondary); margin-top: 2px;">65%</div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: var(--bg); border-radius: 8px; border: 2px solid var(--border);">
+                                    <div style="font-size: 28px; margin-bottom: 4px;">ðŸ˜Š</div>
+                                    <div style="font-size: 11px; font-weight: 600;">Sex</div>
+                                    <div style="font-size: 9px; color: var(--text-secondary); margin-top: 2px;">79%</div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: var(--bg); border-radius: 8px; border: 2px solid var(--border);">
+                                    <div style="font-size: 28px; margin-bottom: 4px;">ðŸ”¥</div>
+                                    <div style="font-size: 11px; font-weight: 600;">Sab</div>
+                                    <div style="font-size: 9px; color: var(--text-secondary); margin-top: 2px;">92%</div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: linear-gradient(135deg, rgba(255, 105, 180, 0.15) 0%, rgba(255, 105, 180, 0.05) 100%); border-radius: 8px; border: 2px solid var(--primary);">
+                                    <div style="font-size: 28px; margin-bottom: 4px;">ðŸ˜„</div>
+                                    <div style="font-size: 11px; font-weight: 600; color: var(--primary);">Dom</div>
+                                    <div style="font-size: 9px; color: var(--primary); margin-top: 2px;">88%</div>
+                                </div>
+                            </div>
+                            <div style="background: var(--bg); padding: 12px; border-radius: 8px; font-size: 13px; text-align: center;">
+                                <div style="font-weight: 600; margin-bottom: 4px;">ðŸŒ± Sua semana estÃ¡ melhorando!</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">Humor mÃ©dio: 81% â€¢ Melhor dia: SÃ¡bado ðŸ”¥</div>
+                            </div>
+                        </div>
+
+                        <!-- HISTÃ“RICO RECENTE -->
+                        <div class="card full-width">
+                            <div class="card-title">ðŸ“š HistÃ³rico Recente</div>
+                            <div style="display: grid; gap: 12px;">
+                                <div style="display: grid; grid-template-columns: auto 1fr; gap: 12px; padding: 12px; background: var(--bg); border-radius: 8px; border-left: 4px solid var(--primary);">
+                                    <div style="font-size: 32px; line-height: 1;">ðŸ˜Š</div>
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 13px;">Bem â€¢ Hoje, 14:30</div>
