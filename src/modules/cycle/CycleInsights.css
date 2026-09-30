@@ -42,3 +42,20 @@
   .cycle-insights-metrics strong{margin:3px 0 2px;font-size:14px;text-align:left}
   .cycle-insights-metrics p{font-size:8px;line-height:1.15;text-align:left}
 }
+
+/* No celular, o resumo usa um retângulo principal e um quadrado compacto. */
+@media(max-width:560px){
+  .cycle-insights-hero{grid-template-columns:minmax(0,1fr) 112px!important;align-items:start!important;gap:8px!important}
+  .cycle-insights-regularity{grid-template-columns:42px minmax(0,1fr)!important;gap:9px!important;min-height:112px!important;padding:12px!important}
+  .cycle-insights-icon.calendar{width:42px!important;height:42px!important}
+  .cycle-insights-regularity b{font-size:11px!important;white-space:nowrap!important}
+  .cycle-insights-regularity h3{margin:1px 0 3px!important;font-size:22px!important;white-space:nowrap!important}
+  .cycle-insights-regularity p{max-width:none!important;font-size:9px!important;line-height:1.22!important;overflow-wrap:normal!important;word-break:normal!important}
+  .cycle-insights-sprig{right:5px!important;bottom:5px!important;width:30px!important;height:38px!important}
+  .cycle-insights-duration{grid-template-columns:1fr!important;justify-items:center!important;gap:3px!important;width:112px!important;min-height:112px!important;padding:8px!important;text-align:center!important}
+  .cycle-insights-ring{width:39px!important;height:39px!important;border-width:4px!important}
+  .cycle-insights-ring b{font-size:17px!important}.cycle-insights-ring span{font-size:8px!important}
+  .cycle-insights-duration>div:last-child{width:100%!important;text-align:center!important}
+  .cycle-insights-duration>div:last-child>b{font-size:8px!important;line-height:1.12!important;white-space:normal!important}
+  .cycle-insights-duration p{margin-top:2px!important;font-size:7px!important;line-height:1.15!important;white-space:normal!important}
+}
