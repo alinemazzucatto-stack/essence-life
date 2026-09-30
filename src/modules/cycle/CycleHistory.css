@@ -241,3 +241,7 @@
   .cycle-history-calendar-note{position:relative!important;display:block!important;margin:8px -12px 0!important;padding:8px 42px 8px 14px!important}
   .cycle-history-calendar-note .cycle-note-leaf{position:absolute!important;top:50%!important;right:13px!important;transform:translateY(-50%)!important}
 }
+
+@media(max-width:560px){
+  .cycle-history-heading{padding-left:16px!important}
+}
