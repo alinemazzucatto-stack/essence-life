@@ -17,7 +17,7 @@
 /* Escala e composição alinhadas às abas Visão geral e Histórico. */
 @media(max-width:760px){
   .cycle-insights-view{gap:8px}
-  .cycle-insights-intro{min-height:60px;padding:2px 78px 0 2px}
+  .cycle-insights-intro{min-height:60px;padding:2px 78px 0 16px}
   .cycle-insights-intro h2{font-size:20px;font-weight:400;line-height:1.08;letter-spacing:-.035em}
   .cycle-insights-intro p{margin-top:3px;font-size:11px;line-height:1.28}
   .cycle-insights-intro>img{top:4px;right:-5px;width:76px;height:68px}
