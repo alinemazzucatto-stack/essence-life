@@ -1,205 +1,61 @@
-type Entry = { id: string; date: string; flow: string; symptoms: string[]; moods?: string[]; mood?: string };
+import './CycleInsights.css';
+import botanical from '../../assets/cycle-insights-botanical.png';
+
+type Entry = { id: string; date: string; flow: string; symptoms: string[] };
 type Symptom = { name: string; count: number };
-type Props = {
-  entries: Entry[];
-  cycleLength: number;
-  cycleDay: number;
-  phase: string;
-  hasReference: boolean;
-  symptoms: Symptom[];
-  suggestions: string[];
-};
+type Props = { entries: Entry[]; cycleLength: number; cycleDay: number; phase: string; hasReference: boolean; symptoms: Symptom[]; suggestions: string[] };
 
-export default function CycleInsights({
-  entries,
-  cycleLength,
-  hasReference,
-}: Props) {
+type IconName = 'calendar' | 'drop' | 'flower' | 'heart';
+
+function CycleIcon({ name }: { name: IconName }) {
+  if (name === 'calendar') return <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5.5" width="16" height="14" rx="3" stroke="currentColor" strokeWidth="1.9"/><path d="M8 3.5v4M16 3.5v4M4 10h16" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/></svg>;
+  if (name === 'drop') return <svg viewBox="0 0 24 24"><path d="M12 3.3C9 7 6.4 10.2 6.4 13.6a5.6 5.6 0 1 0 11.2 0C17.6 10.2 15 7 12 3.3Z" fill="currentColor"/></svg>;
+  if (name === 'flower') return <svg viewBox="0 0 24 24"><g fill="currentColor"><ellipse cx="12" cy="5.6" rx="3.2" ry="4.2"/><ellipse cx="18.2" cy="9.2" rx="3.2" ry="4.2" transform="rotate(60 18.2 9.2)"/><ellipse cx="18.2" cy="15.4" rx="3.2" ry="4.2" transform="rotate(120 18.2 15.4)"/><ellipse cx="12" cy="18.4" rx="3.2" ry="4.2"/><ellipse cx="5.8" cy="15.4" rx="3.2" ry="4.2" transform="rotate(60 5.8 15.4)"/><ellipse cx="5.8" cy="9.2" rx="3.2" ry="4.2" transform="rotate(120 5.8 9.2)"/></g><circle cx="12" cy="12" r="2.5" fill="#fff8fb"/></svg>;
+  return <svg viewBox="0 0 24 24"><path d="M12 20.2 4.4 13a5 5 0 0 1 7.1-7L12 6.5l.5-.5a5 5 0 0 1 7.1 7L12 20.2Z" fill="currentColor"/></svg>;
+}
+
+function Sprig() { return <svg viewBox="0 0 70 90" fill="none"><path d="M14 85C25 61 37 36 57 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/><path d="M27 59c-13 0-20-7-21-17 13 0 20 6 21 17ZM38 43c1-13 8-20 20-22-1 13-7 20-20 22ZM20 73C10 73 4 68 3 59c11 0 17 5 17 14Z" fill="currentColor" opacity=".72"/></svg>; }
+
+export default function CycleInsights({ entries, cycleLength, hasReference, symptoms, suggestions }: Props) {
+  const total = Math.max(entries.length, 1);
   const flowDays = entries.filter(entry => entry.flow !== 'Sem fluxo').length;
-  const regularity = hasReference ? 'Regular' : 'Em acompanhamento';
+  const mainSymptom = symptoms.find(item => item.count > 0);
   const menstruationDays = flowDays || 1;
-  const lutealDays = Math.max(10, cycleLength - 14);
+  const regularity = hasReference ? 'Regular' : 'Em acompanhamento';
+  const care = suggestions.length ? suggestions.slice(0, 3) : ['Chá de conforto', 'Respiração de 5 min', 'Compressa morna'];
 
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <div className="bg-white px-4 py-4 flex items-center justify-between border-b border-pink-100">
-        <button className="text-2xl">☰</button>
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full flex items-center justify-center text-white">
-            ✓
-          </div>
-          <span className="font-bold text-gray-900">Essence Life</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <button className="text-2xl">🔔</button>
-          <button className="w-8 h-8 rounded-full border-2 border-pink-300 flex items-center justify-center text-gray-600">
-            👤
-          </button>
-        </div>
-      </div>
+  return <section className="cycle-insights-view">
+    <header className="cycle-insights-intro">
+      <div><h2>Seus insights do ciclo</h2><p>Entenda seus padrões e receba recomendações personalizadas.</p></div>
+      <img src={botanical} alt="" aria-hidden="true" />
+    </header>
 
-      {/* Info Banner */}
-      <div className="mx-4 mt-4 bg-gradient-to-r from-pink-50 to-pink-100 rounded-2xl p-4 border border-pink-200">
-        <div className="flex gap-3">
-          <div className="w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center flex-shrink-0 text-pink-600">
-            ✦
-          </div>
-          <div>
-            <p className="text-pink-600 text-xs font-bold uppercase tracking-wide">Seu ritmo, com gentileza</p>
-            <p className="text-gray-700 text-sm mt-1">Observe datas, sintomas, humor e energia sem transformar estimativas em cobranças.</p>
-          </div>
-        </div>
-      </div>
+    <section className="cycle-insights-hero">
+      <article className="cycle-insights-regularity">
+        <span className="cycle-insights-icon calendar"><CycleIcon name="calendar" /></span>
+        <div><b>Seu ciclo é</b><h3>{regularity}</h3><p>Seus ciclos têm se mantido estáveis nos últimos meses.</p></div>
+        <i className="cycle-insights-sprig"><Sprig /></i>
+      </article>
+      <article className="cycle-insights-duration">
+        <div className="cycle-insights-ring"><b>{cycleLength}</b><span>dias</span></div>
+        <div><b>Duração média<br/>do ciclo</b><p>Varia entre<br/>{Math.max(21, cycleLength - 1)} e {cycleLength + 2} dias</p></div>
+      </article>
+    </section>
 
-      {/* Tabs */}
-      <div className="flex gap-2 px-4 mt-4 mb-6">
-        <button className="px-4 py-2 rounded-full text-gray-700 text-sm flex items-center gap-2">
-          🏠 Visão geral
-        </button>
-        <button className="px-4 py-2 rounded-full text-gray-700 text-sm flex items-center gap-2">
-          📊 Histórico
-        </button>
-        <button className="px-4 py-3 rounded-full bg-pink-500 text-white text-sm font-medium flex items-center gap-2">
-          💡 Insights
-        </button>
-      </div>
+    <section className="cycle-insights-metrics">
+      <article><span className="cycle-insights-icon flow"><CycleIcon name="drop" /></span><div><small>Duração da<br/>menstruação</small><strong>{menstruationDays} {menstruationDays === 1 ? 'dia' : 'dias'}</strong><p>Varia entre 4 e 6 dias</p></div></article>
+      <article><span className="cycle-insights-icon ovulation"><CycleIcon name="flower" /></span><div><small>Ovulação</small><strong>Dia 14</strong><p>Em média</p></div></article>
+      <article><span className="cycle-insights-icon rest"><CycleIcon name="heart" /></span><div><small>Fase lútea</small><strong>{Math.max(10, cycleLength - 14)} dias</strong><p>Em média</p></div></article>
+    </section>
 
-      {/* Main Content */}
-      <div className="px-4">
-        {/* Title Section */}
-        <div className="mb-6 relative">
-          <h1 className="text-2xl font-bold text-gray-900">Seus insights do ciclo</h1>
-          <p className="text-gray-600 text-sm mt-1">Entenda seus padrões e receba recomendações personalizadas.</p>
-          <div className="absolute top-0 right-0 text-3xl opacity-40">🌸</div>
-        </div>
+    <article className="cycle-insights-pattern">
+      <div className="cycle-section-title"><div><h3>Como você se sente ao longo do ciclo</h3><p>Com base nos seus registros mais recentes.</p></div></div>
+      <div className="cycle-pattern-plot"><div className="cycle-pattern-scale"><span>Alta</span><span>Média</span><span>Baixa</span></div><div className="cycle-pattern-lines"><div className="cycle-phase-band menstrual">Menstruação</div><div className="cycle-phase-band follicular">Fase folicular</div><div className="cycle-phase-band ovulation">Ovulação</div><div className="cycle-phase-band luteal">Fase lútea</div><svg viewBox="0 0 600 130" preserveAspectRatio="none" aria-hidden="true"><path className="energy" d="M0 78 C45 65 72 92 112 70 S178 56 220 76 S280 62 320 73 S382 96 424 54 S490 35 530 61 S575 70 600 56"/><path className="mood" d="M0 96 C45 70 76 102 112 91 S180 87 220 95 S278 60 320 86 S384 68 424 81 S490 97 530 90 S575 62 600 75"/><path className="sensitivity" d="M0 100 C48 105 76 84 112 95 S180 100 220 82 S275 84 320 69 S380 44 424 70 S488 72 530 84 S574 58 600 72"/><path className="rest" d="M0 83 C45 82 76 61 112 78 S180 96 220 90 S278 80 320 92 S382 105 424 90 S490 72 530 98 S575 80 600 88"/></svg></div></div>
+      <div className="cycle-pattern-key"><span className="energy">Energia</span><span className="mood">Humor</span><span className="sensitivity">Sensibilidade</span><span className="rest">Descanso</span></div>
+    </article>
 
-        {/* Top Cards Section */}
-        <div className="space-y-4 mb-6">
-          {/* Card 1: Regular Cycle */}
-          <div className="bg-pink-50 rounded-2xl p-4 border border-pink-200">
-            <div className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-pink-200 rounded-full flex items-center justify-center flex-shrink-0 text-pink-600">
-                📅
-              </div>
-              <div className="flex-1">
-                <p className="text-gray-700 font-bold text-lg">Seu ciclo é</p>
-                <p className="text-gray-900 font-bold text-2xl">{regularity}</p>
-                <p className="text-gray-600 text-xs mt-1">Seus ciclos têm se mantido estáveis nos últimos meses.</p>
-              </div>
-            </div>
-          </div>
+    <article className="cycle-insights-symptoms"><div className="cycle-section-title"><div><h3>Sintomas mais recorrentes</h3><p>Com base nos seus últimos registros.</p></div><button type="button">Ver todos ›</button></div><div className="cycle-symptom-cards"><article><span>ϟ</span><div><b>{mainSymptom?.name || 'Cólicas'}</b><strong>{mainSymptom ? Math.round(mainSymptom.count / total * 100) : 0}%</strong><small>dos registros</small></div><i><em style={{ width: `${mainSymptom ? Math.round(mainSymptom.count / total * 100) : 0}%` }} /></i></article></div></article>
 
-          {/* Card 2: Duration */}
-          <div className="bg-white rounded-2xl p-4 border border-pink-100">
-            <p className="text-gray-700 text-xs mb-3">Duração média do ciclo</p>
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-900 font-bold text-3xl">{cycleLength}</p>
-                <p className="text-gray-600 text-xs">dias</p>
-                <p className="text-gray-500 text-xs mt-2">Varia entre 27 e 30 dias</p>
-              </div>
-              <div className="relative w-20 h-20">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="40" fill="none" stroke="#fce7f3" strokeWidth="8" />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#ec4899"
-                    strokeWidth="8"
-                    strokeDasharray={`${(cycleLength / 28) * 251.2} 251.2`}
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Phase Cards */}
-        <div className="grid grid-cols-3 gap-3 mb-6">
-          {[
-            { icon: '🩸', title: 'Duração da menstruação', value: menstruationDays, unit: 'dia', desc: 'Varia entre 4 e 6 dias' },
-            { icon: '🌸', title: 'Ovulação', value: 'Dia 14', unit: '', desc: 'Em média' },
-            { icon: '❤️', title: 'Fase lútea', value: lutealDays, unit: 'dias', desc: 'Em média' },
-          ].map((item, idx) => (
-            <div key={idx} className="bg-white rounded-2xl p-3 border border-pink-100 text-center">
-              <div className="text-2xl mb-2">{item.icon}</div>
-              <p className="text-gray-600 text-xs font-medium mb-1">{item.title}</p>
-              <p className="text-gray-900 font-bold text-lg">
-                {item.value}{item.unit ? ' ' + item.unit : ''}
-              </p>
-              <p className="text-gray-500 text-xs mt-1">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Chart Section */}
-        <div className="bg-white rounded-2xl p-4 border border-pink-100 mb-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-2">Como você se sente ao longo do ciclo</h2>
-          <p className="text-gray-600 text-xs mb-4">Com base nos seus registros mais recentes.</p>
-
-          {/* Phase Labels */}
-          <div className="flex justify-between mb-4 text-xs font-medium text-gray-700">
-            <span className="text-pink-600 bg-pink-50 px-2 py-1 rounded-full">Menstruação</span>
-            <span className="text-purple-600 bg-purple-50 px-2 py-1 rounded-full">Fase folicular</span>
-            <span className="text-pink-600 bg-pink-50 px-2 py-1 rounded-full">Ovulação</span>
-            <span className="text-purple-600 bg-purple-50 px-2 py-1 rounded-full">Fase lútea</span>
-          </div>
-
-          {/* Simple Chart Placeholder */}
-          <div className="h-40 bg-pink-50 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500 text-sm">Gráfico de padrões emocionais</p>
-          </div>
-        </div>
-
-        {/* Symptoms Section */}
-        <div className="bg-white rounded-2xl p-4 border border-pink-100 mb-6">
-          <div className="bg-pink-50 rounded-2xl p-4">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center text-2xl">
-                〰️
-              </div>
-              <div className="flex-1">
-                <p className="text-gray-900 font-bold text-lg">Cólicas</p>
-                <p className="text-gray-600 text-xs">dos registros</p>
-              </div>
-              <p className="text-gray-900 font-bold text-2xl">50%</p>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-pink-500 h-2 rounded-full" style={{ width: '50%' }} />
-            </div>
-          </div>
-        </div>
-
-        {/* Recommendations Section */}
-        <div className="bg-white rounded-2xl p-4 border border-pink-100 mb-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-2">Recomendações para você</h2>
-          <p className="text-gray-600 text-xs mb-4">Pequenos cuidados que combinam com o seu momento.</p>
-
-          <div className="space-y-3">
-            {[
-              { icon: '🫖', title: 'Chá de conforto', desc: 'Uma sugestão gentil para agora.' },
-              { icon: '💨', title: 'Respiração de 5 min', desc: 'Escolha se fizer sentido para você.' },
-              { icon: '🧊', title: 'Compressa morna', desc: 'Uma estratégia testada para aliviar.' },
-            ].map((rec, idx) => (
-              <div key={idx} className="bg-pink-50 rounded-xl p-3 flex items-start gap-3 cursor-pointer hover:bg-pink-100 transition">
-                <div className="text-2xl flex-shrink-0">{rec.icon}</div>
-                <div className="flex-1">
-                  <p className="text-gray-900 font-semibold text-sm">{rec.title}</p>
-                  <p className="text-gray-600 text-xs mt-1">{rec.desc}</p>
-                </div>
-                <span className="text-pink-500 text-lg flex-shrink-0">›</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Spacing */}
-        <div className="h-8" />
-      </div>
-    </div>
-  );
+    <article className="cycle-insights-recommendations"><div className="cycle-section-title"><div><h3>Recomendações para você</h3><p>Pequenos cuidados que combinam com o seu momento.</p></div></div><div>{care.map((item, index) => <button key={item} type="button"><span>{['☕', '◌', '✦'][index]}</span><b>{item}</b><small>{index === 0 ? 'Uma sugestão gentil para agora.' : 'Escolha se fizer sentido para você.'}</small><i>›</i></button>)}</div></article>
+  </section>;
 }
