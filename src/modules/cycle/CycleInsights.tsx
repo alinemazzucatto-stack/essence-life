@@ -1,5 +1,3 @@
-import React from 'react';
-
 type Entry = { id: string; date: string; flow: string; symptoms: string[]; moods?: string[]; mood?: string };
 type Symptom = { name: string; count: number };
 type Props = {
@@ -16,7 +14,6 @@ export default function CycleInsights({
   entries,
   cycleLength,
   hasReference,
-  symptoms,
 }: Props) {
   const flowDays = entries.filter(entry => entry.flow !== 'Sem fluxo').length;
   const regularity = hasReference ? 'Regular' : 'Em acompanhamento';

@@ -235,3 +235,9 @@
   .cycle-summary-metrics article small{font-size:7.5px!important;text-align:left!important}
   .cycle-summary-metrics article strong{font-size:11px!important;text-align:left!important}
 }
+
+/* A mensagem do calendário usa o mesmo eixo de leitura do card seguinte. */
+@media(max-width:560px){
+  .cycle-history-calendar-note{position:relative!important;display:block!important;margin:8px -12px 0!important;padding:8px 42px 8px 14px!important}
+  .cycle-history-calendar-note .cycle-note-leaf{position:absolute!important;top:50%!important;right:13px!important;transform:translateY(-50%)!important}
+}
