@@ -148,6 +148,9 @@
 /* Em tela estreita, preserva a leitura: nenhuma palavra é fragmentada. */
 @media(max-width:600px){
   .cycle-insights-summary{column-gap:5px;row-gap:9px}
+  .cycle-insights-flow,.cycle-insights-metric{grid-template-columns:30px minmax(0,1fr);justify-items:start;align-items:center;gap:4px;padding:5px!important;text-align:left}
+  .cycle-insights-flow>div,.cycle-insights-metric>div{text-align:left}
+  .cycle-insights-flow .cycle-insights-icon,.cycle-insights-metric .cycle-insights-icon{width:30px!important;height:30px!important}
   .cycle-symptom-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
   .cycle-symptom-cards article{grid-template-columns:38px minmax(0,1fr);gap:7px;min-height:70px;padding:9px}
   .cycle-symptom-cards article>span{width:36px;height:36px}
