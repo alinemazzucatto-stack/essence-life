@@ -41,6 +41,7 @@
 .cycle-insights-ring{place-content:unset;align-items:center;justify-content:center;gap:0}
 .cycle-insights-ring b{line-height:.74}
 .cycle-insights-ring span{line-height:.9}
+.cycle-insights-ring span{margin-top:-3px}
 .cycle-insights-duration>div:last-child{position:relative}
 .cycle-insights-duration>div:last-child>b{padding-right:18px}
 .cycle-insights-duration>div:last-child>b span{position:absolute;top:0;right:0}
