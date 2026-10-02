@@ -20,3 +20,7 @@
 @media(max-width:650px){.cl-cycle-card{padding-bottom:16px!important}.cl-cycle-content{min-height:250px!important}.cl-cycle-divider{margin-top:0!important}.cl-cycle-signals{margin-top:8px!important}}
 
 @media(max-width:650px){.cl-cycle-illustration{top:-7px!important;right:-2px!important;width:154px!important}.cl-moon-scene{width:154px!important;aspect-ratio:.8/1!important}.cl-moon-image{object-fit:contain}}
+
+/* A ilustração fica discreta, como textura atrás da previsão do ciclo. */
+.cl-cycle-content{grid-template-columns:minmax(0,1fr)!important}.cl-cycle-main{position:relative;z-index:2}.cl-cycle-illustration{position:absolute!important;z-index:1!important;top:96px!important;left:190px!important;width:150px!important;min-height:0!important;opacity:.3;pointer-events:none}.cl-moon-scene{width:150px!important;aspect-ratio:.8/1!important}.cl-next-period{position:relative;z-index:2;background:linear-gradient(120deg,rgba(252,228,224,.8),rgba(255,239,236,.76))}
+@media(max-width:650px){.cl-cycle-illustration{top:102px!important;right:auto!important;left:88px!important;width:105px!important;opacity:.28}.cl-moon-scene{width:105px!important}}
