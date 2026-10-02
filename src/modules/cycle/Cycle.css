@@ -196,3 +196,13 @@ html body .app main section.cycle.cycle-module .cycle-today-care button {
 .cycle-module .cycle-insights-header{padding:6px 4px 14px}.cycle-module .cycle-insights-header h2{margin:0;color:#40142c;font-size:29px;line-height:1.1}.cycle-module .cycle-insights-header p{margin:6px 0 0;color:#856d7d;font-size:15px;line-height:1.4}
 .cycle-module .cycle-primary-tabs button>span{display:grid!important;place-items:center;width:18px;height:18px}.cycle-module .cycle-primary-tabs button>span svg{display:block;width:18px;height:18px}.cycle-module .cycle-primary-tabs button.active>span svg{color:#fff}
 @media(max-width:560px){.cycle-module .cycle-primary-tabs button>span{width:15px!important;height:15px!important}.cycle-module .cycle-primary-tabs button>span svg{width:15px!important;height:15px!important}}
+
+/* Paleta unificada para as demais abas do módulo Ciclo. */
+.cycle-module .card,.cycle-module .cycle-data-card,.cycle-module .cycle-settings-card,.cycle-module .cycle-register-card,.cycle-module .cycle-care-card{border-color:#efd8d8!important;background:#fffdfb}
+.cycle-module .card :is(h2,h3,h4),.cycle-module .cycle-quick-heading h3{color:#49102f}
+.cycle-module .card :is(p,small),.cycle-module .cycle-care-context{color:#85627d}
+.cycle-module :is(input,select,textarea){border-color:#efd8d8!important;background:#fffafa!important;color:#49102f!important}
+.cycle-module :is(input,select,textarea):focus{border-color:#d85a70!important;box-shadow:0 0 0 3px rgba(216,90,112,.12)!important}
+.cycle-module .symptoms button,.cycle-module .care-grid button,.cycle-module .cycle-file-button{border-color:#efd8d8!important;background:#fffafa!important;color:#4e1430!important}
+.cycle-module .symptoms button.selected,.cycle-module .care-grid button.done,.cycle-module .care-grid button.suggested{border-color:#e690a4!important;background:#fff1f4!important;color:#bf4263!important}
+.cycle-module .cycle-safety,.cycle-module .cycle-register-tip,.cycle-module .notice{border-color:#f0dddd!important;background:#fff3f5!important;color:#85627d!important}
