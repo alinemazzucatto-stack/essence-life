@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './CycleInsights.css';
 import botanical from '../../assets/cycle-insights-botanical.png';
 
@@ -35,6 +36,7 @@ export default function CycleInsights({ entries, cycleLength, hasReference, symp
   const menstruationDays = flowDays || 5;
   const regularity = hasReference ? 'Regular' : 'Em acompanhamento';
   const care = [['Chá de conforto', 'Pode ajudar a aliviar as cólicas e o inchaço.', 'tea'], ['Exercício leve', 'Ajuda a reduzir o estresse e melhora o humor.', 'exercise'], ['Rotina de descanso', 'Priorize uma boa noite de sono na fase lútea para equilibrar a energia.', 'rest']] as const;
+  const [completedCare, setCompletedCare] = useState<string[]>([]);
   const symptomCards = fallbackSymptoms.map((item, index) => { const actual = symptoms[index]; const value = actual ? Math.max(1, Math.round(actual.count / total * 100)) : item.value; return { ...item, name: actual?.name || item.name, value }; });
   return <section className="cycle-insights-view">
     <header className="cycle-insights-intro"><div><h2>Seus insights do ciclo</h2><p>Entenda seus padrões e receba recomendações personalizadas.</p></div><img src={botanical} alt="" aria-hidden="true" /></header>
@@ -46,6 +48,6 @@ export default function CycleInsights({ entries, cycleLength, hasReference, symp
       <article className="cycle-insights-metric cycle-insights-luteal"><span className="cycle-insights-icon"><CycleIcon name="heart" /></span><div><b>Fase lútea</b><strong>{Math.max(10, cycleLength - 14)} dias</strong><p>Em média</p></div></article>
     </section>
     <article className="cycle-insights-symptoms"><div className="cycle-section-title"><div><h3>Sintomas mais recorrentes</h3><p>Com base nos seus últimos registros.</p></div><button type="button">Ver todos <i>›</i></button></div><div className="cycle-symptom-cards">{symptomCards.map(item => <article key={item.name}><span><CycleIcon name={item.icon} /></span><div><b>{item.name}</b><strong>{item.value}%</strong></div><i><em style={{ width: `${item.value}%` }} /></i></article>)}</div></article>
-    <article className="cycle-insights-recommendations"><div className="cycle-section-title"><div><h3>Recomendações para você</h3><p>Com base nos seus padrões e sintomas mais frequentes.</p></div></div><div>{care.map(([title, description, icon]) => <button key={title} type="button"><span><CareIcon name={icon} /></span><div><b>{title}</b><small>{description}</small></div><i>›</i></button>)}</div></article>
+    <article className="cycle-insights-recommendations"><div className="cycle-section-title"><div><h3>Recomendações para você</h3><p>Com base nos seus padrões e sintomas mais frequentes.</p></div></div><div>{care.map(([title, description, icon]) => <button key={title} type="button" className={completedCare.includes(title)?'done':''} aria-pressed={completedCare.includes(title)} onClick={()=>setCompletedCare(all=>all.includes(title)?all.filter(item=>item!==title):[...all,title])}><span><CareIcon name={icon} /></span><div><b>{title}</b><small>{completedCare.includes(title)?'Marcado como feito.':description}</small></div><i>{completedCare.includes(title)?'✓':'›'}</i></button>)}</div></article>
   </section>;
 }

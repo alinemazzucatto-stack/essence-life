@@ -74,6 +74,7 @@
 /* Sintomas e recomendações seguem o mesmo padrão: ícone lateral e conteúdo à esquerda. */
 .cycle-insights-recommendations>div:last-child{grid-template-columns:repeat(3,minmax(0,1fr))}
 .cycle-insights-recommendations button>span svg{width:58%;height:58%;color:#df516d}
+.cycle-insights-recommendations button.done{border-color:#e690a4;background:#fff3f5}.cycle-insights-recommendations button.done>i{color:#bf4263;font-weight:800}
 @media(max-width:600px){
   .cycle-insights-symptoms,.cycle-insights-recommendations{padding:13px}
   .cycle-symptom-cards{gap:6px;margin-top:10px}
