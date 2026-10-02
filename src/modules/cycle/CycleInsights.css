@@ -94,6 +94,12 @@
   .cycle-insights-duration p{font-size:8px!important}
 }
 
+@media(max-width:600px){
+  .cycle-insights-flow b,.cycle-insights-metric b{font-size:9px!important}
+  .cycle-insights-flow strong,.cycle-insights-metric strong{font-size:14px!important}
+  .cycle-insights-flow p,.cycle-insights-metric p{font-size:8px!important}
+}
+
 /* Sintomas e recomendações seguem o mesmo padrão: ícone lateral e conteúdo à esquerda. */
 .cycle-insights-recommendations>div:last-child{grid-template-columns:repeat(3,minmax(0,1fr))}
 .cycle-insights-recommendations button>span svg{width:58%;height:58%;color:#df516d}
