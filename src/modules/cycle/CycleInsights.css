@@ -44,3 +44,17 @@
 .cycle-insights-duration>div:last-child{position:relative}
 .cycle-insights-duration>div:last-child>b{padding-right:18px}
 .cycle-insights-duration>div:last-child>b span{position:absolute;top:0;right:0}
+
+.cycle-insights-metric{display:grid;grid-template-columns:100px minmax(0,1fr);gap:18px;align-items:center;min-height:150px;padding:21px}.cycle-insights-metric .cycle-insights-icon{width:90px;height:90px}.cycle-insights-ovulation .cycle-insights-icon{background:#f0e7fb;color:#9264c5}.cycle-insights-luteal .cycle-insights-icon{background:#fce2e7;color:#de526c}.cycle-insights-metric b{display:block;color:#4e1430;font-size:20px;line-height:1.2}.cycle-insights-metric strong{display:block;margin-top:7px;color:#670538;font-size:34px;line-height:.94}.cycle-insights-metric p{margin:11px 0 0;color:#85627d;font-size:18px;line-height:1.26}
+@media(max-width:600px){
+  .cycle-insights-summary{grid-template-columns:repeat(12,minmax(0,1fr));gap:9px}
+  .cycle-insights-regularity{grid-column:span 7}
+  .cycle-insights-duration{grid-column:span 5}
+  .cycle-insights-flow,.cycle-insights-metric{grid-column:span 4;grid-template-columns:1fr;justify-items:center;gap:5px;min-height:108px;padding:10px 5px;text-align:center}
+  .cycle-insights-flow{grid-column:span 4}
+  .cycle-insights-flow .cycle-insights-icon,.cycle-insights-metric .cycle-insights-icon{width:43px;height:43px}
+  .cycle-insights-flow>div,.cycle-insights-metric>div{text-align:center}
+  .cycle-insights-flow b,.cycle-insights-metric b{font-size:10px;line-height:1.12}
+  .cycle-insights-flow strong,.cycle-insights-metric strong{margin-top:4px;font-size:17px;line-height:1}
+  .cycle-insights-flow p,.cycle-insights-metric p{margin-top:4px;font-size:9px;line-height:1.12}
+}
