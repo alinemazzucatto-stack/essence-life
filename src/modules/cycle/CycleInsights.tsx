@@ -18,17 +18,23 @@ function CycleIcon({ name }: { name: IconName }) {
 
 function Sprig() { return <svg viewBox="0 0 70 90" fill="none"><path d="M14 85C25 61 37 36 57 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/><path d="M27 59c-13 0-20-7-21-17 13 0 20 6 21 17ZM38 43c1-13 8-20 20-22-1 13-7 20-20 22ZM20 73C10 73 4 68 3 59c11 0 17 5 17 14Z" fill="currentColor" opacity=".72"/></svg>; }
 
+function CareIcon({ name }: { name: 'tea' | 'exercise' | 'rest' }) {
+  if (name === 'tea') return <svg viewBox="0 0 24 24" fill="none"><path d="M5 10h12v4.5a4.5 4.5 0 0 1-4.5 4.5h-3A4.5 4.5 0 0 1 5 14.5V10Z" fill="currentColor"/><path d="M17 11h1.2a2.3 2.3 0 0 1 0 4.6H17M4 21h15M9 7c-1-1.3 1-2.4 0-3.8M13 7c-1-1.3 1-2.4 0-3.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>;
+  if (name === 'exercise') return <svg viewBox="0 0 24 24" fill="none"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round"/></svg>;
+  return <svg viewBox="0 0 24 24"><path d="M12 20.7c-4.1 0-7.5-2.7-8.7-6.4 3.5-.4 6.7.9 8.7 3.3-1.1-4-3.5-6.6-6.7-8.3 3.8-.1 7.1 1.6 8.7 4.4 1.1-4.1 3.4-6.8 6.7-8.3-.1 4.4-1.7 8.1-4.7 10.4 1.9-.8 4-1 5.9-.5-1.4 3.2-4.4 5.4-8 5.4H12Z" fill="currentColor"/></svg>;
+}
+
 const fallbackSymptoms = [
   { name: 'Cólicas', icon: 'bolt' as const, value: 62 }, { name: 'Inchaço', icon: 'drop' as const, value: 48 },
   { name: 'Dor de cabeça', icon: 'head' as const, value: 38 }, { name: 'Sensibilidade', icon: 'sad' as const, value: 35 },
 ];
 
-export default function CycleInsights({ entries, cycleLength, hasReference, symptoms, suggestions }: Props) {
+export default function CycleInsights({ entries, cycleLength, hasReference, symptoms }: Props) {
   const total = Math.max(entries.length, 1);
   const flowDays = entries.filter(entry => entry.flow !== 'Sem fluxo').length;
   const menstruationDays = flowDays || 5;
   const regularity = hasReference ? 'Regular' : 'Em acompanhamento';
-  const care = suggestions.length ? suggestions.slice(0, 3) : ['Chá de conforto', 'Exercício leve', 'Rotina de descanso'];
+  const care = [['Chá de conforto', 'Pode ajudar a aliviar as cólicas e o inchaço.', 'tea'], ['Exercício leve', 'Ajuda a reduzir o estresse e melhora o humor.', 'exercise'], ['Rotina de descanso', 'Priorize uma boa noite de sono na fase lútea para equilibrar a energia.', 'rest']] as const;
   const symptomCards = fallbackSymptoms.map((item, index) => { const actual = symptoms[index]; const value = actual ? Math.max(1, Math.round(actual.count / total * 100)) : item.value; return { ...item, name: actual?.name || item.name, value }; });
   return <section className="cycle-insights-view">
     <header className="cycle-insights-intro"><div><h2>Seus insights do ciclo</h2><p>Entenda seus padrões e receba recomendações personalizadas.</p></div><img src={botanical} alt="" aria-hidden="true" /></header>
@@ -40,6 +46,6 @@ export default function CycleInsights({ entries, cycleLength, hasReference, symp
       <article className="cycle-insights-metric cycle-insights-luteal"><span className="cycle-insights-icon"><CycleIcon name="heart" /></span><div><b>Fase lútea</b><strong>{Math.max(10, cycleLength - 14)} dias</strong><p>Em média</p></div></article>
     </section>
     <article className="cycle-insights-symptoms"><div className="cycle-section-title"><div><h3>Sintomas mais recorrentes</h3><p>Com base nos seus últimos registros.</p></div><button type="button">Ver todos <i>›</i></button></div><div className="cycle-symptom-cards">{symptomCards.map(item => <article key={item.name}><span><CycleIcon name={item.icon} /></span><div><b>{item.name}</b><strong>{item.value}%</strong></div><i><em style={{ width: `${item.value}%` }} /></i></article>)}</div></article>
-    <article className="cycle-insights-recommendations"><div className="cycle-section-title"><div><h3>Recomendações para você</h3><p>Com base nos seus padrões e sintomas mais frequentes.</p></div></div><div>{care.map((item, index) => <button key={item} type="button"><span>{['☕', '🏋', '✦'][index]}</span><div><b>{item}</b><small>{index === 0 ? 'Pode ajudar a aliviar as cólicas e o inchaço.' : index === 1 ? 'Ajuda a reduzir o estresse e melhora o humor.' : 'Priorize uma boa noite de sono na fase lútea para equilibrar a energia.'}</small></div><i>›</i></button>)}</div></article>
+    <article className="cycle-insights-recommendations"><div className="cycle-section-title"><div><h3>Recomendações para você</h3><p>Com base nos seus padrões e sintomas mais frequentes.</p></div></div><div>{care.map(([title, description, icon]) => <button key={title} type="button"><span><CareIcon name={icon} /></span><div><b>{title}</b><small>{description}</small></div><i>›</i></button>)}</div></article>
   </section>;
 }
