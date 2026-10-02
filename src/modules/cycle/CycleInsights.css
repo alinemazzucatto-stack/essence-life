@@ -70,3 +70,22 @@
   .cycle-insights-flow strong,.cycle-insights-metric strong{font-size:16px}
   .cycle-insights-flow p,.cycle-insights-metric p{margin-top:2px}
 }
+
+/* Sintomas e recomendações seguem o mesmo padrão: ícone lateral e conteúdo à esquerda. */
+.cycle-insights-recommendations>div:last-child{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:600px){
+  .cycle-insights-symptoms,.cycle-insights-recommendations{padding:13px}
+  .cycle-symptom-cards{gap:6px;margin-top:10px}
+  .cycle-symptom-cards article{grid-template-columns:34px minmax(0,1fr);justify-items:stretch;align-items:center;gap:5px;padding:8px 5px}
+  .cycle-symptom-cards article>span{width:32px;height:32px}
+  .cycle-symptom-cards article>div{text-align:left}
+  .cycle-symptom-cards b{font-size:9px;line-height:1.08}
+  .cycle-symptom-cards strong{margin-top:3px;font-size:15px}
+  .cycle-symptom-cards i{height:5px}
+  .cycle-insights-recommendations>div:last-child{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:10px}
+  .cycle-insights-recommendations button{grid-template-columns:38px minmax(0,1fr);gap:7px;min-height:108px;padding:9px 7px;align-items:start}
+  .cycle-insights-recommendations button>span{width:36px;height:36px;font-size:16px}
+  .cycle-insights-recommendations b{font-size:11px;line-height:1.12}
+  .cycle-insights-recommendations small{margin-top:4px;font-size:9px;line-height:1.18}
+  .cycle-insights-recommendations button>i{position:absolute;right:8px;bottom:6px;font-size:20px}
+}
