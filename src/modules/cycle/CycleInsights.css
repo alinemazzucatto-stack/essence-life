@@ -45,6 +45,7 @@
 .cycle-insights-duration>div:last-child{position:relative}
 .cycle-insights-duration>div:last-child>b{padding-right:18px}
 .cycle-insights-duration>div:last-child>b span{position:absolute;top:0;right:0}
+.cycle-insights-duration>div:last-child>b{padding-right:0}
 
 .cycle-insights-metric{display:grid;grid-template-columns:100px minmax(0,1fr);gap:18px;align-items:center;min-height:150px;padding:21px}.cycle-insights-metric .cycle-insights-icon{width:90px;height:90px}.cycle-insights-ovulation .cycle-insights-icon{background:#f0e7fb;color:#9264c5}.cycle-insights-luteal .cycle-insights-icon{background:#fce2e7;color:#de526c}.cycle-insights-metric b{display:block;color:#4e1430;font-size:20px;line-height:1.2}.cycle-insights-metric strong{display:block;margin-top:7px;color:#670538;font-size:34px;line-height:.94}.cycle-insights-metric p{margin:11px 0 0;color:#85627d;font-size:18px;line-height:1.26}
 
