@@ -106,6 +106,14 @@
 }
 
 @media(max-width:600px){
+  .cycle-insights-flow,.cycle-insights-metric{min-height:76px!important;padding:4px!important;gap:1px!important}
+  .cycle-insights-flow .cycle-insights-icon,.cycle-insights-metric .cycle-insights-icon{width:30px!important;height:30px!important}
+  .cycle-insights-flow b,.cycle-insights-metric b{font-size:8px!important}
+  .cycle-insights-flow strong,.cycle-insights-metric strong{font-size:13px!important}
+  .cycle-insights-flow p,.cycle-insights-metric p{font-size:7px!important}
+}
+
+@media(max-width:600px){
   .cycle-symptom-cards b{font-size:9px!important}
   .cycle-symptom-cards strong{font-size:14px!important}
 }
