@@ -50,11 +50,11 @@
 .cycle-insights-flow .cycle-insights-icon{color:#e34f68!important}.cycle-insights-ovulation .cycle-insights-icon{color:#9363c7!important}.cycle-insights-luteal .cycle-insights-icon{color:#e34f68!important}
 @media(max-width:600px){
   .cycle-insights-summary{grid-template-columns:repeat(12,minmax(0,1fr));gap:9px}
-  .cycle-insights-regularity{grid-column:span 7}
-  .cycle-insights-duration{grid-column:span 5}
-  .cycle-insights-flow,.cycle-insights-metric{grid-column:span 4;grid-template-columns:1fr;justify-items:center;gap:5px;min-height:108px;padding:10px 5px;text-align:center}
+  .cycle-insights-regularity{grid-column:span 7;min-height:110px;padding:12px}
+  .cycle-insights-duration{grid-column:span 5;min-height:110px;padding:8px}
+  .cycle-insights-flow,.cycle-insights-metric{grid-column:span 4;grid-template-columns:1fr;justify-items:center;gap:3px;min-height:96px;padding:7px 5px;text-align:center}
   .cycle-insights-flow{grid-column:span 4}
-  .cycle-insights-flow .cycle-insights-icon,.cycle-insights-metric .cycle-insights-icon{width:43px;height:43px}
+  .cycle-insights-flow .cycle-insights-icon,.cycle-insights-metric .cycle-insights-icon{width:39px;height:39px}
   .cycle-insights-flow>div,.cycle-insights-metric>div{text-align:center}
   .cycle-insights-flow b,.cycle-insights-metric b{font-size:10px;line-height:1.12}
   .cycle-insights-flow strong,.cycle-insights-metric strong{margin-top:4px;font-size:17px;line-height:1}
