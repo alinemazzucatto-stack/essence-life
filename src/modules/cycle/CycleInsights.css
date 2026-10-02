@@ -60,3 +60,12 @@
   .cycle-insights-flow strong,.cycle-insights-metric strong{margin-top:4px;font-size:17px;line-height:1}
   .cycle-insights-flow p,.cycle-insights-metric p{margin-top:4px;font-size:9px;line-height:1.12}
 }
+
+@media(max-width:600px){
+  .cycle-insights-regularity{min-height:102px;padding:10px}
+  .cycle-insights-duration{min-height:102px;padding:7px}
+  .cycle-insights-flow,.cycle-insights-metric{min-height:86px;padding:5px;gap:2px}
+  .cycle-insights-flow .cycle-insights-icon,.cycle-insights-metric .cycle-insights-icon{width:35px;height:35px}
+  .cycle-insights-flow strong,.cycle-insights-metric strong{font-size:16px}
+  .cycle-insights-flow p,.cycle-insights-metric p{margin-top:2px}
+}
