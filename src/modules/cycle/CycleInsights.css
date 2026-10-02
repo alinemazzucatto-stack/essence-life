@@ -168,6 +168,7 @@
 @media(max-width:850px){
   .cycle-insights-recommendations>div:last-child{grid-template-columns:1fr;gap:8px}
   .cycle-insights-recommendations button{grid-template-columns:45px minmax(0,1fr) 18px;gap:10px;min-height:68px;padding:9px 10px;align-items:center}
+  .cycle-insights-recommendations button>div{text-align:left}
   .cycle-insights-recommendations button>span{width:43px;height:43px;font-size:18px}
   .cycle-insights-recommendations b{font-size:13px;line-height:1.15;word-break:normal;overflow-wrap:normal;hyphens:none}
   .cycle-insights-recommendations small{margin-top:3px;font-size:10px;line-height:1.2;word-break:normal;overflow-wrap:normal;hyphens:none}
