@@ -73,6 +73,16 @@
 
 @media(max-width:600px){.cycle-insights-summary{margin-top:-14px}}
 
+/* Tipografia alinhada aos títulos da aba Histórico. */
+.cycle-insights-intro h2{font-size:24px!important;font-weight:400!important;line-height:1.12!important;letter-spacing:-.025em!important}
+.cycle-insights-intro p{font-size:15px!important;line-height:1.35!important}
+.cycle-insights-symptoms .cycle-section-title h3,.cycle-insights-recommendations .cycle-section-title h3{font-size:24px!important;font-weight:400!important;line-height:1.12!important;letter-spacing:-.025em!important}
+@media(max-width:600px){
+  .cycle-insights-intro h2{font-size:20px!important;font-weight:400!important}
+  .cycle-insights-intro p{font-size:11px!important;line-height:1.3!important}
+  .cycle-insights-symptoms .cycle-section-title h3,.cycle-insights-recommendations .cycle-section-title h3{font-size:20px!important;font-weight:400!important}
+}
+
 /* Sintomas e recomendações seguem o mesmo padrão: ícone lateral e conteúdo à esquerda. */
 .cycle-insights-recommendations>div:last-child{grid-template-columns:repeat(3,minmax(0,1fr))}
 .cycle-insights-recommendations button>span svg{width:58%;height:58%;color:#df516d}
