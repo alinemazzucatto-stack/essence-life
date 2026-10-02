@@ -83,6 +83,16 @@
   .cycle-insights-symptoms .cycle-section-title h3,.cycle-insights-recommendations .cycle-section-title h3{font-size:20px!important;font-weight:400!important}
 }
 
+@media(max-width:600px){
+  .cycle-insights-regularity b{font-size:12px!important}
+  .cycle-insights-regularity h3{font-size:24px!important}
+  .cycle-insights-regularity p{font-size:10px!important}
+  .cycle-insights-ring b{font-size:20px!important}
+  .cycle-insights-ring span{font-size:9px!important}
+  .cycle-insights-duration>div:last-child>b{font-size:9px!important}
+  .cycle-insights-duration p{font-size:8px!important}
+}
+
 /* Sintomas e recomendações seguem o mesmo padrão: ícone lateral e conteúdo à esquerda. */
 .cycle-insights-recommendations>div:last-child{grid-template-columns:repeat(3,minmax(0,1fr))}
 .cycle-insights-recommendations button>span svg{width:58%;height:58%;color:#df516d}
