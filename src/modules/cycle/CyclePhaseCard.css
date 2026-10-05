@@ -27,3 +27,6 @@
 
 /* A lua passa a pertencer ao próprio card de previsão, nunca à lateral do layout. */
 .cl-cycle-illustration{display:none!important}.cl-next-period{overflow:visible!important}.cl-next-period>*{position:relative;z-index:1}.cl-next-period:after{content:'';position:absolute;z-index:0;top:-26px;right:-48px;width:105px;height:105px;background:url('../../assets/cycle-phase-moon-botanical.png') center/contain no-repeat;opacity:.2;pointer-events:none}@media(max-width:650px){.cl-next-period:after{top:-18px;right:-30px;width:72px;height:72px;opacity:.18}}
+
+/* A decoração fica atrás do card, nunca dentro dele. */
+.cl-next-period:after{display:none!important}.cl-next-period{background:linear-gradient(120deg,#fce4e0,#ffefec)!important}.cl-cycle-illustration{display:flex!important;position:absolute!important;z-index:1!important;top:104px!important;left:260px!important;width:110px!important;min-height:0!important;opacity:.2;pointer-events:none}.cl-cycle-illustration .cl-moon-scene{width:110px!important;aspect-ratio:.8/1!important}@media(max-width:650px){.cl-cycle-illustration{top:110px!important;left:198px!important;width:90px!important;opacity:.18}.cl-cycle-illustration .cl-moon-scene{width:90px!important}}
