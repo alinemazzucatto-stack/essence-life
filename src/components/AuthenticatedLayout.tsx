@@ -5,18 +5,8 @@ import type { AppPage } from '../shared/access-control';
 import './AuthenticatedLayout.css';
 
 type AuthenticatedLayoutProps = { session: LocalSession; page: AppPage; mobileNavOpen: boolean; onToggleMobileNav: () => void; openPage: (page: AppPage) => void; isLocked: (page: AppPage) => boolean; showPlanLocks: boolean; onLogout: () => void; children: ReactNode };
-const sleepLinks = ['Visão geral', 'Ambiente', 'Relaxar', 'Sons'];
 
 function AuthenticatedLayout({ session, page, mobileNavOpen, onToggleMobileNav, openPage, isLocked, showPlanLocks, onLogout, children }: AuthenticatedLayoutProps) {
-  const selectSleepSection = (target: string, attempt = 0) => {
-    const button = [...document.querySelectorAll<HTMLButtonElement>('.sleep-tabs button')].find(item => item.textContent?.trim() === target);
-    if (button) { button.click(); return; }
-    if (attempt < 10) window.setTimeout(() => selectSleepSection(target, attempt + 1), 80);
-  };
-  const openSleep = (target?: string) => {
-    openPage('sleep');
-    if (target) window.setTimeout(() => selectSleepSection(target), 80);
-  };
   const nav = (key: AppPage, label: string, icon: string) => <button type="button" className={(page === key ? 'active' : '') + (!['home', 'settings', 'profile'].includes(key) && isLocked(key) ? ' locked' : '')} onClick={event => { event.preventDefault(); event.stopPropagation(); if (key === 'settings') window.dispatchEvent(new CustomEvent('essence:open-settings')); else openPage(key); }}><span>{icon}</span><span>{label}</span>{showPlanLocks && !['home', 'settings', 'profile'].includes(key) && isLocked(key) && <small>{planNames[requiredPlanForPage(key)]}</small>}</button>;
   const currentMeta = pageMeta[page];
 
@@ -30,7 +20,7 @@ function AuthenticatedLayout({ session, page, mobileNavOpen, onToggleMobileNav, 
       <div className="nav-identity"><img src="/essence-life-logo.png" alt="" className="nav-logo"/><div><h1 className="nav-brand">Essence Life</h1><small>Olá, {session.name.split(' ')[0]}</small></div></div>
       <div className="nav-groups">
         <section className="nav-group"><p className="nav-section-title">Meu dia</p>{nav('home', 'Início', '🏠')}{nav('agenda', 'Agenda', '📅')}{nav('pomodoro', 'Pomodoro', '⏱️')}{nav('routine', 'Hábitos', '🗓️')}{nav('diary', 'Diário', '📘')}{nav('insights', 'Insights', '✨')}</section>
-        <section className="nav-group"><p className="nav-section-title">Bem-estar</p><div className="nav-sleep-links"><button type="button" className={page === 'sleep' ? 'active' : ''} onClick={() => openSleep()}><span>🌙</span><span>Sono</span></button><div className="nav-submenu">{sleepLinks.map(link => <button type="button" key={link} onClick={() => openSleep(link)}>{link}</button>)}</div></div>{nav('nutrition', 'Nutrição', '🥗')}{nav('cycle', 'Ciclo', '🌸')}{nav('workouts', 'Treinos', '🏋️')}{nav('beauty', 'Beleza & Cuidados', '🪞')}</section>
+        <section className="nav-group"><p className="nav-section-title">Bem-estar</p>{nav('sleep', 'Sono', '🌙')}{nav('nutrition', 'Nutrição', '🥗')}{nav('cycle', 'Ciclo', '🌸')}{nav('workouts', 'Treinos', '🏋️')}{nav('beauty', 'Beleza & Cuidados', '🪞')}</section>
         <section className="nav-group"><p className="nav-section-title">Organização</p>{nav('finance', 'Finanças', '💰')}{nav('house', 'Casa & Compras', '🏡')}</section>
         <section className="nav-group nav-account-group"><p className="nav-section-title">Conta</p>{nav('settings', 'Configurações', '⚙️')}{nav('profile', 'Perfil', '👤')}<button className="logout" type="button" onClick={onLogout}><span>↪</span><span>Sair</span></button></section>
       </div>
