@@ -30,3 +30,6 @@
 
 /* A decoração fica atrás do card, nunca dentro dele. */
 .cl-next-period:after{display:none!important}.cl-next-period{background:linear-gradient(120deg,#fce4e0,#ffefec)!important}.cl-cycle-illustration{display:flex!important;position:absolute!important;z-index:1!important;top:104px!important;left:260px!important;width:110px!important;min-height:0!important;opacity:.2;pointer-events:none}.cl-cycle-illustration .cl-moon-scene{width:110px!important;aspect-ratio:.8/1!important}@media(max-width:650px){.cl-cycle-illustration{top:110px!important;left:198px!important;width:90px!important;opacity:.18}.cl-cycle-illustration .cl-moon-scene{width:90px!important}}
+
+/* A ilustração ocupa o espaço livre ao lado do título da fase. */
+.cl-cycle-illustration{display:flex!important;position:absolute!important;z-index:4!important;top:8px!important;right:8px!important;left:auto!important;width:142px!important;min-height:0!important;opacity:1!important}.cl-cycle-illustration .cl-moon-scene{width:142px!important;aspect-ratio:.8/1!important}@media(max-width:650px){.cl-cycle-main{padding-right:130px!important}.cl-cycle-illustration{top:2px!important;right:-2px!important;left:auto!important;width:116px!important;opacity:.96!important}.cl-cycle-illustration .cl-moon-scene{width:116px!important}}
