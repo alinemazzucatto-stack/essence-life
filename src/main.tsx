@@ -69,6 +69,6 @@ if (notificationAction) {
 }
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js?rev=essence-life-v51-cycle-insights-layout').catch(() => undefined)
+    navigator.serviceWorker.register('/sw.js?rev=essence-life-v52-workouts-recovery').catch(() => undefined)
   })
 }
