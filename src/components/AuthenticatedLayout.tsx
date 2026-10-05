@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { LocalSession } from '../shared/app.types';
 import { pageMeta, planNames, requiredPlanForPage } from '../shared/access-control';
 import type { AppPage } from '../shared/access-control';
@@ -8,7 +8,6 @@ type AuthenticatedLayoutProps = { session: LocalSession; page: AppPage; mobileNa
 const sleepLinks = ['Visão geral', 'Ambiente', 'Relaxar', 'Sons'];
 
 function AuthenticatedLayout({ session, page, mobileNavOpen, onToggleMobileNav, openPage, isLocked, showPlanLocks, onLogout, children }: AuthenticatedLayoutProps) {
-  const [sleepOpen, setSleepOpen] = useState(false);
   const selectSleepSection = (target: string, attempt = 0) => {
     const button = [...document.querySelectorAll<HTMLButtonElement>('.sleep-tabs button')].find(item => item.textContent?.trim() === target);
     if (button) { button.click(); return; }
@@ -31,7 +30,7 @@ function AuthenticatedLayout({ session, page, mobileNavOpen, onToggleMobileNav, 
       <div className="nav-identity"><img src="/essence-life-logo.png" alt="" className="nav-logo"/><div><h1 className="nav-brand">Essence Life</h1><small>Olá, {session.name.split(' ')[0]}</small></div></div>
       <div className="nav-groups">
         <section className="nav-group"><p className="nav-section-title">Meu dia</p>{nav('home', 'Início', '🏠')}{nav('agenda', 'Agenda', '📅')}{nav('pomodoro', 'Pomodoro', '⏱️')}{nav('routine', 'Hábitos', '🗓️')}{nav('diary', 'Diário', '📘')}{nav('insights', 'Insights', '✨')}</section>
-        <section className="nav-group"><p className="nav-section-title">Bem-estar</p><div className={'nav-expandable ' + (sleepOpen ? 'open' : '')}><div className="nav-expandable-row"><button type="button" className={page === 'sleep' ? 'active' : ''} onClick={() => openSleep()}><span>🌙</span><span>Sono</span></button><button type="button" className="nav-expand-toggle" aria-label={sleepOpen ? 'Fechar opções de Sono' : 'Abrir opções de Sono'} aria-expanded={sleepOpen} onClick={() => setSleepOpen(value => !value)}>⌄</button></div>{sleepOpen && <div className="nav-submenu">{sleepLinks.map(link => <button type="button" key={link} onClick={() => openSleep(link)}>{link}</button>)}</div>}</div>{nav('nutrition', 'Nutrição', '🥗')}{nav('cycle', 'Ciclo', '🌸')}{nav('workouts', 'Treinos', '🏋️')}{nav('beauty', 'Beleza & Cuidados', '🪞')}</section>
+        <section className="nav-group"><p className="nav-section-title">Bem-estar</p><div className="nav-sleep-links"><button type="button" className={page === 'sleep' ? 'active' : ''} onClick={() => openSleep()}><span>🌙</span><span>Sono</span></button><div className="nav-submenu">{sleepLinks.map(link => <button type="button" key={link} onClick={() => openSleep(link)}>{link}</button>)}</div></div>{nav('nutrition', 'Nutrição', '🥗')}{nav('cycle', 'Ciclo', '🌸')}{nav('workouts', 'Treinos', '🏋️')}{nav('beauty', 'Beleza & Cuidados', '🪞')}</section>
         <section className="nav-group"><p className="nav-section-title">Organização</p>{nav('finance', 'Finanças', '💰')}{nav('house', 'Casa & Compras', '🏡')}</section>
         <section className="nav-group nav-account-group"><p className="nav-section-title">Conta</p>{nav('settings', 'Configurações', '⚙️')}{nav('profile', 'Perfil', '👤')}<button className="logout" type="button" onClick={onLogout}><span>↪</span><span>Sair</span></button></section>
       </div>
