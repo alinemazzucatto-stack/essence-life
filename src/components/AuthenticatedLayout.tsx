@@ -5,7 +5,7 @@ import type { AppPage } from '../shared/access-control';
 import './AuthenticatedLayout.css';
 
 type AuthenticatedLayoutProps = { session: LocalSession; page: AppPage; mobileNavOpen: boolean; onToggleMobileNav: () => void; openPage: (page: AppPage) => void; isLocked: (page: AppPage) => boolean; showPlanLocks: boolean; onLogout: () => void; children: ReactNode };
-const sleepLinks = ['Visão geral', 'Histórico', 'Insights', 'Ambiente', 'Rotina', 'Relaxar', 'Sons'];
+const sleepLinks = ['Visão geral', 'Ambiente', 'Relaxar', 'Sons'];
 
 function AuthenticatedLayout({ session, page, mobileNavOpen, onToggleMobileNav, openPage, isLocked, showPlanLocks, onLogout, children }: AuthenticatedLayoutProps) {
   const [sleepOpen, setSleepOpen] = useState(false);
