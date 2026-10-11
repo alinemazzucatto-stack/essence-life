@@ -67,3 +67,26 @@
 .app .sleep .sleep-environment-grid button :is(b,small){display:block!important;width:100%!important;text-align:left!important}
 .app .sleep :is(.sleep-environment-grid button,.sleep-environment-actions button) b{font-size:14px!important;line-height:1.2!important}
 .app .sleep :is(.sleep-environment-grid button,.sleep-environment-actions button) small{font-size:11px!important;line-height:1.35!important}
+
+/* Aba Relaxar: mesma hierarquia, leitura lateral e cartões mais leves. */
+.app .sleep .sleep-relax-intro{display:grid!important;justify-items:start!important;padding:18px!important;border:1px solid #ecdcd6!important;border-radius:18px!important;background:linear-gradient(145deg,#fffdfb,#fff8f5)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 6px 16px rgba(100,61,58,.06)!important;text-align:left!important}
+.app .sleep .sleep-relax-intro :is(h3,p,small){margin-left:0!important;margin-right:0!important;text-align:left!important}
+.app .sleep .sleep-relax-grid{gap:10px!important}
+.app .sleep .sleep-relax-grid>.card{display:flex!important;flex-direction:column!important;gap:14px!important;min-height:244px!important;padding:18px!important;border:1px solid #ecdcd6!important;border-radius:18px!important;background:linear-gradient(145deg,#fffdfb,#fff8f5)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 6px 16px rgba(100,61,58,.06)!important}
+.app .sleep .sleep-relax-card-head{align-items:center!important;gap:11px!important}
+.app .sleep .sleep-relax-card-head>span{width:38px!important;height:38px!important;flex-basis:38px!important;font-size:17px!important;background:#faf1ef!important}
+.app .sleep .sleep-relax-card-head>div{min-width:0!important;text-align:left!important}
+.app .sleep .sleep-relax-card-head :is(h3,p,small){margin-left:0!important;margin-right:0!important;text-align:left!important}
+.app .sleep .sleep-breathing-timer{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;margin:2px 0!important;padding:13px 14px!important;border:1px solid #eeddd8!important;border-radius:14px!important;background:#fff!important;box-shadow:none!important}
+.app .sleep .sleep-breathing-timer b{font-size:24px!important;line-height:1!important;color:#c96561!important}
+.app .sleep .sleep-breathing-timer span{font-size:11px!important;line-height:1.25!important;text-align:right!important}
+.app .sleep .sleep-relax-buttons{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;margin-top:auto!important}
+.app .sleep .sleep-relax-buttons button{min-height:38px!important;padding:8px!important}
+.app .sleep .sleep-relax-buttons .sleep-relax-sound-link{grid-column:1/-1!important;background:#fff!important}
+.app .sleep .sleep-environment-mini{margin:4px 0 0!important}
+.app .sleep .sleep-environment-mini>div{height:6px!important}.app .sleep .sleep-environment-mini>b{font-size:11px!important}
+.app .sleep .sleep-relax-cta-btn{min-height:38px!important;margin-top:auto!important;padding:8px 10px!important}
+.app .sleep .sleep-audio-note{align-items:center!important;gap:12px!important;margin-top:10px!important;padding:15px 17px!important;border:1px solid #ecdcd6!important;border-radius:18px!important;background:linear-gradient(145deg,#fffdfb,#fff8f5)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 6px 16px rgba(100,61,58,.06)!important}
+.app .sleep .sleep-audio-note>span{width:38px!important;height:38px!important;flex-basis:38px!important;font-size:17px!important;background:#faf1ef!important}
+.app .sleep .sleep-audio-note>div{min-width:0!important;text-align:left!important}.app .sleep .sleep-audio-note b{font-size:14px!important;line-height:1.2!important}.app .sleep .sleep-audio-note p{font-size:11px!important;line-height:1.35!important}.app .sleep .sleep-audio-note button{min-height:36px!important;padding:7px 10px!important;font-size:11px!important}
+@media(max-width:620px){.app .sleep .sleep-relax-grid>.card{min-height:0!important;padding:16px!important}.app .sleep .sleep-relax-intro{padding:16px!important}.app .sleep .sleep-audio-note{align-items:flex-start!important}.app .sleep .sleep-breathing-timer b{font-size:22px!important}}
