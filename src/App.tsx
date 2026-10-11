@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import './App.css';
 import './styles/design-system.css';
+import './styles/sleep-overview-polish.css';
 import { AuthScreen, PurchaseRequired } from './modules/auth';
 import { signOut } from './modules/auth/auth-api';
 
