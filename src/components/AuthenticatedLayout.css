@@ -9,3 +9,12 @@ body .app .sleep .sleep-hero-standard .sleep-hero-copy p{margin-top:4px!importan
 body .app .sleep .sleep-hero-standard .sleep-hero-status{display:none!important}
 body .app .sleep .sleep-hero-standard:after{content:''!important;position:absolute!important;right:-12px!important;bottom:-36px!important;width:118px!important;height:118px!important;background:url('../assets/cycle-history-flowers-v2.png') right bottom/contain no-repeat!important;opacity:.34!important;pointer-events:none!important}
 @media(max-width:560px){body .app .sleep .sleep-hero-standard{grid-template-columns:46px minmax(0,1fr)!important;min-height:96px!important;margin-top:0!important;padding:14px 18px!important}body .app .sleep .sleep-hero-standard .sleep-hero-copy{left:0!important;padding-right:74px!important}body .app .sleep .sleep-hero-standard .sleep-hero-copy p{font-size:13px!important;line-height:1.28!important}}
+
+/* Abertura de Nutrição: mesma proporção leve do card de Sono. */
+body .app .nutrition .nutrition-hero-standard{grid-template-columns:46px minmax(0,1fr)!important;min-height:96px!important;margin-top:0!important;padding:14px 18px!important}
+body .app .nutrition .nutrition-hero-standard .nutrition-hero-art{width:44px!important;height:44px!important;left:0!important}
+body .app .nutrition .nutrition-hero-standard .nutrition-hero-copy{left:0!important;padding-right:78px!important}
+body .app .nutrition .nutrition-hero-standard .nutrition-hero-copy p{margin-top:4px!important;font-size:13px!important;line-height:1.28!important}
+body .app .nutrition .nutrition-hero-standard .nutrition-hero-foliage{display:none!important}
+body .app .nutrition .nutrition-hero-standard:after{content:''!important;position:absolute!important;right:-12px!important;bottom:-36px!important;width:118px!important;height:118px!important;background:url('../assets/cycle-history-flowers-v2.png') right bottom/contain no-repeat!important;opacity:.34!important;pointer-events:none!important}
+@media(max-width:560px){body .app .nutrition .nutrition-hero-standard{grid-template-columns:46px minmax(0,1fr)!important;min-height:96px!important;margin-top:0!important;padding:14px 18px!important}body .app .nutrition .nutrition-hero-standard .nutrition-hero-copy{left:0!important;padding-right:74px!important}body .app .nutrition .nutrition-hero-standard .nutrition-hero-copy p{font-size:13px!important;line-height:1.28!important}}
