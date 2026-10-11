@@ -18,6 +18,22 @@ const recoverFromStaleChunk = (reason: unknown) => {
 window.addEventListener('error', event => recoverFromStaleChunk(event.error ?? event.message))
 window.addEventListener('unhandledrejection', event => recoverFromStaleChunk(event.reason))
 
+// The sleep navigation is rendered by a lazy module. Apply the selected state
+// directly to the element as well, so late-loaded generic button styles cannot
+// erase the active tab while its horizontal list is being scrolled.
+const syncSleepTabAppearance = () => {
+  document.querySelectorAll<HTMLButtonElement>('.sleep-navigation .sleep-tabs button').forEach(button => {
+    const selected = button.classList.contains('selected')
+    button.style.setProperty('background', selected ? '#b45d72' : '#fff', 'important')
+    button.style.setProperty('border-color', selected ? '#b45d72' : '#eadbd8', 'important')
+    button.style.setProperty('color', selected ? '#fff' : '#59403c', 'important')
+    button.style.setProperty('-webkit-text-fill-color', selected ? '#fff' : '#59403c', 'important')
+  })
+}
+const sleepTabObserver = new MutationObserver(syncSleepTabAppearance)
+sleepTabObserver.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] })
+syncSleepTabAppearance()
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
