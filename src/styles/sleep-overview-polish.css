@@ -47,3 +47,16 @@
 .app .sleep .sleep-quick-log,.app .sleep .sleep-quick-log>div,.app .sleep .sleep-tonight-plan,.app .sleep .sleep-tonight-plan>div,.app .sleep .sleep-recent,.app .sleep .sleep-register,.app .sleep .sleep-register>.card-head,.app .sleep .sleep-first-record>div{text-align:left!important}
 .app .sleep .sleep-quick-log-step,.app .sleep .sleep-quick-log-step>small{justify-items:start!important;text-align:left!important}
 .app .sleep .sleep-tonight-plan h3,.app .sleep .sleep-tonight-plan p,.app .sleep .sleep-first-record h3,.app .sleep .sleep-first-record p{margin-left:0!important;margin-right:0!important;text-align:left!important}
+
+/* Escala única nas quatro abas: Visão geral é a referência de leitura. */
+.app .sleep :is(.sleep-quick-log,.sleep-tonight-plan,.sleep-recent,.sleep-goal-control,.sleep-environment-hero,.sleep-environment-card,.sleep-environment-actions,.sleep-relax-intro,.sleep-relax-environment,.sleep-sound-library) h3{font-size:17px!important;line-height:1.2!important}
+.app .sleep :is(.sleep-quick-log,.sleep-tonight-plan,.sleep-recent,.sleep-goal-control,.sleep-environment-hero,.sleep-environment-card,.sleep-environment-actions,.sleep-relax-intro,.sleep-relax-environment,.sleep-sound-library) p{font-size:12px!important;line-height:1.4!important}
+.app .sleep :is(.sleep-environment-hero,.sleep-environment-card,.sleep-environment-actions,.sleep-relax-intro,.sleep-relax-environment,.sleep-sound-library) small{font-size:9px!important;line-height:1.2!important}
+.app .sleep :is(.sleep-environment-actions,.sleep-relax-buttons,.sleep-relax-environment,.sleep-sound-library) button{font-size:11px!important;line-height:1.2!important}
+.app .sleep :is(.sleep-environment-grid,.sleep-relax-grid,.sleep-sound-grid) :is(h4,strong){font-size:14px!important;line-height:1.2!important}
+.app .sleep :is(.sleep-environment-grid,.sleep-relax-grid,.sleep-sound-grid) :is(p,small){font-size:11px!important;line-height:1.35!important}
+
+@media(max-width:560px){
+  .app .sleep :is(.sleep-environment-hero,.sleep-environment-card,.sleep-environment-actions,.sleep-relax-intro,.sleep-relax-environment,.sleep-sound-library) h3{font-size:17px!important}
+  .app .sleep :is(.sleep-environment-hero,.sleep-environment-card,.sleep-environment-actions,.sleep-relax-intro,.sleep-relax-environment,.sleep-sound-library) p{font-size:12px!important}
+}
