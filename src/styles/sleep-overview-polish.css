@@ -42,3 +42,8 @@
 .app .sleep .sleep-goal-control input::-webkit-slider-thumb{width:20px!important;height:20px!important;margin-top:-7px!important;border:3px solid #e47870!important;box-shadow:0 2px 7px rgba(172,84,76,.25)!important}
 .app .sleep .sleep-goal-control>div:last-child{padding:0 1px!important}.app .sleep .sleep-goal-control>div:last-child small{color:#d6746d!important;font-size:10px!important;font-weight:750!important}
 @media(max-width:560px){.app .sleep .sleep-goal-control{padding:16px!important;gap:9px!important}.app .sleep .sleep-goal-control h3{font-size:17px!important}.app .sleep .sleep-goal-control p{font-size:12px!important}.app .sleep .sleep-goal-control>div:first-child>b{flex-basis:84px!important;min-height:42px!important;font-size:16px!important;white-space:nowrap!important}}
+
+/* Auditoria de alinhamento: cada card informativo mantém o mesmo eixo de leitura. */
+.app .sleep .sleep-quick-log,.app .sleep .sleep-quick-log>div,.app .sleep .sleep-tonight-plan,.app .sleep .sleep-tonight-plan>div,.app .sleep .sleep-recent,.app .sleep .sleep-register,.app .sleep .sleep-register>.card-head,.app .sleep .sleep-first-record>div{text-align:left!important}
+.app .sleep .sleep-quick-log-step,.app .sleep .sleep-quick-log-step>small{justify-items:start!important;text-align:left!important}
+.app .sleep .sleep-tonight-plan h3,.app .sleep .sleep-tonight-plan p,.app .sleep .sleep-first-record h3,.app .sleep .sleep-first-record p{margin-left:0!important;margin-right:0!important;text-align:left!important}
