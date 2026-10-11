@@ -13,6 +13,8 @@ body .app .sleep .sleep-hero-standard:after{content:''!important;position:absolu
 /* Abertura de Nutrição: mesma proporção leve do card de Sono. */
 body .app .nutrition .nutrition-hero-standard{grid-template-columns:46px minmax(0,1fr)!important;min-height:96px!important;margin-top:0!important;padding:14px 18px!important}
 body .app .nutrition .nutrition-hero-standard .nutrition-hero-art{width:44px!important;height:44px!important;left:0!important}
+body .app .nutrition .nutrition-hero-standard .nutrition-hero-art svg{display:none!important}
+body .app .nutrition .nutrition-hero-standard .nutrition-hero-art:before{content:''!important;width:27px!important;height:27px!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%23e9786a' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 22h26v2a13 13 0 0 1-26 0v-2Z'/%3E%3Cpath d='M8 22h32M24 37v3M15 11v8M12 11v7M18 11v7M15 19v3M33 11v11'/%3E%3C/svg%3E") center/contain no-repeat!important}
 body .app .nutrition .nutrition-hero-standard .nutrition-hero-copy{left:0!important;padding-right:78px!important}
 body .app .nutrition .nutrition-hero-standard .nutrition-hero-copy p{margin-top:4px!important;font-size:13px!important;line-height:1.28!important}
 body .app .nutrition .nutrition-hero-standard .nutrition-hero-foliage{display:none!important}
