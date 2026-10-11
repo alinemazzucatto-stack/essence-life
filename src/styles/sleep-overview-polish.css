@@ -30,3 +30,14 @@
   .app .sleep .sleep-recent-summary b{max-width:100%!important;overflow:hidden!important;font-size:17px!important;line-height:1.1!important;text-overflow:clip!important;white-space:nowrap!important}
   .app .sleep .sleep-recent-summary>div:last-child b{font-size:8px!important;line-height:1.1!important;white-space:nowrap!important}
 }
+
+/* Meta pessoal: leitura lateral e controle de alcance mais claro. */
+.app .sleep .sleep-goal-control{display:grid!important;gap:10px!important;padding:18px 20px!important;border:1px solid #ecdcd6!important;border-radius:18px!important;background:linear-gradient(145deg,#fffdfb,#fff8f5)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 6px 16px rgba(100,61,58,.06)!important}
+.app .sleep .sleep-goal-control>div:first-child{align-items:center!important;gap:16px!important}
+.app .sleep .sleep-goal-control h3{margin:0 0 4px!important;font-size:18px!important;line-height:1.15!important}
+.app .sleep .sleep-goal-control p{max-width:250px!important;font-size:12px!important;line-height:1.35!important}
+.app .sleep .sleep-goal-control>div:first-child>b{display:grid!important;flex:0 0 66px!important;place-items:center!important;min-height:46px!important;margin:0!important;padding:5px 8px!important;border-radius:14px!important;background:#f9e9e7!important;color:#c96561!important;font-size:18px!important;line-height:1.05!important;text-align:center!important}
+.app .sleep .sleep-goal-control input{height:7px!important;margin:3px 0 0!important;background:linear-gradient(90deg,#d6746d var(--range-fill,50%),#f1ded9 var(--range-fill,50%))!important}
+.app .sleep .sleep-goal-control input::-webkit-slider-thumb{width:22px!important;height:22px!important;margin-top:-7px!important;border:3px solid #e47870!important;box-shadow:0 2px 7px rgba(172,84,76,.25)!important}
+.app .sleep .sleep-goal-control>div:last-child{padding:0 1px!important}.app .sleep .sleep-goal-control>div:last-child small{color:#d6746d!important;font-size:10px!important;font-weight:750!important}
+@media(max-width:560px){.app .sleep .sleep-goal-control{padding:16px!important;gap:9px!important}.app .sleep .sleep-goal-control h3{font-size:17px!important}.app .sleep .sleep-goal-control p{font-size:12px!important}.app .sleep .sleep-goal-control>div:first-child>b{flex-basis:60px!important;min-height:42px!important;font-size:16px!important}}
