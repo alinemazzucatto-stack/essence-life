@@ -60,3 +60,8 @@
   .app .sleep :is(.sleep-environment-hero,.sleep-environment-card,.sleep-environment-actions,.sleep-relax-intro,.sleep-relax-environment,.sleep-sound-library) h3{font-size:17px!important}
   .app .sleep :is(.sleep-environment-hero,.sleep-environment-card,.sleep-environment-actions,.sleep-relax-intro,.sleep-relax-environment,.sleep-sound-library) p{font-size:12px!important}
 }
+
+/* Checklist do ambiente: usa a mesma leitura horizontal dos próximos passos. */
+.app .sleep .sleep-environment-grid button{grid-template-columns:38px minmax(0,1fr)!important;align-items:center!important;justify-items:start!important;text-align:left!important}
+.app .sleep .sleep-environment-grid button>div{display:grid!important;justify-items:start!important;gap:3px!important;min-width:0!important;text-align:left!important}
+.app .sleep .sleep-environment-grid button :is(b,small){display:block!important;width:100%!important;text-align:left!important}
