@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from 'react';
 import { createId, safeParse, today } from '../../shared/app-utils';
 import './NutritionNext.css';
+import './NutritionPolish.css';
 
 type Tab = 'overview' | 'meals' | 'water' | 'plan' | 'profile' | 'progress';
 type Meal = { id: string; date: string; mealType: string; name: string; calories: number; protein: number; carbs: number; fat: number; favorite?: boolean };
