@@ -5,6 +5,19 @@ import { Keyboard } from '@capacitor/keyboard'
 import './index.css'
 import App from './App.tsx'
 
+// A new deployment can replace hashed lazy-loaded files while an older app
+// shell is still open. Reload once to retrieve the matching entry bundle.
+const recoverFromStaleChunk = (reason: unknown) => {
+  const message = reason instanceof Error ? reason.message : String(reason ?? '')
+  if (!/failed to fetch dynamically imported module|importing a module script failed/i.test(message)) return
+  const recoveryKey = 'essence:stale-chunk-recovery'
+  if (sessionStorage.getItem(recoveryKey)) return
+  sessionStorage.setItem(recoveryKey, '1')
+  window.location.reload()
+}
+window.addEventListener('error', event => recoverFromStaleChunk(event.error ?? event.message))
+window.addEventListener('unhandledrejection', event => recoverFromStaleChunk(event.reason))
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
@@ -69,6 +82,6 @@ if (notificationAction) {
 }
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js?rev=essence-life-v52-workouts-recovery').catch(() => undefined)
+    navigator.serviceWorker.register('/sw.js?rev=essence-life-v53-chunk-recovery').catch(() => undefined)
   })
 }
