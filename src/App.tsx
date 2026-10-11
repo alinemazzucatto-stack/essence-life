@@ -14,7 +14,7 @@ const Routine=lazy(()=>import('./modules/routine/Routine'));
 const Cycle=lazy(()=>import('./modules/cycle/Cycle'));
 const Finance=lazy(()=>import('./modules/Finance').then(module=>({default:module.Finance})));
 const House=lazy(()=>import('./modules/house/House'));
-const Nutrition=lazy(()=>import('./modules/nutrition/Nutrition'));
+const Nutrition=lazy(()=>import('./modules/nutrition/NutritionNext'));
 const SleepModule=lazy(()=>import('./modules/sleep/Sleep'));
 const Diary=lazy(()=>import('./modules/diary/Diary'));
 const Workouts=lazy(()=>import('./modules/workouts/Workouts'));
