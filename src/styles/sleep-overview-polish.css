@@ -65,3 +65,5 @@
 .app .sleep .sleep-environment-grid button{grid-template-columns:38px minmax(0,1fr)!important;align-items:center!important;justify-items:start!important;text-align:left!important}
 .app .sleep .sleep-environment-grid button>div{display:grid!important;justify-items:start!important;gap:3px!important;min-width:0!important;text-align:left!important}
 .app .sleep .sleep-environment-grid button :is(b,small){display:block!important;width:100%!important;text-align:left!important}
+.app .sleep :is(.sleep-environment-grid button,.sleep-environment-actions button) b{font-size:14px!important;line-height:1.2!important}
+.app .sleep :is(.sleep-environment-grid button,.sleep-environment-actions button) small{font-size:11px!important;line-height:1.35!important}
